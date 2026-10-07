@@ -12,30 +12,29 @@ describe('Node.js API: Components', () => {
     type: 'tel'
   }
 
-  const output = `
-    "<div class="nhsuk-form-group">
-      <label class="nhsuk-label" for="mobile">
-        Mobile phone number
-      </label>
-      <input class="nhsuk-input" id="mobile" name="mobile" type="tel">
-    </div>
-    "
-  `
-
-  const outputCustom = `
-    "<p class="app-example">Custom example</p>
-    "
-  `
-
   describe('render', () => {
     it('returns component HTML', () => {
       const html = render('input', { context })
-      expect(html).toMatchInlineSnapshot(output)
+      expect(html).toMatchInlineSnapshot(`
+        "<div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile">
+            Mobile phone number
+          </label>
+          <input class="nhsuk-input" id="mobile" name="mobile" type="tel">
+        </div>"
+      `)
     })
 
     it('returns component HTML (custom env)', () => {
       const html = render('input', { context, env: configure() })
-      expect(html).toMatchInlineSnapshot(output)
+      expect(html).toMatchInlineSnapshot(`
+        "<div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile">
+            Mobile phone number
+          </label>
+          <input class="nhsuk-input" id="mobile" name="mobile" type="tel">
+        </div>"
+      `)
     })
 
     it('returns custom component HTML (custom env)', () => {
@@ -46,7 +45,9 @@ describe('Node.js API: Components', () => {
         env: configure(viewsPath)
       })
 
-      expect(html).toMatchInlineSnapshot(outputCustom)
+      expect(html).toMatchInlineSnapshot(
+        `"<p class="app-example">Custom example</p>"`
+      )
     })
 
     it("returns custom component HTML with 'app' prefix (custom env)", () => {
@@ -58,7 +59,9 @@ describe('Node.js API: Components', () => {
         prefix: 'app'
       })
 
-      expect(html).toMatchInlineSnapshot(outputCustom)
+      expect(html).toMatchInlineSnapshot(
+        `"<p class="app-example">Custom example</p>"`
+      )
     })
 
     it('throws with missing component macro', () => {

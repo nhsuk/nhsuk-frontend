@@ -111,7 +111,7 @@
 {% endif %}
     {% if copyright.html %}
       {{ copyright.html | safe | trim | indent(6) }}
-    {% elif copyright.text or copyright.text not in ["", null, false] %}
+    {% elif copyright.text or copyright.text not in ["", none, false] %}
       <p class="nhsuk-body-s">{{ (copyright.text | default("© NHS England", true)) | indent(6) }}</p>
     {% endif %}
     </div>

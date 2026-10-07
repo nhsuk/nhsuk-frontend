@@ -29,7 +29,7 @@ describe('Nunjucks global: uniqueHTML', () => {
   it('renders original HTML for component', () => {
     const htmlCode = uniqueHTML(components.render('input', options))
 
-    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
+    expect(htmlCode).toBe(outdent`
       <div class="nhsuk-form-group nhsuk-form-group--error">
         <h1 class="nhsuk-label-wrapper">
           <label class="nhsuk-label nhsuk-label--l" for="with-hint">
@@ -52,7 +52,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     (index) => {
       const htmlCode = uniqueHTML(components.render('input', options), index)
 
-      expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
+      expect(htmlCode).toBe(outdent`
         <div class="nhsuk-form-group nhsuk-form-group--error">
           <h1 class="nhsuk-label-wrapper">
             <label class="nhsuk-label nhsuk-label--l" for="with-hint-${index}">
@@ -82,7 +82,7 @@ describe('Nunjucks global: uniqueHTML', () => {
       1
     )
 
-    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
+    expect(htmlCode).toBe(outdent`
       <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#elsewhere-1">
         Skip to main content
       </a>
@@ -100,7 +100,7 @@ describe('Nunjucks global: uniqueHTML', () => {
       1
     )
 
-    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
+    expect(htmlCode).toBe(outdent`
       <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">
         Skip to main content
       </a>
@@ -117,7 +117,7 @@ describe('Nunjucks global: uniqueHTML', () => {
       })
     )
 
-    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
+    expect(htmlCode).toBe(outdent`
       <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">
         Skip to main content
       </a>

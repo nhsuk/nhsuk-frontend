@@ -28,7 +28,7 @@
   {% set classNames = classNames ~ " nhsuk-checkboxes--inline" %}
 {% endif %}
 
-{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
@@ -77,7 +77,7 @@
       {{- item.divider -}}
     </div>
   {% else %}
-    {% set isChecked = item.checked | default((item.value in params.values and item.checked != false) if params.values else false, true) %}
+    {% set isChecked = item.checked | default((item.value in params.values and item.checked is not sameas(false)) if params.values else false, true) %}
     {% set hasHint = true if itemHint.text or itemHint.html %}
     {% set itemHintId = itemHint.id | default(itemId ~ "-item-hint") if hasHint else "" %}
     {% set itemDescribedBy = describedBy if not hasFieldset else "" %}
@@ -90,7 +90,7 @@
     <div class="nhsuk-checkboxes__item {{- " nhsuk-u-frontend-not-supported-hidden" if item.behaviour == "inclusive" else "" }}">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
         {{- " checked" if isChecked }}
-        {{- " disabled" if item.disabled or (item.disabled != false and params.disabled) }}
+        {{- " disabled" if item.disabled or (item.disabled is not sameas(false) and params.disabled) }}
         {%- if itemBehaviour %} data-behaviour="{{ itemBehaviour }}"{% endif -%}
         {%- if itemBehaviourGroup %} data-behaviour-group="{{ itemBehaviourGroup }}"{% endif -%}
         {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}

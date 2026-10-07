@@ -1,7 +1,7 @@
 {% extends "nhsuk/template-with-imports.njk" %}
 
 {% block pageTitle -%}
-  {%- if errors === true or (errors | length) %}Error: {% endif -%}
+  {%- if errors is sameas(true) or (errors | length) %}Error: {% endif -%}
   {%- if pageHeading %}{{ pageHeading }} – {% endif -%}
   {{ serviceName }} – NHS
 {%- endblock %}
@@ -16,4 +16,4 @@
 {% block bodyEnd %}
   <script type="module" src="{{ baseUrl }}javascripts/nhsuk-frontend.min.js"></script>
   <script type="module" src="{{ baseUrl }}javascripts/application.min.js"></script>
-{% endblock %}}
+{% endblock %}

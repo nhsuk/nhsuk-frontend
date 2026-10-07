@@ -63,10 +63,14 @@ export function macro(macroName, macroPath, options) {
       .trim()
   }
 
+  if (options?.indent && !options?.callBlock) {
+    macroCall = `${macroCall} | indent(${options.indent})`
+  }
+
   // If we're nesting child components or text, pass the children to the macro
   // using the 'caller' Nunjucks feature
   macroString += options?.callBlock
-    ? `{% call ${macroCall} %}\n${options.callBlock.trim()}\n{%- endcall %}`
+    ? `{% call ${macroCall} -%}\n${options.callBlock}\n{%- endcall %}`
     : `{{ ${macroCall} }}`
 
   return macroString
@@ -115,7 +119,7 @@ export function template(templatePath, options) {
  */
 export function renderString(string, options) {
   const nunjucksEnv = options?.env ?? env
-  return nunjucksEnv.renderString(string, options?.context ?? {})
+  return nunjucksEnv.renderString(string, options?.context ?? {}).trimEnd()
 }
 
 export * from './environment.mjs'
@@ -132,6 +136,7 @@ export * from './environment.mjs'
  * @typedef {object} MacroRenderOptions
  * @property {string | number | boolean | MacroRenderContext | (string | number | boolean | MacroRenderContext)[]} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {number} [indent] - Nunjucks indentation level (optional)
  * @property {string} [prefix] - Component name prefix (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */

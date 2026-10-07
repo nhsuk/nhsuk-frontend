@@ -1248,7 +1248,8 @@ const fixtures = {
                   context: {
                     text: "Recall for assessment",
                     colour: "red"
-                  }
+                  },
+                  indent: 2
                 })}
               </p>
             `
@@ -1279,11 +1280,11 @@ const fixtures = {
                       context: {
                         text: "Abnormal",
                         colour: "red"
-                      }
+                      },
+                      indent: 6
                     })}
                   </p>
                 </div>
-
                 <div class="nhsuk-grid-column-one-half">
                   <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
                     Left breast

@@ -31,7 +31,7 @@
 {%- set id = params.id if params.id else params.name -%}
 
 {%- set afterInputHtml %}
-{% if params.button not in ["", null, false] %}
+{% if params.button not in ["", none, false] %}
 {{ nhsukButton({
   html: params.button.html,
   text: params.button.text,

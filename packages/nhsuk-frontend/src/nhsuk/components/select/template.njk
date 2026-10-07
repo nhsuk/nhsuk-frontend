@@ -25,7 +25,7 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
-{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) %}
   {% set classNames = classNames ~ " nhsuk-select--error" %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
@@ -57,8 +57,8 @@
   {% elif item %}
     {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
     {%- set effectiveValue = item.value | default(item.text) %}
-    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
-      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
+    <option {%- if item.value is defined %} value="{{ item.value }}"{% endif %}
+      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected is not sameas(false)) if params.value else false, true) }}
       {{- " disabled" if item.disabled }}
       {{- nhsukAttributes(item.attributes) }}>
       {{- item.text -}}

@@ -14,7 +14,7 @@ describe('Nunjucks global: getComponentHTML', () => {
   it('returns HTML for component', () => {
     const htmlCode = getComponentHTML.call({ env }, 'button', options)
 
-    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
+    expect(htmlCode).toBe(outdent`
       <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit">
         Save and continue
       </button>

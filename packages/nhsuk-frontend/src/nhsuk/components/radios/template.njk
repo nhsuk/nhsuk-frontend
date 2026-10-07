@@ -28,7 +28,7 @@
   {% set classNames = classNames ~ " nhsuk-radios--inline" %}
 {% endif %}
 
-{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
@@ -71,14 +71,14 @@
   {%- if item.divider %}
     <div class="nhsuk-radios__divider">{{ item.divider }}</div>
   {% else %}
-    {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
+    {% set isChecked = item.checked | default((item.value == params.value and item.checked is not sameas(false)) if params.value else false, true) %}
     {% set hasHint = true if itemHint.text or itemHint.html %}
     {% set itemHintId = itemHint.id | default(itemId ~ "-item-hint") %}
     {% set itemClasses = "nhsuk-radios__input" ~ (" " ~ item.classes if item.classes) %}
     <div class="nhsuk-radios__item">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
-        {{- " disabled" if item.disabled or (item.disabled != false and params.disabled) }}
+        {{- " disabled" if item.disabled or (item.disabled is not sameas(false) and params.disabled) }}
         {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>

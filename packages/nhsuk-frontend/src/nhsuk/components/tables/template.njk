@@ -45,9 +45,9 @@
   {% set classNames = classNames ~ " nhsuk-table--responsive" %}
 {% endif %}
 
-{%- if params.border === false and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
+{%- if params.border is sameas(false) and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-table--no-border" %}
-{% elif params.lastRowBorder === false and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
+{% elif params.lastRowBorder is sameas(false) and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
 {% endif %}
 
@@ -58,7 +58,7 @@
 {%- set isSortableOnServer = false %}
 
 {#- Determine if the table is sortable #}
-{% for item in head %}
+{%- for item in head %}
   {% set isSortable = true if item.sort else isSortable %}
   {% set isSortableOnServer = true if isSortable and item.href else isSortableOnServer %}
 {% endfor -%}
@@ -238,7 +238,7 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in head %}
-      {% if item is defined and item not in [undefined, null, false] %}
+      {% if item is defined and item is not none and item is not sameas(false) %}
 
       {#- Support table header as defined value #}
       {%- set header = item if item is mapping and item is not escaped else {
@@ -247,7 +247,7 @@
       } -%}
 
       {%- set sort = header.sort if header.sort is string else
-        ("none" if header.sort == true else undefined) %}
+        ("none" if header.sort is sameas(true) else undefined) %}
 
       {%- set sortNext = header.sortNext if header.sortNext is string else undefined %}
 
@@ -293,7 +293,7 @@
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in row %}
-      {% if item is defined and item not in [undefined, null, false] %}
+      {% if item is defined and item is not none and item is not sameas(false) %}
       {%- set itemHead = head[loop.index0] -%}
 
       {#- Support table header as defined value #}
@@ -366,7 +366,7 @@
     attributes: params.card.attributes,
     variant: params.card.variant | default("feature" if params.panel else undefined)
   }) %}
-    {{ tableHtml | safe | trim | indent(4) }}
+    {{- tableHtml | safe | trim | indent(4, true) -}}
   {%- endcall %}
 {% else %}
   {{- tableHtml | safe | trim }}

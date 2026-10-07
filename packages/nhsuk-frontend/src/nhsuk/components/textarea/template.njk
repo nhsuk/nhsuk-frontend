@@ -25,7 +25,7 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
-{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) %}
   {% set classNames = classNames ~ " nhsuk-textarea--error" %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
@@ -84,7 +84,7 @@
   {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
 {% endif %}
   <textarea class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}" rows="{{ params.rows | default(5, true) }}"
-  {%- if params.spellcheck in [true, false] %} spellcheck="{{ params.spellcheck }}"{% endif %}
+  {%- if params.spellcheck is sameas(true) or params.spellcheck is sameas(false) %} spellcheck="{{ params.spellcheck | string | lower }}"{% endif %}
   {%- if params.disabled %} disabled{% endif %}
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
   {%- if params.autocomplete %} autocomplete="{{ params.autocomplete }}"{% endif %}

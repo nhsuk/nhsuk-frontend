@@ -40,7 +40,7 @@
   {% set exampleName = fixture.description ~ " " ~ fixture.name if fixture.description else fixture.name -%}
   {% set options = fixture.options -%}
   {% set classNamesColumn = "" -%}
-  {% set isFullWidth = options.width === false -%}
+  {% set isFullWidth = options.width is sameas(false) -%}
   {% set isReverse = options.layout == "background-blue" -%}
 
   {# Append grid column width classes #}
@@ -84,14 +84,14 @@
         {{ code({
           html: fixture.html | highlight("html"),
           variant: "reverse" if isReverse
-        }) }}
+        }) | trim }}
 
         <h3 class="nhsuk-heading-s">Macro</h3>
         {{ code({
           html: macroCode | highlight(["html", "njk"]),
           variant: "reverse" if isReverse,
           button: true
-        }) }}
+        }) | trim }}
       {% endcall %}
     </div>
   </section>

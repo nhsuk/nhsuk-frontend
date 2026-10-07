@@ -31,17 +31,29 @@
 {%- set slotEnd = nhsukSlot("end", content) %}
 {%- set slotAfter = nhsukSlot("after", content) %}
 
-{%- set hasContent = true if content.html or content.text not in [undefined, null, false] and (
-  (content.text is escaped or content.text is string or content.text is number) or
-  (content.text is defined and content.text is iterable)
-) and content.text | string | length else false %}
+{%- set hasContent = true if content.html or (
+  content.text is defined and
+  content.text is not none and
+  content.text is not sameas(false) and (
+    content.text is escaped or
+    content.text is string or
+    content.text is number or
+    content.text is iterable
+  ) and content.text | string | length
+) else false %}
 
 {%- set hasContentSlots = true if slotStart | length or slotEnd | length else false %}
 
-{%- set hasVisuallyHidden = true if content.visuallyHidden.html or content.visuallyHidden.text not in [undefined, null, false] and (
-  (content.visuallyHidden.text is escaped or content.visuallyHidden.text is string or content.visuallyHidden.text is number) or
-  (content.visuallyHidden.text is defined and content.visuallyHidden.text is iterable)
-) and content.visuallyHidden.text | string | length else false %}
+{%- set hasVisuallyHidden = true if content.visuallyHidden.html or (
+  content.visuallyHidden.text is defined and
+  content.visuallyHidden.text is not none and
+  content.visuallyHidden.text is not sameas(false) and (
+    content.visuallyHidden.text is escaped or
+    content.visuallyHidden.text is string or
+    content.visuallyHidden.text is number or
+    content.visuallyHidden.text is iterable
+  ) and content.visuallyHidden.text | string | length
+) else false %}
 
 {#- Set visually hidden slots based on placement #}
 {%- set visuallyHiddenSlots = content.visuallyHidden.slots if content.visuallyHidden.slots is mapping and content.visuallyHidden.slots is not escaped else {

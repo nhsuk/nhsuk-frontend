@@ -24,7 +24,7 @@
   {% set classNames = classNames ~ " nhsuk-code--background-" ~ params.background %}
 {% endif -%}
 
-{%- if params.border === false and (not params.classes or not "nhsuk-code--no-border" in params.classes) %}
+{%- if params.border is sameas(false) and (not params.classes or not "nhsuk-code--no-border" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-code--no-border" %}
 {% endif %}
 
