@@ -59,6 +59,16 @@ const fixtures = {
       }
     }
   },
+  "with icon at start and visually hidden text": {
+    context: {
+      text: "Previous",
+      visuallyHiddenText: "Important",
+      icon: {
+        name: "arrow-left",
+        placement: "start"
+      }
+    }
+  },
   "with icon at start, small": {
     context: {
       text: "Previous",
@@ -98,6 +108,12 @@ const fixtures = {
     context: {
       text: "Save and continue",
       preventDoubleClick: false
+    }
+  },
+  "with visually hidden text": {
+    context: {
+      text: "Update",
+      visuallyHiddenText: "Important"
     }
   },
   "login": {
