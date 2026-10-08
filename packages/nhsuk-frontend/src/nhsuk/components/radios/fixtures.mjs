@@ -672,6 +672,36 @@ const fixtures = {
     },
     variants
   },
+  "with conditional content as strings": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your favourite colour?",
+          size: "l"
+        }
+      },
+      idPrefix: "conditional-strings",
+      name: "example",
+      items: [
+        {
+          value: "red",
+          text: "Red",
+          conditional: "I like red"
+        },
+        {
+          value: "green",
+          text: "Green",
+          conditional: "I like green"
+        },
+        {
+          value: "blue",
+          text: "Blue",
+          conditional: "I like blue"
+        }
+      ]
+    },
+    variants
+  },
   "with conditional content, special characters": {
     context: {
       fieldset: {
