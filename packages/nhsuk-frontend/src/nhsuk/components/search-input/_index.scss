@@ -2,6 +2,7 @@
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
 @use "../button" as *;
+@use "../input" as *;
 @forward "../../core/styles/icons";
 @forward "../button";
 @forward "../input";
@@ -11,6 +12,15 @@
 ///
 /// @group components/search-input
 ////
+
+// The search input's button height must visually match its adjacent input
+$nhsuk-button-search-min-height: $nhsuk-input-height - ($nhsuk-button-shadow-size * 2) !default;
+$nhsuk-button-search-min-height-large: $nhsuk-input-height-large - ($nhsuk-button-shadow-size * 2) !default;
+$nhsuk-button-search-min-height-large-tablet: $nhsuk-input-height-large-tablet - ($nhsuk-button-shadow-size * 2) !default;
+$nhsuk-button-search-min-height-active: $nhsuk-button-search-min-height + $nhsuk-button-shadow-size !default;
+$nhsuk-button-search-min-height-large-active: $nhsuk-button-search-min-height-large + ($nhsuk-button-shadow-size * 2) !default;
+$nhsuk-button-search-min-height-large-active-desktop: $nhsuk-button-search-min-height-large-tablet +
+  ($nhsuk-button-shadow-size * 2) !default;
 
 @include nhsuk-exports("nhsuk/components/search-input") {
   .nhsuk-search-input__wrapper {
@@ -123,6 +133,11 @@
     }
 
     @media #{nhsuk-from-breakpoint(tablet)} {
+      // Grow to match the large input's height at tablet and above
+      .nhsuk-input--large ~ & {
+        min-height: nhsuk-px-to-rem($nhsuk-button-search-min-height-large-tablet + $nhsuk-button-shadow-size);
+      }
+
       // Prevent height change when pressed
       .nhsuk-input--large ~ &:active,
       .nhsuk-input--large ~ &:active:focus {
