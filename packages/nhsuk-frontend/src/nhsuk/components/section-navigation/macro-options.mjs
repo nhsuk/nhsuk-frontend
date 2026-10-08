@@ -15,13 +15,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The `aria-label` for the navigation landmark. Defaults to `"Section navigation"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page. Ignored if `labelledBy` is set.'
-  },
-  labelledBy: {
-    type: 'string',
-    required: false,
-    description:
-      'The `id` of an element to use as the accessible label for the navigation via `aria-labelledby`. Takes precedence over `label`.'
+      'The `aria-label` for the navigation landmark. Defaults to `"Section navigation"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page.'
   },
   items: {
     type: 'array',
