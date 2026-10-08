@@ -5,7 +5,7 @@
 {#-
   Renders text, HTML or visually hidden content
 #}
-{% macro nhsukContent(params = {}) -%}
+{%- macro nhsukContent(params = {}) %}
 
 {#- Support params as defined value #}
 {%- set params = params if params is mapping and params is not escaped else {
@@ -96,7 +96,7 @@
 
   {%- if content.visuallyHidden.placement == "end" or (hasVisuallyHidden and not content.visuallyHidden.placement) %}
     {{- visuallyHiddenHtml | safe | trim -}}
-  {% endif -%}
+  {% endif %}
 
   {{- slotEnd -}}
 {% endset %}
@@ -114,7 +114,7 @@
 
   {{- visuallyHiddenHtml | safe | trim -}}
 {% endif %}
-{% endif %}
+{%- endif %}
 
 {{- slotAfter -}}
 

@@ -4,20 +4,20 @@
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" -%}
-{%- set classNamesFormGroup = "nhsuk-password-input" -%}
+{%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" %}
+{%- set classNamesFormGroup = "nhsuk-password-input" %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if params.formGroup.classes %}
-  {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
-{% endif %}
+  {%- set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
+{%- endif %}
 
-{%- set id = params.id if params.id else params.name -%}
+{%- set id = params.id if params.id else params.name %}
 
-{% set attributesHtml -%}
+{%- set attributesHtml %}
   {{- nhsukAttributes({
     "data-module": "nhsuk-password-input"
   }) -}}
@@ -53,7 +53,7 @@
   }) -}}
 
   {{- nhsukAttributes(params.formGroup.attributes) -}}
-{%- endset -%}
+{% endset %}
 
 {%- set buttonHtml %}
 {{ nhsukButton({
@@ -80,8 +80,8 @@
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif -%}
-{% endset -%}
+{% endif %}
+{%- endset -%}
 
 {{ nhsukInput({
   label: params.label,

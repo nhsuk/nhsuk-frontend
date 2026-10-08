@@ -4,13 +4,13 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set className = params.className | default("nhsuk-heading") -%}
-{%- set classPrefix = params.classPrefix | default(className ~ "-") -%}
-{%- set classNames = className | default("") -%}
+{%- set className = params.className | default("nhsuk-heading") %}
+{%- set classPrefix = params.classPrefix | default(className ~ "-") %}
+{%- set classNames = className | default("") %}
 
 {#- Allow permitted sizes only #}
-{%- set size = undefined -%}
-{%- set sizes = params.sizes | default(["xxs", "xs", "s", "m", "l", "xl"]) -%}
+{%- set size = undefined %}
+{%- set sizes = params.sizes | default(["xxs", "xs", "s", "m", "l", "xl"]) %}
 
 {%- if params.size and
   params.size in sizes and (
@@ -24,17 +24,17 @@
     )
   )
 %}
-  {% set size = params.size %}
-  {% if classPrefix | replace(className, "") == "-" %}
-    {% set classNames = classPrefix ~ size %}
-  {% else %}
-    {% set classNames = classNames ~ " " ~ classPrefix ~ size %}
-  {% endif %}
-{% endif %}
+  {%- set size = params.size %}
+  {%- if classPrefix | replace(className, "") == "-" %}
+    {%- set classNames = classPrefix ~ size %}
+  {%- else %}
+    {%- set classNames = classNames ~ " " ~ classPrefix ~ size %}
+  {%- endif %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {#- Support heading caption as string #}
 {%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
@@ -99,4 +99,4 @@
 {% if caption.placement == "after" %}
   {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
-{% endif %}
+{%- endif %}

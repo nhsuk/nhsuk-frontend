@@ -5,36 +5,36 @@
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-header" -%}
-{%- set classNamesNavigation = "nhsuk-header__navigation" -%}
+{%- set classNames = "nhsuk-header" %}
+{%- set classNamesNavigation = "nhsuk-header__navigation" %}
 
 {%- if params.colour and params.colour in ["white"] and (not params.classes or not "nhsuk-header--white" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-header--" ~ params.colour %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-header--" ~ params.colour %}
+{%- endif %}
 
 {%- if params.inline and (not params.classes or not "nhsuk-header--inline" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-header--inline" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-header--inline" %}
+{%- endif %}
 
 {%- if params.organisation %}
-  {% set classNames = classNames ~ " nhsuk-header--organisation" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-header--organisation" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if params.navigation.colour and params.navigation.colour in ["white"] and (not params.navigation.classes or not "nhsuk-header__navigation--white" in params.navigation.classes) %}
-  {% set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--" ~ params.navigation.colour %}
-{% endif %}
+  {%- set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--" ~ params.navigation.colour %}
+{%- endif %}
 
 {%- if params.navigation.justified and (not params.navigation.classes or not "nhsuk-header__navigation--justified" in params.navigation.classes) %}
-  {% set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--justified" %}
-{% endif %}
+  {%- set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--justified" %}
+{%- endif %}
 
 {%- if params.navigation.classes %}
-  {% set classNamesNavigation = classNamesNavigation ~ " " ~ params.navigation.classes %}
-{% endif %}
+  {%- set classNamesNavigation = classNamesNavigation ~ " " ~ params.navigation.classes %}
+{%- endif %}
 
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
 {%- set searchMethod = params.search.method | default("get") %}
@@ -45,14 +45,14 @@
 
 {#- The NHS logo and service name are combined into a single link if either
     the logo doesn’t have an `href` set but the service name does, or if both
-    have an exact `href`. This avoids having 2 links to same destination. -#}
+    have an exact `href`. This avoids having 2 links to same destination #}
 {%- set combineLogoAndServiceNameLinks = params.service.text | length and (params.service.href and not params.logo.href) or (params.service.href and (params.service.href == params.logo.href)) %}
 
 {%- set logoAlt = params.logo.alt | default("NHS") %}
 {%- set logoHref = params.service.href if combineLogoAndServiceNameLinks else params.logo.href %}
 
 {#- The NHS logo can be replaced by a bitmap image and/or suffixed by an
-    organisation name (with can be split and include a descriptor) -#}
+    organisation name (with can be split and include a descriptor) #}
 {%- macro _serviceLogo(logo, organisation) %}
 {% if logo.src %}
 <img class="nhsuk-header__organisation-logo" src="{{ logo.src }}" width="280" alt="{{ logo.alt | default("NHS") }}">
@@ -61,24 +61,24 @@
   <title>{{ logo.alt | default("NHS") }}</title>
   <path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/>
 </svg>
-{% endif -%}
-{% if organisation -%}
+{% endif %}
+{%- if organisation -%}
 <span class="nhsuk-header__organisation-name">{{ organisation.name }}{% if organisation.split %} <span class="nhsuk-header__organisation-name-split">{{ organisation.split }}</span>{% endif %}</span>
-{%- if organisation.descriptor %}<span class="nhsuk-header__organisation-name-descriptor">{{ organisation.descriptor }}</span>{% endif -%}
-{%- endif -%}
-{% endmacro %}
+{%- if organisation.descriptor %}<span class="nhsuk-header__organisation-name-descriptor">{{ organisation.descriptor }}</span>{% endif %}
+{%- endif %}
+{%- endmacro %}
 
 {%- macro _serviceName(text, href) %}
 {% if text and href -%}
 <a class="nhsuk-header__service-name" href="{{ href }}">
   {{- text | trim -}}
 </a>
-{% elif text -%}
+{%- elif text -%}
 <span class="nhsuk-header__service-name">
   {{- text | trim -}}
 </span>
-{%- endif -%}
-{% endmacro %}
+{%- endif %}
+{%- endmacro %}
 
 {%- macro _accountItem(item) %}
 {{- nhsukIcon("user") if item.icon -}}
@@ -86,8 +86,8 @@
   {{- item.html | safe | trim -}}
 {% elif item.text %}
   {{- item.text | trim -}}
-{% endif -%}
-{% endmacro -%}
+{% endif %}
+{%- endmacro -%}
 
 <header
   {{- nhsukAttributes({
@@ -104,7 +104,7 @@
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
     {% if logoHref %}
-      {% set logoAriaLabel = params.logo.ariaLabel if params.logo.ariaLabel else [
+      {%- set logoAriaLabel = params.logo.ariaLabel if params.logo.ariaLabel else [
         logoAlt,
         params.organisation.name,
         params.organisation.split,
@@ -209,7 +209,7 @@
       <ul class="nhsuk-header__navigation-list">
       {% for item in params.navigation.items %}
         {% if item %}
-        {% set itemInnerAttributesHtml %}
+        {%- set itemInnerAttributesHtml %}
           {{- nhsukAttributes({
             class: "nhsuk-header__navigation-link" if item.href
               else "nhsuk-header__navigation-text",
@@ -225,16 +225,16 @@
             }
           }) -}}
         {% endset %}
-        {% set itemInnerContent %}
+        {%- set itemInnerContent %}
           {#- Wrap active links in strong element so users who override colours
-              or styles still have some indicator of the current nav item. -#}
+              or styles still have some indicator of the current nav item #}
           {%- if item.active or item.current -%}
             <strong class="nhsuk-header__navigation-item-current-fallback">
               {{- item.html | safe if item.html else item.text -}}
             </strong>
-          {%- else -%}
+          {%- else %}
             {{- item.html | safe if item.html else item.text -}}
-          {%- endif -%}
+          {% endif -%}
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
         {% if item.href %}

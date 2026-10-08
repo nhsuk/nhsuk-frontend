@@ -2,9 +2,9 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set className = "nhsuk-caption" -%}
-{%- set classPrefix = className ~ "-" -%}
-{%- set classNames = className -%}
+{%- set className = "nhsuk-caption" %}
+{%- set classPrefix = className ~ "-" %}
+{%- set classNames = className %}
 
 {%- if params.size and
   params.size in ["m", "l", "xl", "xxl"] and (
@@ -16,19 +16,19 @@
     )
   )
 %}
-  {% set classNames = classPrefix ~ params.size %}
-{% endif %}
+  {%- set classNames = classPrefix ~ params.size %}
+{%- endif %}
 
 {%- if params.placement and params.placement in ["after", "end"] %}
-  {% set classNames = classNames ~ " " ~ className ~ "--bottom" %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ className ~ "--bottom" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
-{%- set element = (params.element | default("span")) | lower -%}
+{%- set element = (params.element | default("span")) | lower %}
 
 {%- set content = {
   text: params.text,

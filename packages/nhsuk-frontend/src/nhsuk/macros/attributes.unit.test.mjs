@@ -304,7 +304,7 @@ describe('Macro: Attributes', () => {
       // Render directly otherwise nunjucks `renderMacro()` will stringify
       // safe `is escaped` instances into plain `is mapping` objects
       const attributes = nunjucks.renderString(outdent`
-        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
         {{- nhsukAttributes(' data-attribute="Testing &amp; more"' | safe) -}}
       `)
 
@@ -323,7 +323,7 @@ describe('Macro: Attributes', () => {
       // Render directly otherwise nunjucks `renderMacro()` will stringify
       // safe `is escaped` instances into plain `is mapping` objects
       const attributes = nunjucks.renderString(outdent`
-        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
         {{- nhsukAttributes({
           'data-text': 'Testing',
@@ -343,7 +343,7 @@ describe('Macro: Attributes', () => {
       // Render directly otherwise nunjucks `renderMacro()` will stringify
       // safe `is escaped` instances into plain `is mapping` objects
       const attributes = nunjucks.renderString(outdent`
-        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
         {{- nhsukAttributes({
           'data-text': {
@@ -373,7 +373,7 @@ describe('Macro: Attributes', () => {
       // Render directly otherwise nunjucks `renderMacro()` will stringify
       // safe `is escaped` instances into plain `is mapping` objects
       const attributes = nunjucks.renderString(outdent`
-        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
         {{- nhsukAttributes({
           'data-safe-json': '{ "key": "value" }' | safe,

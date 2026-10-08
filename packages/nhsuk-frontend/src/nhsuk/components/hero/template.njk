@@ -3,24 +3,24 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-hero" -%}
-{%- set classNamesHeading = "nhsuk-hero__heading" -%}
-{%- set classNamesColumn = "nhsuk-grid-column" -%}
+{%- set classNames = "nhsuk-hero" %}
+{%- set classNamesHeading = "nhsuk-hero__heading" %}
+{%- set classNamesColumn = "nhsuk-grid-column" %}
 
 {%- set background = {
   src: params.imageURL
 } if params.imageURL else params.image %}
 
 {%- if background.src %}
-  {% set classNames = classNames ~ " nhsuk-hero--image" ~
+  {%- set classNames = classNames ~ " nhsuk-hero--image" ~
     (" nhsuk-hero--image-description" if params.heading else "") %}
 {% elif params.border is not sameas(false) %}
-  {% set classNames = classNames ~ " nhsuk-hero--border" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-hero--border" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -35,10 +35,10 @@
     {{- nhsukAttributes({
       style: ("background-image: url('" | safe ~ background.src | escape ~ "');" | safe) | safe
     }) -}}
-  {% endif %}
+  {%- endif %}
 
   {{- nhsukAttributes(params.attributes) -}}
-{% endset -%}
+{% endset %}
 
 {%- set rows = ([params.content] if params.content is mapping else params.content) | default([]) %}
 
@@ -55,7 +55,7 @@
     html: caller() if caller else params.html,
     width: params.width | default("two-thirds")
   }), rows) %}
-{% endif -%}
+{%- endif -%}
 
 <section {{- attributesHtml | safe }}>
 {% if rows | length %}

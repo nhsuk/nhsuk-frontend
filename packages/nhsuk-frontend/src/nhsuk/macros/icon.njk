@@ -26,8 +26,8 @@
   @param {string} params.classes - Classes to add to the icon
   @param {number} params.size - Icon size adjustment in percent (25, 50, 75, 100)
 #}
-{% macro nhsukIcon(name, params = {}) -%}
-  {%- set classNames = "nhsuk-icon nhsuk-icon--" ~ name -%}
+{%- macro nhsukIcon(name, params = {}) %}
+  {%- set classNames = "nhsuk-icon nhsuk-icon--" ~ name %}
 
   {%- if params.size and
     params.size | string in ["25", "50", "75", "100"] and (
@@ -39,11 +39,11 @@
       )
     )
   %}
-    {% set classNames = classNames ~ " nhsuk-icon--size-" ~ params.size %}
-  {% endif %}
+    {%- set classNames = classNames ~ " nhsuk-icon--size-" ~ params.size %}
+  {%- endif %}
 
-  {%- if params.classes -%}
-    {%- set classNames = classNames ~ " " ~ params.classes -%}
+  {%- if params.classes %}
+    {%- set classNames = classNames ~ " " ~ params.classes %}
   {%- endif -%}
 
 <svg
@@ -83,7 +83,6 @@
 {% elif name == "arrow-down" %}
   <path d="M17.7 14.7l-5 5c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3l-5-5a1 1 0 0 1 1.4-1.4l3.3 3.3L11 5a1 1 0 0 1 2 0L13 16.6l3.3-3.3a1 1 0 1 1 1.4 1.4Z"/>
 {% elif name == "arrow-up-down" %}
-  {#- This includes both arrow-up and arrow-down paths from above, but shifted 4.8 left and right so that they both fit. #}
   <path d="M1.5 9.3l5-5c.2-.2.4-.3.7-.3.3 0 .5.1.7.3l5 5a1 1 0 0 1-1.4 1.4l-3.3-3.3L8.2 19a1 1 0 0 1-2 0L6.2 7.4l-3.3 3.3a1 1 0 1 1-1.4-1.4Z"/>
   <path d="M22.5 14.7l-5 5c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3l-5-5a1 1 0 0 1 1.4-1.4l3.3 3.3L15.8 5a1 1 0 0 1 2 0L17.8 16.6l3.3-3.3a1 1 0 1 1 1.4 1.4Z"/>
 {% elif name == "arrow-right-circle" %}

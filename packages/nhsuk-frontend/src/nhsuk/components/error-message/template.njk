@@ -2,21 +2,21 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-error-message" -%}
+{%- set classNames = "nhsuk-error-message" %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set innerHtml %}
-{% if caller %}
-  {{- caller() }}
+{%- if caller %}
+  {{- caller() -}}
 {% elif params.html %}
-  {{- params.html | safe }}
+  {{- params.html | safe -}}
 {% elif params.text %}
-  {{- params.text }}
+  {{- params.text -}}
 {% endif %}
-{% endset -%}
+{%- endset -%}
 
 <span class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>

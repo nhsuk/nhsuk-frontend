@@ -17,24 +17,24 @@
 }) %}
 
 {%- if environmentName and not themeColor and not themeName %}
-  {%- if environmentName | lower == "development" -%}
-    {%- set themeName = "white" -%}
-  {%- elif environmentName | lower == "review" -%}
-    {%- set themeName = "purple" -%}
-  {%- elif environmentName | lower == "test" -%}
-    {%- set themeName = "red" -%}
-  {%- elif environmentName | lower == "qa" -%}
-    {%- set themeName = "orange" -%}
-  {%- elif environmentName | lower == "preview" -%}
-    {%- set themeName = "yellow" -%}
-  {%- endif -%}
-{% endif %}
+  {%- if environmentName | lower == "development" %}
+    {%- set themeName = "white" %}
+  {%- elif environmentName | lower == "review" %}
+    {%- set themeName = "purple" %}
+  {%- elif environmentName | lower == "test" %}
+    {%- set themeName = "red" %}
+  {%- elif environmentName | lower == "qa" %}
+    {%- set themeName = "orange" %}
+  {%- elif environmentName | lower == "preview" %}
+    {%- set themeName = "yellow" %}
+  {%- endif %}
+{%- endif %}
 
 {%- if themeName and not themeColor %}
   {%- set themeColor = themeColors[themeName | lower] %}
 {%- endif %}
 
-{%- set assetPath = assetPath | default("/assets", true) -%}
+{%- set assetPath = assetPath | default("/assets", true) %}
 {%- set themeColor = themeColor | default("#005eb8", true) -%}
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
     {% block head %}{% endblock %}
 
     {#- Open Graph image needs an absolute URL, so need either a URL for image or assetUrl to be set #}
-    {% if opengraphImageUrl or assetUrl %}
+    {%- if opengraphImageUrl or assetUrl %}
     <meta property="og:image" content="{{ opengraphImageUrl | default(assetUrl ~ "/images/nhsuk-opengraph-image.png", true) }}">
     {% endif %}
   </head>

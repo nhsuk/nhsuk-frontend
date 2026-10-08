@@ -3,40 +3,40 @@
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-code" -%}
+{%- set classNames = "nhsuk-code" %}
 {%- set classNamesButton = params.copyButtonClassList | default([
   "nhsuk-button--reverse" if variant == "reverse" else "nhsuk-button--secondary",
   "nhsuk-button--small"
-]) | join(" ") ~ " nhsuk-code__button nhsuk-js-code-button" -%}
+]) | join(" ") ~ " nhsuk-code__button nhsuk-js-code-button" %}
 
 {%- if params.button %}
-  {% set classNames = classNames ~ " nhsuk-code--button" %}
-{% endif -%}
+  {%- set classNames = classNames ~ " nhsuk-code--button" %}
+{%- endif %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-code--reverse" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-code--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-code--" ~ variant %}
+{%- endif %}
 
 {%- if params.background %}
-  {% set classNames = classNames ~ " nhsuk-code--background-" ~ params.background %}
-{% endif -%}
+  {%- set classNames = classNames ~ " nhsuk-code--background-" ~ params.background %}
+{%- endif %}
 
 {%- if params.border is sameas(false) and (not params.classes or not "nhsuk-code--no-border" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-code--no-border" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-code--no-border" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if params.button.classes %}
-  {% set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
-{% endif -%}
+  {%- set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
+{%- endif %}
 
-{%- set buttonText = params.copyButtonText | default(params.button.text) | default("Copy code") -%}
+{%- set buttonText = params.copyButtonText | default(params.button.text) | default("Copy code") %}
 {%- set buttonAriaLabel = params.button.ariaLabel | default("Copy code" if not buttonText else undefined) -%}
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"

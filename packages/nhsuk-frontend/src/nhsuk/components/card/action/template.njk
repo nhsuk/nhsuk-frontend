@@ -2,24 +2,24 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-link" -%}
+{%- set classNames = "nhsuk-link" %}
 
 {#- Support heading as string #}
 {%- set heading = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
   text: parent.params.heading if parent.params.heading is string else undefined,
   html: parent.params.heading if parent.params.heading is escaped else undefined
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
 {%- if params.href and not params.type %}
-  {% set element = "a" %}
-{% else %}
-  {% set element = "button" %}
-{% endif %}
+  {%- set element = "a" %}
+{%- else %}
+  {%- set element = "button" %}
+{%- endif %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({

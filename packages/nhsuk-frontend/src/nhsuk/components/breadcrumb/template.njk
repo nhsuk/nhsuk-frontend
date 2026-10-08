@@ -2,18 +2,18 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-breadcrumb" -%}
+{%- set classNames = "nhsuk-breadcrumb" %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-breadcrumb--reverse" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-breadcrumb--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-breadcrumb--" ~ variant %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set ariaLabel = params.ariaLabel | default(params.labelText, true) | default("Breadcrumb", true) -%}
 
@@ -39,12 +39,12 @@
         {{ params.text | trim | indent(8) }}
       </a>
     </li>
-  {% set lastHref = params.href %}
-  {% set lastText = params.text %}
+  {%- set lastHref = params.href %}
+  {%- set lastText = params.text %}
 {% else %}
-  {% set lastItem = params.items | last %}
-  {% set lastHref = lastItem.href %}
-  {% set lastText = lastItem.text %}
+  {%- set lastItem = params.items | last %}
+  {%- set lastHref = lastItem.href %}
+  {%- set lastText = lastItem.text %}
 {% endif %}
   </ol>
   {{ nhsukBackLink({

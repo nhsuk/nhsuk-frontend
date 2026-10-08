@@ -3,25 +3,25 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-summary-list" -%}
+{%- set classNames = "nhsuk-summary-list" %}
 
 {%- if params.border is sameas(false) and not (params.classes and "nhsuk-summary-list--no-border" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-summary-list--no-border" %}
+  {%- set classNames = classNames ~ " nhsuk-summary-list--no-border" %}
 {% elif params.lastRowBorder is sameas(false) and not (params.classes and "nhsuk-summary-list--no-last-row-border" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-summary-list--no-last-row-border" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-summary-list--no-last-row-border" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set rows = params.rows | select("mapping") | list if params.rows else [] %}
 
 {#- Determine if we need 2 or 3 columns #}
 {%- set hasActions = false %}
-{% for row in rows %}
-  {% set hasActions = true if row.actions.items | length else hasActions %}
-{% endfor -%}
+{%- for row in rows %}
+  {%- set hasActions = true if row.actions.items | length else hasActions %}
+{%- endfor %}
 
 {%- set summaryListHtml %}
 <dl class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
@@ -41,12 +41,12 @@
   {% endfor %}
 {% endif %}
 </dl>
-{%- endset %}
+{% endset %}
 
 {%- if params.card %}
   {%- call nhsukCard(params.card) %}
     {{ summaryListHtml | safe | trim | indent(4) }}
   {%- endcall %}
-{% else %}
+{%- else %}
   {{- summaryListHtml | safe | trim }}
-{% endif %}
+{%- endif %}

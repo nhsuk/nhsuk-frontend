@@ -2,7 +2,7 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-tag" -%}
+{%- set classNames = "nhsuk-tag" %}
 
 {%- if params.colour and
   params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow"] and (
@@ -20,20 +20,20 @@
     )
   )
 %}
-  {% set classNames = classNames ~ " nhsuk-tag--" ~ params.colour %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-tag--" ~ params.colour %}
+{%- endif %}
 
 {%- if params.colour is sameas(false) and (not params.classes or not "nhsuk-tag--no-colour" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-tag--no-colour" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-tag--no-colour" %}
+{%- endif %}
 
 {%- if params.border is sameas(false) and (not params.classes or not "nhsuk-tag--no-border" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-tag--no-border" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-tag--no-border" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set content = {
   text: params.text,

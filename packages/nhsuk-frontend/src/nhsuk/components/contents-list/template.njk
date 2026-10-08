@@ -2,15 +2,15 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-contents-list" -%}
+{%- set classNames = "nhsuk-contents-list" %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
-{%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pages in this guide", true) -%}
+{%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pages in this guide", true) %}
 
-{% macro _contentsList(items) %}
+{%- macro _contentsList(items) %}
 <ol class="nhsuk-contents-list__list">
 {% for item in items %}
   {% if item %}
@@ -31,7 +31,7 @@
   {% endif %}
 {% endfor %}
 </ol>
-{% endmacro -%}
+{%- endmacro -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
