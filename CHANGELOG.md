@@ -52,6 +52,32 @@ The following component options now support alternative string values:
 
 This change was introduced in [pull request #2127: Add fixture coverage for before/after input slots](https://github.com/nhsuk/nhsuk-frontend/pull/2127).
 
+#### Use Nunjucks macros to add headings, captions, visually hidden text and links
+
+We've updated our components to use Nunjucks macros to render:
+
+- headings and captions via the `heading()` and `caption()` macros
+- visually hidden text via the `visuallyHidden()` macro
+- links via the `link()` macro
+
+We've also added the `nhsukContent()` macro to simplify how text, HTML and visually hidden content is rendered:
+
+```patch
+- {% if item.html %}
+-   {{- item.html | safe | trim }}
+- {% elif item.text %}
+-   {{- item.text | trim }}
+- {% endif %}
+- {% if item.visuallyHiddenText -%}
+-   <span class="nhsuk-u-visually-hidden"> {{ item.visuallyHiddenText }}</span>
+- {% endif %}
++ {{ nhsukContent(item) | trim }}
+```
+
+These shared components and macros can be used by service teams to create their own custom components.
+
+These changes were introduced in pull requests [#2103: Add visually hidden component](https://github.com/nhsuk/nhsuk-frontend/pull/2103), [#2108: Add link component](https://github.com/nhsuk/nhsuk-frontend/pull/2108) and [#1985: Add heading and caption components](https://github.com/nhsuk/nhsuk-frontend/pull/1985).
+
 ### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
