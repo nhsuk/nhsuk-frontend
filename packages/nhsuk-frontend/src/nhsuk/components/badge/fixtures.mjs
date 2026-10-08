@@ -8,9 +8,25 @@ export const variants = [
     // Regular variant
   },
   {
+    description: "small",
+    context: {
+      small: true
+    }
+  },
+  {
     description: "reverse",
     context: {
       variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  {
+    description: "reverse small",
+    context: {
+      variant: "reverse",
+      small: true
     },
     options: {
       layout: "background-blue"
