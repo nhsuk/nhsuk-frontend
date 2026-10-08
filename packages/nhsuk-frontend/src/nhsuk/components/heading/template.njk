@@ -1,6 +1,7 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set className = params.className | default("nhsuk-heading") -%}
@@ -54,25 +55,13 @@
 
 {%- set hasCaption = true if caption.text or caption.html else false %}
 
-{%- if caller or params.html or params.text %}
-{%- set innerHtml %}
-  {%- if params.html %}
-    {{- params.html | safe -}}
-  {% elif params.text %}
-    {{- params.text -}}
-  {% endif -%}
-{% endset %}
+{%- set content = {
+  text: params.text,
+  html: caller() if caller else params.html,
+  visuallyHidden: params.visuallyHiddenText
+} %}
 
-{%- set innerHtml %}
-  {%- if params.href -%}
-    <a class="nhsuk-link" href="{{ params.href }}">
-      {{- innerHtml | safe | trim -}}
-    </a>
-  {%- else %}
-    {{- innerHtml | safe | trim -}}
-  {% endif -%}
-{% endset %}
-
+{%- if content.html or content.text %}
 {%- if caption.placement == "before" %}
   {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
@@ -96,19 +85,12 @@
 {% if caption.placement == "start" or (hasCaption and not caption.placement) %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
-{% if params.visuallyHiddenText %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) -}}
-  {% endif -%}
-  {{ nhsukVisuallyHidden(" " ~ params.visuallyHiddenText) | trim }}
+{% if params.href %}
+  <a class="nhsuk-link" href="{{ params.href }}">
+    {{- nhsukContent(content) | trim -}}
+  </a>
 {% else %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) }}
-  {% endif %}
+  {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}
 {% if caption.placement == "end" %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
