@@ -50,6 +50,31 @@ const fixtures = {
       href: "#"
     }
   },
+  "with custom class": {
+    context: {
+      text: "Link as a button",
+      className: "nhsuk-link"
+    }
+  },
+  "with small class": {
+    context: {
+      text: "Save and continue",
+      classes: "nhsuk-button--small"
+    }
+  },
+  "with small class overriding small option": {
+    context: {
+      text: "Save and continue",
+      classes: "nhsuk-button--small",
+      small: true
+    }
+  },
+  "without class": {
+    context: {
+      text: "Default button",
+      className: false
+    }
+  },
   "with icon at start": {
     context: {
       text: "Previous",
@@ -210,6 +235,13 @@ const fixtures = {
       small: true
     }
   },
+  "login class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--login"
+    }
+  },
   "reverse": {
     context: {
       text: "Log out",
@@ -334,6 +366,16 @@ const fixtures = {
       layout: "background-blue"
     }
   },
+  "reverse class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
   "secondary": {
     context: {
       text: "Find my location",
@@ -426,6 +468,13 @@ const fixtures = {
         placement: "end"
       },
       small: true
+    }
+  },
+  "secondary class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--secondary"
     }
   },
   "secondary, solid background": {
@@ -552,6 +601,16 @@ const fixtures = {
       layout: "background-grey"
     }
   },
+  "secondary, solid background class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--secondary-solid"
+    },
+    options: {
+      layout: "background-grey"
+    }
+  },
   "warning": {
     context: {
       text: "Yes, delete this vaccine",
@@ -644,6 +703,13 @@ const fixtures = {
         placement: "end"
       },
       small: true
+    }
+  },
+  "warning class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--warning"
     }
   },
   "example reverse search button, small": {
