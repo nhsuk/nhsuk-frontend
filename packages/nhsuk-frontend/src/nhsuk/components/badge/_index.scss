@@ -20,6 +20,7 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
     display: inline-block;
 
     min-width: nhsuk-px-to-rem(nhsuk-spacing(2));
+    margin: 0;
     padding: 0 nhsuk-px-to-rem(nhsuk-spacing(2));
 
     border-radius: nhsuk-px-to-rem(nhsuk-spacing(3));
@@ -29,6 +30,17 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
 
     text-align: center;
 
+    @include nhsuk-font(19);
+  }
+
+  .nhsuk-badge:not(.nhsuk-badge--small) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      min-width: nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
+      padding: 0 nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
+    }
+  }
+
+  .nhsuk-badge--small {
     @include nhsuk-font(16);
   }
 
