@@ -85,9 +85,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     )
 
     expect(htmlCode).toBe(outdent`
-      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#elsewhere-1">
-        Skip to main content
-      </a>
+      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#elsewhere-1">Skip to main content</a>
 
     `)
   })
@@ -104,9 +102,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     )
 
     expect(htmlCode).toBe(outdent`
-      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">
-        Skip to main content
-      </a>
+      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
     `)
   })
@@ -122,9 +118,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     )
 
     expect(htmlCode).toBe(outdent`
-      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">
-        Skip to main content
-      </a>
+      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
     `)
   })
