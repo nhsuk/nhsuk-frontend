@@ -55,6 +55,12 @@ const options = {
       'Optional variant of badge. You can use only `"reverse"` or empty values with this option.',
     released: '10.7.0'
   },
+  small: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, smaller badge size will be used.',
+    released: '10.7.0'
+  },
   classes: {
     type: 'string',
     required: false,
