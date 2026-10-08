@@ -61,14 +61,16 @@
               {{- name ~ " " ~ exampleName -}}
             </h2>
             <p class="nhsuk-body nhsuk-u-margin-bottom-6">
-              <a {{- nhsukAttributes({
+              {{ link({
                 href: exampleName | slugify ~ "/",
-                class: "nhsuk-link nhsuk-link--no-visited-state" ~ (" nhsuk-link--reverse" if isReverse else ""),
-                rel: "noreferrer noopener",
-                target: "_blank"
-              }) -}}>
-                Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ exampleName }}</span>
-              </a>
+                text: "Open this example in a new tab",
+                visuallyHidden: {
+                  text: name ~ " " ~ exampleName,
+                  slots: { start: ": " }
+                },
+                classes: "nhsuk-link--no-visited-state" ~ (" nhsuk-link--reverse" if isReverse else ""),
+                openInNewTab: true
+              }) | trim | indent(14) }}
             </p>
           </div>
         </div>
