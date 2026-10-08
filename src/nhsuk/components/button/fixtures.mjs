@@ -50,6 +50,31 @@ const fixtures = {
       href: "#"
     }
   },
+  "with custom class": {
+    context: {
+      text: "Link as a button",
+      className: "nhsuk-link"
+    }
+  },
+  "with small class": {
+    context: {
+      text: "Save and continue",
+      classes: "nhsuk-button--small"
+    }
+  },
+  "with small class overriding small option": {
+    context: {
+      text: "Save and continue",
+      classes: "nhsuk-button--small",
+      small: true
+    }
+  },
+  "without class": {
+    context: {
+      text: "Default button",
+      className: false
+    }
+  },
   "with icon at start": {
     context: {
       text: "Previous",
