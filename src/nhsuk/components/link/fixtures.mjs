@@ -98,6 +98,26 @@ const fixtures = {
       }
     }
   },
+  "with content slots": {
+    context: {
+      text: "A&E waiting times",
+      href: "#/waiting-times",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with custom class": {
     context: {
       text: "Change",
