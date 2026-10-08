@@ -38,6 +38,22 @@ This change was introduced in [pull request #2115: Add environment banner compon
 
 ### :recycle: **Changes**
 
+#### Add visually hidden text to warning buttons
+
+We've added default visually hidden text to warning buttons that reads "Warning:". This helps to signal the button's importance without relying on its colour.
+
+The text can be overriden with `visuallyHiddenText`:
+
+```patch
+  {{ button({
+    text: "Delete record",
++   visuallyHiddenText: "Caution",
+    variant: "warning"
+  }) }}
+```
+
+This change was introduced in [pull request #2121: Add visually hidden text to warning button](https://github.com/nhsuk/nhsuk-frontend/pull/2121).
+
 #### Use Nunjucks conditional content and before/after input slots as strings
 
 We added support for alternative string values in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0) and [version 10.6.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.1).
