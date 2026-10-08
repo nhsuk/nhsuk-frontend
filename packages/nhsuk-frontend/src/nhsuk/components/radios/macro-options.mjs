@@ -187,10 +187,18 @@ const options = {
           'Provide additional content to reveal when the radio is checked.',
         released: '1.0.0',
         params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. The text to reveal when the radio is checked.',
+            released: '10.7.0'
+          },
           html: {
             type: 'string',
             required: true,
-            description: 'The HTML to reveal when the radio is checked.',
+            description:
+              'If `text` is set, this is not required. The HTML to reveal when the radio is checked.',
             released: '1.0.0'
           }
         }
