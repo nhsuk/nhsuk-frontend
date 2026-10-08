@@ -36,6 +36,24 @@ If you are not using Nunjucks macros, update your HTML markup using the [environ
 
 This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
 
+### :recycle: **Changes**
+
+#### Add visually hidden text to warning buttons
+
+We've added default visually hidden text to warning buttons that reads "Warning:". This helps to signal the button's importance without relying on its colour.
+
+The text can be overriden with `visuallyHiddenText`:
+
+```patch
+{{ button({
+  text: "Delete record",
++ visuallyHiddenText: "Caution",
+  variant: "warning"
+}) }}
+```
+
+This change was introduced in [pull request #2121: Add visually hidden text to warning button](https://github.com/nhsuk/nhsuk-frontend/pull/2121).
+
 ### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
