@@ -53,7 +53,7 @@
 {%- set label = {
   id: params.id,
   text: heading.text | default(params.text) if hasHeading else params.text | default(heading.text),
-  html: heading.html | default(params.html) if hasHeading else params.html | default(heading.html),
+  html: caller() if caller else (heading.html | default(params.html) if hasHeading else params.html | default(heading.html)),
   visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) if hasHeading else params.visuallyHiddenText,
   caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
   size: size,
@@ -70,18 +70,7 @@
   element: "label"
 } %}
 
-{%- if caller or label.html or label.text %}
-{%- set innerHtml %}
-{%- set outerCaller = caller %}
-{%- if caller %}
-  {%- call nhsukHeading(label) %}
-    {{- outerCaller() -}}
-  {% endcall %}
-{%- else %}
-  {{- nhsukHeading(label) | trim -}}
-{% endif %}
-{%- endset %}
-
+{%- if label.html or label.text %}
 {%- if caption.placement == "before" %}
 {{ nhsukCaption(caption) | safe | trim }}
 {% endif %}
@@ -92,10 +81,10 @@
 {%- if hasHeading %}
 <{{ element }} class="{{ classNamesHeading }}" {%- if heading.id %} id="{{ heading.id }}"{% endif %}
   {{- nhsukAttributes(heading.attributes) }}>
-  {{ innerHtml | safe | trim | indent(2) }}
+  {{ nhsukHeading(label) | trim | indent(2) }}
 </{{ element }}>
 {% else %}
-  {{- innerHtml | safe | trim }}
+  {{- nhsukHeading(label) | trim }}
 {% endif %}
 {% if caption.placement == "after" %}
 {{ nhsukCaption(caption) | safe | trim }}
