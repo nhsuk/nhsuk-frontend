@@ -273,6 +273,46 @@ const fixtures = {
       ]
     }
   },
+  "with label badge": {
+    context: {
+      idPrefix: "with-labels-objects",
+      items: [
+        {
+          label: {
+            text: "Scheduled",
+            slots: {
+              end: {
+                html: components.render("badge", {
+                  context: {
+                    text: "17",
+                    visuallyHidden: {
+                      text: ",",
+                      placement: "start"
+                    },
+                    classes: "nhsuk-u-margin-left-2",
+                    small: true
+                  }
+                })
+              }
+            }
+          },
+          panel: "Scheduled appointments"
+        },
+        {
+          label: {
+            text: "Completed"
+          },
+          panel: "Completed appointments"
+        },
+        {
+          label: {
+            text: "Cancelled"
+          },
+          panel: "Cancelled appointments"
+        }
+      ]
+    }
+  },
   "with visually hidden text": {
     context: {
       idPrefix: "visually-hidden",

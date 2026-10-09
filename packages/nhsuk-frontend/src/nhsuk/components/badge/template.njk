@@ -1,0 +1,76 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-badge" %}
+
+{#- Support visually hidden content as string or number #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string or params.visuallyHidden is number else params.visuallyHiddenText,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} -%}
+
+{%- set hasContent = true if caller or params.html or (
+  (params.text is escaped or params.text is string) and
+  params.text | string | length
+) else false %}
+
+{%- set hasVisuallyHidden = true if visuallyHidden.html or (
+  (visuallyHidden.text is escaped or visuallyHidden.text is string) and
+  visuallyHidden.text | string | length
+) else false %}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-badge--reverse" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-badge--" ~ variant %}
+{%- endif %}
+
+{%- if params.notification and (not params.classes or not "nhsuk-badge--notification" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-badge--notification" %}
+{%- endif %}
+
+{%- if not hasContent and hasVisuallyHidden and (not params.classes or not "nhsuk-badge--indicator" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-badge--indicator" %}
+{%- endif %}
+
+{%- if params.small and (not params.classes or not "nhsuk-badge--small" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-badge--small" %}
+{%- endif %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: {
+      value: classNames if classNames else false,
+      optional: true
+    },
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+{%- set content = {
+  text: params.text,
+  html: caller() if caller else params.html,
+  visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText if params.notification else {
+    text: params.visuallyHiddenText,
+    placement: "start",
+    slots: { end: ": " }
+  }),
+  slots: params.slots
+} %}
+
+{%- if hasContent or hasVisuallyHidden %}
+<strong {{- attributesHtml | safe }}>
+  {{ nhsukContent(content) | trim | indent(2) }}
+</strong>
+{% endif %}
