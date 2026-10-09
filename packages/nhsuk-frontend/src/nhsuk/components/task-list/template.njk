@@ -1,15 +1,17 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-task-list" -%}
+{%- set classNames = "nhsuk-task-list" %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
-{%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
+{%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" %}
 
 {%- macro _taskListItem(params, item, index) %}
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
@@ -26,12 +28,6 @@
   {%- set itemHint = item.hint if item.hint is mapping and item.hint is not escaped else {
     text: item.hint if item.hint is string else undefined,
     html: item.hint if item.hint is escaped else undefined
-  } %}
-
-  {#- Support item status as string #}
-  {%- set itemStatus = item.status if item.status is mapping and item.status is not escaped else {
-    text: item.status if item.status is string else undefined,
-    html: item.status if item.status is escaped else undefined
   } %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
@@ -56,21 +52,15 @@
       }) | trim | indent(6) }}
     {% if itemHint.text or itemHint.html %}
       <div class="nhsuk-task-list__hint" id="{{ hintId }}">
-      {% if itemHint.html %}
-        {{ itemHint.html | safe | trim | indent(8) }}
-      {% elif itemHint.text %}
-        {{ itemHint.text | trim | indent(8) }}
-      {% endif %}
+        {{ nhsukContent(itemHint) | trim | indent(8) }}
       </div>
     {% endif %}
     </div>
-    <div class="nhsuk-task-list__status {%- if itemStatus.classes %} {{ itemStatus.classes }}{% endif %}" id="{{ statusId }}">
-    {% if itemStatus.tag %}
-      {{ nhsukTag(itemStatus.tag) | trim | indent(6) }}
-    {% elif itemStatus.html %}
-      {{ itemStatus.html | safe | trim | indent(6) }}
-    {% elif itemStatus.text %}
-      {{ itemStatus.text | trim | indent(6) }}
+    <div class="nhsuk-task-list__status {%- if item.status.classes %} {{ item.status.classes }}{% endif %}" id="{{ statusId }}">
+    {% if item.status.tag %}
+      {{ nhsukTag(item.status.tag) | trim | indent(6) }}
+    {% elif item.status %}
+      {{ nhsukContent(item.status) | trim | indent(6) }}
     {% endif %}
     </div>
   </li>
@@ -78,7 +68,7 @@
 
 <ul class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  {% for item in params.items %}
-    {{- _taskListItem(params, item, loop.index) if item }}
+  {% for item in items %}
+    {{- _taskListItem(params, item, loop.index) }}
   {% endfor %}
 </ul>

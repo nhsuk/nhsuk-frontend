@@ -2,19 +2,19 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-environment-banner" -%}
+{%- set classNames = "nhsuk-environment-banner" %}
 
 {#- Support tag as string #}
 {%- set tag = params.tag if params.tag is mapping and params.tag is not escaped else {
   text: params.tag if params.tag is string else "Development",
   html: params.tag if params.tag is escaped else undefined
-} -%}
+} %}
 
 {#- Support environment name as string #}
 {%- set name = params.name if params.name is mapping and params.name is not escaped else {
   text: params.name if params.name is string else tag.text | lower,
   html: params.name if params.name is escaped else tag.html | lower
-} -%}
+} %}
 
 {%- if params.colour and
   params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow"] and (
@@ -32,30 +32,30 @@
     )
   )
 %}
-  {% set classNames = classNames ~ " nhsuk-environment-banner--" ~ params.colour %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-environment-banner--" ~ params.colour %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set environment = name.html | safe if name.html else name.text %}
 {%- set description = "This is a %{name} environment. Do not use it to make clinical decisions" %}
 
 {%- set innerHtml %}
-{% if caller %}
-  {{- caller() }}
+{%- if caller %}
+  {{- caller() -}}
 {% elif params.html %}
-  {{- params.html | safe }}
+  {{- params.html | safe -}}
 {% else %}
-  {{- params.text | default(description) }}
+  {{- params.text | default(description) -}}
 {% endif %}
-{% endset -%}
+{%- endset -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-environment-banner__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
-  {% if params.tag not in ["", null, false] %}
+  {% if params.tag not in ["", none, false] %}
     {{ nhsukTag({
       text: tag.text | default(name.text),
       html: tag.html | default(name.html),

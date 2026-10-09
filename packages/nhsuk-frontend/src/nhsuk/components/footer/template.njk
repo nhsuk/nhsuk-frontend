@@ -1,4 +1,5 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -8,32 +9,32 @@
 {%- set meta = params.meta if params.meta is mapping and params.meta is not escaped else {
   text: params.meta if params.meta is string else undefined,
   html: params.meta if params.meta is escaped else undefined
-} -%}
+} %}
 
 {#- Support copyright as string #}
 {%- set copyright = params.copyright if params.copyright is mapping and params.copyright is not escaped else {
   text: params.copyright if params.copyright is string else undefined,
   html: params.copyright if params.copyright is escaped else undefined
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
-{%- set columns = params.columns | default(4, true) -%}
+{%- set columns = params.columns | default(4, true) %}
 
-{% if columns == 1 %}
-  {% set width = "full" %}
-{% elif columns == 2 %}
-  {% set width = "one-half" %}
-{% elif columns == 3 %}
-  {% set width = "one-third" %}
-{% else %}
-  {% set width = "one-quarter" %}
-  {% set columns = 4 %}
-{% endif -%}
+{%- if columns == 1 %}
+  {%- set width = "full" %}
+{%- elif columns == 2 %}
+  {%- set width = "one-half" %}
+{%- elif columns == 3 %}
+  {%- set width = "one-third" %}
+{%- else %}
+  {%- set width = "one-quarter" %}
+  {%- set columns = 4 %}
+{%- endif %}
 
-{% macro _footerList(items, modifier) %}
+{%- macro _footerList(items, modifier) %}
 <ul class="nhsuk-footer__list">
 {% for item in items %}
   {% if item %}
@@ -46,7 +47,7 @@
   {% endif %}
 {% endfor %}
 </ul>
-{% endmacro -%}
+{%- endmacro -%}
 
 <footer class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
@@ -61,7 +62,7 @@
         {%- set heading = navigation.heading if navigation.heading is mapping and navigation.heading is not escaped else {
           text: navigation.heading if navigation.heading is string else navigation.title,
           html: navigation.heading if navigation.heading is escaped else undefined
-        } -%}
+        } %}
 
         {{- nhsukHeading({
           id: heading.id,
@@ -94,9 +95,10 @@
     <div class="nhsuk-footer__meta">
 {% if caller or meta.items | length or meta.text or meta.html %}
     {% if meta.items %}
-      <h2 class="nhsuk-u-visually-hidden">
-        {{- meta.visuallyHiddenText | default(meta.visuallyHiddenTitle) | default("Support links") -}}
-      </h2>
+      {{ nhsukVisuallyHidden({
+        text: meta.visuallyHiddenText | default(meta.visuallyHiddenTitle) | default("Support links"),
+        element: "h2"
+      }) | trim | indent(6) }}
       {{ _footerList(meta.items) | trim | indent(6) }}
     {% endif %}
     {% if caller %}
@@ -109,7 +111,7 @@
 {% endif %}
     {% if copyright.html %}
       {{ copyright.html | safe | trim | indent(6) }}
-    {% elif copyright.text or copyright.text not in ["", null, false] %}
+    {% elif copyright.text or copyright.text not in ["", none, false] %}
       <p class="nhsuk-body-s">{{ (copyright.text | default("© NHS England", true)) | indent(6) }}</p>
     {% endif %}
     </div>

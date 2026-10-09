@@ -1,0 +1,121 @@
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
+
+{#-
+  Renders text, HTML or visually hidden content
+#}
+{%- macro nhsukContent(params = {}) %}
+
+{#- Support params as defined value #}
+{%- set params = params if params is mapping and params is not escaped else {
+  text: params if params is defined and params is not escaped else undefined,
+  html: params if params is escaped else undefined
+} %}
+
+{#- Support visually hidden content as defined value #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is defined and params.visuallyHidden is not escaped else params.visuallyHiddenText,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} %}
+
+{%- set content = {
+  text: params.text,
+  html: caller() if caller else params.html,
+  visuallyHidden: visuallyHidden,
+  slots: params.slots
+} %}
+
+{%- set slotBefore = nhsukSlot("before", content) %}
+{%- set slotStart = nhsukSlot("start", content) %}
+{%- set slotEnd = nhsukSlot("end", content) %}
+{%- set slotAfter = nhsukSlot("after", content) %}
+
+{%- set hasContent = true if content.html or (
+  content.text is defined and
+  content.text is not none and
+  content.text is not sameas(false) and (
+    content.text is escaped or
+    content.text is string or
+    content.text is number or
+    content.text is iterable
+  ) and content.text | string | length
+) else false %}
+
+{%- set hasContentSlots = true if slotStart | length or slotEnd | length else false %}
+
+{%- set hasVisuallyHidden = true if content.visuallyHidden.html or (
+  content.visuallyHidden.text is defined and
+  content.visuallyHidden.text is not none and
+  content.visuallyHidden.text is not sameas(false) and (
+    content.visuallyHidden.text is escaped or
+    content.visuallyHidden.text is string or
+    content.visuallyHidden.text is number or
+    content.visuallyHidden.text is iterable
+  ) and content.visuallyHidden.text | string | length
+) else false %}
+
+{#- Set visually hidden slots based on placement #}
+{%- set visuallyHiddenSlots = content.visuallyHidden.slots if content.visuallyHidden.slots is mapping and content.visuallyHidden.slots is not escaped else {
+  start: " " if hasContent and (content.visuallyHidden.placement == "end" or not content.visuallyHidden.placement) else undefined,
+  end: " " if hasContent and content.visuallyHidden.placement == "start" else undefined
+} %}
+
+{{- slotBefore -}}
+
+{%- if hasContent or hasVisuallyHidden %}
+{%- set visuallyHiddenHtml %}
+  {{- nhsukVisuallyHidden({
+    id: content.visuallyHidden.id,
+    text: content.visuallyHidden.text,
+    html: content.visuallyHidden.html,
+    classes: content.visuallyHidden.classes,
+    attributes: content.visuallyHidden.attributes,
+    placement: content.visuallyHidden.placement,
+    element: content.visuallyHidden.element,
+    slots: visuallyHiddenSlots
+  }) | trim -}}
+{% endset %}
+
+{%- set innerHtml %}
+  {{- slotStart -}}
+
+  {%- if content.visuallyHidden.placement == "start" %}
+    {{- visuallyHiddenHtml | safe | trim -}}
+  {% endif %}
+
+  {%- if content.html %}
+    {{- content.html | safe -}}
+  {% elif content.text is escaped %}
+    {{- content.text | safe -}}
+  {% elif content.text is string or content.text is number %}
+    {{- content.text | string -}}
+  {% elif content.text is defined and content.text is iterable %}
+    {{- content.text | select("string") | list | join(", ") -}}
+  {% endif %}
+
+  {%- if content.visuallyHidden.placement == "end" or (hasVisuallyHidden and not content.visuallyHidden.placement) %}
+    {{- visuallyHiddenHtml | safe | trim -}}
+  {% endif %}
+
+  {{- slotEnd -}}
+{% endset %}
+
+{%- if content.visuallyHidden.placement == "before" %}
+  {{- visuallyHiddenHtml | safe | trim -}}
+
+  {{- "\n" | safe if hasContent or hasContentSlots -}}
+{% endif %}
+
+{{- innerHtml | safe -}}
+
+{%- if content.visuallyHidden.placement == "after" %}
+  {{- "\n" | safe if hasContent or hasContentSlots -}}
+
+  {{- visuallyHiddenHtml | safe | trim -}}
+{% endif %}
+{%- endif %}
+
+{{- slotAfter -}}
+
+{%- endmacro %}

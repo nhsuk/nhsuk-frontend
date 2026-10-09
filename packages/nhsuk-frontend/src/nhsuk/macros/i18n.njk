@@ -14,8 +14,8 @@
   @param {string} [params.message] - Translation text, singular
   @param {{ [pluralRule: string]: string }} [params.messages] - Translation text by corresponding plural rule (optional, overrides params.message)
 #}
-{% macro nhsukI18nAttributes(params) %}
-  {%- if params.messages -%}
-    {% for pluralRule, message in params.messages %} data-i18n.{{ params.key }}.{{ pluralRule }}="{{ message | escape }}"{% endfor %}
-  {% elif params.message %} data-i18n.{{ params.key }}="{{ params.message | escape }}"{% endif -%}
-{% endmacro %}
+{%- macro nhsukI18nAttributes(params = {}) %}
+  {%- if params.messages %}
+    {%- for pluralRule, message in params.messages %} data-i18n.{{ params.key }}.{{ pluralRule }}="{{ message | escape }}"{% endfor %}
+  {%- elif params.message %} data-i18n.{{ params.key }}="{{ params.message | escape }}"{% endif %}
+{%- endmacro %}

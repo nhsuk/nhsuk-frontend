@@ -1,7 +1,9 @@
 {% extends "template.njk" -%}
 
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/content.njk" import nhsukContent -%}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon -%}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot -%}
 
 {% from "nhsuk/components/action-link/macro.njk" import actionLink -%}
 {% from "nhsuk/components/back-link/macro.njk" import backLink -%}
@@ -48,4 +50,5 @@
 {% from "nhsuk/components/tag/macro.njk" import tag -%}
 {% from "nhsuk/components/task-list/macro.njk" import taskList -%}
 {% from "nhsuk/components/textarea/macro.njk" import textarea -%}
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden -%}
 {% from "nhsuk/components/warning-callout/macro.njk" import warningCallout -%}

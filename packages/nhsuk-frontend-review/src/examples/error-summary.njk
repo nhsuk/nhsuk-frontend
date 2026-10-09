@@ -371,32 +371,32 @@
           ]
         }) }}
 
-        {% set yesField %}
-        {{ input({
-          label: {
-            text: "Label for revealed text input",
-            size: "s"
-          },
-          id: "yes-input",
-          name: "yes-input",
-          errorMessage: {
-            text: "Problem with input"
-          }
-        }) }}
+        {%- set conditionalYesHtml %}
+          {{- input({
+            label: {
+              text: "Label for revealed text input",
+              size: "s"
+            },
+            id: "yes-input",
+            name: "yes-input",
+            errorMessage: {
+              text: "Problem with input"
+            }
+          }) | trim -}}
         {% endset %}
 
-        {% set noField %}
-        {{ input({
-          label: {
-            text: "Label for revealed text input",
-            size: "s"
-          },
-          id: "no-input",
-          name: "no-input",
-          errorMessage: {
-            text: "Problem with input"
-          }
-        }) }}
+        {%- set conditionalNoHtml %}
+          {{- input({
+            label: {
+              text: "Label for revealed text input",
+              size: "s"
+            },
+            id: "no-input",
+            name: "no-input",
+            errorMessage: {
+              text: "Problem with input"
+            }
+          }) | trim -}}
         {% endset %}
 
         {{ heading({
@@ -427,14 +427,14 @@
               text: "Yes",
               checked: true,
               conditional: {
-                html: yesField
+                html: conditionalYesHtml
               }
             },
             {
               value: "no",
               text: "No",
               conditional: {
-                html: noField
+                html: conditionalNoHtml
               }
             }
           ]

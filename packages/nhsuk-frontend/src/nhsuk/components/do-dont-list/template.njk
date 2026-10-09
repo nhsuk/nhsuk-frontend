@@ -1,4 +1,5 @@
 {% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Support heading as string (with deprecated options) #}
@@ -6,30 +7,30 @@
   text: params.heading if params.heading is string else params.title,
   html: params.heading if params.heading is escaped else undefined,
   level: params.headingLevel
-} -%}
+} %}
 
 {#- Set icon or (deprecated) type for this component #}
 {%- set icon = "cross" if (params.icon or params.type) == "cross" else "tick" %}
 {%- set items = params.items | select("mapping") | list if params.items else [] %}
 
 {%- macro _listItem(params, data, icon) %}
-  {% set item = {
+  {%- set item = {
     text: data.item if data.item is string,
     html: data.item if data.item is escaped
   } if data.item else data -%}
 
-  {{ nhsukIcon(icon) | trim }}
-  {% if not params.hidePrefix and (params.prefixText or icon == "cross") %}
-    {{- (params.prefixText if params.prefixText else "do not") ~ " " -}}
-  {% endif %}
-  {% if item.html %}
-    {{- item.html | safe | trim }}
-  {% elif item.text %}
-    {{- item.text | trim }}
-  {% endif %}
-{% endmacro -%}
+  {{- nhsukContent({
+    text: item.text,
+    html: item.html,
+    slots: {
+      before: nhsukIcon(icon) | trim,
+      start: ((params.prefixText | default("do not")) ~ " ")
+        if not params.hidePrefix and (params.prefixText or icon == "cross") else undefined
+    }
+  }) | trim }}
+{%- endmacro %}
 
-{% set listHtml %}
+{%- set listHtml -%}
 <ul class="nhsuk-list nhsuk-list--{{ icon }}" role="list">
 {% for data in items %}
   <li>
@@ -37,7 +38,7 @@
   </li>
 {% endfor %}
 </ul>
-{% endset -%}
+{%- endset -%}
 
 {{ nhsukCard({
   id: params.id,

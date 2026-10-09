@@ -643,7 +643,21 @@ const fixtures = {
       ]
     }
   },
-  "with item strings": {
+  "with item values as array of strings": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: ["Karen Francis"]
+        },
+        {
+          key: "Appointments",
+          value: ["18 November 2023", "5 August 2024"]
+        }
+      ]
+    }
+  },
+  "with item values as strings": {
     context: {
       rows: [
         {
@@ -653,6 +667,20 @@ const fixtures = {
         {
           key: "Date of birth",
           value: "15 March 1984"
+        }
+      ]
+    }
+  },
+  "with item values as numbers": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: "Karen Francis"
+        },
+        {
+          key: "Age",
+          value: 42
         }
       ]
     }
@@ -1220,7 +1248,8 @@ const fixtures = {
                   context: {
                     text: "Recall for assessment",
                     colour: "red"
-                  }
+                  },
+                  indent: 2
                 })}
               </p>
             `
@@ -1251,11 +1280,11 @@ const fixtures = {
                       context: {
                         text: "Abnormal",
                         colour: "red"
-                      }
+                      },
+                      indent: 6
                     })}
                   </p>
                 </div>
-
                 <div class="nhsuk-grid-column-one-half">
                   <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
                     Left breast

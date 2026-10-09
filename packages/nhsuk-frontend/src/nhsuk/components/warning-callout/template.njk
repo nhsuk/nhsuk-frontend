@@ -4,7 +4,7 @@
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else undefined,
   html: params.heading if params.heading is escaped else undefined
-} -%}
+} %}
 
 {%- set card = {
   id: params.id,
@@ -27,13 +27,13 @@
   classes: params.classes,
   attributes: params.attributes,
   variant: "warning"
-} -%}
+} %}
 
-{% if caller %}
+{%- if caller %}
   {%- set outerCaller = caller %}
   {%- call nhsukCard(card) %}
-    {{- outerCaller() }}
-  {%- endcall %}
-{% else %}
-  {{- nhsukCard(card) | trim }}
+    {{- outerCaller() -}}
+  {% endcall %}
+{%- else %}
+  {{- nhsukCard(card) | trim -}}
 {% endif %}

@@ -1,18 +1,18 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-scroll" -%}
+{%- set classNames = "nhsuk-scroll" %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-scroll--reverse" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-scroll--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-scroll--" ~ variant %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif -%}
 
 <div
   {{- nhsukAttributes({

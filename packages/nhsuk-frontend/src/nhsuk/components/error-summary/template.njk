@@ -1,24 +1,34 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-error-summary" -%}
+{%- set classNames = "nhsuk-error-summary" %}
 
 {#- Support heading as string (with deprecated options) #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.titleText,
   html: params.heading if params.heading is escaped else params.titleHtml
-} -%}
+} %}
 
 {#- Support description as string (with deprecated options) #}
 {%- set description = params.description if params.description is mapping and params.description is not escaped else {
   text: params.description if params.description is string else params.descriptionText,
   html: params.description if params.description is escaped else params.descriptionHtml
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set content = {
+  text: description.text,
+  html: caller() if caller else description.html
+} %}
+
+{#- Moving `role="alert"` to a child element prevents a race condition between
+  the focusing JavaScript and the alert, otherwise information is missed from
+  screen reader announcements -#}
 
 <div
   {{- nhsukAttributes({
@@ -29,16 +39,15 @@
     },
     "data-module": "nhsuk-error-summary",
     "data-disable-auto-focus": {
-      value: params.disableAutoFocus | string
-        if params.disableAutoFocus in [true, false]
+      value: params.disableAutoFocus | string | lower
+        if params.disableAutoFocus is sameas(true) or
+          params.disableAutoFocus is sameas(false)
         else false,
       optional: true
     }
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
-  {#- Keep the role="alert" in a seperate child container to prevent a race condition between
-  the focusing js at the alert, resulting in information getting missed in screen reader announcements #}
   <div role="alert">
     {{ nhsukHeading({
       id: heading.id,
@@ -51,13 +60,7 @@
     <div class="nhsuk-error-summary__body">
     {% if caller or description.text or description.html %}
       <p>
-      {% if caller %}
-        {{- caller() }}
-      {% elif description.html %}
-        {{ description.html | safe | trim | indent(8) }}
-      {% else %}
-        {{ description.text | trim | indent(8) }}
-      {% endif %}
+        {{ nhsukContent(content) | trim | indent(8) }}
       </p>
     {% endif %}
     {% if params.errorList | length %}
@@ -67,16 +70,10 @@
         <li>
         {% if item.href %}
           <a href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
-          {% if item.html %}
-            {{ item.html | safe | trim | indent(12) }}
-          {% elif item.text %}
-            {{ item.text | trim | indent(12) }}
-          {% endif %}
+            {{ nhsukContent(item) | trim | indent(12) }}
           </a>
-        {% elif item.html %}
-          {{ item.html | safe | trim | indent(10) }}
-        {% elif item.text %}
-          {{ item.text | trim | indent(10) }}
+        {% else %}
+          {{ nhsukContent(item) | trim | indent(10) }}
         {% endif %}
         </li>
         {% endif %}

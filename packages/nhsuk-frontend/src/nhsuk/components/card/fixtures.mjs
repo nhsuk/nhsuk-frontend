@@ -153,7 +153,6 @@ const fixtures = {
         "summary-list",
         summaryListExamples["example person: Karen Francis"]
       )}
-
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
       ${components.render(
         "summary-list",
@@ -176,7 +175,6 @@ const fixtures = {
         "summary-list",
         summaryListExamples["example person: Karen Francis"]
       )}
-
       ${components.render("button", {
         context: {
           text: "Add role",
@@ -435,7 +433,6 @@ const fixtures = {
         "summary-list",
         summaryListExamples["example person: Karen Francis"]
       )}
-
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
       ${components.render(
         "summary-list",
@@ -456,7 +453,6 @@ const fixtures = {
         "summary-list",
         summaryListExamples["example person: Karen Francis"]
       )}
-
       ${components.render("button", {
         context: {
           text: "Add role",
@@ -623,7 +619,6 @@ const fixtures = {
         <li>you're coughing up more than just a few spots or streaks of blood – this could be a sign of serious bleeding in your lungs</li>
         <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
       </ul>
-
       ${components.render("action-link", {
         context: {
           text: "Find your nearest A&E",
@@ -768,9 +763,7 @@ const fixtures = {
           href: "#"
         }
       })}
-
       <h3 class="nhsuk-heading-s">Consent responses</h3>
-
       ${components.render("summary-list", {
         context: {
           card: {
