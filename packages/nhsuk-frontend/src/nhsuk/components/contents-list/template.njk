@@ -1,5 +1,6 @@
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-contents-list" %}
@@ -17,7 +18,7 @@
   <li class="nhsuk-contents-list__item" {%- if item.current %} aria-current="page" {%- endif %}>
   {% if item.current %}
     <span class="nhsuk-contents-list__current {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-      {{- item.html | safe | trim | indent(4) if item.html else item.text -}}
+      {{- nhsukContent(item) | trim | indent(4) -}}
     </span>
   {% else %}
     <a class="nhsuk-contents-list__link {%- if item.classes %} {{ item.classes }}{% endif %}" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
@@ -31,13 +32,18 @@
   {% endif %}
 {% endfor %}
 </ol>
-{%- endmacro -%}
+{%- endmacro %}
+
+{%- set content = {
+  html: _contentsList(params.items) | trim,
+  visuallyHidden: {
+    text: params.visuallyHiddenText | default("Contents", true),
+    placement: "before",
+    element: "h2"
+  }
+} -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
-  {{ nhsukVisuallyHidden({
-    text: params.visuallyHiddenText | default("Contents", true),
-    element: "h2"
-  }) | trim | indent(2) }}
-  {{ _contentsList(params.items) | trim | indent(2) }}
+  {{ nhsukContent(content) | trim | indent(2) }}
 </nav>
