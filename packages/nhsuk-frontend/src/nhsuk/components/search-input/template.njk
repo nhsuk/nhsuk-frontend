@@ -1,6 +1,7 @@
 {% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
 {% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-search-input" %}
@@ -32,27 +33,28 @@
 
 {%- set afterInputHtml %}
 {% if params.button not in ["", none, false] %}
-{{ nhsukButton({
-  html: params.button.html,
-  text: params.button.text,
-  ariaLabel: params.button.ariaLabel | default("Search"),
-  id: params.button.id,
-  href: params.button.href,
-  name: params.button.name,
-  value: params.button.value,
-  type: params.button.type | default("submit", true),
-  icon: params.button.icon | default("search"),
-  small: params.button.small | default(not params.large),
-  preventDoubleClick: params.button.preventDoubleClick,
-  disabled: params.button.disabled | default(params.disabled),
-  classes: classNamesButton,
-  attributes: params.button.attributes,
-  variant: params.button.variant
-}) | trim }}
+  {{- nhsukButton({
+    html: params.button.html,
+    text: params.button.text,
+    ariaLabel: params.button.ariaLabel | default("Search"),
+    id: params.button.id,
+    href: params.button.href,
+    name: params.button.name,
+    value: params.button.value,
+    type: params.button.type | default("submit", true),
+    icon: params.button.icon | default("search"),
+    small: params.button.small | default(not params.large),
+    preventDoubleClick: params.button.preventDoubleClick,
+    disabled: params.button.disabled | default(params.disabled),
+    classes: classNamesButton,
+    attributes: params.button.attributes,
+    variant: params.button.variant
+  }) | trim }}
 {% endif %}
-{% if params.formGroup.afterInput %}
-  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif %}
+
+  {{- nhsukSlot("afterInput", {
+    slots: params.formGroup
+  }) -}}
 {%- endset -%}
 
 {{ nhsukInput({

@@ -36,6 +36,22 @@ If you are not using Nunjucks macros, update your HTML markup using the [environ
 
 This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
 
+### :recycle: **Changes**
+
+#### Use Nunjucks conditional content and before/after input slots as strings
+
+We added support for alternative string values in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0) and [version 10.6.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.1).
+
+The following component options now support alternative string values:
+
+- checkboxes and radios `item.conditional` option
+- date input `day`, `month` and `year` options
+- single field `formGroup.beforeInput` and `formGroup.afterInput` options
+- multiple field `formGroup.beforeInputs` and `formGroup.afterInputs` options
+- tabs `item.label` and `item.panel` options
+
+This change was introduced in [pull request #2127: Add fixture coverage for before/after input slots](https://github.com/nhsuk/nhsuk-frontend/pull/2127).
+
 ### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:

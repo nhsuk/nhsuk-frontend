@@ -3,6 +3,7 @@
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-date-input" %}
@@ -31,35 +32,44 @@
 {#- fieldset is false by default #}
 {%- set hasFieldset = true if params.fieldset else false %}
 
-{%- set dateInputDay = params.day | default({
+{#- Support date input as string or number #}
+{%- set dateInputDay = params.day if params.day is mapping and params.day is not escaped else {
   name: "day",
-  value: params.values.day,
+  value: params.day | default(params.values.day),
   width: 2
-}) %}
+} %}
 
-{%- set dateInputMonth = params.month | default({
+{#- Support month input as string or number #}
+{%- set dateInputMonth = params.month if params.month is mapping and params.month is not escaped else {
   name: "month",
-  value: params.values.month,
+  value: params.month | default(params.values.month),
   width: 2
-}) %}
+} %}
 
-{%- set dateInputYear = params.year | default({
+{#- Support year input as string or number #}
+{%- set dateInputYear = params.year if params.year is mapping and params.year is not escaped else {
   name: "year",
-  value: params.values.year,
+  value: params.year | default(params.values.year),
   width: 4
-}) %}
+} %}
 
 {%- if params.items | length %}
-  {%- set dateInputItems = params.items %}
+  {%- set items = params.items %}
 {%- else %}
-  {%- set dateInputItems = [
+  {%- set items = [
     dateInputDay,
     dateInputMonth,
     dateInputYear
   ] %}
 {%- endif %}
 
-{%- macro _dateInputItem(params, item, anyItemHasError) %}
+{#- Determine if any date input item has an error #}
+{%- set anyItemHasError = false %}
+{%- for item in items %}
+  {%- set anyItemHasError = true if item.error or (item.classes and "nhsuk-input--error" in item.classes) else anyItemHasError %}
+{% endfor %}
+
+{%- macro _dateInputItem(item, parent) %}
 {#- Support item label as string #}
 {%- set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
   text: item.label if item.label is string else undefined,
@@ -100,17 +110,17 @@
       attributes: itemLabel.attributes
     },
     errorMessage: true if (not item.classes or not "nhsuk-input--error" in itemClasses) and (
-      itemHasError or not anyItemHasError and (
+      itemHasError or not parent.anyItemHasError and (
         item.error is not sameas(false) and (
           errorMessage.text or
           errorMessage.html or
-          params.errorMessage is sameas(true)
+          parent.params.errorMessage is sameas(true)
         )
       )
     ) else false,
-    id: item.id if item.id else (params.id ~ "-" ~ itemName),
-    name: (params.namePrefix ~ "[" ~ itemName ~ "]") if params.namePrefix else itemName,
-    value: itemValue | default(params.values[itemName]),
+    id: item.id if item.id else (parent.params.id ~ "-" ~ itemName),
+    name: (parent.params.namePrefix ~ "[" ~ itemName ~ "]") if parent.params.namePrefix else itemName,
+    value: itemValue | default(parent.params.values[itemName]),
     type: item.type | default("text", true),
     prefix: item.prefix,
     suffix: item.suffix,
@@ -120,19 +130,29 @@
     autocomplete: item.autocomplete,
     autocapitalize: item.autocapitalize,
     pattern: item.pattern,
-    disabled: item.disabled | default(params.disabled),
+    disabled: item.disabled | default(parent.params.disabled),
     describedBy: item.describedBy,
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
     attributes: item.attributes
   }) | trim | indent(2) }}
 </div>
-{%- endmacro %}
+{% endmacro %}
 
-{#- Determine if any date input item has an error #}
-{%- set anyItemHasError = false %}
-{%- for item in dateInputItems %}
-  {%- set anyItemHasError = true if item.error or (item.classes and "nhsuk-input--error" in item.classes) else anyItemHasError %}
-{% endfor %}
+{%- macro _dateInputItems(items, parent) -%}
+  {{- nhsukSlot("beforeInputs", parent) -}}
+
+  {%- for item in items %}
+    {%- if item and item.value is not sameas(false) %}
+      {{- _dateInputItem(item, {
+        params: parent.params,
+        anyItemHasError: parent.anyItemHasError,
+        loop: loop
+      }) }}
+    {%- endif %}
+  {%- endfor %}
+
+  {{- nhsukSlot("afterInputs", parent) -}}
+{%- endmacro %}
 
 {#- Capture the HTML so we can optionally nest it in a fieldset #}
 {%- set innerHtml %}
@@ -160,17 +180,11 @@
   }) | trim | indent(2) }}
 {% endif %}
   <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
-    {% if params.formGroup.beforeInputs %}
-    {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
-    {% endif %}
-    {% for item in dateInputItems %}
-      {% if item %}
-        {{- _dateInputItem(params, item, anyItemHasError) | trim | indent(4, true) }}
-      {% endif %}
-    {% endfor %}
-    {% if params.formGroup.afterInputs %}
-    {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
-    {% endif %}
+    {{ _dateInputItems(items, {
+      params: params,
+      slots: params.formGroup,
+      anyItemHasError: anyItemHasError
+    }) | trim | indent(4) }}
   </div>
 {%- endset %}
 

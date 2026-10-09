@@ -15,7 +15,9 @@ const fixtures = {
       idPrefix: "example",
       items: [
         {
-          label: "Past day",
+          label: {
+            text: "Past day"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -24,7 +26,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past week",
+          label: {
+            text: "Past week"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -33,7 +37,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past month",
+          label: {
+            text: "Past month"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -42,7 +48,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past year",
+          label: {
+            text: "Past year"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -64,7 +72,9 @@ const fixtures = {
       idPrefix: "with-anchor",
       items: [
         {
-          label: "Tab 1",
+          label: {
+            text: "Tab 1"
+          },
           panel: {
             html: outdent`
               <h2>Tab 1 content</h2>
@@ -78,7 +88,9 @@ const fixtures = {
           }
         },
         {
-          label: "Tab 2",
+          label: {
+            text: "Tab 2"
+          },
           panel: {
             html: outdent`
               <h2>Tab 2 content</h2>
@@ -87,7 +99,9 @@ const fixtures = {
           }
         },
         {
-          label: "Tab 3",
+          label: {
+            text: "Tab 3"
+          },
           panel: {
             html: outdent`
               <h2>Tab 3 content</h2>
@@ -103,7 +117,9 @@ const fixtures = {
       id: "tab-id-attribute",
       items: [
         {
-          label: "Past day",
+          label: {
+            text: "Past day"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -112,7 +128,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past week",
+          label: {
+            text: "Past week"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -121,7 +139,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past month",
+          label: {
+            text: "Past month"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -130,7 +150,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past year",
+          label: {
+            text: "Past year"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -148,7 +170,9 @@ const fixtures = {
     context: {
       items: [
         {
-          label: "Past day",
+          label: {
+            text: "Past day"
+          },
           id: "past-day",
           panel: {
             html: components.render(
@@ -158,7 +182,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past week",
+          label: {
+            text: "Past week"
+          },
           id: "past-week",
           panel: {
             html: components.render(
@@ -168,7 +194,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past month",
+          label: {
+            text: "Past month"
+          },
           id: "past-month",
           panel: {
             html: components.render(
@@ -178,7 +206,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past year",
+          label: {
+            text: "Past year"
+          },
           id: "past-year",
           panel: {
             html: components.render(
@@ -193,13 +223,65 @@ const fixtures = {
       width: "full"
     }
   },
+  "with panels as strings": {
+    context: {
+      idPrefix: "with-panels-strings",
+      items: [
+        {
+          label: {
+            text: "Tab 1"
+          },
+          panel: "Tab 1 content"
+        },
+        {
+          label: {
+            text: "Tab 2"
+          },
+          panel: "Tab 2 content"
+        },
+        {
+          label: {
+            text: "Tab 3"
+          },
+          panel: "Tab 3 content"
+        }
+      ]
+    }
+  },
+  "with labels as strings": {
+    context: {
+      idPrefix: "with-labels-strings",
+      items: [
+        {
+          label: "Tab 1",
+          panel: {
+            text: "Tab 1 content"
+          }
+        },
+        {
+          label: "Tab 2",
+          panel: {
+            text: "Tab 2 content"
+          }
+        },
+        {
+          label: "Tab 3",
+          panel: {
+            text: "Tab 3 content"
+          }
+        }
+      ]
+    }
+  },
   "with visually hidden text": {
     context: {
       idPrefix: "visually-hidden",
       visuallyHiddenText: "Cases per manager",
       items: [
         {
-          label: "Past day",
+          label: {
+            text: "Past day"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -208,7 +290,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past week",
+          label: {
+            text: "Past week"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -217,7 +301,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past month",
+          label: {
+            text: "Past month"
+          },
           panel: {
             html: components.render(
               "tables",
@@ -226,7 +312,9 @@ const fixtures = {
           }
         },
         {
-          label: "Past year",
+          label: {
+            text: "Past year"
+          },
           panel: {
             html: components.render(
               "tables",

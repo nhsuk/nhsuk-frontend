@@ -775,6 +775,41 @@ const fixtures = {
         }
       ]
     }
+  },
+  "with before and after input content": {
+    context: {
+      label: {
+        heading: "Sort by",
+        size: "l"
+      },
+      name: "example",
+      items: [
+        {
+          value: "published",
+          text: "Recently published"
+        },
+        {
+          value: "updated",
+          text: "Recently updated"
+        },
+        {
+          value: "views",
+          text: "Most views"
+        },
+        {
+          value: "comments",
+          text: "Most comments"
+        }
+      ],
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
   }
 }
 
