@@ -1,5 +1,6 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/card/action/macro.njk" import cardAction as nhsukCardAction %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
@@ -134,10 +135,13 @@
 {% endset %}
 
 {%- set headingInnerHtml %}
-{% if parent.params.href and not "nhsuk-card--feature" in classNames %}
-<a class="nhsuk-card__link" href="{{ parent.params.href }}">
-  {{- innerHtml | safe | indent(2) -}}
-</a>
+{% if (parent.params.href or params.href) and not "nhsuk-card--feature" in classNames %}
+{{ nhsukLink({
+  href: parent.params.href | default(params.href),
+  html: innerHtml,
+  openInNewTab: parent.params.openInNewTab | default(params.openInNewTab),
+  className: "nhsuk-card__link"
+}) | trim }}
 {% elif params.visuallyHiddenText %}
 <span role="text">
   {{ innerHtml | safe | indent(2) }}
@@ -227,10 +231,20 @@
     {{ nhsukContent(description) | trim | indent(4) }}
   {% elif description.text %}
     <p class="nhsuk-card__description">
-      {{- nhsukContent({
+    {% if description.href %}
+      {{ nhsukLink({
+        href: description.href,
+        text: description.text,
+        visuallyHiddenText: description.visuallyHiddenText,
+        openInNewTab: description.openInNewTab,
+        className: "nhsuk-card__link"
+      }) | trim | indent(6) }}
+    {% else %}
+      {{ nhsukContent({
         text: description.text,
         visuallyHiddenText: description.visuallyHiddenText
-      }) | trim | indent(4) -}}
+      }) | trim | indent(6) }}
+    {% endif %}
     </p>
   {% endif %}
   {% if "nhsuk-card--primary" in classNames %}

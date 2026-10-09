@@ -1,4 +1,5 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
@@ -31,25 +32,35 @@
   } %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
+    {% if item.href %}
+      {{ nhsukLink({
+        id: itemHeading.id,
+        text: itemHeading.text,
+        html: itemHeading.html,
+        visuallyHiddenText: itemHeading.visuallyHiddenText,
+        href: item.href,
+        className: "nhsuk-task-list__link",
+        classes: itemHeading.classes,
+        classes: ("nhsuk-link " ~ (itemHeading.classes if itemHeading.classes else "")) | trim,
+        attributes: nhsukAttributes({
+          "aria-describedby": {
+            value: (hintId ~ " " if itemHint.text or itemHint.html else "") ~ statusId,
+            optional: true
+          }
+        }) ~ nhsukAttributes(itemHeading.attributes)
+      }) | trim | indent(6) }}
+    {% else %}
       {{ nhsukHeading({
         id: itemHeading.id,
         text: itemHeading.text,
         html: itemHeading.html,
         visuallyHiddenText: itemHeading.visuallyHiddenText,
-        className: "nhsuk-task-list__link" if item.href else "",
-        classes: ("nhsuk-link" if item.href else "") ~ (itemHeading.classes if itemHeading.classes else ""),
-        attributes: nhsukAttributes({
-          href: {
-            value: item.href | default(false),
-            optional: true
-          },
-          "aria-describedby": {
-            value: ((hintId ~ " " if itemHint.text or itemHint.html else "") ~ statusId) if item.href else false,
-            optional: true
-          }
-        }) ~ nhsukAttributes(itemHeading.attributes),
-        element: "a" if item.href else "div"
+        className: false,
+        classes: itemHeading.classes,
+        attributes: itemHeading.attributes,
+        element: "div"
       }) | trim | indent(6) }}
+    {% endif %}
     {% if itemHint.text or itemHint.html %}
       <div class="nhsuk-task-list__hint" id="{{ hintId }}">
         {{ nhsukContent(itemHint) | trim | indent(8) }}

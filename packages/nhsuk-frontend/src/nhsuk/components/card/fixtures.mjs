@@ -87,11 +87,24 @@ const fixtures = {
   },
   "basic with heading link": {
     context: {
-      href: "#",
       heading: {
         text: "Introduction to care and support",
+        href: "#",
         size: "m",
         level: 3
+      },
+      description:
+        "A quick guide for people who have care and support needs and their carers"
+    }
+  },
+  "basic with heading link opens in a new tab": {
+    context: {
+      heading: {
+        text: "Introduction to care and support",
+        href: "#",
+        size: "m",
+        level: 3,
+        openInNewTab: true
       },
       description:
         "A quick guide for people who have care and support needs and their carers"
@@ -230,6 +243,29 @@ const fixtures = {
       )}
     `
   },
+  "basic with summary list and action opens in a new tab": {
+    context: {
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
+      actions: {
+        items: [
+          {
+            text: "Delete",
+            href: "#/delete",
+            openInNewTab: true
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render(
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
+      )}
+    `
+  },
   "basic with summary list and actions": {
     context: {
       heading: {
@@ -355,10 +391,26 @@ const fixtures = {
   },
   "basic with summary list and heading link": {
     context: {
-      href: "#",
       heading: {
         text: "Regional Manager",
+        href: "#",
         level: 3
+      }
+    },
+    callBlock: outdent`
+      ${components.render(
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
+      )}
+    `
+  },
+  "basic with summary list and heading link opens in a new tab": {
+    context: {
+      heading: {
+        text: "Regional Manager",
+        href: "#",
+        level: 3,
+        openInNewTab: true
       }
     },
     callBlock: outdent`
@@ -378,16 +430,50 @@ const fixtures = {
   },
   "secondary with heading link": {
     context: {
-      href: "#",
-      variant: "secondary",
       heading: {
         text: "Introduction to care and support",
+        href: "#",
         size: "m",
         level: 3
       },
       description: {
         text: "A quick guide for people who have care and support needs and their carers"
-      }
+      },
+      variant: "secondary"
+    }
+  },
+  "secondary with heading link opens in a new tab": {
+    context: {
+      heading: {
+        text: "Introduction to care and support",
+        href: "#",
+        size: "m",
+        level: 3,
+        openInNewTab: true
+      },
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      },
+      variant: "secondary"
+    }
+  },
+  "secondary with heading link and custom HTML": {
+    context: {
+      heading: {
+        text: "Why we are reinvesting in the NHS Prototype kit",
+        classes: "nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2",
+        href: "#"
+      },
+      description: {
+        html: outdent`
+          <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
+          <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
+        `
+      },
+      variant: "secondary"
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
   "secondary with custom HTML": {
@@ -539,12 +625,29 @@ const fixtures = {
   },
   "secondary with summary list and heading link": {
     context: {
-      href: "#",
-      variant: "secondary",
       heading: {
         text: "Regional Manager",
+        href: "#",
         level: 3
-      }
+      },
+      variant: "secondary"
+    },
+    callBlock: outdent`
+      ${components.render(
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
+      )}
+    `
+  },
+  "secondary with summary list and heading link opens in a new tab": {
+    context: {
+      heading: {
+        text: "Regional Manager",
+        href: "#",
+        level: 3,
+        openInNewTab: true
+      },
+      variant: "secondary"
     },
     callBlock: outdent`
       ${components.render(
@@ -630,11 +733,11 @@ const fixtures = {
   },
   "primary (with chevron)": {
     context: {
-      href: "#",
       heading: {
         text: "Breast screening",
         size: "m"
       },
+      href: "#",
       variant: "primary",
       clickable: true
     },
@@ -642,15 +745,27 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "primary (with chevron) opens in a new tab": {
+    context: {
+      heading: {
+        text: "Breast screening",
+        size: "m"
+      },
+      href: "#",
+      variant: "primary",
+      clickable: true,
+      openInNewTab: true
+    }
+  },
   "primary (with chevron and description)": {
     context: {
-      href: "#",
       heading: {
         text: "Introduction to care and support",
         size: "m"
       },
       description:
         "A quick guide for people who have care and support needs and their carers",
+      href: "#",
       clickable: true,
       variant: "primary"
     },
@@ -660,49 +775,78 @@ const fixtures = {
   },
   "clickable": {
     context: {
-      href: "#",
       heading: {
         text: "Introduction to care and support",
         size: "m"
       },
       description:
         "A quick guide for people who have care and support needs and their carers",
+      href: "#",
       clickable: true
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "clickable opens in a new tab": {
+    context: {
+      heading: {
+        text: "Introduction to care and support",
+        size: "m"
+      },
+      description:
+        "A quick guide for people who have care and support needs and their carers",
+      href: "#",
+      clickable: true,
+      openInNewTab: true
+    }
+  },
+  "clickable with description link": {
+    context: {
+      heading: {
+        text: "91",
+        visuallyHiddenText: "Applicants",
+        classes: "nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1"
+      },
+      description: {
+        text: "Applicants",
+        href: "#"
+      },
+      clickable: true
+    },
+    options: {
+      width: "one-quarter"
+    }
+  },
+  "clickable with description link opens in a new tab": {
+    context: {
+      heading: {
+        text: "91",
+        visuallyHiddenText: "Applicants",
+        classes: "nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1"
+      },
+      description: {
+        text: "Applicants",
+        href: "#",
+        openInNewTab: true
+      },
+      clickable: true
+    },
+    options: {
+      width: "one-quarter"
+    }
+  },
   "secondary": {
     context: {
-      href: "#",
       heading: {
         text: "Urgent and emergency care services",
         size: "m"
       },
       description:
         "Services the NHS provides if you need urgent or emergency medical help",
+      href: "#",
       clickable: true,
       variant: "secondary"
-    },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
-  },
-  "secondary non-clickable with custom description": {
-    context: {
-      href: "#",
-      variant: "secondary",
-      heading: {
-        text: "Why we are reinvesting in the NHS Prototype kit",
-        classes: "nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2"
-      },
-      description: {
-        html: outdent`
-          <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
-          <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
-        `
-      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -767,12 +911,12 @@ const fixtures = {
       ${components.render("summary-list", {
         context: {
           card: {
-            href: "#",
-            clickable: true,
             heading: {
               text: "Sarah Philips (Mum)",
               level: 4
-            }
+            },
+            href: "#",
+            clickable: true
           },
           rows: [
             {
@@ -839,13 +983,13 @@ const fixtures = {
       image: {
         src: "/nhsuk-frontend/assets/example-image-exercise.jpg"
       },
-      href: "#",
       heading: {
         text: "Exercise",
         size: "m"
       },
       description:
         "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing",
+      href: "#",
       clickable: true
     },
     screenshot: {
@@ -857,13 +1001,13 @@ const fixtures = {
       image: {
         html: components.render("images", imageExamples["default"])
       },
-      href: "#",
       heading: {
         text: "Exercise",
         size: "m"
       },
       description:
         "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing",
+      href: "#",
       clickable: true
     }
   },
@@ -891,13 +1035,13 @@ const fixtures = {
   },
   "top task": {
     context: {
-      href: "#",
-      clickable: true,
       heading: {
         text: "Order a repeat prescription",
         size: "xs",
         level: 3
-      }
+      },
+      href: "#",
+      clickable: true
     },
     options: {
       width: "one-third"

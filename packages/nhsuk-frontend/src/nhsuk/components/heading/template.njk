@@ -1,12 +1,13 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set className = params.className | default("nhsuk-heading") %}
+{%- set className = params.className | default("nhsuk-heading", true) %}
 {%- set classPrefix = params.classPrefix | default(className ~ "-") %}
-{%- set classNames = className | default("") %}
+{%- set classNames = className if params.className not in ["", none, false] else "" %}
 
 {#- Allow permitted sizes only #}
 {%- set size = undefined %}
@@ -28,12 +29,12 @@
   {%- if classPrefix | replace(className, "") == "-" %}
     {%- set classNames = classPrefix ~ size %}
   {%- else %}
-    {%- set classNames = classNames ~ " " ~ classPrefix ~ size %}
+    {%- set classNames = (classNames ~ " " ~ classPrefix ~ size) | trim %}
   {%- endif %}
 {%- endif %}
 
 {%- if params.classes %}
-  {%- set classNames = classNames ~ " " ~ params.classes %}
+  {%- set classNames = (classNames ~ " " ~ params.classes) | trim %}
 {%- endif %}
 
 {#- Support heading caption as string #}
@@ -86,9 +87,12 @@
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
 {% if params.href %}
-  <a class="nhsuk-link" href="{{ params.href }}">
-    {{- nhsukContent(content) | trim -}}
-  </a>
+  {{ nhsukLink({
+    href: params.href,
+    text: content.text,
+    html: content.html,
+    openInNewTab: params.openInNewTab
+  }) | trim | indent(2) }}
 {% else %}
   {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}

@@ -158,8 +158,7 @@ const options = {
       href: {
         type: 'string',
         required: false,
-        description:
-          "The value of the link's `href` attribute for the task list item.",
+        description: 'The task list item link `href` attribute.',
         released: '9.1.0'
       },
       classes: {
