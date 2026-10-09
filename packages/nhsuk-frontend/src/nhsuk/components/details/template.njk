@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant %}
@@ -23,19 +24,34 @@
 
 {%- set content = {
   text: params.text,
-  html: params.html
-} -%}
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <details class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
   <summary class="nhsuk-details__summary {%- if summary.classes %} {{ summary.classes }}{% endif %}"
     {{- nhsukAttributes(summary.attributes) }}>
+    {{ nhsukSlot("before", summary) -}}
+
     <span class="nhsuk-details__summary-text">
       {{ nhsukContent({
         text: summary.text,
-        html: summary.html
+        html: summary.html,
+        visuallyHidden: summary.visuallyHidden | default(summary.visuallyHiddenText),
+        slots: {
+          start: summary.slots.start,
+          end: summary.slots.end
+        }
       }) | trim | indent(6) }}
     </span>
+
+    {{- nhsukSlot("after", summary) }}
   </summary>
   <div class="nhsuk-details__text">
   {% if caller %}
@@ -48,3 +64,5 @@
   {% endif %}
   </div>
 </details>
+
+{{- nhsukSlot("after", params) -}}

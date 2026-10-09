@@ -100,6 +100,25 @@ const fixtures = {
       copiedButtonText: "Cod wedi'i gopïo",
       copiedAnnouncementText: "Cod wedi'i gopïo i'r clipfwrdd"
     }
+  },
+  "with content slots": {
+    context: {
+      text: "This is a plain text code block",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
   }
 }
 

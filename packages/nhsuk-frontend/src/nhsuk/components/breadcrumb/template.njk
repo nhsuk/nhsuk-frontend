@@ -29,7 +29,8 @@
         text: item.text,
         html: item.html,
         className: "nhsuk-breadcrumb__link",
-        attributes: item.attributes
+        attributes: item.attributes,
+        slots: item.slots
       }) | trim | indent(6) }}
     </li>
   {% endif %}

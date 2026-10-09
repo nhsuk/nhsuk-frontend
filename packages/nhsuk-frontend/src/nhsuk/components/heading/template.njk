@@ -3,6 +3,7 @@
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set className = params.className | default("nhsuk-heading", true) %}
@@ -51,15 +52,22 @@
   placement: headingCaption.placement,
   size: headingCaption.size | default(size),
   classes: headingCaption.classes,
-  attributes: headingCaption.attributes
+  attributes: headingCaption.attributes,
+  slots: headingCaption.slots
 } %}
 
 {%- set hasCaption = true if caption.text or caption.html else false %}
 
+{{- nhsukSlot("before", params) -}}
+
 {%- set content = {
   text: params.text,
   html: caller() if caller else params.html,
-  visuallyHidden: params.visuallyHiddenText
+  visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText),
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
 } %}
 
 {%- if content.html or content.text %}
@@ -104,3 +112,5 @@
   {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {%- endif %}
+
+{{- nhsukSlot("after", params) -}}

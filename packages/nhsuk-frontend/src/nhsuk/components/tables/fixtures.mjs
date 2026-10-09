@@ -153,6 +153,71 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with content slots": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m",
+        slots: {
+          start: {
+            html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+          },
+          end: {
+            html: '<samp class="app-annotate app-annotate--end">End</samp>'
+          }
+        }
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ],
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with column widths": {
     context: {
       caption: {
@@ -2642,6 +2707,111 @@ const fixtures = {
           align: "right",
           width: "one-third",
           classes: "nhsuk-u-nowrap"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Zadie Munroe"
+          },
+          {
+            text: "7 May 2026"
+          }
+        ],
+        [
+          {
+            text: "Yolanda Pierce"
+          },
+          {
+            text: "13 May 2026"
+          }
+        ],
+        [
+          {
+            text: "Xanthe Beaumont"
+          },
+          {
+            text: "19 May 2026"
+          }
+        ],
+        [
+          {
+            text: "Wendell Shaw"
+          },
+          {
+            text: "25 May 2026"
+          }
+        ],
+        [
+          {
+            text: "Val Cruz"
+          },
+          {
+            text: "1 June 2026"
+          }
+        ],
+        [
+          {
+            text: "Uta Brennan"
+          },
+          {
+            text: "7 June 2026"
+          }
+        ],
+        [
+          {
+            text: "Tamsin Foley-Whitworth"
+          },
+          {
+            text: "14 June 2026"
+          }
+        ],
+        [
+          {
+            text: "Stellan Park"
+          },
+          {
+            text: "20 June 2026"
+          }
+        ],
+        [
+          {
+            text: "Ro Nkosi"
+          },
+          {
+            text: "28 June 2026"
+          }
+        ],
+        [
+          {
+            text: "Reuben Tate"
+          },
+          {
+            text: "1 May 2026"
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  "sortable server-side with change links": {
+    context: {
+      caption: "Appointments",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Name",
+          href: "#",
+          sort: "descending",
+          width: "one-half"
+        },
+        {
+          text: "Last log in",
+          href: "#",
+          sort: true,
+          align: "right",
+          width: "one-third",
+          classes: "nhsuk-u-nowrap"
         },
         {
           visuallyHiddenText: "Action"
@@ -2779,8 +2949,196 @@ const fixtures = {
           }
         ]
       ]
-    },
-    variants
+    }
+  },
+  "sortable server-side with change links and visually hidden options": {
+    context: {
+      caption: "Appointments",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Name",
+          href: "#",
+          sort: "descending",
+          width: "one-half"
+        },
+        {
+          text: "Last log in",
+          href: "#",
+          sort: true,
+          align: "right",
+          width: "one-third",
+          classes: "nhsuk-u-nowrap"
+        },
+        {
+          visuallyHidden: {
+            text: "Action"
+          }
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Zadie Munroe"
+          },
+          {
+            text: "7 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Zadie Munroe:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Yolanda Pierce"
+          },
+          {
+            text: "13 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Yolanda Pierce:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Xanthe Beaumont"
+          },
+          {
+            text: "19 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Xanthe Beaumont:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Wendell Shaw"
+          },
+          {
+            text: "25 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Wendell Shaw:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Val Cruz"
+          },
+          {
+            text: "1 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Val Cruz:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Uta Brennan"
+          },
+          {
+            text: "7 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Uta Brennan:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Tamsin Foley-Whitworth"
+          },
+          {
+            text: "14 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Tamsin Foley-Whitworth:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Stellan Park"
+          },
+          {
+            text: "20 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Stellan Park:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Ro Nkosi"
+          },
+          {
+            text: "28 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Ro Nkosi:",
+              placement: "start"
+            }
+          }
+        ],
+        [
+          {
+            text: "Reuben Tate"
+          },
+          {
+            text: "1 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: {
+              text: "Reuben Tate:",
+              placement: "start"
+            }
+          }
+        ]
+      ]
+    }
   },
   "sortable with numeric format": {
     context: {

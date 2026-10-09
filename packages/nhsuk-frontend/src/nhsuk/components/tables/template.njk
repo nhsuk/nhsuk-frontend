@@ -7,6 +7,7 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant %}
@@ -77,7 +78,15 @@
 {%- endif %}
 
 {%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) %}
-{%- set captionVisuallyHiddenText = caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+
+{#- Support caption visually hidden content as string #}
+{%- set captionVisuallyHidden = caption.visuallyHidden if caption.visuallyHidden is mapping and caption.visuallyHidden is not escaped else {
+  text: caption.visuallyHidden if caption.visuallyHidden is string else caption.visuallyHiddenText,
+  html: caption.visuallyHidden if caption.visuallyHidden is escaped else undefined
+} %}
+
+{%- set captionVisuallyHiddenText = captionVisuallyHidden.text | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+{%- set captionVisuallyHiddenHtml = captionVisuallyHidden.html %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -154,7 +163,8 @@
     {{- nhsukLink({
       href: item.href,
       html: nhsukContent(item),
-      openInNewTab: item.openInNewTab
+      openInNewTab: item.openInNewTab,
+      slots: item.slots
     }) | trim -}}
   {% else %}
     {{- nhsukContent(item) | trim -}}
@@ -188,7 +198,7 @@
     {{- nhsukContent({
       text: parent.header.text | default(item.header),
       html: parent.header.html,
-      visuallyHiddenText: parent.header.visuallyHiddenText
+      visuallyHidden: parent.header.visuallyHidden | default(parent.header.visuallyHiddenText)
     }) | safe | trim | indent(2) }} </span>
 
   {%- if item.html -%}
@@ -203,11 +213,14 @@
 {%- endmacro %}
 
 {%- set tableHtml %}
+{{- nhsukSlot("before", params) -}}
+
 <table {{- attributesHtml | safe }}>
-{% if not (caption.text or caption.html) and captionVisuallyHiddenText %}
+{% if not (caption.text or caption.html) and (captionVisuallyHiddenText or captionVisuallyHiddenHtml) %}
   {{ nhsukVisuallyHidden({
     id: captionId,
     text: captionVisuallyHiddenText,
+    html: captionVisuallyHiddenHtml,
     classes: caption.classes,
     attributes: caption.attributes,
     element: "caption"
@@ -217,7 +230,10 @@
     id: captionId,
     text: caption.text,
     html: caption.html,
-    visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
+    visuallyHidden: {
+      text: "(" ~ captionVisuallyHiddenText ~ ")" if (caption.text or caption.html) and captionVisuallyHiddenText else captionVisuallyHiddenText,
+      html: "(" ~ (captionVisuallyHiddenHtml | safe) ~ ")" if (caption.text or caption.html) and captionVisuallyHiddenHtml else captionVisuallyHiddenHtml
+    },
     caption: {
       id: headingCaption.id,
       text: headingCaption.text,
@@ -226,7 +242,8 @@
         headingCaption.placement in ["start", "end"] else undefined,
       size: headingCaption.size | default(caption.size),
       classes: headingCaption.classes,
-      attributes: headingCaption.attributes
+      attributes: headingCaption.attributes,
+      slots: headingCaption.slots
     },
     size: caption.size,
     sizes: ["s", "m", "l", "xl"],
@@ -234,7 +251,11 @@
     classPrefix: classNamesCaption ~ "--",
     classes: caption.classes,
     attributes: caption.attributes,
-    element: "caption"
+    element: "caption",
+    slots: {
+      start: caption.slots.start,
+      end: caption.slots.end
+    }
   }) | trim | indent(2) }}
 {% endif %}
 {% if head | length %}
@@ -257,7 +278,7 @@
       {{- _tableCell({
         text: header.text,
         html: header.html,
-        visuallyHiddenText: header.visuallyHiddenText,
+        visuallyHidden: header.visuallyHidden | default(header.visuallyHiddenText),
         format: header.format,
         href: header.href,
         openInNewTab: header.openInNewTab,
@@ -315,7 +336,7 @@
       {{- _tableCell({
         text: data.text,
         html: data.html,
-        visuallyHiddenText: data.visuallyHiddenText,
+        visuallyHidden: data.visuallyHidden | default(data.visuallyHiddenText),
         format: data.format | default(header.format),
         href: data.href,
         openInNewTab: data.openInNewTab,
@@ -345,6 +366,8 @@
   {% endfor %}
   </tbody>
 </table>
+
+{{- nhsukSlot("after", params) -}}
 {% endset %}
 
 {%- if params.scroll %}

@@ -49,12 +49,14 @@
     visuallyHiddenText: heading.visuallyHiddenText,
     level: heading.level | default(3),
     classes: heading.classes,
-    attributes: heading.attributes
+    attributes: heading.attributes,
+    slots: heading.slots
   },
   description: {
     html: listHtml
   },
   classes: params.classes,
   attributes: params.attributes,
-  variant: "feature"
+  variant: "feature",
+  slots: params.slots
 }) | trim }}
