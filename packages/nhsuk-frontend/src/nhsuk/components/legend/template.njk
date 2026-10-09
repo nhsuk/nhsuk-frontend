@@ -1,6 +1,7 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset__legend" %}
@@ -53,7 +54,7 @@
 {%- set legend = {
   id: params.id,
   text: heading.text | default(params.text) if hasHeading else params.text | default(heading.text),
-  html: heading.html | default(params.html) if hasHeading else params.html | default(heading.html),
+  html: caller() if caller else (heading.html | default(params.html) if hasHeading else params.html | default(heading.html)),
   visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) if hasHeading else params.visuallyHiddenText,
   caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
   size: size,
@@ -78,23 +79,13 @@
   {%- set classNames = classNames ~ " " ~ legend.classes %}
 {%- endif %}
 
-{%- if caller or legend.html or legend.text %}
-{%- set innerHtml %}
-{%- if caller %}
-  {{- caller() -}}
-{% elif legend.html %}
-  {{- legend.html | safe -}}
-{% elif legend.text %}
-  {{- legend.text -}}
-{% endif %}
-{%- endset %}
-
+{%- if legend.html or legend.text %}
 {%- if hasHeading %}
 <legend class="{{ classNames }}" {%- if legend.id %} id="{{ legend.id }}"{% endif %}
   {{- nhsukAttributes(legend.attributes) }}>
   {{ nhsukHeading({
     id: heading.id,
-    html: innerHtml,
+    html: nhsukContent(legend),
     visuallyHiddenText: legend.visuallyHiddenText,
     caption: legend.caption,
     level: heading.level,
@@ -105,7 +96,7 @@
 {% else %}
   {{- nhsukHeading({
     id: legend.id,
-    html: innerHtml,
+    html: nhsukContent(legend),
     visuallyHiddenText: legend.visuallyHiddenText,
     caption: legend.caption,
     className: classNames,
