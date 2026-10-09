@@ -1,0 +1,5 @@
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-width-container--wide {
+  @include nhsuk-width-container(1100px);
+}
