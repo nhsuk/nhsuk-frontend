@@ -2,6 +2,8 @@
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" %}
@@ -102,61 +104,67 @@
 {%- set hasBeforeInput = true if beforeInput.text or beforeInput.html else false %}
 {%- set hasAfterInput = true if afterInput.text or afterInput.html else false %}
 
-{%- macro _inputElement(params) -%}
-  <input
-    {{- nhsukAttributes({
-      class: classNames,
-      id: id,
-      name: params.name,
-      type: params.type | default("text", true),
-      spellcheck: {
-        value: params.spellcheck | string | lower
-          if params.spellcheck is sameas(true) or
-            params.spellcheck is sameas(false)
-          else false,
-        optional: true
-      },
-      value: {
-        value: params.value,
-        optional: true
-      },
-      disabled: {
-        value: params.disabled,
-        optional: true
-      },
-      "aria-describedby": {
-        value: describedBy if describedBy else false,
-        optional: true
-      },
-      autocomplete: {
-        value: params.autocomplete,
-        optional: true
-      },
-      autocapitalize: {
-        value: params.autocapitalize,
-        optional: true
-      },
-      pattern: {
-        value: params.pattern,
-        optional: true
-      },
-      placeholder: {
-        value: params.placeholder,
-        optional: true
-      },
-      inputmode: {
-        value: params.inputmode,
-        optional: true
-      }
-    }) -}}
+{%- macro _inputElement(params, parent) -%}
+{{- nhsukSlot("before", parent) -}}
 
-    {{- nhsukAttributes(params.attributes) }}>
+<input
+  {{- nhsukAttributes({
+    class: parent.classNames,
+    id: parent.id,
+    name: params.name,
+    type: params.type | default("text", true),
+    spellcheck: {
+      value: params.spellcheck | string | lower
+        if params.spellcheck is sameas(true) or
+          params.spellcheck is sameas(false)
+        else false,
+      optional: true
+    },
+    value: {
+      value: params.value,
+      optional: true
+    },
+    disabled: {
+      value: params.disabled,
+      optional: true
+    },
+    "aria-describedby": {
+      value: parent.describedBy if parent.describedBy else false,
+      optional: true
+    },
+    autocomplete: {
+      value: params.autocomplete,
+      optional: true
+    },
+    autocapitalize: {
+      value: params.autocapitalize,
+      optional: true
+    },
+    pattern: {
+      value: params.pattern,
+      optional: true
+    },
+    placeholder: {
+      value: params.placeholder,
+      optional: true
+    },
+    inputmode: {
+      value: params.inputmode,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) }}>
+
+{{- nhsukSlot("after", parent) -}}
 {%- endmacro %}
 
 {%- macro _affixItem(affix, type) %}
-  <div class="nhsuk-input-wrapper__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
-    {{- affix.html | safe | trim | indent(4) if affix.html else affix.text -}}
-  </div>
+  {%- if affix.html or affix.text -%}
+    <div class="nhsuk-input-wrapper__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
+      {{- nhsukContent(affix) | trim -}}
+    </div>
+  {%- endif %}
 {%- endmacro -%}
 
 <div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
@@ -197,23 +205,27 @@
   }) | trim | indent(2) }}
 {% endif %}
 
+{%- set content = {
+  html: _inputElement(params, {
+    id: id,
+    describedBy: describedBy,
+    classNames: classNames,
+    slots: {
+      before: _affixItem(prefix, "prefix"),
+      after: _affixItem(suffix, "suffix")
+    }
+  }) | trim,
+  slots: {
+    before: beforeInput,
+    after: afterInput
+  }
+} %}
+
 {%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput or params.inputWrapper.classes or params.inputWrapper.attributes %}
   <div class="{{ classNamesInputWrapper }}" {{- nhsukAttributes(params.inputWrapper.attributes) }}>
-    {% if hasBeforeInput %}
-      {{- beforeInput.html | safe | trim | indent(4, true) if beforeInput.html else beforeInput.text }}
-    {% endif %}
-    {% if hasPrefix %}
-      {{- _affixItem(prefix, "prefix") | indent(2, true) }}
-    {% endif %}
-    {{ _inputElement(params) }}
-    {% if hasSuffix %}
-      {{- _affixItem(suffix, "suffix") | indent(2, true) }}
-    {% endif %}
-    {% if hasAfterInput %}
-      {{- afterInput.html | safe | trim | indent(4, true) if afterInput.html else afterInput.text }}
-    {% endif %}
+    {{ nhsukContent(content) | trim | indent(4) }}
   </div>
 {% else %}
-  {{ _inputElement(params) }}
+  {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}
 </div>

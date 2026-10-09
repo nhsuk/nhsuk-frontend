@@ -2,6 +2,7 @@
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-js-character-count" %}
@@ -11,12 +12,6 @@
 {%- set label = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
-} %}
-
-{#- Support content after input as string #}
-{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
-  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
-  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
 } %}
 
 {%- if params.classes %}
@@ -42,20 +37,21 @@
 {%- set id = params.id if params.id else params.name %}
 
 {%- set countMessageHtml %}
-{{ nhsukHint({
-  text: textareaDescriptionTextNoLimit,
-  id: id ~ "-info",
-  classes: "nhsuk-character-count__message" ~ (" " ~ params.countMessage.classes if params.countMessage.classes),
-  attributes: {
-    hidden: {
-      value: false if textareaDescriptionTextNoLimit | length else true,
-      optional: true
+  {{- nhsukHint({
+    text: textareaDescriptionTextNoLimit,
+    id: id ~ "-info",
+    classes: "nhsuk-character-count__message" ~ (" " ~ params.countMessage.classes if params.countMessage.classes),
+    attributes: {
+      hidden: {
+        value: false if textareaDescriptionTextNoLimit | length else true,
+        optional: true
+      }
     }
-  }
-}) | trim }}
-{% if afterInput.text or afterInput.html %}
-  {{- afterInput.html | safe | trim if afterInput.html else afterInput.text }}
-{% endif %}
+  }) | trim }}
+
+  {{- nhsukSlot("afterInput", {
+    slots: params.formGroup
+  }) -}}
 {%- endset %}
 
 {%- set attributesHtml %}

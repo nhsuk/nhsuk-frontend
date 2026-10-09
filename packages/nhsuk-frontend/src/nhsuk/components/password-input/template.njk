@@ -2,16 +2,11 @@
 {% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" %}
 {%- set classNamesFormGroup = "nhsuk-password-input" %}
-
-{#- Support content after input as string #}
-{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
-  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
-  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
-} %}
 
 {%- if params.classes %}
   {%- set classNames = classNames ~ " " ~ params.classes %}
@@ -61,32 +56,33 @@
   {{- nhsukAttributes(params.formGroup.attributes) -}}
 {% endset %}
 
-{%- set buttonHtml %}
-{{ nhsukButton({
-  text: params.showPasswordText | default(params.button.text) | default("Show"),
-  ariaLabel: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel) | default("Show password"),
-  id: params.button.id,
-  href: params.button.href,
-  name: params.button.name,
-  value: params.button.value,
-  type: params.button.type | default("button", true),
-  icon: params.button.icon,
-  small: params.button.small | default(not params.large),
-  preventDoubleClick: params.button.preventDoubleClick,
-  disabled: params.button.disabled | default(params.disabled),
-  classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
-  attributes: {
-    "aria-controls": id,
-    "hidden": {
-      value: true,
-      optional: true
-    }
-  },
-  variant: params.button.variant | default("secondary")
-}) | trim }}
-{% if afterInput.text or afterInput.html %}
-  {{- afterInput.html | safe | trim if afterInput.html else afterInput.text }}
-{% endif %}
+{%- set afterInputHtml %}
+  {{- nhsukButton({
+    text: params.showPasswordText | default(params.button.text) | default("Show"),
+    ariaLabel: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel) | default("Show password"),
+    id: params.button.id,
+    href: params.button.href,
+    name: params.button.name,
+    value: params.button.value,
+    type: params.button.type | default("button", true),
+    icon: params.button.icon,
+    small: params.button.small | default(not params.large),
+    preventDoubleClick: params.button.preventDoubleClick,
+    disabled: params.button.disabled | default(params.disabled),
+    classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
+    attributes: {
+      "aria-controls": id,
+      "hidden": {
+        value: true,
+        optional: true
+      }
+    },
+    variant: params.button.variant | default("secondary")
+  }) | trim }}
+
+  {{- nhsukSlot("afterInput", {
+    slots: params.formGroup
+  }) -}}
 {%- endset -%}
 
 {{ nhsukInput({
@@ -115,7 +111,7 @@
     attributes: attributesHtml,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
-      html: buttonHtml
+      html: afterInputHtml
     }
   }
 }) | trim }}
