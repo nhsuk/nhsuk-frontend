@@ -23,7 +23,7 @@
   } %}
 
   {%- if slot.text or slot.html %}
-    {{- "\n" | safe if name == "after" -}}
+    {{- "\n" | safe if name == "after" or name == "afterInput" or name == "afterInputs" -}}
     {% if slot.html %}
       {{- slot.html | safe -}}
     {% elif slot.text is escaped %}
@@ -31,6 +31,6 @@
     {% elif slot.text is string or slot.text is number %}
       {{- slot.text | string -}}
     {% endif %}
-    {{- "\n" | safe if name == "before" -}}
+    {{- "\n" | safe if name == "before" or name == "beforeInput" or name == "beforeInputs" -}}
   {% endif %}
 {%- endmacro %}
