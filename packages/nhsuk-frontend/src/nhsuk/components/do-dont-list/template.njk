@@ -1,4 +1,5 @@
 {% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Support heading as string (with deprecated options) #}
@@ -18,15 +19,15 @@
     html: data.item if data.item is escaped
   } if data.item else data -%}
 
-  {{ nhsukIcon(icon) | trim }}
-  {% if not params.hidePrefix and (params.prefixText or icon == "cross") %}
-    {{- (params.prefixText if params.prefixText else "do not") ~ " " -}}
-  {% endif %}
-  {% if item.html %}
-    {{- item.html | safe | trim }}
-  {% elif item.text %}
-    {{- item.text | trim }}
-  {% endif %}
+  {{- nhsukContent({
+    text: item.text,
+    html: item.html,
+    slots: {
+      before: nhsukIcon(icon) | trim,
+      start: ((params.prefixText | default("do not")) ~ " ")
+        if not params.hidePrefix and (params.prefixText or icon == "cross") else undefined
+    }
+  }) | trim }}
 {%- endmacro %}
 
 {%- set listHtml -%}
