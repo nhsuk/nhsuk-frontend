@@ -35,7 +35,7 @@
   {% set classNames = classNames ~ " nhsuk-input--code" %}
 {% endif %}
 
-{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) %}
   {% set classNames = classNames ~ " nhsuk-input--error" %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
@@ -98,8 +98,9 @@
       name: params.name,
       type: params.type | default("text", true),
       spellcheck: {
-        value: params.spellcheck | string
-          if params.spellcheck in [true, false]
+        value: params.spellcheck | string | lower
+          if params.spellcheck is sameas(true) or
+            params.spellcheck is sameas(false)
           else false,
         optional: true
       },

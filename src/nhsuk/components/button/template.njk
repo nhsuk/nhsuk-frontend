@@ -68,8 +68,9 @@
     },
     "data-module": "nhsuk-button",
     "data-prevent-double-click": {
-      value: params.preventDoubleClick | string
-        if params.preventDoubleClick in [true, false]
+      value: params.preventDoubleClick | string | lower
+        if params.preventDoubleClick is sameas(true) or
+          params.preventDoubleClick is sameas(false)
         else false,
       optional: true
     }
