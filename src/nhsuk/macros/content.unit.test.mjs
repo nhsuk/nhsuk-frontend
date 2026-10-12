@@ -38,6 +38,48 @@ describe('Macro: Content', () => {
       expect(output).toBe(expected)
     })
 
+    it('renders array of numbers', () => {
+      const input = [0, 123, 456, 789]
+      const expected = '0, 123, 456, 789'
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent(${JSON.stringify(input)}) -}}
+      `)
+
+      expect(output).toBe(expected)
+    })
+
+    it('renders array of text', () => {
+      const input = ['abc', '123', '<!&']
+      const expected = 'abc, 123, &lt;!&amp;'
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent(${JSON.stringify(input)}) -}}
+      `)
+
+      expect(output).toBe(expected)
+    })
+
+    it('renders array of mixed values', () => {
+      const input = ['abc', false, 123, '<!&', true, {}, [], null]
+      const expected = 'abc, 123, &lt;!&amp;'
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent(${JSON.stringify(input)}) -}}
+      `)
+
+      expect(output).toBe(expected)
+    })
+
     it('renders text option with escaping', () => {
       const input = {
         text: 'A&E waiting times'
@@ -73,6 +115,57 @@ describe('Macro: Content', () => {
       const expected = '123'
 
       const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders text option as array of numbers', () => {
+      const input = {
+        text: [0, 123, 456, 789]
+      }
+
+      const expected = '0, 123, 456, 789'
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent(${JSON.stringify(input)}) -}}
+      `)
+
+      expect(output).toBe(expected)
+    })
+
+    it('renders text option as array of text', () => {
+      const input = {
+        text: ['abc', '123', '<!&']
+      }
+
+      const expected = 'abc, 123, &lt;!&amp;'
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent(${JSON.stringify(input)}) -}}
+      `)
+
+      expect(output).toBe(expected)
+    })
+
+    it('renders text option as array of mixed values', () => {
+      const input = {
+        text: ['abc', false, 123, '<!&', true, {}, [], null]
+      }
+
+      const expected = 'abc, 123, &lt;!&amp;'
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent(${JSON.stringify(input)}) -}}
+      `)
+
       expect(output).toBe(expected)
     })
 

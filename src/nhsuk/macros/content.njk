@@ -6,9 +6,9 @@
 #}
 {%- macro nhsukContent(params = {}) %}
 
-{#- Support params as string or number #}
+{#- Support params as defined value #}
 {%- set params = params if params is mapping and params is not escaped else {
-  text: params if params is string or params is number else undefined,
+  text: params if params is defined and params is not escaped else undefined,
   html: params if params is escaped else undefined
 } %}
 
@@ -24,15 +24,31 @@
 {%- set slotAfter = nhsukSlot("after", params) %}
 
 {%- set contentHtml = caller() if caller else params.html %}
-{%- set contentText = params.text %}
+{%- set contentText %}
+  {%- if params.text is escaped %}
+    {{- params.text | safe -}}
+  {% elif params.text is string or params.text is number %}
+    {{- params.text | string -}}
+  {% elif params.text is defined and
+    params.text is not none and
+    params.text is not mapping and
+    params.text is iterable %}
+    {{- nhsukContentItems(params.text) -}}
+  {% endif %}
+{%- endset %}
 
-{%- set hasContent = true if contentHtml or contentText not in [undefined, null, false] and
-  ((contentText is escaped or contentText is string or contentText is number) and contentText | string | length) else false %}
-
+{%- set hasContent = true if contentHtml or contentText | length else false %}
 {%- set hasContentSlots = true if slotStart | length or slotEnd | length else false %}
 
-{%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text not in [undefined, null, false] and
-  ((visuallyHidden.text is escaped or visuallyHidden.text is string or visuallyHidden.text is number) and visuallyHidden.text | string | length) else false %}
+{%- set visuallyHiddenInnerHtml = visuallyHidden.html %}
+{%- set visuallyHiddenInnerText = nhsukContent({ text: visuallyHidden.text }) if
+  visuallyHidden.text is defined and
+  visuallyHidden.text is not none and
+  visuallyHidden.text is not sameas(true) and
+  visuallyHidden.text is not sameas(false)
+  else undefined %}
+
+{%- set hasVisuallyHidden = true if visuallyHiddenInnerHtml or visuallyHiddenInnerText | length else false %}
 
 {#- Set visually hidden slots based on placement #}
 {%- set visuallyHiddenSlots = visuallyHidden.slots if visuallyHidden.slots is mapping and visuallyHidden.slots is not escaped else {
@@ -46,8 +62,8 @@
 {%- set visuallyHiddenHtml %}
   {{- nhsukVisuallyHidden({
     id: visuallyHidden.id,
-    text: visuallyHidden.text,
-    html: visuallyHidden.html,
+    text: visuallyHiddenInnerText,
+    html: visuallyHiddenInnerHtml,
     classes: visuallyHidden.classes,
     attributes: visuallyHidden.attributes,
     placement: visuallyHidden.placement,
@@ -65,10 +81,8 @@
 
   {%- if contentHtml %}
     {{- contentHtml | safe -}}
-  {% elif contentText is escaped %}
+  {% else %}
     {{- contentText | safe -}}
-  {% elif contentText is string or contentText is number %}
-    {{- contentText | string -}}
   {% endif %}
 
   {%- if visuallyHidden.placement == "end" or (hasVisuallyHidden and not visuallyHidden.placement) %}
@@ -95,4 +109,16 @@
 
 {{- slotAfter -}}
 
+{% endmacro %}
+
+{#-
+  Renders array of text, HTML or visually hidden content
+#}
+{%- macro nhsukContentItems(items, index = 0) %}
+  {%- set itemHtml = nhsukContent(items[index]) | trim %}
+  {%- set nextHtml = nhsukContentItems(items, index + 1) | trim if index + 1 < items | length else "" %}
+
+  {{- itemHtml -}}
+  {{- ", " if itemHtml | length and nextHtml | length -}}
+  {{- nextHtml -}}
 {% endmacro %}
