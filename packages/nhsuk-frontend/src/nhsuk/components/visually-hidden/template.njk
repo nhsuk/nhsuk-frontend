@@ -25,7 +25,7 @@
 {%- set visuallyHiddenText = params.text %}
 
 {%- set hasContent = true if visuallyHiddenHtml or visuallyHiddenText not in [undefined, null, false] and
-  ((visuallyHiddenText is string or visuallyHiddenText is number) and visuallyHiddenText | string | length) else false %}
+  ((visuallyHiddenText is escaped or visuallyHiddenText is string or visuallyHiddenText is number) and visuallyHiddenText | string | length) else false %}
 
 {{- nhsukSlot("before", params) -}}
 
@@ -36,6 +36,8 @@
 
   {% if visuallyHiddenHtml %}
     {{- visuallyHiddenHtml | safe -}}
+  {% elif visuallyHiddenText is escaped %}
+    {{- visuallyHiddenText | safe -}}
   {% elif visuallyHiddenText is string or visuallyHiddenText is number %}
     {{- visuallyHiddenText | string -}}
   {% endif %}
