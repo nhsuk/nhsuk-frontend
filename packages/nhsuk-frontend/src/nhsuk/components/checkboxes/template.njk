@@ -84,7 +84,7 @@
   {%- set conditionalId = "conditional-" ~ itemId %}
   {%- if item.divider %}
     <div class="nhsuk-checkboxes__divider {{- " nhsuk-u-frontend-not-supported-hidden" if item.behaviour == "inclusive" else "" }}">
-      {{- item.divider -}}
+      {{- nhsukContent(item.divider) | trim | indent(4) -}}
     </div>
   {% else %}
     {%- set isChecked = item.checked | default((item.value in parent.params.values and item.checked is not sameas(false)) if parent.params.values else false, true) %}
