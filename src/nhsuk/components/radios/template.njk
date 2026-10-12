@@ -79,7 +79,9 @@
   {%- set itemId = item.id if item.id else parent.idPrefix ~ ("-" ~ parent.loop.index if parent.loop.index > 1 else "") %}
   {%- set conditionalId = "conditional-" ~ itemId %}
   {%- if item.divider %}
-    <div class="nhsuk-radios__divider">{{ item.divider }}</div>
+    <div class="nhsuk-radios__divider">
+      {{- nhsukContent(item.divider) | trim | indent(4) -}}
+    </div>
   {% else %}
     {%- set isChecked = item.checked | default((item.value == parent.params.value and item.checked is not sameas(false)) if parent.params.value else false, true) %}
     {%- set hasHint = true if itemHint.text or itemHint.html %}
