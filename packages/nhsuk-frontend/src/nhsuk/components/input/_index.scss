@@ -16,6 +16,9 @@ $nhsuk-input-height: 40px !default;
 $nhsuk-input-height-large: 48px !default;
 $nhsuk-input-height-large-tablet: 60px !default;
 
+$nhsuk-input-affix-height-large: 52px !default;
+$nhsuk-input-affix-height-large-tablet: 56px !default;
+
 @include nhsuk-exports("nhsuk/components/input") {
   .nhsuk-input {
     box-sizing: border-box;
@@ -239,16 +242,18 @@ $nhsuk-input-height-large-tablet: 60px !default;
   }
 
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__prefix,
-  .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix {
+  .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix,
+  .nhsuk-input-wrapper__prefix--large,
+  .nhsuk-input-wrapper__suffix--large {
     @media #{nhsuk-from-breakpoint(mobile)} {
-      height: nhsuk-px-to-rem(52px);
+      height: nhsuk-px-to-rem($nhsuk-input-affix-height-large);
       padding-right: nhsuk-spacing(3, $unit: "rem");
       padding-left: nhsuk-spacing(3, $unit: "rem");
       @include nhsuk-font($size: 22);
     }
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      height: nhsuk-px-to-rem($nhsuk-input-affix-height-large-tablet + $nhsuk-button-shadow-size);
     }
   }
 

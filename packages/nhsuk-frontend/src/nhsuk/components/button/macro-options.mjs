@@ -81,6 +81,13 @@ const options = {
     description: 'If set to `true`, smaller button size will be used.',
     released: '10.4.0'
   },
+  large: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, larger button size will be used, matching the height of a large input.',
+    released: '11.0.0'
+  },
   classes: {
     type: 'string',
     required: false,

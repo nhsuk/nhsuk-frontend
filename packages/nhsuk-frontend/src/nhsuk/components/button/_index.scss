@@ -28,7 +28,7 @@ $nhsuk-button-search-icon-size-large: 38px;
 
 $nhsuk-button-min-height-mobile: 40px !default;
 $nhsuk-button-min-height-tablet: 52px !default;
-$nhsuk-button-min-height-large-input-wrapper-tablet: 52px !default;
+$nhsuk-button-min-height-large-tablet: 52px !default;
 $nhsuk-button-min-height-small: 32px !default;
 
 @include nhsuk-exports("nhsuk/components/button") {
@@ -74,8 +74,13 @@ $nhsuk-button-min-height-small: 32px !default;
         nhsuk-px-to-rem($nhsuk-button-padding-left-right-tablet); // [5]
       line-height: nhsuk-line-height(24px, $font-size: 19px);
 
+      // Matches the height of a large input, e.g. when used alongside one.
+      // The `.nhsuk-input-wrapper--large &` selector is kept for backwards
+      // compatibility with buttons placed inside a large input wrapper
+      // without the explicit `nhsuk-button--large` modifier
+      &.nhsuk-button--large,
       .nhsuk-input-wrapper--large & {
-        min-height: nhsuk-px-to-rem($nhsuk-button-min-height-large-input-wrapper-tablet + $nhsuk-button-shadow-size);
+        min-height: nhsuk-px-to-rem($nhsuk-button-min-height-large-tablet + $nhsuk-button-shadow-size);
       }
     }
 
