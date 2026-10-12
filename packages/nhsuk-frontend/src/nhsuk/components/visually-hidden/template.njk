@@ -1,12 +1,13 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-u-visually-hidden" %}
 
-{#- Support params as string or number #}
+{#- Support params as defined value #}
 {%- set params = params if params is mapping and params is not escaped else {
-  text: params if params is string or params is number else undefined,
+  text: params if params is defined and params is not escaped else undefined,
   html: params if params is escaped else undefined
 } %}
 
@@ -22,24 +23,22 @@
 {%- endif %}
 
 {%- set visuallyHiddenHtml = caller() if caller else params.html %}
-{%- set visuallyHiddenText = params.text %}
-
-{%- set hasContent = true if visuallyHiddenHtml or visuallyHiddenText not in [undefined, null, false] and
-  ((visuallyHiddenText is escaped or visuallyHiddenText is string or visuallyHiddenText is number) and visuallyHiddenText | string | length) else false %}
+{%- set visuallyHiddenText = nhsukContent({ text: params.text }) if
+  params.text is not sameas(true) and
+  params.text is not sameas(false)
+  else undefined %}
 
 {{- nhsukSlot("before", params) -}}
 
-{% if hasContent %}
+{% if visuallyHiddenHtml or visuallyHiddenText | length %}
 <{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {{- nhsukSlot("start", params) -}}
 
   {% if visuallyHiddenHtml %}
     {{- visuallyHiddenHtml | safe -}}
-  {% elif visuallyHiddenText is escaped %}
-    {{- visuallyHiddenText | safe -}}
-  {% elif visuallyHiddenText is string or visuallyHiddenText is number %}
-    {{- visuallyHiddenText | string -}}
+  {% else %}
+    {{- visuallyHiddenText -}}
   {% endif %}
 
   {{- nhsukSlot("end", params) -}}

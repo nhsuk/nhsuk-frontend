@@ -643,6 +643,20 @@ const fixtures = {
       ]
     }
   },
+  "with item values as array of strings": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: ["Karen Francis"]
+        },
+        {
+          key: "Appointments",
+          value: ["18 November 2023", "5 August 2024"]
+        }
+      ]
+    }
+  },
   "with item values as strings": {
     context: {
       rows: [
