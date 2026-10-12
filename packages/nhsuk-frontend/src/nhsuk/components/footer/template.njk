@@ -9,32 +9,32 @@
 {%- set meta = params.meta if params.meta is mapping and params.meta is not escaped else {
   text: params.meta if params.meta is string else undefined,
   html: params.meta if params.meta is escaped else undefined
-} -%}
+} %}
 
 {#- Support copyright as string #}
 {%- set copyright = params.copyright if params.copyright is mapping and params.copyright is not escaped else {
   text: params.copyright if params.copyright is string else undefined,
   html: params.copyright if params.copyright is escaped else undefined
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
-{%- set columns = params.columns | default(4, true) -%}
+{%- set columns = params.columns | default(4, true) %}
 
-{% if columns == 1 %}
-  {% set width = "full" %}
-{% elif columns == 2 %}
-  {% set width = "one-half" %}
-{% elif columns == 3 %}
-  {% set width = "one-third" %}
-{% else %}
-  {% set width = "one-quarter" %}
-  {% set columns = 4 %}
-{% endif -%}
+{%- if columns == 1 %}
+  {%- set width = "full" %}
+{%- elif columns == 2 %}
+  {%- set width = "one-half" %}
+{%- elif columns == 3 %}
+  {%- set width = "one-third" %}
+{%- else %}
+  {%- set width = "one-quarter" %}
+  {%- set columns = 4 %}
+{%- endif %}
 
-{% macro _footerList(items, modifier) %}
+{%- macro _footerList(items, modifier) %}
 <ul class="nhsuk-footer__list">
 {% for item in items %}
   {% if item %}
@@ -47,7 +47,7 @@
   {% endif %}
 {% endfor %}
 </ul>
-{% endmacro -%}
+{%- endmacro -%}
 
 <footer class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
@@ -62,7 +62,7 @@
         {%- set heading = navigation.heading if navigation.heading is mapping and navigation.heading is not escaped else {
           text: navigation.heading if navigation.heading is string else navigation.title,
           html: navigation.heading if navigation.heading is escaped else undefined
-        } -%}
+        } %}
 
         {{- nhsukHeading({
           id: heading.id,

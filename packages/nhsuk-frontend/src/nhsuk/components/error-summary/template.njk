@@ -3,23 +3,23 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-error-summary" -%}
+{%- set classNames = "nhsuk-error-summary" %}
 
 {#- Support heading as string (with deprecated options) #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.titleText,
   html: params.heading if params.heading is escaped else params.titleHtml
-} -%}
+} %}
 
 {#- Support description as string (with deprecated options) #}
 {%- set description = params.description if params.description is mapping and params.description is not escaped else {
   text: params.description if params.description is string else params.descriptionText,
   html: params.description if params.description is escaped else params.descriptionHtml
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- set content = {
   text: description.text,

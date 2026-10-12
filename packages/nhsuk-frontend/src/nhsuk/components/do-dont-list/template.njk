@@ -6,14 +6,14 @@
   text: params.heading if params.heading is string else params.title,
   html: params.heading if params.heading is escaped else undefined,
   level: params.headingLevel
-} -%}
+} %}
 
 {#- Set icon or (deprecated) type for this component #}
 {%- set icon = "cross" if (params.icon or params.type) == "cross" else "tick" %}
 {%- set items = params.items | select("mapping") | list if params.items else [] %}
 
 {%- macro _listItem(params, data, icon) %}
-  {% set item = {
+  {%- set item = {
     text: data.item if data.item is string,
     html: data.item if data.item is escaped
   } if data.item else data -%}
@@ -27,9 +27,9 @@
   {% elif item.text %}
     {{- item.text | trim }}
   {% endif %}
-{% endmacro -%}
+{%- endmacro %}
 
-{% set listHtml %}
+{%- set listHtml -%}
 <ul class="nhsuk-list nhsuk-list--{{ icon }}" role="list">
 {% for data in items %}
   <li>
@@ -37,7 +37,7 @@
   </li>
 {% endfor %}
 </ul>
-{% endset -%}
+{%- endset -%}
 
 {{ nhsukCard({
   id: params.id,

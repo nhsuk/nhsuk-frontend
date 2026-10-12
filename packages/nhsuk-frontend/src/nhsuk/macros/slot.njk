@@ -13,7 +13,7 @@
   @param {object} [params] - Component params
   @param {string} params.slots - Specified points for injecting custom text or HTML
 #}
-{% macro nhsukSlot(name, params = {}) -%}
+{%- macro nhsukSlot(name, params = {}) %}
   {%- set slots = params.slots %}
 
   {#- Support slot as string or number #}
@@ -32,5 +32,5 @@
       {{- slot.text | string -}}
     {% endif %}
     {{- "\n" | safe if name == "before" -}}
-  {%- endif %}
+  {% endif %}
 {%- endmacro %}
