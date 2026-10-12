@@ -17,9 +17,14 @@ describe('Macro: Content', () => {
       expect(renderMacro()).toBe('')
       expect(renderMacro({})).toBe('')
       expect(renderMacro(undefined)).toBe('')
-      expect(renderMacro(true)).toBe('')
-      expect(renderMacro(false)).toBe('')
       expect(renderMacro('')).toBe('')
+    })
+
+    it('renders booleans', () => {
+      expect(renderMacro(true)).toBe('true')
+      expect(renderMacro(false)).toBe('false')
+      expect(renderMacro({ text: true })).toBe('true')
+      expect(renderMacro({ text: false })).toBe('false')
     })
 
     it('renders text', () => {
@@ -68,7 +73,7 @@ describe('Macro: Content', () => {
 
     it('renders array of mixed values', () => {
       const input = ['abc', false, 123, '<!&', true, {}, [], null]
-      const expected = 'abc, 123, &lt;!&amp;'
+      const expected = 'abc, false, 123, &lt;!&amp;, true'
 
       // Render directly otherwise nunjucks `renderMacro()` will spread
       // array values for use as separate macro arguments
@@ -157,7 +162,7 @@ describe('Macro: Content', () => {
         text: ['abc', false, 123, '<!&', true, {}, [], null]
       }
 
-      const expected = 'abc, 123, &lt;!&amp;'
+      const expected = 'abc, false, 123, &lt;!&amp;, true'
 
       // Render directly otherwise nunjucks `renderMacro()` will spread
       // array values for use as separate macro arguments
