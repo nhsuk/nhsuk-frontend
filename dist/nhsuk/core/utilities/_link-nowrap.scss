@@ -1,0 +1,19 @@
+@use "../tools" as *;
+
+////
+/// Link nowrap
+///
+/// Prevent long anchor links from line breaking
+/// on smaller screens
+///
+/// @group utilities
+///
+/// @example html
+///   <a href="#" class="nhsuk-u-nowrap"></a>
+////
+
+.nhsuk-u-nowrap {
+  @media #{nhsuk-until-breakpoint(tablet)} {
+    white-space: nowrap;
+  }
+}

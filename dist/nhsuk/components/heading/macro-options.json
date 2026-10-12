@@ -1,0 +1,108 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the heading.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "text",
+    "type": "string",
+    "required": true,
+    "description": "If `html` is set, this is not required. Text to use within the heading. If `html` is provided, the `text` option will be ignored.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "html",
+    "type": "string",
+    "required": true,
+    "description": "If `text` is set, this is not required. HTML to use within the heading. If `html` is provided, the `text` option will be ignored.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "caller",
+    "type": "nunjucks-block",
+    "required": false,
+    "description": "Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire heading component in a `call` block.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "visuallyHiddenText",
+    "type": "string",
+    "required": false,
+    "description": "A visually hidden suffix added to the heading.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "href",
+    "type": "string",
+    "required": false,
+    "description": "If set, the heading will become a link.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "caption",
+    "type": "object",
+    "required": false,
+    "description": "Optional caption for the heading.",
+    "released": "10.6.0",
+    "isComponent": true
+  },
+  {
+    "name": "size",
+    "type": "string",
+    "required": false,
+    "description": "Size of the heading – `\"xxs\"`, `\"xs\"`, `\"s\"`, `\"m\"`, `\"l\"` or `\"xl\"`.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "sizes",
+    "type": "array",
+    "required": false,
+    "description": "Allowed sizes for the heading – Defaults to `[\"xxs\", \"xs\", \"s\", \"m\", \"l\", \"xl\"]`.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "level",
+    "type": "integer",
+    "required": false,
+    "description": "Optional heading level. Defaults to `1`.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "className",
+    "type": "string",
+    "required": false,
+    "description": "Optional class to use for the heading. Defaults to `\"nhsuk-heading\"`.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "classPrefix",
+    "type": "string",
+    "required": false,
+    "description": "Optional class prefix to use for the heading. Defaults to `\"nhsuk-heading-\"`.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the heading.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the heading.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "element",
+    "type": "string",
+    "required": false,
+    "description": "HTML element for the heading component – for example, `\"caption\"`. Defaults to the `level` option prefixed with `\"h\"`.",
+    "released": "10.6.0"
+  }
+]

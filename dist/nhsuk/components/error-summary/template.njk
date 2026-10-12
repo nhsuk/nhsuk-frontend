@@ -1,0 +1,85 @@
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-error-summary" %}
+
+{#- Support heading as string (with deprecated options) #}
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else params.titleText,
+  html: params.heading if params.heading is escaped else params.titleHtml
+} %}
+
+{#- Support description as string (with deprecated options) #}
+{%- set description = params.description if params.description is mapping and params.description is not escaped else {
+  text: params.description if params.description is string else params.descriptionText,
+  html: params.description if params.description is escaped else params.descriptionHtml
+} %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set content = {
+  text: description.text,
+  html: caller() if caller else description.html
+} %}
+
+{#- Moving `role="alert"` to a child element prevents a race condition between
+  the focusing JavaScript and the alert, otherwise information is missed from
+  screen reader announcements -#}
+
+<div
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-error-summary",
+    "data-disable-auto-focus": {
+      value: params.disableAutoFocus | string | lower
+        if params.disableAutoFocus is sameas(true) or
+          params.disableAutoFocus is sameas(false)
+        else false,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
+  <div role="alert">
+    {{ nhsukHeading({
+      id: heading.id,
+      text: heading.text,
+      html: heading.html,
+      level: 2,
+      className: "nhsuk-error-summary__heading",
+      attributes: heading.attributes
+    }) | trim | indent(4) }}
+    <div class="nhsuk-error-summary__body">
+    {% if caller or description.text or description.html %}
+      <p>
+        {{ nhsukContent(content) | trim | indent(8) }}
+      </p>
+    {% endif %}
+    {% if params.errorList | length %}
+      <ul class="nhsuk-list nhsuk-error-summary__list">
+      {% for item in params.errorList %}
+        {% if item %}
+        <li>
+        {% if item.href %}
+          <a href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
+            {{ nhsukContent(item) | trim | indent(12) }}
+          </a>
+        {% else %}
+          {{ nhsukContent(item) | trim | indent(10) }}
+        {% endif %}
+        </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,189 @@
+{
+  "name": "Environment banner",
+  "component": "environment-banner",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "tag": "Default"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--white nhsuk-tag--no-border\">Default</strong>\n    This is a default environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "white",
+      "context": {
+        "tag": "Development",
+        "colour": "white"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--white\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--white\">Development</strong>\n    This is a development environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "grey",
+      "context": {
+        "tag": "Prototype",
+        "colour": "grey"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--grey\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--grey\">Prototype</strong>\n    This is a prototype environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "green",
+      "context": {
+        "tag": "Staging",
+        "colour": "green"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--green\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--green\">Staging</strong>\n    This is a staging environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "aqua green",
+      "context": {
+        "tag": "Sandbox",
+        "colour": "aqua-green"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--aqua-green\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--aqua-green\">Sandbox</strong>\n    This is a sandbox environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "blue",
+      "context": {
+        "tag": "Production",
+        "colour": "blue"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--blue\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--blue\">Production</strong>\n    This is a production environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "purple",
+      "context": {
+        "tag": "Review",
+        "colour": "purple"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--purple\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--purple\">Review</strong>\n    This is a review environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "pink",
+      "context": {
+        "tag": "Demo",
+        "colour": "pink"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--pink\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--pink\">Demo</strong>\n    This is a demo environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "red",
+      "context": {
+        "tag": "Test",
+        "colour": "red"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--red\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--red\">Test</strong>\n    This is a test environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "orange",
+      "context": {
+        "tag": "QA",
+        "name": "QA",
+        "colour": "orange"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--orange\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--orange\">QA</strong>\n    This is a QA environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "default",
+      "description": "yellow",
+      "context": {
+        "tag": "Preview",
+        "colour": "yellow"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner nhsuk-environment-banner--yellow\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--yellow\">Preview</strong>\n    This is a preview environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "tag": {
+          "text": "Custom",
+          "colour": "red"
+        },
+        "html": "This is a %{name} environment for <a class=\"nhsuk-link nhsuk-link--reverse\" href=\"https://github.com/nhsuk/nhsuk-frontend/pulls\">pull request #1234</a>"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--red nhsuk-tag--no-border\">Custom</strong>\n    This is a custom environment for <a class=\"nhsuk-link nhsuk-link--reverse\" href=\"https://github.com/nhsuk/nhsuk-frontend/pulls\">pull request #1234</a>\n  </div>\n</div>\n"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "tag": {
+          "text": "Custom",
+          "colour": "red"
+        }
+      },
+      "callBlock": "This is a %{name} environment for <a class=\"nhsuk-link nhsuk-link--reverse\" href=\"https://github.com/nhsuk/nhsuk-frontend/pulls\">pull request #1234</a>",
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    <strong class=\"nhsuk-tag nhsuk-tag--red nhsuk-tag--no-border\">Custom</strong>\n    This is a custom environment for <a class=\"nhsuk-link nhsuk-link--reverse\" href=\"https://github.com/nhsuk/nhsuk-frontend/pulls\">pull request #1234</a>\n  </div>\n</div>\n"
+    },
+    {
+      "name": "without tag",
+      "context": {
+        "tag": false
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<div class=\"nhsuk-environment-banner\">\n  <div class=\"nhsuk-environment-banner__container nhsuk-width-container\">\n    This is a development environment. Do not use it to make clinical decisions\n  </div>\n</div>\n"
+    }
+  ]
+}
