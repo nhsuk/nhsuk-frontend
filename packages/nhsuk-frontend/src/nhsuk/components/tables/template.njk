@@ -26,6 +26,9 @@
   html: caption.caption if caption.caption is escaped else undefined
 } -%}
 
+{%- set head = params.head if params.head | length else [] %}
+{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
+
 {%- if variant == "reverse" and (
   not params.classes or (
     not "nhsuk-table--reverse" in params.classes and
@@ -49,9 +52,6 @@
   {% set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
 {% endif %}
 
-{%- set head = params.head if params.head | length else [] %}
-{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
-
 {%- set isSortable = false %}
 {%- set isSortableOnServer = false %}
 
@@ -65,7 +65,7 @@
   {% set classNames = classNames ~ " nhsuk-table--sortable" %}
 {% endif %}
 
-{%- if params.striped and (not params.classes or not "nhsuk-table--striped" in params.classes) %}
+{%- if params.striped and (not params.classes or not "nhsuk-table--striped" in params.classes) and rows | length > 1 %}
   {% set classNames = classNames ~ " nhsuk-table--striped" %}
 {% endif %}
 
@@ -299,6 +299,7 @@
     </tr>
   </thead>
 {% endif %}
+{% if rows | length %}
   <tbody class="nhsuk-table__body">
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
@@ -349,6 +350,7 @@
     </tr>
   {% endfor %}
   </tbody>
+{% endif %}
 </table>
 {%- endset %}
 
