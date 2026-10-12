@@ -52,6 +52,107 @@ const options = {
     description:
       'HTML element for the visually hidden component – for example, `"span"`, `"p"`, `"h2"` or `"h3"`. Defaults to `"span"`.',
     released: '10.7.0'
+  },
+  slots: {
+    type: 'object',
+    required: false,
+    description:
+      'Specified points for injecting custom content relative to the visually hidden component.',
+    released: '10.7.0',
+    params: {
+      before: {
+        type: 'object',
+        required: false,
+        description:
+          'Custom content injected before the visually hidden component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom text injected before the visually hidden component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom HTML injected before the visually hidden component.',
+            released: '10.7.0'
+          }
+        }
+      },
+      start: {
+        type: 'object',
+        required: false,
+        description:
+          'Custom content injected at the start, within the visually hidden component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom text injected at the start, within the visually hidden component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom HTML injected at the start, within the visually hidden component.',
+            released: '10.7.0'
+          }
+        }
+      },
+      end: {
+        type: 'object',
+        required: false,
+        description:
+          'Custom content injected at the end, within the visually hidden component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom text injected at the end, within the visually hidden component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom HTML injected at the end, within the visually hidden component.',
+            released: '10.7.0'
+          }
+        }
+      },
+      after: {
+        type: 'object',
+        required: false,
+        description:
+          'Custom content injected after the visually hidden component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom text injected after the visually hidden component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom HTML injected after the visually hidden component.',
+            released: '10.7.0'
+          }
+        }
+      }
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-u-visually-hidden" %}
@@ -26,13 +27,22 @@
 {%- set hasContent = true if visuallyHiddenHtml or visuallyHiddenText not in [undefined, null, false] and
   ((visuallyHiddenText is string or visuallyHiddenText is number) and visuallyHiddenText | string | length) else false %}
 
-{%- if hasContent %}
+{{- nhsukSlot("before", params) -}}
+
+{% if hasContent %}
 <{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  {%- if visuallyHiddenHtml %}
+  {{- nhsukSlot("start", params) -}}
+
+  {% if visuallyHiddenHtml %}
     {{- visuallyHiddenHtml | safe -}}
   {% elif visuallyHiddenText is string or visuallyHiddenText is number %}
     {{- visuallyHiddenText | string -}}
-  {% endif -%}
+  {% endif %}
+
+  {{- nhsukSlot("end", params) -}}
 </{{ element }}>
-{% endif %}
+{%- endif %}
+
+{{- nhsukSlot("after", params) -}}
+{{- "\n" | safe -}}
