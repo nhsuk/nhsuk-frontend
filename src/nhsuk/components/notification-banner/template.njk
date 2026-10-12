@@ -2,10 +2,10 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant or (deprecated) type for this component #}
-{%- set variant = params.variant or params.type -%}
+{%- set variant = params.variant or params.type %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-notification-banner" -%}
+{%- set classNames = "nhsuk-notification-banner" %}
 
 {#- Support title as string (with deprecated options) #}
 {%- set title = params.title if params.title is mapping and params.title is not escaped else {
@@ -13,31 +13,31 @@
   text: params.title if params.title is string else params.titleText,
   html: params.title if params.title is escaped else params.titleHtml,
   level: params.titleHeadingLevel
-} -%}
+} %}
 
 {#- Support heading as string #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else undefined,
   html: params.heading if params.heading is escaped else undefined
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if variant == "success" and (not params.classes or not "nhsuk-notification-banner--success" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-notification-banner--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-notification-banner--" ~ variant %}
+{%- endif %}
 
 {%- if params.role %}
-  {% set role = params.role %}
-{% elif variant == "success" %}
-  {#- If variant is success, add `role="alert"` to prioritise the information in the notification banner to users of assistive technologies -#}
-  {% set role = "alert" %}
-{% else %}
-  {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner -#}
-  {% set role = "region" %}
-{% endif -%}
+  {%- set role = params.role %}
+{%- elif variant == "success" %}
+  {#- If variant is success, add `role="alert"` to prioritise the information in the notification banner to users of assistive technologies #}
+  {%- set role = "alert" %}
+{%- else %}
+  {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner #}
+  {%- set role = "region" %}
+{%- endif -%}
 
 <div
   {{- nhsukAttributes({

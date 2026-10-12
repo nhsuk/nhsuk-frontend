@@ -2,24 +2,24 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-link" -%}
+{%- set classNames = "nhsuk-link" %}
 
 {#- Support heading as string #}
 {%- set heading = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
   text: parent.params.heading if parent.params.heading is string else undefined,
   html: parent.params.heading if parent.params.heading is escaped else undefined
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
 {%- if params.href and not params.type %}
-  {% set element = "a" %}
-{% else %}
-  {% set element = "button" %}
-{% endif %}
+  {%- set element = "a" %}
+{%- else %}
+  {%- set element = "button" %}
+{%- endif %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -52,11 +52,11 @@
 {% endset -%}
 
 <{{ element }} {{- attributesHtml | safe }}>
-  {%- if params.html -%}
+  {%- if params.html %}
     {{- params.html | safe | trim | indent(2) -}}
-  {%- elif params.text -%}
+  {% elif params.text %}
     {{- params.text | trim | indent(2) -}}
-  {%- endif -%}
+  {% endif %}
   {%- if params.visuallyHiddenText or heading.text or heading.html %}
     {{- nhsukVisuallyHidden(" " ~ params.visuallyHiddenText if not (heading.text or heading.html) else {
       text: (params.visuallyHiddenText | default("") ~ " (" ~ heading.text ~ ")") | trim if heading.text,

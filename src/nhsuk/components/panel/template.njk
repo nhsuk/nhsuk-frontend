@@ -3,11 +3,11 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-panel" -%}
-{%- set classNamesHeading = "nhsuk-panel__heading" -%}
+{%- set classNames = "nhsuk-panel" %}
+{%- set classNamesHeading = "nhsuk-panel__heading" %}
 
 {#- Support heading as string (with deprecated options) #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
@@ -16,15 +16,15 @@
   level: params.headingLevel,
   size: params.titleSize,
   classes: params.titleClasses
-} -%}
+} %}
 
 {%- if variant == "interruption" and (not params.classes or not "nhsuk-panel--interruption" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-panel--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-panel--" ~ variant %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif -%}
 
 {%- set content = {
   text: params.text,

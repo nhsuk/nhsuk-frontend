@@ -2,29 +2,29 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-image" -%}
+{%- set classNames = "nhsuk-image" %}
 
 {#- Support image caption as string #}
 {%- set caption = params.caption if params.caption is mapping and params.caption is not escaped else {
   text: params.caption if params.caption is string else undefined,
   html: params.caption if params.caption is escaped else undefined
-} -%}
+} %}
 
 {%- if params.border is sameas(false) and (not params.classes or not "nhsuk-image--no-border" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-image--no-border" %}
-{% endif -%}
+  {%- set classNames = classNames ~ " nhsuk-image--no-border" %}
+{%- endif %}
 
 {%- if params.background is sameas(false) and (not params.classes or not "nhsuk-image--no-background" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-image--no-background" %}
-{% endif -%}
+  {%- set classNames = classNames ~ " nhsuk-image--no-background" %}
+{%- endif %}
 
 {%- if params.width and (not params.classes or not "nhsuk-u-width-" ~ params.width in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-u-width-" ~ params.width %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-u-width-" ~ params.width %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif -%}
 
 <figure class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>

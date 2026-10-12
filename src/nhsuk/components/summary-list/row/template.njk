@@ -3,18 +3,18 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-summary-list__row" -%}
-{%- set classNamesKey = "nhsuk-summary-list__key" -%}
-{%- set classNamesValue = "nhsuk-summary-list__value" -%}
-{%- set classNamesActions = "nhsuk-summary-list__actions" -%}
+{%- set classNames = "nhsuk-summary-list__row" %}
+{%- set classNamesKey = "nhsuk-summary-list__key" %}
+{%- set classNamesValue = "nhsuk-summary-list__value" %}
+{%- set classNamesActions = "nhsuk-summary-list__actions" %}
 
 {#- Support actions as array #}
 {%- set actions = params.actions | select("mapping") | list if params.actions and params.actions is iterable else [] %}
 {%- set actions = params.actions.items | select("mapping") | list if params.actions.items and not actions | length else actions %}
 
 {%- if parent.hasActions and not actions | length %}
-  {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
+{%- endif %}
 
 {%- if params.border is sameas(false) and
   not (params.classes and "nhsuk-summary-list__row--no-border" in params.classes) and
@@ -22,36 +22,36 @@
     "nhsuk-summary-list--no-border" in parent.params.classes or
     "nhsuk-summary-list--no-last-row-border" in parent.params.classes)) and
   not (parent.params.lastRowBorder is sameas(false) and parent.loop.last) %}
-  {% set classNames = classNames ~ " nhsuk-summary-list__row--no-border" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-summary-list__row--no-border" %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if params.key.width and (not params.key.classes or not "nhsuk-u-width-" ~ params.key.width in params.key.classes) %}
-  {% set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ params.key.width %}
-{% endif %}
+  {%- set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ params.key.width %}
+{%- endif %}
 
 {%- if params.key.classes %}
-  {% set classNamesKey = classNamesKey ~ " " ~ params.key.classes %}
-{% endif %}
+  {%- set classNamesKey = classNamesKey ~ " " ~ params.key.classes %}
+{%- endif %}
 
 {%- if params.value.width and (not params.value.classes or not "nhsuk-u-width-" ~ params.value.width in params.value.classes) %}
-  {% set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ params.value.width %}
-{% endif %}
+  {%- set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ params.value.width %}
+{%- endif %}
 
 {%- if params.value.classes %}
-  {% set classNamesValue = classNamesValue ~ " " ~ params.value.classes %}
-{% endif %}
+  {%- set classNamesValue = classNamesValue ~ " " ~ params.value.classes %}
+{%- endif %}
 
 {%- if params.actions.width and (not params.actions.classes or not "nhsuk-u-width-" ~ params.actions.width in params.actions.classes) %}
-  {% set classNamesActions = classNamesActions ~ " nhsuk-u-width-" ~ params.actions.width %}
-{% endif %}
+  {%- set classNamesActions = classNamesActions ~ " nhsuk-u-width-" ~ params.actions.width %}
+{%- endif %}
 
 {%- if params.actions.classes %}
-  {% set classNamesActions = classNamesActions ~ " " ~ params.actions.classes %}
-{% endif -%}
+  {%- set classNamesActions = classNamesActions ~ " " ~ params.actions.classes %}
+{%- endif -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
   <dt class="{{ classNamesKey }}" {%- if params.key.id %} id="{{ params.key.id }}"{% endif %} {{- nhsukAttributes(params.key.attributes) }}>

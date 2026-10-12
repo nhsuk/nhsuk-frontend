@@ -4,36 +4,36 @@
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-js-character-count" -%}
-{%- set classNamesFormGroup = "nhsuk-character-count" -%}
+{%- set classNames = "nhsuk-js-character-count" %}
+{%- set classNamesFormGroup = "nhsuk-character-count" %}
 
 {#- Support label as string #}
 {%- set label = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
-} -%}
+} %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if params.formGroup.classes %}
-  {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
-{% endif %}
+  {%- set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
+{%- endif %}
 
 {%- set countType = params.countType if params.countType
-  else ("words" if params.maxwords) -%}
+  else ("words" if params.maxwords) %}
 
 {#-
   If the limit is set in JavaScript, we won't be able to interpolate the message
   until JavaScript, so we only set a text if the `maxlength` or `maxwords` options
   were provided to the macro.
 #}
-{%- set hasNoLimit = (not params.maxwords and not params.maxlength) -%}
-{%- set textareaDescriptionLength = params.maxwords or params.maxlength -%}
-{%- set textareaDescriptionText = params.textareaDescriptionText or "You can enter up to %{count} " ~ ("words" if countType == "words" else "characters") -%}
-{%- set textareaDescriptionTextNoLimit = textareaDescriptionText | replace("%{count}", textareaDescriptionLength) if not hasNoLimit -%}
-{%- set id = params.id if params.id else params.name -%}
+{%- set hasNoLimit = (not params.maxwords and not params.maxlength) %}
+{%- set textareaDescriptionLength = params.maxwords or params.maxlength %}
+{%- set textareaDescriptionText = params.textareaDescriptionText or "You can enter up to %{count} " ~ ("words" if countType == "words" else "characters") %}
+{%- set textareaDescriptionTextNoLimit = textareaDescriptionText | replace("%{count}", textareaDescriptionLength) if not hasNoLimit %}
+{%- set id = params.id if params.id else params.name %}
 
 {%- set countMessageHtml %}
 {{ nhsukHint({
@@ -49,8 +49,8 @@
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif -%}
-{% endset -%}
+{% endif %}
+{%- endset %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -84,7 +84,7 @@
       key: "textarea-description",
       messages: { other: params.textareaDescriptionText }
     }) -}}
-  {% endif -%}
+  {% endif %}
 
   {{- nhsukI18nAttributes({
     key: "characters-under-limit",

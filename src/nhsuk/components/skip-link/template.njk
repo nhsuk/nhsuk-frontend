@@ -1,11 +1,11 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-skip-link" -%}
+{%- set classNames = "nhsuk-skip-link" %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif -%}
 
 <a
   {{- nhsukAttributes({
