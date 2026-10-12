@@ -38,7 +38,13 @@ const options = {
         type: 'boolean',
         required: false,
         description:
-          'If `true`, marks this item as the current page using `aria-current="page"` and wraps the item text in a `<strong>` element as a visual fallback.'
+          'Set to `true` if this links to the current page being shown.'
+      },
+      active: {
+        type: 'boolean',
+        required: false,
+        description:
+          "Set to `true` if the current page is within this section, but the link doesn't necessarily link to the current page"
       },
       badge: {
         type: 'object',
@@ -81,7 +87,8 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the section navigation. Use `"nhsuk-section-navigation--reverse"` for use on coloured backgrounds.'
+    description:
+      'Classes to add to the section navigation. Use `"nhsuk-section-navigation--reverse"` for use on coloured backgrounds.'
   },
   attributes: {
     type: 'object',
