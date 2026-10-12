@@ -27,6 +27,8 @@
 {%- set contentText %}
   {%- if params.text is escaped %}
     {{- params.text | safe -}}
+  {% elif params.text is sameas(true) or params.text is sameas(false) %}
+    {{- params.text | string | lower -}}
   {% elif params.text is string or params.text is number %}
     {{- params.text | string -}}
   {% elif params.text is defined and
