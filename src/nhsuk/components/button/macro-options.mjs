@@ -76,6 +76,13 @@ const options = {
       'The button `href` attribute. If set, the button will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, then the button link will open in a new tab unless `type` is provided.',
+    released: '10.7.0'
+  },
   variant: {
     type: 'string',
     required: false,
