@@ -17,11 +17,11 @@
 ////
 
 $nhsuk-button-padding-top-bottom-mobile: 10px !default;
-$nhsuk-button-padding-top-bottom-desktop: 14px !default;
+$nhsuk-button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-mobile + $nhsuk-button-shadow-size !default;
 $nhsuk-button-padding-top-bottom-small: 6px !default;
-$nhsuk-button-padding-left-right: 16px !default;
-$nhsuk-button-padding-left-right-tablet: 16px !default;
-$nhsuk-button-padding-left-right-small: 12px !default;
+$nhsuk-button-padding-left-right: nhsuk-spacing(3) !default;
+$nhsuk-button-padding-left-right-tablet: nhsuk-spacing(3) !default;
+$nhsuk-button-padding-left-right-small: nhsuk-spacing(3, $adjustment: nhsuk-spacing(-1)) !default;
 
 $nhsuk-button-search-icon-size: 28px;
 $nhsuk-button-search-icon-size-large: 38px;
@@ -30,8 +30,6 @@ $nhsuk-button-min-height-mobile: 40px !default;
 $nhsuk-button-min-height-tablet: 52px !default;
 $nhsuk-button-min-height-large-input-wrapper-tablet: 52px !default;
 $nhsuk-button-min-height-small: 32px !default;
-$nhsuk-button-min-width-tablet: 66px !default;
-$nhsuk-button-icon-min-width: 44px !default;
 
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {
@@ -247,8 +245,8 @@ $nhsuk-button-icon-min-width: 44px !default;
     position: relative;
     align-items: center;
 
-    // Add minimum width for icon-only buttons
-    min-width: nhsuk-px-to-rem($nhsuk-button-icon-min-width);
+    // Add minimum width for icon-only buttons, to make a "square-ish" button
+    min-width: nhsuk-px-to-rem($nhsuk-button-min-height-mobile + $nhsuk-button-shadow-size);
 
     // Prevent users from selecting icon button text
     // e.g. When double clicking the button
@@ -266,7 +264,7 @@ $nhsuk-button-icon-min-width: 44px !default;
 
   .nhsuk-button:not(.nhsuk-button--small) {
     @media #{nhsuk-from-breakpoint(tablet)} {
-      min-width: nhsuk-px-to-rem($nhsuk-button-min-width-tablet);
+      min-width: nhsuk-px-to-rem($nhsuk-button-min-height-tablet + $nhsuk-button-shadow-size);
     }
   }
 
