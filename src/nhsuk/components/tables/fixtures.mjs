@@ -362,6 +362,98 @@ const fixtures = {
       ]
     }
   },
+  "with 0 rows": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: []
+    },
+    variants: [
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ]
+  },
+  "with 1 row": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ]
+  },
+  "with 2 rows": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ]
+  },
   "with tags": {
     context: {
       caption: "Tags",
