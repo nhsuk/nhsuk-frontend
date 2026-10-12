@@ -95,6 +95,12 @@ const options = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the section navigation.'
+  },
+  containerClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Classes to add to the width container. Can also be set to true to use a default width container. If false or not specified then no width container is used.'
   }
 }
 
