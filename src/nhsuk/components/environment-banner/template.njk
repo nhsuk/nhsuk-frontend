@@ -1,5 +1,6 @@
 {% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-environment-banner" %}
@@ -39,17 +40,14 @@
   {%- set classNames = classNames ~ " " ~ params.classes %}
 {%- endif %}
 
-{%- set environment = name.html | safe if name.html else name.text %}
+{%- set environment = nhsukContent(name) | trim %}
 {%- set description = "This is a %{name} environment. Do not use it to make clinical decisions" %}
 
 {%- set innerHtml %}
-{%- if caller %}
-  {{- caller() -}}
-{% elif params.html %}
-  {{- params.html | safe -}}
-{% else %}
-  {{- params.text | default(description) -}}
-{% endif %}
+  {{- nhsukContent({
+    html: caller() if caller else params.html,
+    text: params.text | default(description)
+  }) | trim -}}
 {%- endset -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
