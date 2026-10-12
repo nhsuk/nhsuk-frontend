@@ -1,0 +1,38 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-u-visually-hidden" %}
+
+{#- Support params as string or number #}
+{%- set params = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {%- set element = params.element | lower %}
+{%- else %}
+  {%- set element = "span" %}
+{%- endif %}
+
+{%- set visuallyHiddenHtml = caller() if caller else params.html %}
+{%- set visuallyHiddenText = params.text %}
+
+{%- set hasContent = true if visuallyHiddenHtml or visuallyHiddenText not in [undefined, null, false] and
+  ((visuallyHiddenText is string or visuallyHiddenText is number) and visuallyHiddenText | string | length) else false %}
+
+{%- if hasContent %}
+<{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {%- if visuallyHiddenHtml %}
+    {{- visuallyHiddenHtml | safe -}}
+  {% elif visuallyHiddenText is string or visuallyHiddenText is number %}
+    {{- visuallyHiddenText | string -}}
+  {% endif -%}
+</{{ element }}>
+{% endif %}
