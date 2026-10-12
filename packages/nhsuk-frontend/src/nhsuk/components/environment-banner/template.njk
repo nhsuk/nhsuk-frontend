@@ -55,7 +55,7 @@
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-environment-banner__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
-  {% if params.tag not in ["", null, false] %}
+  {% if params.tag not in ["", none, false] %}
     {{ nhsukTag({
       text: tag.text | default(name.text),
       html: tag.html | default(name.html),

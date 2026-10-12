@@ -48,8 +48,9 @@
     },
     "data-module": "nhsuk-notification-banner",
     "data-disable-auto-focus": {
-      value: params.disableAutoFocus | string
-        if params.disableAutoFocus in [true, false]
+      value: params.disableAutoFocus | string | lower
+        if params.disableAutoFocus is sameas(true) or
+          params.disableAutoFocus is sameas(false)
         else false,
       optional: true
     },

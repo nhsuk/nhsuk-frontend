@@ -102,7 +102,7 @@ export function generateFixture(data) {
         callBlock: example.callBlock,
         screenshot: example.screenshot ?? false,
         options: example.options ?? {},
-        html: render(component, example).trim()
+        html: render(component, example)
       }))
     }
   )

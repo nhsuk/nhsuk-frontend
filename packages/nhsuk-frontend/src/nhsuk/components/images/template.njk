@@ -10,11 +10,11 @@
   html: params.caption if params.caption is escaped else undefined
 } -%}
 
-{%- if params.border === false and (not params.classes or not "nhsuk-image--no-border" in params.classes) %}
+{%- if params.border is sameas(false) and (not params.classes or not "nhsuk-image--no-border" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-image--no-border" %}
 {% endif -%}
 
-{%- if params.background === false and (not params.classes or not "nhsuk-image--no-background" in params.classes) %}
+{%- if params.background is sameas(false) and (not params.classes or not "nhsuk-image--no-background" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-image--no-background" %}
 {% endif -%}
 

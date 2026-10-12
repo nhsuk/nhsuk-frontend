@@ -368,6 +368,27 @@ describe('Macro: Attributes', () => {
         ' data-text="Testing" data-unsafe-text="Testing &amp; more" data-safe-text="Testing &amp; more" data-escaped-text="Testing &amp; more" data-double-escaped-text="Testing &amp;amp; more"'
       )
     })
+
+    it('outputs values with double quotes that are passed from the `safe` filter', () => {
+      // Render directly otherwise nunjucks `renderMacro()` will stringify
+      // safe `is escaped` instances into plain `is mapping` objects
+      const attributes = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+        {{- nhsukAttributes({
+          'data-safe-json': '{ "key": "value" }' | safe,
+          'data-safe-json-optional': {
+            value: '{ "key": "value" }' | safe,
+            optional: true
+          }
+        }) -}}
+      `)
+
+      // Note that single quotes are only used when rendering values that contain double quotes
+      expect(attributes).toBe(
+        ' data-safe-json=\'{ "key": "value" }\' data-safe-json-optional=\'{ "key": "value" }\''
+      )
+    })
   })
 })
 

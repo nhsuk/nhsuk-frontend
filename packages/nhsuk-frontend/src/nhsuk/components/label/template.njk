@@ -10,15 +10,22 @@
 {%- set heading = params.heading -%}
 
 {#- Support heading as string (optional) #}
-{%- if heading and (heading is string or heading is escaped) %}
+{%- if heading and (
+  heading is string or
+  heading is escaped
+) and heading | string | length %}
   {% set heading = {
     text: heading if heading is string else undefined,
     html: heading if heading is escaped else undefined
   } %}
-{% endif -%}
+{% endif %}
 
-{%- set hasHeading = true if (params.isPageHeading and heading != false) or
-  (params.isPageHeading != false and heading) else false -%}
+{%- set hasHeading = true if (params.isPageHeading and heading is not sameas(false)) or (
+  params.isPageHeading is not sameas(false) and (
+    (heading is mapping and heading is not escaped) or
+    heading is sameas(true)
+  )
+) else false %}
 
 {#- Set caption from heading or caption options #}
 {%- set labelCaption = heading.caption | default(params.caption) if hasHeading else params.caption -%}

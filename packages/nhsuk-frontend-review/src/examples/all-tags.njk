@@ -83,7 +83,7 @@
 
           {% for name, params in examples %}
             {% set colourHtml %}
-              {% if params.colour is not undefined %}
+              {% if params.colour is defined %}
                 <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
               {% else %}
                 None
@@ -144,7 +144,7 @@
 
           {% for name, params in examples %}
             {% set colourHtml %}
-              {% if params.colour is not undefined %}
+              {% if params.colour is defined %}
                 <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
               {% else %}
                 None
