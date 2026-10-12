@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant %}
@@ -29,9 +30,9 @@
   {% if caller %}
     {{- caller() }}
   {% elif params.html %}
-    {{ params.html | safe | trim | indent(4) }}
+    {{ nhsukContent({ html: params.html }) | trim | indent(4) }}
   {% elif params.text %}
-    <p>{{ params.text | trim | indent(4) }}</p>
+    <p>{{ nhsukContent({ text: params.text }) | trim | indent(4) }}</p>
   {% endif %}
   </div>
 </div>
