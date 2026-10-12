@@ -114,6 +114,94 @@ describe('Macro: Content', () => {
 
       expect(output).toBe(expected)
     })
+
+    it.each([
+      {
+        description: 'visually hidden text',
+        context: {
+          text: 'Change',
+          visuallyHidden: ' details for Zadie Munroe'
+        },
+        expected: outdent`
+          Change<span class="nhsuk-u-visually-hidden"> details for Zadie Munroe</span>
+        `
+      },
+      {
+        description: 'visually hidden text (alias)',
+        context: {
+          text: 'Change',
+          visuallyHiddenText: ' details for Zadie Munroe'
+        },
+        expected: outdent`
+          Change<span class="nhsuk-u-visually-hidden"> details for Zadie Munroe</span>
+        `
+      },
+      {
+        description: 'visually hidden text only',
+        context: {
+          visuallyHidden: 'details for Zadie Munroe'
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">details for Zadie Munroe</span>
+        `
+      },
+      {
+        description: 'visually hidden text "before"',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: 'Error:',
+            placement: 'before'
+          }
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">Error:</span>
+          Enter your date of birth
+        `
+      },
+      {
+        description: 'visually hidden text "start"',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: 'Error: ',
+            placement: 'start'
+          }
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">Error: </span>Enter your date of birth
+        `
+      },
+      {
+        description: 'visually hidden text "end"',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: ' (Karen Francis)',
+            placement: 'end'
+          }
+        },
+        expected: outdent`
+          Enter your date of birth<span class="nhsuk-u-visually-hidden"> (Karen Francis)</span>
+        `
+      },
+      {
+        description: 'visually hidden text "after"',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'after'
+          }
+        },
+        expected: outdent`
+          Enter your date of birth
+          <span class="nhsuk-u-visually-hidden">(Karen Francis)</span>
+        `
+      }
+    ])('renders $description', ({ context, expected }) => {
+      expect(renderMacro(context)).toBe(expected)
+    })
   })
 })
 
