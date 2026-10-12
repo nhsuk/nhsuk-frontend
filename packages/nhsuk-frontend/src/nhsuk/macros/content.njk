@@ -1,0 +1,30 @@
+{#-
+  Renders text, HTML or visually hidden content
+#}
+{%- macro nhsukContent(params = {}) %}
+
+{#- Support params as string or number #}
+{%- set params = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} %}
+
+{%- set contentHtml = caller() if caller else params.html %}
+{%- set contentText = params.text %}
+
+{%- set hasContent = true if contentHtml or contentText not in [undefined, null, false] and
+  ((contentText is string or contentText is number) and contentText | string | length) else false %}
+
+{%- if hasContent %}
+{%- set innerHtml %}
+  {%- if contentHtml %}
+    {{- contentHtml | safe -}}
+  {% else %}
+    {{- contentText | string -}}
+  {% endif %}
+{%- endset %}
+
+{{- innerHtml | safe -}}
+
+{% endif %}
+{%- endmacro %}
