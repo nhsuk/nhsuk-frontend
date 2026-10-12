@@ -1,6 +1,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/images/macro.njk" import image as nhsukImage %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" %}
@@ -88,10 +89,10 @@
           }) | trim | indent(10) }}
         {% endif %}
         {% if content.html %}
-          {{ content.html | safe | trim | indent(10) }}
+          {{ nhsukContent({ html: content.html }) | trim | indent(10) }}
         {% elif content.text %}
           <p class="nhsuk-body-l">
-            {{- content.text | trim | indent(10) -}}
+            {{- nhsukContent({ text: content.text }) | trim | indent(10) -}}
           </p>
         {% endif %}
         {% if content.image %}
