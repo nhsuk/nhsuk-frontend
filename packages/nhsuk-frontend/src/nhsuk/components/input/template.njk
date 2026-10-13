@@ -28,7 +28,6 @@
 
 {%- if params.large and (not params.classes or not "nhsuk-input--large" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-input--large" %}
-  {% set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--large" %}
 {% endif %}
 
 {%- if params.code and (not params.classes or not "nhsuk-input--code" in params.classes) %}
