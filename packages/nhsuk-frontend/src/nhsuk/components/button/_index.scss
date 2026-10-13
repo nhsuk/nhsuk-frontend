@@ -269,7 +269,7 @@ $nhsuk-button-min-height-small: 32px !default;
 
   .nhsuk-button:not(.nhsuk-button--small) {
     @media #{nhsuk-from-breakpoint(tablet)} {
-      min-width: nhsuk-px-to-rem($nhsuk-button-min-height-tablet + $nhsuk-button-shadow-size);
+      min-width: nhsuk-px-to-rem($nhsuk-button-min-height-tablet + nhsuk-spacing(3));
     }
   }
 

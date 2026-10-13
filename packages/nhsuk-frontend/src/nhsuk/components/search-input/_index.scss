@@ -137,7 +137,7 @@ $nhsuk-button-search-min-height-large-active-desktop: $nhsuk-button-search-min-h
       // Use its own width too, instead of inheriting the generic
       // non-small button width
       .nhsuk-input--large ~ &.nhsuk-button {
-        min-width: nhsuk-px-to-rem($nhsuk-button-search-min-height-large-tablet + $nhsuk-button-shadow-size);
+        min-width: nhsuk-px-to-rem($nhsuk-button-search-min-height-large-tablet + nhsuk-spacing(3));
         min-height: nhsuk-px-to-rem($nhsuk-button-search-min-height-large-tablet + $nhsuk-button-shadow-size);
       }
 
