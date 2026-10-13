@@ -159,7 +159,7 @@ describe('Colour helpers', () => {
     it.each([
       {
         input: '"green"',
-        output: '#009639'
+        output: '#007f3b'
       },
       {
         input: 'rgb(0, 150, 57)',
