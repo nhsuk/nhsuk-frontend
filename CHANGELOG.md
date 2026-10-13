@@ -77,6 +77,7 @@ This change was introduced in [pull request #2128: Add fixture coverage for befo
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
+- [#2095: Adjust checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2095)
 - [#2104: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2104)
 - [#2105: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
 - [#2117: Restore missing `.nhsuk-back-to-top` styles](https://github.com/nhsuk/nhsuk-frontend/pull/2117)
