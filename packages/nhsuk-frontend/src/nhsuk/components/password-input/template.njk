@@ -2,6 +2,7 @@
 {% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" %}
@@ -55,7 +56,7 @@
   {{- nhsukAttributes(params.formGroup.attributes) -}}
 {% endset %}
 
-{%- set buttonHtml %}
+{%- set afterInputHtml %}
   {{- nhsukButton({
     text: params.showPasswordText | default(params.button.text) | default("Show"),
     ariaLabel: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel) | default("Show password"),
@@ -77,11 +78,12 @@
       }
     },
     variant: params.button.variant | default("secondary")
-  }) | trim }}
-{% if params.formGroup.afterInput %}
-  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif %}
-{%- endset -%}
+  }) | trim -}}
+
+  {{- nhsukSlot("afterInput", {
+    slots: params.formGroup
+  }) -}}
+{% endset -%}
 
 {{ nhsukInput({
   label: params.label,
@@ -109,7 +111,7 @@
     attributes: attributesHtml,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
-      html: buttonHtml
+      html: afterInputHtml | trim
     }
   }
 }) | trim }}

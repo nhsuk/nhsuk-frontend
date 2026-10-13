@@ -1,5 +1,6 @@
 {% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
 {% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-search-input" %}
@@ -48,11 +49,12 @@
     attributes: params.button.attributes,
     variant: params.button.variant
   }) | trim }}
-{% endif %}
-{% if params.formGroup.afterInput %}
-  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif %}
-{%- endset -%}
+{%- endif %}
+
+  {{- nhsukSlot("afterInput", {
+    slots: params.formGroup
+  }) -}}
+{% endset -%}
 
 {{ nhsukInput({
   label: params.label,
@@ -85,7 +87,7 @@
     attributes: params.formGroup.attributes,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
-      html: afterInputHtml
+      html: afterInputHtml | trim
     }
   }
 }) | trim }}

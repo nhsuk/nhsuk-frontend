@@ -122,6 +122,63 @@ const fixtures = {
       }
     }
   },
+  "with fields": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 11 2023"
+      },
+      id: "example",
+      day: {
+        value: "5"
+      },
+      month: {
+        value: "8"
+      },
+      year: {
+        value: "2024"
+      }
+    }
+  },
+  "with fields as strings": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 11 2023"
+      },
+      id: "example",
+      day: "5",
+      month: "8",
+      year: "2024"
+    }
+  },
+  "with fields as numbers": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 11 2023"
+      },
+      id: "example",
+      day: 5,
+      month: 8,
+      year: 2024
+    }
+  },
   "with values": {
     context: {
       fieldset: {
@@ -138,6 +195,25 @@ const fixtures = {
         day: "5",
         month: "8",
         year: "2024"
+      }
+    }
+  },
+  "with values as numbers": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 31 3 1980"
+      },
+      id: "example",
+      values: {
+        day: 5,
+        month: 8,
+        year: 2024
       }
     }
   },
@@ -788,6 +864,28 @@ const fixtures = {
           error: true
         }
       ]
+    }
+  },
+  "with before and after inputs content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 31 3 1980"
+      },
+      id: "example",
+      formGroup: {
+        beforeInputs: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInputs: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
     }
   }
 }

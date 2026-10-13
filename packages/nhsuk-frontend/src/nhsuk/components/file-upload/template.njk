@@ -2,6 +2,7 @@
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
 {#- Set classes for this component #}
@@ -42,6 +43,14 @@
   aria-describedby – for example hints or error messages #}
 {%- set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
+
+{%- macro _inputElement(params, parent) -%}
+<input class="{{ parent.classNames }}" id="{{ parent.id }}" name="{{ params.name }}" type="file"
+  {%- if params.disabled %} disabled{% endif %}
+  {%- if params.multiple %} multiple{% endif %}
+  {%- if parent.describedBy %} aria-describedby="{{ parent.describedBy }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{%- endmacro -%}
 
 <div
   {{- nhsukAttributes({
@@ -121,15 +130,15 @@
     attributes: errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if params.formGroup.beforeInput %}
-  {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
-{% endif %}
-  <input class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}" type="file"
-    {%- if params.disabled %} disabled{% endif %}
-    {%- if params.multiple %} multiple{% endif %}
-    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {{- nhsukAttributes(params.attributes) }}>
-{% if params.formGroup.afterInput %}
-  {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif %}
+  {{ nhsukContent({
+    html: _inputElement(params, {
+      id: id,
+      describedBy: describedBy,
+      classNames: classNames
+    }) | trim,
+    slots: {
+      before: params.formGroup.beforeInput,
+      after: params.formGroup.afterInput
+    }
+  }) | trim | indent(2) }}
 </div>

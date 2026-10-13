@@ -2,6 +2,7 @@
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-js-character-count" %}
@@ -47,10 +48,11 @@
       }
     }
   }) | trim }}
-{% if params.formGroup.afterInput %}
-  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif %}
-{%- endset %}
+
+  {{- nhsukSlot("afterInput", {
+    slots: params.formGroup
+  }) -}}
+{% endset %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
