@@ -144,7 +144,7 @@
       "data-module": "nhsuk-radios"
     }) -}}
 
-    {{- nhsukAttributes(params.attributes) -}}>
+    {{- nhsukAttributes(params.attributes) }}>
     {% if params.formGroup.beforeInputs %}
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}

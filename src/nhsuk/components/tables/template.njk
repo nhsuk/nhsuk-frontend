@@ -148,13 +148,13 @@
 {%- set isResponsive = true if parent.params.responsive else false %}
 
 {%- set innerHtml %}
-  {%- if item.href -%}
-    <a class="nhsuk-link" href="{{ item.href }}">
-      {{- nhsukContent(item) | trim -}}
-    </a>
-  {%- else %}
+{% if item.href -%}
+  <a class="nhsuk-link" href="{{ item.href }}">
     {{- nhsukContent(item) | trim -}}
-  {% endif %}
+  </a>
+{%- else %}
+  {{- nhsukContent(item) | trim -}}
+{% endif %}
 {%- endset -%}
 
 <{{ element }}

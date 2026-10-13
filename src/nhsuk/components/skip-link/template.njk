@@ -18,7 +18,7 @@
     href: params.href | default("#maincontent", true)
   }) -}}
 
-  {{- nhsukAttributes(params.attributes) -}}>
+  {{- nhsukAttributes(params.attributes) }}>
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
