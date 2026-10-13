@@ -1,0 +1,84 @@
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
+{% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-task-list" %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
+{%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" %}
+
+{%- macro _taskListItem(params, item, index) %}
+  {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
+  {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
+
+  {#- Support item heading as string (with deprecated options) #}
+  {%- set itemHeading = item.heading if item.heading is mapping and item.heading is not escaped else {
+    text: item.heading if item.heading is string else item.title.text,
+    html: item.heading if item.heading is escaped else item.title.html,
+    classes: item.title.classes
+  } %}
+
+  {#- Support item hint as string #}
+  {%- set itemHint = item.hint if item.hint is mapping and item.hint is not escaped else {
+    text: item.hint if item.hint is string else undefined,
+    html: item.hint if item.hint is escaped else undefined
+  } %}
+  <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
+    <div class="nhsuk-task-list__name-and-hint">
+    {% if item.href %}
+      {{ nhsukLink({
+        id: itemHeading.id,
+        text: itemHeading.text,
+        html: itemHeading.html,
+        visuallyHiddenText: itemHeading.visuallyHiddenText,
+        href: item.href,
+        className: "nhsuk-task-list__link",
+        classes: ("nhsuk-link " ~ (itemHeading.classes if itemHeading.classes else "")) | trim,
+        attributes: nhsukAttributes({
+          "aria-describedby": {
+            value: (hintId ~ " " if itemHint.text or itemHint.html else "") ~ statusId,
+            optional: true
+          }
+        }) ~ nhsukAttributes(itemHeading.attributes)
+      }) | trim | indent(6) }}
+    {% else %}
+      {{ nhsukHeading({
+        id: itemHeading.id,
+        text: itemHeading.text,
+        html: itemHeading.html,
+        visuallyHiddenText: itemHeading.visuallyHiddenText,
+        className: false,
+        classes: itemHeading.classes,
+        attributes: itemHeading.attributes,
+        element: "div"
+      }) | trim | indent(6) }}
+    {% endif %}
+    {% if itemHint.text or itemHint.html %}
+      <div class="nhsuk-task-list__hint" id="{{ hintId }}">
+        {{ nhsukContent(itemHint) | trim | indent(8) }}
+      </div>
+    {% endif %}
+    </div>
+    <div class="nhsuk-task-list__status {%- if item.status.classes %} {{ item.status.classes }}{% endif %}" id="{{ statusId }}">
+    {% if item.status.tag %}
+      {{ nhsukTag(item.status.tag) | trim | indent(6) }}
+    {% elif item.status %}
+      {{ nhsukContent(item.status) | trim | indent(6) }}
+    {% endif %}
+    </div>
+  </li>
+{%- endmacro -%}
+
+<ul class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {% for item in items %}
+    {{- _taskListItem(params, item, loop.index) }}
+  {% endfor %}
+</ul>

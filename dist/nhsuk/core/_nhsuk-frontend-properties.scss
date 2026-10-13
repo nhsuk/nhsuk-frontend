@@ -1,0 +1,26 @@
+@use "sass:meta";
+@use "settings" as *;
+@use "settings/colours-applied";
+@use "tools" as *;
+@use "helpers" as *;
+
+:root {
+  // This variable is automatically overwritten during builds and releases.
+  // It doesn't need to be updated manually.
+  --nhsuk-frontend-version: "development";
+
+  // CSS custom property for each breakpoint
+  @each $name, $value in $nhsuk-breakpoints {
+    --nhsuk-breakpoint-#{$name}: #{nhsuk-px-to-rem($value)};
+  }
+
+  // CSS custom property for each palette colour
+  @each $name, $value in $nhsuk-colours {
+    --nhsuk-#{$name}-colour: #{nhsuk-colour-compatible($value)};
+  }
+
+  // CSS custom property for each applied colour
+  @each $name, $value in meta.module-variables("colours-applied") {
+    --#{$name}: #{nhsuk-colour-compatible($value)};
+  }
+}

@@ -1,0 +1,18 @@
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink -%}
+
+{{ nhsukLink({
+  id: params.id,
+  text: params.text | default("Back", true),
+  html: caller() if caller else params.html,
+  visuallyHidden: {
+    text: params.visuallyHiddenText,
+    placement: "start"
+  },
+  href: params.href,
+  type: params.type,
+  className: "nhsuk-back-link",
+  classes: params.classes,
+  attributes: params.attributes,
+  variant: params.variant,
+  element: params.element
+}) | trim }}

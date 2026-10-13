@@ -1,0 +1,31 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-inset-text" %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set innerHtml %}
+  {%- if params.html %}
+    {{- nhsukContent({ html: params.html }) | trim -}}
+  {% elif params.text -%}
+    <p>{{ nhsukContent({ text: params.text }) | trim }}</p>
+  {%- endif %}
+{%- endset %}
+
+{%- set content = {
+  html: caller() if caller else innerHtml,
+  visuallyHidden: {
+    text: params.visuallyHiddenText | default("Information", true),
+    placement: "before",
+    slots: { end: ": " }
+  }
+} -%}
+
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {{ nhsukContent(content) | trim | indent(2) }}
+</div>

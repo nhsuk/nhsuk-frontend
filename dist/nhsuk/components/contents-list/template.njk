@@ -1,0 +1,54 @@
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-contents-list" %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pages in this guide", true) %}
+
+{%- macro _contentsList(items) %}
+<ol class="nhsuk-contents-list__list">
+{% for item in items %}
+  {% if item %}
+  <li class="nhsuk-contents-list__item" {%- if item.current %} aria-current="page" {%- endif %}>
+  {% if item.current %}
+    <span class="nhsuk-contents-list__current {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
+      {{- nhsukContent(item) | trim | indent(4) -}}
+    </span>
+  {% else %}
+    {{ nhsukLink({
+      href: item.href,
+      text: item.text,
+      html: item.html,
+      className: "nhsuk-contents-list__link",
+      classes: item.classes,
+      attributes: item.attributes
+    }) | trim | indent(4) }}
+  {% endif %}
+  {% if item.items %}
+    {{ _contentsList(item.items) | trim | indent(4) }}
+  {% endif %}
+  </li>
+  {% endif %}
+{% endfor %}
+</ol>
+{%- endmacro %}
+
+{%- set content = {
+  html: _contentsList(params.items) | trim,
+  visuallyHidden: {
+    text: params.visuallyHiddenText | default("Contents", true),
+    placement: "before",
+    element: "h2"
+  }
+} -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
+  {{- nhsukAttributes(params.attributes) }}>
+  {{ nhsukContent(content) | trim | indent(2) }}
+</nav>

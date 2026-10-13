@@ -1,0 +1,84 @@
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-tabs" %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
+
+{%- macro _tabListItem(params, item, index) %}
+{%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
+
+{#- Support tab label as string #}
+{%- set tabLabel = item.label if item.label is mapping and item.label is not escaped else {
+  text: item.label if item.label is string else undefined,
+  html: item.label if item.label is escaped else undefined
+} -%}
+
+<li class="nhsuk-tabs__list-item {%- if index == 1 %} nhsuk-tabs__list-item--selected{% endif %}">
+  {{ nhsukLink({
+    href: "#" ~ tabPanelId,
+    text: tabLabel.text,
+    html: tabLabel.html,
+    className: "nhsuk-tabs__tab",
+    attributes: item.attributes
+  }) | trim | indent(2) }}
+</li>
+{%- endmacro %}
+
+{%- macro _tabPanel(params, item, index) %}
+{%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index %}
+
+{#- Support tab panel as string #}
+{%- set tabPanel = item.panel if item.panel is mapping and item.panel is not escaped else {
+  text: item.panel if item.panel is string else undefined,
+  html: item.panel if item.panel is escaped else undefined
+} -%}
+
+<div class="nhsuk-tabs__panel {%- if index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ tabPanelId }}"
+  {{- nhsukAttributes(tabPanel.attributes) }}>
+{% if tabPanel.html %}
+  {{ nhsukContent({ html: tabPanel.html }) | trim | indent(2) }}
+{% elif tabPanel.text %}
+  <p>{{ nhsukContent({ text: tabPanel.text }) | trim | indent(2) }}</p>
+{% endif %}
+</div>
+{%- endmacro %}
+
+{#- If an id 'prefix' is not passed, fall back to using the id attribute
+  instead. We need this for tab items and panels as well #}
+{%- set idPrefix = params.idPrefix if params.idPrefix else params.id -%}
+
+<div
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-tabs"
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
+  {{ nhsukHeading({
+    text: params.visuallyHiddenText | default(params.title) | default("Contents"),
+    level: 2,
+    className: "nhsuk-tabs__heading"
+  }) | trim | indent(2) }}
+{% if items | length %}
+  <ul class="nhsuk-tabs__list">
+    {% for item in items %}
+      {{- _tabListItem(params, item, loop.index) | trim | indent(4, true) }}
+    {% endfor %}
+  </ul>
+  {% for item in items %}
+    {{- _tabPanel(params, item, loop.index) | trim | indent(2, true) }}
+  {% endfor %}
+{% endif %}
+</div>
