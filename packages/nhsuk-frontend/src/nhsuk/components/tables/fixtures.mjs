@@ -627,6 +627,21 @@ const fixtures = {
       ]
     }
   },
+  "with array items": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Skin symptoms", "Possible cause"],
+      rows: [
+        ["Blisters on lips or around the mouth", "Cold sores"],
+        [["Itchy", "dry", "cracked", "sore"], "Eczema"],
+        ["Itchy blisters", ["Shingles", "chickenpox"]]
+      ]
+    }
+  },
   "with string items": {
     context: {
       caption: {
@@ -1141,8 +1156,7 @@ const fixtures = {
   "without border": {
     context: {
       caption: {
-        text: "Cases per manager",
-        classes: "nhsuk-u-visually-hidden"
+        visuallyHiddenText: "Cases per manager"
       },
       border: false,
       head: [
@@ -1186,8 +1200,7 @@ const fixtures = {
   "without last row border": {
     context: {
       caption: {
-        text: "Cases per manager",
-        classes: "nhsuk-u-visually-hidden"
+        visuallyHiddenText: "Cases per manager"
       },
       lastRowBorder: false,
       head: [

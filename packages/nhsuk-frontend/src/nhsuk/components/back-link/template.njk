@@ -1,29 +1,30 @@
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-back-link" -%}
+{%- set classNames = "nhsuk-back-link" %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-back-link--reverse" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-back-link--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-back-link--" ~ variant %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
 {%- if params.element %}
-  {% set element = params.element | lower %}
-{% else %}
-  {% if params.href and not params.type %}
-    {% set element = "a" %}
-  {% else %}
-    {% set element = "button" %}
-  {% endif %}
-{% endif %}
+  {%- set element = params.element | lower %}
+{%- else %}
+  {%- if params.href and not params.type %}
+    {%- set element = "a" %}
+  {%- else %}
+    {%- set element = "button" %}
+  {%- endif %}
+{%- endif %}
 
 {#- Define attributes that we can use across all element types #}
 {%- set attributesHtml %}
@@ -49,20 +50,20 @@
 {% endset %}
 
 {%- set innerHtml %}
-{% if caller %}
-  {{- caller() }}
+{%- if caller %}
+  {{- caller() -}}
 {% elif params.html %}
-  {{- params.html | safe }}
+  {{- params.html | safe -}}
 {% else %}
-  {{- params.text | default("Back", true) }}
+  {{- params.text | default("Back", true) -}}
 {% endif %}
-{% endset -%}
+{%- endset -%}
 
 <{{ element }} {{- attributesHtml | safe }}>
   {% if params.visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
-  {{- innerHtml | safe | trim | indent(2) }}
+  {{ nhsukVisuallyHidden(params.visuallyHiddenText ~ " ") | trim }}
+  {{- innerHtml | safe | indent(2) }}
   {% else %}
-  {{ innerHtml | safe | trim | indent(2) }}
+  {{ innerHtml | safe | indent(2) }}
   {% endif %}
 </{{ element }}>

@@ -98,11 +98,11 @@ export function generateFixture(data) {
       return examples.map((example) => ({
         name: exampleName,
         description: example.description,
-        context: example.context ?? {},
+        context: example.context,
         callBlock: example.callBlock,
         screenshot: example.screenshot ?? false,
         options: example.options ?? {},
-        html: render(component, example).trim()
+        html: render(component, example)
       }))
     }
   )

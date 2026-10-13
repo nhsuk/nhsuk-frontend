@@ -4,41 +4,41 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-input" -%}
-{%- set classNamesInputWrapper = "nhsuk-input-wrapper" -%}
-{%- set classNamesFormGroup = "nhsuk-form-group" -%}
+{%- set classNames = "nhsuk-input" %}
+{%- set classNamesInputWrapper = "nhsuk-input-wrapper" %}
+{%- set classNamesFormGroup = "nhsuk-form-group" %}
 
 {#- Support label as string #}
 {%- set label = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
-} -%}
+} %}
 
 {#- Support hint as string #}
 {%- set hint = params.hint if params.hint is mapping and params.hint is not escaped else {
   text: params.hint if params.hint is string else undefined,
   html: params.hint if params.hint is escaped else undefined
-} -%}
+} %}
 
 {#- Support error message as string #}
 {%- set errorMessage = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
   text: params.errorMessage if params.errorMessage is string else undefined,
   html: params.errorMessage if params.errorMessage is escaped else undefined
-} -%}
+} %}
 
 {%- if params.large and (not params.classes or not "nhsuk-input--large" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-input--large" %}
-  {% set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--large" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-input--large" %}
+  {%- set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--large" %}
+{%- endif %}
 
 {%- if params.code and (not params.classes or not "nhsuk-input--code" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-input--code" %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-input--code" %}
+{%- endif %}
 
-{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
-  {% set classNames = classNames ~ " nhsuk-input--error" %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
-{% endif %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) %}
+  {%- set classNames = classNames ~ " nhsuk-input--error" %}
+  {%- set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{%- endif %}
 
 {%- if params.width and
   params.width | string in ["2", "3", "4", "4", "5", "10", "20", "30"] and (
@@ -53,37 +53,37 @@
     )
   )
 %}
-  {% set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
 {%- if params.inputWrapper.classes %}
-  {% set classNamesInputWrapper = classNamesInputWrapper ~ " " ~ params.inputWrapper.classes %}
-{% endif %}
+  {%- set classNamesInputWrapper = classNamesInputWrapper ~ " " ~ params.inputWrapper.classes %}
+{%- endif %}
 
 {%- if params.formGroup.classes %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
-{% endif %}
+  {%- set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
+{%- endif %}
 
 {#- a record of other elements that we need to associate with the input using
-  aria-describedby – for example hints or error messages -#}
-{% set describedBy = params.describedBy if params.describedBy else "" -%}
-{%- set id = params.id if params.id else params.name -%}
+  aria-describedby – for example hints or error messages #}
+{%- set describedBy = params.describedBy if params.describedBy else "" %}
+{%- set id = params.id if params.id else params.name %}
 
 {#- Support prefix as string #}
 {%- set prefix = params.prefix if params.prefix is mapping and params.prefix is not escaped else {
   text: params.prefix if params.prefix is string else undefined,
   html: params.prefix if params.prefix is escaped else undefined
-} -%}
+} %}
 
 {#- Support suffix as string #}
 {%- set suffix = params.suffix if params.suffix is mapping and params.suffix is not escaped else {
   text: params.suffix if params.suffix is string else undefined,
   html: params.suffix if params.suffix is escaped else undefined
-} -%}
+} %}
 
 {%- set hasPrefix = true if prefix.text or prefix.html else false %}
 {%- set hasSuffix = true if suffix.text or suffix.html else false %}
@@ -98,8 +98,9 @@
       name: params.name,
       type: params.type | default("text", true),
       spellcheck: {
-        value: params.spellcheck | string
-          if params.spellcheck in [true, false]
+        value: params.spellcheck | string | lower
+          if params.spellcheck is sameas(true) or
+            params.spellcheck is sameas(false)
           else false,
         optional: true
       },
@@ -138,7 +139,7 @@
     }) -}}
 
     {{- nhsukAttributes(params.attributes) }}>
-{%- endmacro -%}
+{%- endmacro %}
 
 {%- macro _affixItem(affix, type) %}
   <div class="nhsuk-input-wrapper__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
@@ -161,8 +162,8 @@
     attributes: label.attributes
   }) | trim | indent(2) }}
 {% if hint.text or hint.html %}
-  {% set hintId = hint.id | default(id ~ "-hint") %}
-  {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
+  {%- set hintId = hint.id | default(id ~ "-hint") %}
+  {%- set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ nhsukHint({
     html: hint.html,
     text: hint.text,
@@ -172,8 +173,8 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if errorMessage.text or errorMessage.html %}
-  {% set errorId = errorMessage.id | default(id ~ "-error") %}
-  {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
+  {%- set errorId = errorMessage.id | default(id ~ "-error") %}
+  {%- set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ nhsukErrorMessage({
     html: errorMessage.html,
     text: errorMessage.text,
