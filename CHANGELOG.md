@@ -19,6 +19,42 @@ We've also introduced new mixins and modifier classes for:
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
+#### Add a modifier class for large buttons
+
+We've added a new `.nhsuk-button--large` class and `large` Nunjucks option for the button component.
+
+Use this when a button needs to match the height of a large input, for example a secondary button placed next to a search input with `large: true`:
+
+```patch
+  {{ button({
+    text: "Advanced search",
+    variant: "secondary",
++   large: true
+  }) }}
+```
+
+Buttons placed inside a `.nhsuk-input-wrapper--large` element will continue to match the large input height automatically, without needing the `large` option, for backwards compatibility.
+
+This was added in [pull request #2126: [SPIKE] Override spacing scale and default button style](https://github.com/nhsuk/nhsuk-frontend/pull/2126).
+
+#### Add modifier classes for large input prefixes and suffixes
+
+We've added new `.nhsuk-input-wrapper__prefix--large` and `.nhsuk-input-wrapper__suffix--large` classes, applied automatically when using the `prefix`, `suffix` and `large` Nunjucks options together on the `input` or `searchInput` macros.
+
+If you are not using Nunjucks macros, add the `nhsuk-input-wrapper__prefix--large` or `nhsuk-input-wrapper__suffix--large` class to your prefix or suffix element:
+
+```patch
+  <div class="nhsuk-input-wrapper nhsuk-input-wrapper--large">
+-   <div class="nhsuk-input-wrapper__prefix" aria-hidden="true">£</div>
++   <div class="nhsuk-input-wrapper__prefix nhsuk-input-wrapper__prefix--large" aria-hidden="true">£</div>
+    <input class="nhsuk-input nhsuk-input--large" id="cost" name="cost" type="text">
+  </div>
+```
+
+Prefixes and suffixes placed inside a `.nhsuk-input-wrapper--large` element will continue to match the large input height automatically, without needing the new classes, for backwards compatibility.
+
+This was added in [pull request #2126: [SPIKE] Override spacing scale and default button style](https://github.com/nhsuk/nhsuk-frontend/pull/2126).
+
 ### :boom: **Breaking changes** to stylesheets
 
 #### Mobile width override classes

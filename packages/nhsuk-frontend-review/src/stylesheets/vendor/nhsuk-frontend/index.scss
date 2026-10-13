@@ -1,3 +1,12 @@
-@use "settings";
+@use "settings" as *;
+@use "nhsuk-frontend/dist/nhsuk/core/tools" as *;
 
-@forward "nhsuk-frontend/dist/nhsuk";
+// Temporary: compact button.
+@forward "nhsuk-frontend/dist/nhsuk" with (
+  $nhsuk-button-min-height-tablet: nhsuk-spacing(7, $adjustment: $nhsuk-border-width-form-element),
+  $nhsuk-button-padding-top-bottom-desktop: nhsuk-spacing(
+      3,
+      $adjustment: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size)
+    ),
+  $nhsuk-button-padding-left-right-tablet: nhsuk-spacing(3, $adjustment: -$nhsuk-border-width-form-element)
+);

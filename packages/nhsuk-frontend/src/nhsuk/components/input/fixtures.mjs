@@ -506,6 +506,27 @@ const fixtures = {
       selector: "#with-prefix-suffix"
     }
   },
+  "large with deprecated input wrapper class": {
+    context: {
+      label: {
+        heading: "Cost per item, in pounds",
+        size: "l"
+      },
+      id: "large-with-deprecated-input-wrapper-class",
+      name: "example",
+      classes: "nhsuk-input--large",
+      prefix: {
+        text: "£"
+      },
+      suffix: {
+        text: "per item"
+      },
+      inputWrapper: {
+        classes: "nhsuk-input-wrapper--large"
+      },
+      width: 5
+    }
+  },
   "with autocomplete attribute": {
     context: {
       label: {
