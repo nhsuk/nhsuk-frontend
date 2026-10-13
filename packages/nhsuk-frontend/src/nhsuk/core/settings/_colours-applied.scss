@@ -20,7 +20,7 @@ $nhsuk-brand-colour: nhsuk-colour("blue") !default;
 ///
 /// @type Colour
 
-$nhsuk-text-colour: #212b32 !default;
+$nhsuk-text-colour: nhsuk-colour("black") !default;
 
 /// Text colour (reverse)
 ///
@@ -89,7 +89,7 @@ $nhsuk-focus-colour: nhsuk-colour("yellow") !default;
 ///
 /// @type Colour
 
-$nhsuk-focus-text-colour: $nhsuk-text-colour !default;
+$nhsuk-focus-text-colour: nhsuk-colour("black") !default;
 
 /// Error colour
 ///
@@ -106,7 +106,7 @@ $nhsuk-error-colour: nhsuk-colour("red") !default;
 ///
 /// @type Colour
 
-$nhsuk-error-text-colour: nhsuk-shade(nhsuk-colour("red"), 2.5%) !default;
+$nhsuk-error-text-colour: nhsuk-colour("red") !default;
 
 /// Success colour
 ///
@@ -123,7 +123,7 @@ $nhsuk-success-colour: nhsuk-colour("green") !default;
 ///
 /// @type Colour
 
-$nhsuk-success-text-colour: nhsuk-shade(nhsuk-colour("green"), 15%) !default;
+$nhsuk-success-text-colour: nhsuk-colour("green") !default;
 
 /// Border colour
 ///
@@ -220,7 +220,7 @@ $nhsuk-link-colour: nhsuk-colour("blue") !default;
 ///
 /// @type Colour
 
-$nhsuk-link-visited-colour: nhsuk-colour("purple") !default;
+$nhsuk-link-visited-colour: nhsuk-colour("dark-purple") !default;
 
 /// Link hover colour
 ///

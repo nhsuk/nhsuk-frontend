@@ -16,55 +16,44 @@ $nhsuk-colours: (
   "dark-blue": #003087,
   "blue": #005eb8,
   "pale-blue": #ccdff1,
-  "bright-blue": #0072ce,
-  "light-blue": #41b6e6,
-  "aqua-blue": #00a9ce,
 
   // NHS neutrals
-  "black": #231f20,
-  "dark-grey": #425563,
-  "mid-grey": #768692,
-  "pale-grey": #e8edee,
-  "white": #ffffff,
-
-  // NHS support greens
-  "dark-green": #006747,
-  "green": #009639,
-  "light-green": #78be20,
-  "pale-green": #ccead7,
-  "pale-aqua-green": #bfe8e6,
-  "aqua-green": #00a499,
-  "dark-aqua-green": #00423d,
-
-  // NHS highlights
-  "purple": #330072,
-  "bright-purple": #6a3ca5,
-  "pale-purple": #e1d8ed,
-  "dark-pink": #7c2855,
-  "pink": #ae2573,
-  "pale-pink": #efd3e3,
-  "dark-red": #8a1538,
-  "red": #da291c,
-  "pale-red": #f8d4d2,
-  "dark-orange": #5f3800,
-  "orange": #ed8b00,
-  "pale-orange": #fbe8cc,
-  "dark-warm-yellow": #59400a,
-  "warm-yellow": #ffb81c,
-  "pale-warm-yellow": #ffe6b0,
-  "dark-yellow": #4b4400,
-  "yellow": #fae100,
-  "pale-yellow": #fef6b3,
-
-  // Greyscale
+  "black": #212b32,
   "grey-1": #4c6272,
   "grey-2": #768692,
   "grey-3": #aeb7bd,
   "grey-4": #d8dde0,
-  "grey-5": #f0f4f5
+  "grey-5": #f0f4f5,
+  "white": #ffffff,
+
+  // NHS support greens
+  "dark-green": #004c23,
+  "green": #007f3b,
+  "pale-green": #cce5d8,
+  "pale-aqua-green": #bae6e3,
+  "aqua-green": #00a499,
+  "dark-aqua-green": #00524c,
+
+  // NHS highlights
+  "dark-purple": #330072,
+  "purple": #5c338e,
+  "pale-purple": #ded6e8,
+  "dark-pink": #7c2855,
+  "pink": #ae2573,
+  "pale-pink": #efd3e3,
+  "dark-red": #801810,
+  "red": #d5281b,
+  "pale-red": #f7d4d1,
+  "dark-orange": #5f3800,
+  "orange": #ed8b00,
+  "pale-orange": #fbe8cc,
+  "dark-warm-yellow": #664a0b,
+  "warm-yellow": #ffb81c,
+  "pale-warm-yellow": #fff1d2,
+  "dark-yellow": #4c4612,
+  "yellow": #ffeb3b,
+  "pale-yellow": #fff9c4
 ) !default;
 
 $nhsuk-colours-aliases: () !default;
-$nhsuk-colours-deprecated: (
-  "dark-purple": "purple"
-) !default;
+$nhsuk-colours-deprecated: () !default;
