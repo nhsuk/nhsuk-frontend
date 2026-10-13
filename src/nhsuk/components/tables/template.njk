@@ -183,9 +183,10 @@
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- nhsukContent({
       text: parent.header.text | default(item.header),
-      html: parent.header.html
-    }) | trim | indent(2) }} </span>
-
+      html: parent.header.html,
+      slots: { end: " " }
+    }) | indent(2) -}}
+  </span>
   {%- if item.html -%}
     <span>{{ innerHtml | safe | indent(2) }}</span>
   {% else %}
