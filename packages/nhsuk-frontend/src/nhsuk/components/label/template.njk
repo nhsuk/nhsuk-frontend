@@ -72,7 +72,7 @@
 
 {%- if label.html or label.text %}
 {%- if caption.placement == "before" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 
 {#- Determine type of element to use #}
@@ -87,6 +87,6 @@
   {{- nhsukHeading(label) | trim }}
 {% endif %}
 {% if caption.placement == "after" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {%- endif %}

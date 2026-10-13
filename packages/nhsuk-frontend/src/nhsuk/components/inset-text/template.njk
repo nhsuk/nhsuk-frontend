@@ -9,11 +9,11 @@
 {%- endif %}
 
 {%- set innerHtml %}
-  {%- if params.html %}
-    {{- nhsukContent({ html: params.html }) | trim -}}
-  {% elif params.text -%}
-    <p>{{ nhsukContent({ text: params.text }) | trim }}</p>
-  {%- endif %}
+{% if params.html %}
+  {{- nhsukContent({ html: params.html }) | trim -}}
+{% elif params.text -%}
+  <p>{{ nhsukContent({ text: params.text }) | trim }}</p>
+{%- endif %}
 {%- endset %}
 
 {%- set content = {

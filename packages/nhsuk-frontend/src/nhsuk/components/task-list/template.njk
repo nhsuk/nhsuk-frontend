@@ -29,7 +29,7 @@
     text: item.hint if item.hint is string else undefined,
     html: item.hint if item.hint is escaped else undefined
   } %}
-  <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
+  <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
       {{ nhsukHeading({
         id: itemHeading.id,

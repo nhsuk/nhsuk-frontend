@@ -52,7 +52,7 @@
     {%- set htmlCode = uniqueHTML(fixture.html, loop.index) %}
     {%- set macroCode = getComponentMacro(component, fixture) %}
 
-  <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
+  <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }} {%- endif %}">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
         <div class="{{ classNamesColumn | default("nhsuk-grid-column-two-thirds", true) }}">
@@ -65,7 +65,7 @@
               class: "nhsuk-link nhsuk-link--no-visited-state" ~ (" nhsuk-link--reverse" if isReverse else ""),
               rel: "noreferrer noopener",
               target: "_blank"
-            }) -}}>
+            }) }}>
               Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ exampleName }}</span>
             </a>
           </p>

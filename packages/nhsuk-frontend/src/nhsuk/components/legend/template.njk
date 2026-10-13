@@ -103,6 +103,6 @@
   }) | trim }}
 {% endif %}
 {% if caption.placement == "after" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {%- endif %}
