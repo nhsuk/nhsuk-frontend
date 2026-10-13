@@ -206,7 +206,7 @@
               action: item.action,
               method: item.method | default("post")
             }) }} novalidate>
-            <button class="nhsuk-header__account-button">
+            <button class="nhsuk-header__account-button" type="submit">
               {{ _accountItem(item) | indent(14) }}
             </button>
           </form>
@@ -266,7 +266,7 @@
         {% endif %}
       {% endfor %}
         <li class="nhsuk-header__menu" hidden>
-          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" type="button" aria-expanded="false">
             {{ nhsukContent({
               text: params.navigation.toggleMenuText | default("More"),
               visuallyHidden: {
