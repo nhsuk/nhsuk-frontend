@@ -1,3 +1,4 @@
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
@@ -20,9 +21,14 @@
       {{- nhsukContent(item) | trim | indent(4) -}}
     </span>
   {% else %}
-    <a class="nhsuk-contents-list__link {%- if item.classes %} {{ item.classes }}{% endif %}" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
-      {{- item.html | safe | trim | indent(4) if item.html else item.text -}}
-    </a>
+    {{ nhsukLink({
+      href: item.href,
+      text: item.text,
+      html: item.html,
+      className: "nhsuk-contents-list__link",
+      classes: item.classes,
+      attributes: item.attributes
+    }) | trim | indent(4) }}
   {% endif %}
   {% if item.items %}
     {{ _contentsList(item.items) | trim | indent(4) }}
