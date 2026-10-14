@@ -1,5 +1,6 @@
-{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
+{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
@@ -50,6 +51,13 @@
 
 {%- set logoAlt = params.logo.alt | default("NHS") %}
 {%- set logoHref = params.service.href if combineLogoAndServiceNameLinks else params.logo.href %}
+{%- set logoAriaLabel = params.logo.ariaLabel | default([
+  logoAlt,
+  params.organisation.name,
+  params.organisation.split,
+  params.service.text if combineLogoAndServiceNameLinks else undefined,
+  "homepage"
+] | select("string") | join(" ")) %}
 
 {#- The NHS logo can be replaced by a bitmap image and/or suffixed by an
     organisation name (with can be split and include a descriptor) #}
@@ -69,14 +77,16 @@
 {%- endmacro %}
 
 {%- macro _serviceName(text, href) %}
-{% if text and href -%}
-<a class="nhsuk-header__service-name" href="{{ href }}">
-  {{- text | trim -}}
-</a>
-{%- elif text -%}
-<span class="nhsuk-header__service-name">
-  {{- text | trim -}}
-</span>
+{% if text and href %}
+  {{- nhsukLink({
+    href: href,
+    text: text | trim,
+    className: "nhsuk-header__service-name"
+  }) | trim -}}
+{% elif text -%}
+  <span class="nhsuk-header__service-name">
+    {{- text | trim -}}
+  </span>
 {%- endif %}
 {%- endmacro %}
 
@@ -89,6 +99,22 @@
     }
   }) | trim -}}
 {% endmacro -%}
+
+{%- set serviceLogoHtml %}
+  {{- _serviceLogo(params.logo, params.organisation) | trim -}}
+{% endset -%}
+
+{%- set serviceNameHtml %}
+  {{- _serviceName(params.service.text, params.service.href
+    if not combineLogoAndServiceNameLinks) | trim -}}
+{%- endset -%}
+
+{%- set serviceHtml %}
+  {{- serviceLogoHtml | safe }}
+{% if combineLogoAndServiceNameLinks %}
+  {{- serviceNameHtml | safe }}
+{% endif %}
+{% endset -%}
 
 <header
   {{- nhsukAttributes({
@@ -105,32 +131,20 @@
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
     {% if logoHref %}
-      {%- set logoAriaLabel = params.logo.ariaLabel if params.logo.ariaLabel else [
-        logoAlt,
-        params.organisation.name,
-        params.organisation.split,
-        params.service.text if combineLogoAndServiceNameLinks else undefined,
-        "homepage"
-      ] | select("string") | join(" ") %}
-      <a class="nhsuk-header__service-logo" href="{{ logoHref }}" aria-label="{{ logoAriaLabel }}">
-      {% if combineLogoAndServiceNameLinks %}
-        {{ _serviceLogo(params.logo, params.organisation) | trim | indent(8) }}
-        {{ _serviceName(params.service.text) | trim | indent(8) }}
-      {% else %}
-        {{ _serviceLogo(params.logo, params.organisation) | trim | indent(8) }}
-      {% endif %}
-      </a>
-    {% elif combineLogoAndServiceNameLinks %}
-      {{ _serviceLogo(params.logo, params.organisation) | trim | indent(6) }}
-      {{ _serviceName(params.service.text) | trim | indent(6) }}
+      {{ nhsukLink({
+        href: logoHref,
+        html: "\n" | safe ~ serviceHtml | trim | indent(2, true) ~ "\n" | safe,
+        ariaLabel: logoAriaLabel,
+        className: "nhsuk-header__service-logo"
+      }) | trim | indent(6) }}
     {% else %}
-      {{ _serviceLogo(params.logo, params.organisation) | trim | indent(6) }}
+      {{ serviceHtml | safe | trim | indent(6) }}
     {% endif %}
-    {% if params.service.text and not combineLogoAndServiceNameLinks %}
-      {{ _serviceName(params.service.text, params.service.href) | trim | indent(6) }}
+    {% if serviceNameHtml | length and not combineLogoAndServiceNameLinks %}
+      {{ serviceNameHtml | safe | trim | indent(6) }}
     {% endif %}
     </div>
-{% if params.search %}
+  {% if params.search %}
     <search class="nhsuk-header__search
       {%- if params.search.classes %} {{ params.search.classes }}{% endif %}"
       {{- nhsukAttributes(params.search.attributes) }}>
@@ -169,8 +183,8 @@
         }) | trim | indent(8) }}
       </form>
     </search>
-{% endif %}
-{% if params.account %}
+  {% endif %}
+  {% if params.account %}
     <nav class="nhsuk-header__account
       {%- if params.account.classes %} {{ params.account.classes }}{% endif %}" aria-label="{{ params.account.ariaLabel | default("Account") }}"
       {{- nhsukAttributes(params.account.attributes) }}>
@@ -179,9 +193,12 @@
         {% if item %}
         <li class="nhsuk-header__account-item {%- if item.classes %} {{ item.classes }}{% endif %}">
         {% if item.href %}
-          <a class="nhsuk-header__account-link" href="{{ item.href }}">
-            {{ _accountItem(item) | indent(12) }}
-          </a>
+          {{ nhsukLink({
+            html: "\n" | safe ~ _accountItem(item) | indent(2, true) ~ "\n" | safe,
+            href: item.href,
+            openInNewTab: item.openInNewTab,
+            className: "nhsuk-header__account-link"
+          }) | trim | indent(10) }}
         {% elif item.action %}
           <form
             {{- nhsukAttributes({
@@ -201,7 +218,7 @@
       {% endfor %}
       </ul>
     </nav>
-{% endif %}
+  {% endif %}
   </div>
 {% if params.navigation and params.navigation.items | length %}
   <nav class="{{ classNamesNavigation }}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
@@ -212,12 +229,6 @@
         {% if item %}
         {%- set itemInnerAttributesHtml %}
           {{- nhsukAttributes({
-            class: "nhsuk-header__navigation-link" if item.href
-              else "nhsuk-header__navigation-text",
-            href: {
-              value: item.href,
-              optional: true
-            },
             "aria-current": {
               value: ("page" if item.current else "true")
                 if item.active or item.current
@@ -226,7 +237,7 @@
             }
           }) -}}
         {% endset %}
-        {%- set itemInnerContent %}
+        {%- set itemInnerHtml %}
           {#- Wrap active links in strong element so users who override colours
               or styles still have some indicator of the current nav item #}
           {%- if item.active or item.current -%}
@@ -239,12 +250,16 @@
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
         {% if item.href %}
-          <a {{- itemInnerAttributesHtml | safe }}>
-            {{- itemInnerContent | safe -}}
-          </a>
+          {{ nhsukLink({
+            html: itemInnerHtml,
+            href: item.href,
+            openInNewTab: item.openInNewTab,
+            className: "nhsuk-header__navigation-link",
+            attributes: itemInnerAttributesHtml
+          }) | trim | indent(10) }}
         {% else %}
-          <span {{- itemInnerAttributesHtml | safe }}>
-            {{- itemInnerContent | safe -}}
+          <span class="nhsuk-header__navigation-text" {{- itemInnerAttributesHtml | safe }}>
+            {{- itemInnerHtml | safe -}}
           </span>
         {% endif %}
         </li>
