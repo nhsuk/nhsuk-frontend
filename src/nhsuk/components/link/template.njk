@@ -17,11 +17,15 @@
   {%- set classNames = (classNames ~ " " ~ params.classes) | trim %}
 {%- endif %}
 
-{#- Determine type of element to use #}
-{%- if not params.type %}
-  {%- set element = "a" %}
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {%- set element = params.element | lower %}
 {%- else %}
-  {%- set element = "button" %}
+  {%- if not params.type %}
+    {%- set element = "a" %}
+  {%- else %}
+    {%- set element = "button" %}
+  {%- endif %}
 {%- endif %}
 
 {#- Define attributes that we can use across all element types #}
