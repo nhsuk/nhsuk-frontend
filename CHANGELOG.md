@@ -576,6 +576,115 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+## Unreleased v10.x
+
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### Environment banner
+
+We've added an environment banner component to help identify development, review or other non-production environments.
+
+To use the `environmentBanner` Nunjucks macro in your service, add it above the header:
+
+```patch
+  {% block header %}
++   {{ environmentBanner({
++     tag: environmentName,
++     colour: themeName
++   }) }}
++
+    {{ header() }}
+  {% endblock %}
+```
+
+Use the Nunjucks global values `environmentName` and `themeName` to update the banner, matching the [toolbar colour on some devices](https://developer.chrome.com/blog/support-for-theme-color-in-chrome-39-for-android). All tag colours are supported.
+
+```mjs
+nunjucks.render('example.njk', {
+  environmentName: 'Review',
+  themeName: 'purple'
+})
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [environment banner on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/environment-banner/)
+
+This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
+
+### :recycle: **Changes**
+
+#### Add visually hidden text to warning buttons
+
+We've added default visually hidden text to warning buttons that reads "Warning:". This helps to signal the button's importance without relying on its colour.
+
+The text can be overriden with `visuallyHiddenText`:
+
+```patch
+  {{ button({
+    text: "Delete record",
++   visuallyHiddenText: "Caution",
+    variant: "warning"
+  }) }}
+```
+
+This change was introduced in [pull request #2121: Add visually hidden text to warning button](https://github.com/nhsuk/nhsuk-frontend/pull/2121).
+
+#### Use Nunjucks conditional content and before/after input slots as strings
+
+We added support for alternative string values in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0) and [version 10.6.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.1).
+
+The following component options now support alternative string values:
+
+- checkboxes and radios `item.conditional` option
+- date input `day`, `month` and `year` options
+- single field `formGroup.beforeInput` and `formGroup.afterInput` options
+- multiple field `formGroup.beforeInputs` and `formGroup.afterInputs` options
+- tabs `item.panel` option
+
+The following component options now support `text` and `html` nested options:
+
+- checkboxes and radios `item.divider` option
+- tabs `item.label` option
+
+This change was introduced in [pull request #2128: Add fixture coverage for before/after input content etc](https://github.com/nhsuk/nhsuk-frontend/pull/2128).
+
+#### Use Nunjucks macros to add headings, captions, visually hidden text and links
+
+We've updated our components to use Nunjucks macros to render:
+
+- headings and captions via the `heading()` and `caption()` component macros
+- visually hidden text via the `visuallyHidden()` component macro
+- links via the `link()` component macro
+
+We've also added the `nhsukContent()` macro to simplify how text, HTML and visually hidden content is rendered:
+
+```patch
+- {% if item.html %}
+-   {{- item.html | safe | trim }}
+- {% elif item.text %}
+-   {{- item.text | trim }}
+- {% endif %}
+- {% if item.visuallyHiddenText -%}
+-   <span class="nhsuk-u-visually-hidden"> {{ item.visuallyHiddenText }}</span>
+- {% endif %}
++ {{ nhsukContent(item) }}
+```
+
+Shared components and macros can be used by service teams to create their own custom components.
+
+These changes were introduced in pull requests [#2103: Add visually hidden component](https://github.com/nhsuk/nhsuk-frontend/pull/2103), [#2108: Add link component](https://github.com/nhsuk/nhsuk-frontend/pull/2108) and [#1985: Add heading and caption components](https://github.com/nhsuk/nhsuk-frontend/pull/1985).
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2095: Adjust checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2095)
+- [#2104: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2104)
+- [#2105: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
+- [#2117: Restore missing `.nhsuk-back-to-top` styles](https://github.com/nhsuk/nhsuk-frontend/pull/2117)
+- [#2129: Omit stripes on tables with only 1 row](https://github.com/nhsuk/nhsuk-frontend/pull/2129)
+
 ## 10.6.1 - 25 August 2026
 
 Note: This release was created from the `support/10.x` branch.

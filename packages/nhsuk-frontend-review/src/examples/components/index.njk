@@ -3,6 +3,21 @@
 {% set pageHeading = "Components" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
+{% set tab1Html %}
+<h2>Tab 1 content</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+{% endset %}
+
+{% set tab2Html %}
+<h2>Tab 2 content</h2>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+{% endset %}
+
+{% set tab3Html %}
+<h2>Tab 3 content</h2>
+<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+{% endset %}
+
 {% block beforeContent %}
   {{ breadcrumb({
     items: [
@@ -54,7 +69,7 @@
           {
             href: "#",
             text: "What is AMD?",
-            current: "true"
+            current: true
           },
           {
             href: "#",
@@ -80,7 +95,7 @@
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Introduction to care and support",
           size: "m"
@@ -91,7 +106,7 @@
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Help from social services and charities",
           size: "m"
@@ -102,7 +117,7 @@
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Money, work and benefits",
           size: "m"
@@ -113,7 +128,7 @@
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Care after a hospital stay",
           size: "m"
@@ -127,7 +142,7 @@
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "5 steps to mental wellbeing",
           size: "m"
@@ -138,7 +153,7 @@
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Healthy weight",
           size: "m"
@@ -149,7 +164,7 @@
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Exercise",
           size: "m"
@@ -162,7 +177,7 @@
   <ul class="nhsuk-grid-row nhsuk-card-group">
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
-        clickable: "true",
+        clickable: true,
         heading: {
           html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
         }
@@ -170,7 +185,7 @@
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
-        clickable: "true",
+        clickable: true,
         heading: {
           html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
         }
@@ -178,7 +193,7 @@
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
-        clickable: "true",
+        clickable: true,
         heading: {
           html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
         }
@@ -186,7 +201,7 @@
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
-        clickable: "true",
+        clickable: true,
         heading: {
           html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
         }
@@ -207,7 +222,7 @@
 
       {{ card({
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Introduction to care and support",
           size: "m"
@@ -220,7 +235,7 @@
           src: "/nhsuk-frontend/assets/example-image-exercise.jpg"
         },
         href: "#",
-        clickable: "true",
+        clickable: true,
         heading: {
           text: "Exercise",
           size: "m"
@@ -229,7 +244,7 @@
       }) }}
 
       {{ card({
-        feature: "true",
+        feature: true,
         heading: {
           text: "Feature card heading",
           size: "m"
@@ -1037,42 +1052,27 @@
 
       <br>
 
-      {% set tab1Content %}
-        <h2>Tab 1 content</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      {% endset -%}
-
-      {% set tab2Content %}
-        <h2>Tab 2 content</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-      {% endset -%}
-
-      {% set tab3Content %}
-        <h2>Tab 3 content</h2>
-        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-      {% endset -%}
-
       {{ tabs({
         items: [
           {
             label: "Tab 1",
             id: "tab-1",
             panel: {
-              html: tab1Content
+              html: tab1Html
             }
           },
           {
             label: "Tab 2",
             id: "tab-2",
             panel: {
-              html: tab2Content
+              html: tab2Html
             }
           },
           {
             label: "Tab 3",
             id: "tab-3",
             panel: {
-              html: tab3Content
+              html: tab3Html
             }
           }
         ]

@@ -265,8 +265,6 @@
 /// If you use this mixin in a component, you must also include the
 /// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
 ///
-/// @param {Colour} $link-colour [$nhsuk-link-colour] - Link colour for visited state
-///
 /// @example scss
 ///   .nhsuk-component__link {
 ///     @include nhsuk-link-style-default;

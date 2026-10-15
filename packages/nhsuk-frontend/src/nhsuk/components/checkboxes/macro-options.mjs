@@ -181,11 +181,27 @@ const options = {
         isComponent: true
       },
       divider: {
-        type: 'string',
+        type: 'object',
         required: false,
         description:
           'Divider text to separate checkbox items, for example the text `"or"`.',
-        released: '3.1.0'
+        released: '3.1.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for the divider. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for the divider. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          }
+        }
       },
       checked: {
         type: 'boolean',
@@ -201,10 +217,18 @@ const options = {
           'Provide additional content to reveal when the checkbox is checked.',
         released: '1.0.0',
         params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. The text to reveal when the checkbox is checked.',
+            released: '10.7.0'
+          },
           html: {
             type: 'string',
             required: true,
-            description: 'The HTML to reveal when the checkbox is checked.',
+            description:
+              'If `text` is set, this is not required. The HTML to reveal when the checkbox is checked.',
             released: '1.0.0'
           }
         }
