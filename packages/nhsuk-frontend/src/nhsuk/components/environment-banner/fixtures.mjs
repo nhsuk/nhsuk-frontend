@@ -80,6 +80,13 @@ const fixtures = {
         }
       },
       {
+        description: "warm yellow",
+        context: {
+          tag: "Training",
+          colour: "warm-yellow"
+        }
+      },
+      {
         description: "yellow",
         context: {
           tag: "Preview",

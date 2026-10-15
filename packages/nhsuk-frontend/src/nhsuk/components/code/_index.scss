@@ -23,8 +23,8 @@
   }
 
   .nhsuk-code--inline.nhsuk-code--reverse {
-    color: nhsuk-tint(nhsuk-colour("red"), 85%);
-    background-color: nhsuk-shade(nhsuk-colour("blue"), 25%);
+    color: nhsuk-colour("pale-red");
+    background-color: nhsuk-colour("dark-blue");
   }
 
   .nhsuk-code--reverse:has(.nhsuk-code__content:focus) {

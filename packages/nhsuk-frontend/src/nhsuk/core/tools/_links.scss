@@ -194,10 +194,10 @@
 
 @mixin nhsuk-link-style-error {
   @include nhsuk-link-style(
-    $link-colour: $nhsuk-error-colour,
-    $link-visited-colour: $nhsuk-error-colour,
-    $link-hover-colour: nhsuk-colour-compatible(color.scale($nhsuk-error-colour, $lightness: -30%)),
-    $link-active-colour: $nhsuk-error-colour
+    $link-colour: $nhsuk-error-text-colour,
+    $link-visited-colour: $nhsuk-error-text-colour,
+    $link-hover-colour: nhsuk-colour-compatible(color.scale($nhsuk-error-text-colour, $lightness: -30%)),
+    $link-active-colour: $nhsuk-error-text-colour
   );
 }
 
@@ -218,10 +218,10 @@
 
 @mixin nhsuk-link-style-success {
   @include nhsuk-link-style(
-    $link-colour: $nhsuk-success-colour,
-    $link-visited-colour: $nhsuk-success-colour,
-    $link-hover-colour: nhsuk-shade($nhsuk-success-colour, 20%),
-    $link-active-colour: nhsuk-shade($nhsuk-success-colour, 50%)
+    $link-colour: $nhsuk-success-text-colour,
+    $link-visited-colour: $nhsuk-success-text-colour,
+    $link-hover-colour: nhsuk-shade($nhsuk-success-text-colour, 20%),
+    $link-active-colour: nhsuk-shade($nhsuk-success-text-colour, 50%)
   );
 }
 
