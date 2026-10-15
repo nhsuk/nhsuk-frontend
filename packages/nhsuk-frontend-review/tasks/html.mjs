@@ -12,7 +12,7 @@ import PluginError from 'plugin-error'
 import validatorConfig from '../.htmlvalidate.mjs'
 
 const { configure, renderTemplate } = nunjucks
-const { HEROKU_BRANCH, HEROKU_PR_NUMBER } = process.env
+const { HEROKU_BRANCH, HEROKU_PR_NUMBER, NODE_ENV } = process.env
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -57,7 +57,9 @@ export const compile = task.name('html:render', async () => {
         ? HEROKU_PR_NUMBER
           ? 'Review'
           : 'Preview'
-        : 'Development',
+        : NODE_ENV === 'production'
+          ? 'Preview'
+          : 'Development',
 
     // Link to GitHub pull request when available
     gitHub: HEROKU_PR_NUMBER
