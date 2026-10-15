@@ -76,17 +76,21 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
     color: $nhsuk-text-colour;
     text-align: right;
     vertical-align: top;
+
+    .nhsuk-tag {
+      margin-top: nhsuk-spacing(-1, $adjustment: 1px);
+      margin-bottom: nhsuk-spacing(-1, $adjustment: 1px);
+    }
   }
 
   // Deprecated, to be removed in v11.0
   .nhsuk-task-list__status--completed,
   .nhsuk-task-list__status--cannot-start-yet {
-    padding-top: nhsuk-spacing(1, $adjustment: 2px);
-    padding-right: nhsuk-spacing(2, $adjustment: 1px);
-    padding-bottom: nhsuk-spacing(1);
+    padding-top: nhsuk-spacing(1, $adjustment: -1px);
+    padding-right: nhsuk-spacing(2);
     text-decoration: none;
 
-    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1);
+    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1.5);
   }
 
   // Deprecated, to be removed in v11.0
