@@ -55,6 +55,12 @@ const fixtures = {
       viewports: ["tablet"]
     }
   },
+  "text escaping": {
+    context: {
+      text: "What to expect at A&E",
+      size: "l"
+    }
+  },
   "text and caption": {
     context: {
       text: "What is your home address?",
@@ -154,6 +160,45 @@ const fixtures = {
       size: "s"
     }
   },
+  "with HTML": {
+    context: {
+      html: "What to expect at A&amp;E",
+      size: "l"
+    }
+  },
+  "with HTML and caption": {
+    context: {
+      html: "What to expect at A&amp;E",
+      caption: "Urgent and emergency care services",
+      size: "l"
+    }
+  },
+  "with HTML via call block": {
+    context: {
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
+  'with HTML via call block and caption "start"': {
+    context: {
+      caption: {
+        text: "Urgent and emergency care services",
+        placement: "start"
+      },
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
+  'with HTML via call block and caption "end"': {
+    context: {
+      caption: {
+        text: "Urgent and emergency care services",
+        placement: "end"
+      },
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
   "with link": {
     context: {
       text: "Skin colour changes",
@@ -163,9 +208,17 @@ const fixtures = {
   },
   "with link and caption": {
     context: {
+      href: "#/result/1",
       text: "Skin colour changes",
       caption: "A to Z of NHS health writing",
+      size: "l"
+    }
+  },
+  "with link opens in a new tab": {
+    context: {
       href: "#/result/1",
+      text: "Skin colour changes",
+      openInNewTab: true,
       size: "l"
     }
   },
@@ -182,6 +235,27 @@ const fixtures = {
       visuallyHiddenText: "(Karen Francis)",
       caption: "About you",
       size: "l"
+    }
+  },
+  "with custom class and size": {
+    context: {
+      text: "What is your full name?",
+      className: "app-heading",
+      size: "s"
+    }
+  },
+  "with custom class and size as modifier": {
+    context: {
+      text: "What is your full name?",
+      className: "app-heading",
+      classPrefix: "app-heading--",
+      size: "s"
+    }
+  },
+  "without class": {
+    context: {
+      text: "What is your full name?",
+      className: false
     }
   }
 }

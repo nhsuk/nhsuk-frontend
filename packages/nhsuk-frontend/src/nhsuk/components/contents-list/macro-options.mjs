@@ -16,22 +16,10 @@ const options = {
     type: 'array',
     required: true,
     description: 'Array of contents list items objects.',
+    alias: 'link',
     released: '1.0.0',
+    isComponent: true,
     params: {
-      href: {
-        type: 'string',
-        required: true,
-        description:
-          'The contents list item `href` attribute. Required unless `item.current` is set.',
-        released: '1.0.0'
-      },
-      current: {
-        type: 'boolean',
-        required: false,
-        description:
-          'Set to `true` to indicate the current page the user is on.',
-        released: '1.0.0'
-      },
       text: {
         type: 'string',
         required: true,
@@ -45,6 +33,20 @@ const options = {
         description:
           'If `text` is set, this is not required. HTML to use within each contents list item. If `html` is provided, the `text` option will be ignored.',
         released: '10.2.0'
+      },
+      href: {
+        type: 'string',
+        required: true,
+        description:
+          'The contents list item `href` attribute. Required unless `item.current` is set.',
+        released: '1.0.0'
+      },
+      current: {
+        type: 'boolean',
+        required: false,
+        description:
+          'Set to `true` to indicate the current page the user is on.',
+        released: '1.0.0'
       },
       classes: {
         type: 'string',
