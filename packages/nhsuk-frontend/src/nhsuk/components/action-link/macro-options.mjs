@@ -50,9 +50,15 @@ const options = {
   openInNewWindow: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, then the action link will open in a new window. If `type` is set, this has no effect.',
+    description: 'Optional alias for the `openInNewTab` option.',
     released: '1.0.0'
+  },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, then the action link will open in a new tab. If `type` is set, this has no effect.',
+    released: '10.7.0'
   },
   variant: {
     type: 'string',
