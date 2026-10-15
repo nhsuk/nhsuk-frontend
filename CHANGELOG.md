@@ -679,11 +679,11 @@ These changes were introduced in pull requests [#2103: Add visually hidden compo
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
-- [#2095: Adjust checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2095)
-- [#2104: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2104)
-- [#2105: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
+- [#2096: Adjust checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2096)
+- [#2105: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
+- [#2106: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2106)
 - [#2117: Restore missing `.nhsuk-back-to-top` styles](https://github.com/nhsuk/nhsuk-frontend/pull/2117)
-- [#2129: Omit stripes on tables with only 1 row](https://github.com/nhsuk/nhsuk-frontend/pull/2129)
+- [#2131: Omit stripes on tables with only 1 row](https://github.com/nhsuk/nhsuk-frontend/pull/2131)
 
 ## 10.6.1 - 25 August 2026
 
