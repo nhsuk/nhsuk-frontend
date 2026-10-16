@@ -12,12 +12,17 @@
 /// @group components/input
 ////
 
+$nhsuk-input-height: nhsuk-px-to-rem(40px) !default;
+$nhsuk-input-height-tablet: $nhsuk-input-height !default;
+$nhsuk-input-height-large: nhsuk-px-to-rem(48px) !default;
+$nhsuk-input-height-large-tablet: nhsuk-px-to-rem(60px) !default;
+
 @include nhsuk-exports("nhsuk/components/input") {
   .nhsuk-input {
     box-sizing: border-box;
 
     width: 100%;
-    height: nhsuk-px-to-rem(40px);
+    height: $nhsuk-input-height;
     margin-top: 0;
     padding: nhsuk-spacing(1, $unit: "rem");
     // Setting any background-color makes text invisible when changing colours
@@ -61,6 +66,10 @@
     // Hide input clear button (IE)
     &::-ms-clear {
       display: none;
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      height: $nhsuk-input-height-tablet;
     }
   }
 
@@ -130,7 +139,7 @@
   // Large inputs
 
   .nhsuk-input--large {
-    height: nhsuk-px-to-rem(48px);
+    height: $nhsuk-input-height-large;
     padding-right: nhsuk-spacing(2, $unit: "rem");
     padding-left: nhsuk-spacing(2, $unit: "rem");
     @include nhsuk-font($size: 22);
@@ -146,7 +155,7 @@
     }
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      height: nhsuk-px-to-rem(60px);
+      height: $nhsuk-input-height-large-tablet;
     }
   }
 
@@ -233,8 +242,8 @@
       align-items: center;
       justify-content: center;
 
-      min-width: nhsuk-px-to-rem(40px);
-      height: nhsuk-px-to-rem(40px);
+      min-width: $nhsuk-input-height;
+      height: $nhsuk-input-height;
 
       white-space: nowrap;
     }
@@ -243,14 +252,14 @@
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__prefix,
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix {
     @media #{nhsuk-from-breakpoint(mobile)} {
-      height: nhsuk-px-to-rem(52px);
+      height: $nhsuk-input-height-large;
       padding-right: nhsuk-spacing(3, $unit: "rem");
       padding-left: nhsuk-spacing(3, $unit: "rem");
       @include nhsuk-font($size: 22);
     }
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      height: $nhsuk-input-height-large-tablet;
     }
   }
 
