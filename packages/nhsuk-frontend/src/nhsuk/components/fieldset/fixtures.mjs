@@ -52,6 +52,35 @@ const fixtures = {
       ${components.render("input", inputExamples["example address postcode"])}
     `
   },
+  "with content slots": {
+    context: {
+      legend: {
+        caption: "About you",
+        heading: "What is your address?",
+        size: "l"
+      },
+      html: outdent`
+        ${components.render("input", inputExamples["example address line 1"])}
+        ${components.render("input", inputExamples["example address line 2"])}
+        ${components.render("input", inputExamples["example address town or city"])}
+        ${components.render("input", inputExamples["example address postcode"])}
+      `,
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "without legend heading": {
     context: {
       legend: "What is your address?"

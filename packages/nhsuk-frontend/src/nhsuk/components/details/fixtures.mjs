@@ -27,6 +27,52 @@ const fixtures = {
       open: true
     }
   },
+  "open with content slots": {
+    context: {
+      summary: {
+        text: "How to find your NHS number"
+      },
+      text: "You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you.",
+      open: true,
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
+  "open with content slots in summary": {
+    context: {
+      summary: {
+        text: "How to find your NHS number",
+        slots: {
+          before: {
+            html: '<samp class="app-annotate">Before</samp>'
+          },
+          start: {
+            html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+          },
+          end: {
+            html: '<samp class="app-annotate app-annotate--end">End</samp>'
+          },
+          after: {
+            html: '<samp class="app-annotate">After</samp>'
+          }
+        }
+      },
+      text: "You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you.",
+      open: true
+    }
+  },
   "closed explicitly": {
     context: {
       summary: {
@@ -105,6 +151,54 @@ const fixtures = {
         text: "Opening times"
       },
       text: "We are open 9am to 6pm, Monday to Saturday.",
+      classes: "nhsuk-expander",
+      open: true
+    }
+  },
+  "expander open with content slots": {
+    context: {
+      summary: {
+        text: "Opening times"
+      },
+      text: "We are open 9am to 6pm.",
+      classes: "nhsuk-expander",
+      open: true,
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
+  "expander open with content slots in summary": {
+    context: {
+      summary: {
+        text: "Opening times",
+        slots: {
+          before: {
+            html: '<samp class="app-annotate">Before</samp>'
+          },
+          start: {
+            html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+          },
+          end: {
+            html: '<samp class="app-annotate app-annotate--end">End</samp>'
+          },
+          after: {
+            html: '<samp class="app-annotate">After</samp>'
+          }
+        }
+      },
+      text: "We are open 9am to 6pm.",
       classes: "nhsuk-expander",
       open: true
     }

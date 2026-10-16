@@ -79,6 +79,23 @@ const fixtures = {
       viewports: ["tablet"]
     }
   },
+  "with content slots": {
+    context: {
+      text: "What is your address?",
+      size: "l",
+      slots: {
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with size class": {
     context: {
       heading: "What is your address?",

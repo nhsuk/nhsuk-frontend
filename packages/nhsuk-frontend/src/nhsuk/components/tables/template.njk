@@ -6,6 +6,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant %}
@@ -161,7 +162,8 @@
   {{- nhsukLink({
     href: item.href,
     html: nhsukContent(item),
-    openInNewTab: item.openInNewTab
+    openInNewTab: item.openInNewTab,
+    slots: item.slots
   }) | trim -}}
 {% else %}
   {{- nhsukContent(item) | trim -}}
@@ -210,6 +212,8 @@
 {%- endmacro %}
 
 {%- set tableHtml %}
+{{- nhsukSlot("before", params) -}}
+
 <table {{- attributesHtml | safe }}>
 {% if not (caption.text or caption.html) and (captionVisuallyHiddenText or captionVisuallyHiddenHtml) %}
   {{ nhsukVisuallyHidden({
@@ -237,7 +241,8 @@
         headingCaption.placement in ["start", "end"] else undefined,
       size: headingCaption.size | default(caption.size),
       classes: headingCaption.classes,
-      attributes: headingCaption.attributes
+      attributes: headingCaption.attributes,
+      slots: headingCaption.slots
     },
     size: caption.size,
     sizes: ["s", "m", "l", "xl"],
@@ -245,7 +250,11 @@
     classPrefix: classNamesCaption ~ "--",
     classes: caption.classes,
     attributes: caption.attributes,
-    element: "caption"
+    element: "caption",
+    slots: {
+      start: caption.slots.start,
+      end: caption.slots.end
+    }
   }) | trim | indent(2) }}
 {% endif %}
 {% if head | length %}
@@ -358,6 +367,9 @@
   </tbody>
 {% endif %}
 </table>
+
+{{- nhsukSlot("after", params) -}}
+{{- "\n" | safe -}}
 {% endset %}
 
 {%- if params.scroll %}
