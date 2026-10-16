@@ -132,7 +132,7 @@
 {%- set iconHtml = icon.html if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
 
 {%- set content = {
-  text: params.text,
+  text: params.text if params.text not in ["", none, false] else undefined,
   html: caller() if caller else params.html,
   visuallyHidden: {
     text: "Warning" if className ~ "--warning" in classNames else params.visuallyHiddenText,

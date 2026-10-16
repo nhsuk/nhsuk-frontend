@@ -119,7 +119,10 @@
           <p class="nhsuk-body">To use the <code>fileUpload</code> Nunjucks macro in your service:</p>
 
           {% call code({
-            button: true
+            button: {
+              text: false,
+              icon: "copy"
+            }
           }) %}
             {% filter highlight("njk") %}
               {% raw %}
@@ -137,7 +140,10 @@
           <p class="nhsuk-body">If you are not using Nunjucks macros, use the following HTML:</p>
 
           {% call code({
-            button: true
+            button: {
+              text: false,
+              icon: "copy"
+            }
           }) %}
             {% filter highlight("html") %}
               <div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
@@ -290,7 +296,10 @@
 
           {% call code({
             variant: "reverse",
-            button: true
+            button: {
+              text: false,
+              icon: "copy"
+            }
           }) %}
             {% filter highlight("njk") %}
               {% raw %}
@@ -309,7 +318,10 @@
 
           {% call code({
             variant: "reverse",
-            button: true
+            button: {
+              text: false,
+              icon: "copy"
+            }
           }) %}
             {% filter highlight("html") %}
               <div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
