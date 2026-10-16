@@ -24,7 +24,7 @@
 
   // These need to be kept in sync with the button component's styles
   $button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
-  $button-padding-top-bottom-desktop: nhsuk-px-to-rem(14px);
+  $button-padding-top-bottom-tablet: nhsuk-px-to-rem(14px);
   $button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 
   .nhsuk-button-group {
@@ -97,7 +97,7 @@
       > .nhsuk-link,
       /* stylelint-disable-next-line selector-no-qualifying-type */
       > a:not(.nhsuk-button) {
-        margin: $button-padding-top-bottom-desktop 0;
+        margin: $button-padding-top-bottom-tablet 0;
         margin-right: $horizontal-gap;
         line-height: nhsuk-line-height(24px, $font-size: 19px);
         text-align: left;
