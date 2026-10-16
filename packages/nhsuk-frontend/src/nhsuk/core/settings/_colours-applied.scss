@@ -49,6 +49,12 @@ $nhsuk-body-background-colour: nhsuk-colour("grey-5") !default;
 
 $nhsuk-card-background-colour: nhsuk-colour("white") !default;
 
+/// Reverse card background colour
+///
+/// @type Colour
+
+$nhsuk-reverse-card-background-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !default;
+
 /// Text colour for print media
 ///
 /// Use 'true black' to avoid printers using colour ink to print body text
@@ -99,6 +105,18 @@ $nhsuk-focus-text-colour: nhsuk-colour("black") !default;
 
 $nhsuk-error-colour: nhsuk-colour("red") !default;
 
+/// Reverse error colour
+///
+/// @type Colour
+
+$nhsuk-reverse-error-colour: nhsuk-tint($nhsuk-error-colour, 78%) !default;
+
+/// Reverse error border colour
+///
+/// @type Colour
+
+$nhsuk-reverse-error-border-colour: nhsuk-tint($nhsuk-error-colour, 58%) !default;
+
 /// Success colour
 ///
 /// Used to highlight success messages and banners
@@ -143,6 +161,14 @@ $nhsuk-reverse-border-colour: nhsuk-tint($nhsuk-brand-colour, 20%) !default;
 
 $nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
 
+/// Reverse form border colour
+///
+/// Used for form inputs and controls
+///
+/// @type Colour
+
+$nhsuk-reverse-input-border-colour: nhsuk-tint($nhsuk-brand-colour, 30%) !default;
+
 /// Input hover colour
 ///
 /// Used for hover states on form controls
@@ -181,6 +207,12 @@ $nhsuk-reverse-target-hover-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !defau
 /// @type Colour
 
 $nhsuk-input-background-colour: nhsuk-colour("white") !default;
+
+/// Reverse form element background colour
+///
+/// @type Colour
+
+$nhsuk-reverse-input-background-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !default;
 
 /// Code text colour
 ///
