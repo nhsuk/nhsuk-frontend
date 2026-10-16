@@ -46,7 +46,7 @@ jobs:
 
       - name: Get package version
         id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Create release artifact
         run: npm run release --workspace nhsuk-frontend
