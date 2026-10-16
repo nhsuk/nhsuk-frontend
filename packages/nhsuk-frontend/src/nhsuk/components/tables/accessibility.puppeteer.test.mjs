@@ -15,7 +15,7 @@ describe('Tables', () => {
         'landmark-unique': { enabled: false }
       })
     ).resolves.toHaveNoViolations()
-  }, 30000)
+  }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
