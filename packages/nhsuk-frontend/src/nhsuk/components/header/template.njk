@@ -4,6 +4,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" %}
@@ -98,7 +99,9 @@
       start: nhsukIcon("user") if item.icon
     }
   }) | trim -}}
-{% endmacro -%}
+{% endmacro %}
+
+{{- nhsukSlot("before", params) -}}
 
 {%- set serviceLogoHtml %}
   {{- _serviceLogo(params.logo, params.organisation) | trim -}}
@@ -197,7 +200,8 @@
             html: "\n" | safe ~ _accountItem(item) | indent(2, true) ~ "\n" | safe,
             href: item.href,
             openInNewTab: item.openInNewTab,
-            className: "nhsuk-header__account-link"
+            className: "nhsuk-header__account-link",
+            slots: item.slots
           }) | trim | indent(10) }}
         {% elif item.action %}
           <form
@@ -282,3 +286,6 @@
   </nav>
 {% endif %}
 </header>
+
+{{- nhsukSlot("after", params) -}}
+{{- "\n" | safe -}}
