@@ -25,6 +25,25 @@ const fixtures = {
   "with HTML via call block": {
     callBlock: "Postcode must not include &amp; and &lt;"
   },
+  "with content slots": {
+    context: {
+      text: "Enter your full name",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with translations": {
     context: {
       text: "Rhowch eich enw llawn",
