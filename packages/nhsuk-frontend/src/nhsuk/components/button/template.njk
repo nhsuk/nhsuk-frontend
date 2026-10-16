@@ -1,6 +1,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant %}
@@ -134,6 +135,10 @@
     text: "Warning" if className ~ "--warning" in classNames else params.visuallyHiddenText,
     placement: "start",
     slots: { end: ": " }
+  },
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
   }
 } %}
 
@@ -152,6 +157,8 @@
 {% endif %}
 {%- endset %}
 
+{{- nhsukSlot("before", params) -}}
+
 {%- if element == "a" %}
 <a {{- attributesHtml | safe }}>
   {{ nhsukContent({
@@ -159,13 +166,16 @@
     slots: slots
   }) | trim | indent(2) }}
 </a>
-{% elif element == "button" %}
+{%- elif element == "button" %}
 <button {{- attributesHtml | safe }}>
   {{ nhsukContent({
     html: innerHtml,
     slots: slots
   }) | trim | indent(2) }}
 </button>
-{% elif element == "input" %}
+{%- elif element == "input" %}
 <input {{- attributesHtml | safe }}>
-{% endif %}
+{%- endif %}
+
+{{- nhsukSlot("after", params) -}}
+{{- "\n" | safe -}}
