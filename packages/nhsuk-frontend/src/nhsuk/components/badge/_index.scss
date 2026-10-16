@@ -1,0 +1,103 @@
+@use "sass:color";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Badge component
+///
+/// A small inline pill for displaying a short numeric or text label
+/// alongside other content, such as a count or status indicator.
+///
+/// Badges with only visually hidden text are shown as a indicator.
+///
+/// @group components/badge
+////
+
+$nhsuk-badge-colour: rgb(nhsuk-colour("grey-2"), 0.2) !default;
+$nhsuk-badge-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25) !default;
+
+$nhsuk-badge-indicator-size: 20px !default;
+$nhsuk-badge-indicator-size-small: 12px !default;
+
+// Colours for indicator badges
+$nhsuk-badge-indicator-colour: nhsuk-colour("grey-2") !default;
+$nhsuk-badge-indicator-colour-reverse: nhsuk-colour("white") !default;
+
+@include nhsuk-exports("nhsuk/components/badge") {
+  .nhsuk-badge {
+    display: inline-block;
+
+    min-width: nhsuk-px-to-rem(nhsuk-spacing(2));
+    margin: 0;
+    padding: 0 nhsuk-px-to-rem(nhsuk-spacing(2));
+
+    border-radius: nhsuk-px-to-rem(nhsuk-spacing(3));
+
+    color: $nhsuk-text-colour;
+    background-color: $nhsuk-badge-colour;
+
+    text-align: center;
+
+    @include nhsuk-font(19);
+  }
+
+  .nhsuk-badge:not(.nhsuk-badge--small):not(.nhsuk-badge--indicator) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      min-width: nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
+      padding: 0 nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
+    }
+  }
+
+  .nhsuk-badge--small {
+    @include nhsuk-font(16);
+  }
+
+  // Indicator badges have no visible text, so are sized explicitly instead of by their content
+  .nhsuk-badge--indicator {
+    width: nhsuk-px-to-rem($nhsuk-badge-indicator-size);
+    height: nhsuk-px-to-rem($nhsuk-badge-indicator-size);
+    padding: 0;
+
+    border-radius: 50%;
+
+    background-color: $nhsuk-badge-indicator-colour;
+
+    vertical-align: middle;
+  }
+
+  .nhsuk-badge--indicator.nhsuk-badge--small {
+    width: nhsuk-px-to-rem($nhsuk-badge-indicator-size-small);
+    height: nhsuk-px-to-rem($nhsuk-badge-indicator-size-small);
+  }
+
+  .nhsuk-badge--reverse {
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-badge-colour-reverse;
+  }
+
+  .nhsuk-badge--reverse.nhsuk-badge--indicator {
+    background-color: $nhsuk-badge-indicator-colour-reverse;
+  }
+
+  .nhsuk-badge--notification {
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-error-colour;
+
+    @include nhsuk-font-weight-bold;
+  }
+
+  .nhsuk-badge--notification.nhsuk-badge--reverse {
+    outline: $nhsuk-border-width-form-element solid $nhsuk-reverse-text-colour;
+    // Restore over the reverse indicator colour
+    background-color: $nhsuk-error-colour;
+  }
+
+  // When the link is focused the item has a yellow background;
+  // show the badge as an outlined pill with black text so it remains visually distinct.
+  *:focus .nhsuk-badge {
+    color: $nhsuk-focus-text-colour;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px currentcolor;
+  }
+}
