@@ -207,15 +207,11 @@
   .nhsuk-input__suffix {
     box-sizing: border-box;
 
-    // Use flexbox to align text within the prefix and suffix
-    display: flex;
+    // Split prefix/suffix onto separate lines on narrow screens
+    display: block;
 
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
 
-    min-width: nhsuk-px-to-rem(40px);
-    height: nhsuk-px-to-rem(40px);
     padding: nhsuk-spacing(1, $unit: "rem") nhsuk-spacing(2, $unit: "rem");
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
@@ -223,17 +219,24 @@
     background-color: nhsuk-colour("grey-4");
 
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
     // Emphasise non-editable status of prefixes and suffixes
     cursor: default;
 
     @include nhsuk-font($size: 19);
 
-    // Split prefix/suffix onto separate lines on narrow screens
-    @media #{nhsuk-until-breakpoint(mobile)} {
-      display: block;
-      height: 100%;
-      white-space: normal;
+    // Use flexbox to align text within the prefix and suffix
+    @media #{nhsuk-from-breakpoint(mobile)} {
+      display: flex;
+
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+
+      min-width: nhsuk-px-to-rem(40px);
+      height: nhsuk-px-to-rem(40px);
+
+      white-space: nowrap;
     }
   }
 
