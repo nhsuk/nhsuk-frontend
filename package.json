@@ -82,7 +82,7 @@
     "@types/nunjucks": "^3.2.6",
     "@types/slug": "^5.0.9",
     "@types/wait-on": "^5.3.4",
-    "axe-core": "^4.13.0",
+    "axe-core": "^4.14.0",
     "babel-jest": "^30.5.1",
     "babel-plugin-transform-import-meta": "^2.3.3",
     "backstopjs": "^6.3.25",
