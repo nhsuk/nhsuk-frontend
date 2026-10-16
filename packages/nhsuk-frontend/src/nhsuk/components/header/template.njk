@@ -49,12 +49,12 @@
     have an exact `href`. This avoids having 2 links to same destination #}
 {%- set combineLogoAndServiceNameLinks = params.service.text | length and (params.service.href and not params.logo.href) or (params.service.href and (params.service.href == params.logo.href)) %}
 
-{%- set logoAlt = params.logo.alt | default("NHS") %}
 {%- set logoHref = params.service.href if combineLogoAndServiceNameLinks else params.logo.href %}
 {%- set logoAriaLabel = params.logo.ariaLabel | default([
-  logoAlt,
+  params.logo.alt | default("NHS"),
   params.organisation.name,
   params.organisation.split,
+  params.organisation.descriptor,
   params.service.text if combineLogoAndServiceNameLinks else undefined,
   "homepage"
 ] | select("string") | join(" ")) %}
