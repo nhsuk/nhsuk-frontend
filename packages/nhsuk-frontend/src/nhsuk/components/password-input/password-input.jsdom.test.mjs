@@ -253,8 +253,8 @@ describe('Password input', () => {
           hidePasswordAriaLabel: 'Cuddio cyfrinair',
           passwordHiddenAnnouncement: "Mae eich cyfrinair wedi'i guddio.",
           passwordShownAnnouncement: 'Mae eich cyfrinair yn weladwy.',
-          showPassword: 'Datguddia',
-          showPasswordAriaLabel: 'Datgelu cyfrinair'
+          showPassword: 'Dangos',
+          showPasswordAriaLabel: 'Dangos cyfrinair'
         }
       })
     })
