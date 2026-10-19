@@ -108,6 +108,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 - [#2106: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2106)
 - [#2117: Restore missing `.nhsuk-back-to-top` styles](https://github.com/nhsuk/nhsuk-frontend/pull/2117)
 - [#2131: Omit stripes on tables with only 1 row](https://github.com/nhsuk/nhsuk-frontend/pull/2131)
+- [#2155: Update default ARIA labels to meet WCAG SC 2.5.3 Label in Name](https://github.com/nhsuk/nhsuk-frontend/pull/2155)
 
 ## 10.6.1 - 25 August 2026
 
