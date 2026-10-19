@@ -142,7 +142,7 @@
 } %}
 
 {%- set slots = {
-  before: iconHtml | safe if icon.placement == "start",
+  before: iconHtml | safe if icon.placement == "start" or (iconHtml | length and not icon.placement),
   after: iconHtml | safe if icon.placement == "end"
 } %}
 
