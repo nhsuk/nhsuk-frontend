@@ -258,7 +258,9 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     }
   }
 
-  .nhsuk-button:not(.nhsuk-button--small) {
+  .nhsuk-button--icon:not(.nhsuk-button--small) {
+    min-width: nhsuk-px-to-rem(52px);
+
     @media #{nhsuk-from-breakpoint(tablet)} {
       min-width: nhsuk-px-to-rem(66px);
     }
