@@ -44,7 +44,7 @@ const options = {
     type: 'object',
     required: true,
     description:
-      'Can be used to add visually hidden content to the link component.',
+      'Can be used to add visually hidden content to the link component. If `ariaLabel` is provided, this has no effect.',
     released: '10.7.0',
     isComponent: true
   },
