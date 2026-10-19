@@ -1,3 +1,5 @@
+import { macros } from "#lib"
+
 /**
  * Nunjucks macro option examples
  *
@@ -113,6 +115,87 @@ const fixtures = {
       className: false
     }
   },
+  "with icon": {
+    context: {
+      text: "Increase",
+      icon: "plus"
+    }
+  },
+  "with icon, small": {
+    context: {
+      text: "Increase",
+      icon: "plus",
+      small: true
+    }
+  },
+  "with icon only": {
+    context: {
+      ariaLabel: "Increase",
+      icon: "plus"
+    }
+  },
+  "with icon only, small": {
+    context: {
+      ariaLabel: "Increase",
+      icon: "plus",
+      small: true
+    }
+  },
+  "with icon and visually hidden text only": {
+    context: {
+      icon: "plus",
+      visuallyHiddenText: "Increase"
+    }
+  },
+  "with icon and visually hidden text only, small": {
+    context: {
+      icon: "plus",
+      visuallyHiddenText: "Increase",
+      small: true
+    }
+  },
+  "with icon HTML": {
+    context: {
+      text: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      }
+    }
+  },
+  "with icon HTML, small": {
+    context: {
+      text: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      },
+      small: true
+    }
+  },
+  "with icon HTML only": {
+    context: {
+      ariaLabel: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      }
+    }
+  },
+  "with icon HTML only, small": {
+    context: {
+      ariaLabel: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      },
+      small: true
+    }
+  },
   "with icon at start": {
     context: {
       text: "Previous",
@@ -130,6 +213,17 @@ const fixtures = {
         name: "arrow-left",
         placement: "start"
       }
+    }
+  },
+  "with icon at start and visually hidden text, small": {
+    context: {
+      text: "Previous",
+      visuallyHiddenText: "Important",
+      icon: {
+        name: "arrow-left",
+        placement: "start"
+      },
+      small: true
     }
   },
   "with icon at start, small": {
