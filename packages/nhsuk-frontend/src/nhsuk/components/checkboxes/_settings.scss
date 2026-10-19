@@ -7,10 +7,10 @@
 /// @group components/checkboxes
 ////
 
-$nhsuk-checkboxes-size: nhsuk-px-to-rem(40px);
-$nhsuk-checkboxes-small-size: nhsuk-px-to-rem(24px);
+$nhsuk-checkboxes-size: nhsuk-px-to-rem(40px) !default;
+$nhsuk-checkboxes-small-size: nhsuk-px-to-rem(24px) !default;
 
-$nhsuk-checkboxes-label-padding-left-right: nhsuk-px-to-rem(12px);
+$nhsuk-checkboxes-label-padding-left-right: nhsuk-px-to-rem(12px) !default;
 
 // Offset 2px due to 40px form control with 44px clickable area
 // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/

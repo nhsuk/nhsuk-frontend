@@ -10,19 +10,23 @@
 /// @group components/button
 ////
 
-$nhsuk-button-height: $nhsuk-input-height-large;
-$nhsuk-button-height-tablet: $nhsuk-input-height-large-tablet;
-$nhsuk-button-height-small: $nhsuk-input-height;
+$nhsuk-button-height: $nhsuk-input-height-large !default;
+$nhsuk-button-height-tablet: $nhsuk-input-height-large-tablet !default;
+$nhsuk-button-height-small: $nhsuk-input-height !default;
 
 $nhsuk-button-padding-top-bottom: nhsuk-button-padding-block($nhsuk-button-height, $line-height: 19px);
 $nhsuk-button-padding-top-bottom-tablet: nhsuk-button-padding-block($nhsuk-button-height-tablet, $line-height: 24px);
 $nhsuk-button-padding-top-bottom-small: nhsuk-button-padding-block($nhsuk-button-height-small, $line-height: 19px);
 
-$nhsuk-button-padding-left-right: nhsuk-spacing(3, $unit: "rem");
-$nhsuk-button-padding-left-right-small: nhsuk-spacing(3, $unit: "rem", $adjustment: - $nhsuk-button-shadow-size);
+$nhsuk-button-padding-left-right: nhsuk-spacing(3, $unit: "rem") !default;
+$nhsuk-button-padding-left-right-small: nhsuk-spacing(
+  3,
+  $unit: "rem",
+  $adjustment: - $nhsuk-button-shadow-size
+) !default;
 
-$nhsuk-button-search-icon-size: 28px;
-$nhsuk-button-search-icon-size-large: 38px;
+$nhsuk-button-search-icon-size: 28px !default;
+$nhsuk-button-search-icon-size-large: 38px !default;
 
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
