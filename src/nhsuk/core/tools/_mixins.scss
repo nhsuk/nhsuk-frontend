@@ -1,7 +1,8 @@
 // stylelint-disable declaration-no-important
 // stylelint-disable selector-no-qualifying-type
 
-@use "../settings" as *;
+@use "../settings/colours-applied" as *;
+@use "../settings/warnings" as *;
 @use "../helpers" as *;
 @use "sass-mq" as *;
 @use "spacing" as *;

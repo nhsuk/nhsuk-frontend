@@ -1,4 +1,4 @@
-@use "." as *;
+@use "warnings" as *;
 @forward ".";
 
 @include nhsuk-warning(
