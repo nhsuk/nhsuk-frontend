@@ -126,3 +126,14 @@
     }
   }
 }
+
+/// Button padding block
+///
+/// @param {Number} $button-height - Height in pixels
+/// @param {Number} $line-height - Line height in pixels
+///
+
+@function nhsuk-button-padding-block($button-height, $line-height) {
+  $button-padding-block: math.div($button-height - nhsuk-px-to-rem($line-height + 1px), 2);
+  @return calc($button-padding-block - ($nhsuk-border-width-form-element + math.div($nhsuk-button-shadow-size, 2)));
+}
