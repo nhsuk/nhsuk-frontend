@@ -22,11 +22,6 @@
   $horizontal-gap-small: nhsuk-spacing(3);
   $vertical-gap: nhsuk-spacing(3);
 
-  // These need to be kept in sync with the button component's styles
-  $button-padding-top-bottom: nhsuk-px-to-rem(10px);
-  $button-padding-top-bottom-tablet: nhsuk-px-to-rem(14px);
-  $button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
-
   .nhsuk-button-group {
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -59,8 +54,8 @@
       // Prevent links overflowing their container in IE10/11 because of bug
       // with align-items: center
       max-width: 100%;
-      margin-top: $button-padding-top-bottom;
-      margin-bottom: calc($button-padding-top-bottom + $nhsuk-button-shadow-size + $vertical-gap);
+      margin-top: $nhsuk-button-padding-top-bottom;
+      margin-bottom: calc($nhsuk-button-padding-top-bottom + $nhsuk-button-shadow-size + $vertical-gap);
       text-align: center;
       @include nhsuk-font(19, $line-height: 19px);
     }
@@ -97,7 +92,7 @@
       > .nhsuk-link,
       /* stylelint-disable-next-line selector-no-qualifying-type */
       > a:not(.nhsuk-button) {
-        margin: $button-padding-top-bottom-tablet 0;
+        margin: $nhsuk-button-padding-top-bottom-tablet 0;
         margin-right: $horizontal-gap;
         line-height: nhsuk-line-height(24px, $font-size: 19px);
         text-align: left;
@@ -121,8 +116,8 @@
     > .nhsuk-link,
     /* stylelint-disable-next-line selector-no-qualifying-type */
     > a:not(.nhsuk-button) {
-      margin-top: $button-padding-top-bottom-small;
-      margin-bottom: calc($button-padding-top-bottom-small + $nhsuk-button-shadow-size + $vertical-gap);
+      margin-top: $nhsuk-button-padding-top-bottom-small;
+      margin-bottom: calc($nhsuk-button-padding-top-bottom-small + $nhsuk-button-shadow-size + $vertical-gap);
     }
 
     // On tablet and above, we also introduce a 'column gap' between the
@@ -135,7 +130,7 @@
       > .nhsuk-link,
       /* stylelint-disable-next-line selector-no-qualifying-type */
       > a:not(.nhsuk-button) {
-        margin: $button-padding-top-bottom-small 0;
+        margin: $nhsuk-button-padding-top-bottom-small 0;
         margin-right: $horizontal-gap-small;
         @include nhsuk-font(16, $line-height: 19px);
       }
