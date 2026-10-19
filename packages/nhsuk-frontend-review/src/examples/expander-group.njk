@@ -1,6 +1,6 @@
-{% extends "layouts/example.njk" %}
+{% extends "layouts/blank.njk" %}
 
-{% set pageName = "Expander group" %}
+{% set pageHeading = "Expander group" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -21,11 +21,11 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
 
       <div class="nhsuk-expander-group">
         {% call details({
-          summaryText: "How to measure your blood glucose levels",
+          summary: "How to measure your blood glucose levels",
           classes: "nhsuk-expander"
         }) %}
           <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
@@ -39,7 +39,7 @@
         {% endcall %}
 
         {% call details({
-          summaryText: "When to check your blood glucose level",
+          summary: "When to check your blood glucose level",
           classes: "nhsuk-expander"
         }) %}
           <p>Try to check your blood:</p>

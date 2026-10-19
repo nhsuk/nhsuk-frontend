@@ -65,6 +65,14 @@ $nhsuk-print-text-colour: #000000 !default;
 
 $nhsuk-secondary-text-colour: nhsuk-colour("grey-1") !default;
 
+/// Reverse secondary text colour
+///
+/// Used in for example 'muted' text and help text.
+///
+/// @type Colour
+
+$nhsuk-reverse-secondary-text-colour: nhsuk-tint($nhsuk-brand-colour, 78%) !default;
+
 /// Focus colour
 ///
 /// Used for outline (and background, where appropriate) when interactive
@@ -134,6 +142,31 @@ $nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
 /// @type Colour
 
 $nhsuk-hover-colour: nhsuk-colour("grey-3") !default;
+
+/// Reverse input hover colour
+///
+/// Used for hover states on form controls, on reverse backgrounds
+///
+/// @type Colour
+
+$nhsuk-reverse-hover-colour: nhsuk-shade($nhsuk-brand-colour, 20%) !default;
+
+/// Target area hover colour
+///
+/// Used for hover states on transparent areas used to expand target areas
+///
+/// @type Colour
+
+$nhsuk-target-hover-colour: nhsuk-tint(nhsuk-colour("grey-4"), 20%) !default;
+
+/// Reverse target area hover colour
+///
+/// Used for hover states on transparent areas used to expand target areas,
+/// on reverse backgrounds
+///
+/// @type Colour
+
+$nhsuk-reverse-target-hover-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !default;
 
 /// Form element background colour
 ///

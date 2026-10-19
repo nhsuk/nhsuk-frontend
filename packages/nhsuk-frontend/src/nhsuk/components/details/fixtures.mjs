@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as tablesExamples } from '../tables/fixtures.mjs'
+import { examples as tablesExamples } from "../tables/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -10,30 +10,59 @@ import { examples as tablesExamples } from '../tables/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      summaryText: 'How to find your NHS number'
-    },
-    callBlock: outdent`
-      <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
-      <p>You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you, such as your:</p>
-      <ul>
-        <li>prescriptions</li>
-        <li>test results</li>
-        <li>hospital referral letters</li>
-        <li>appointment letters</li>
-      </ul>
-      <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
-    `,
-    screenshot: {
-      states: ['click'],
-      selector: '.nhsuk-details__summary'
+      summary: {
+        text: "How to find your NHS number"
+      },
+      text: "You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you."
     }
   },
-  'open': {
+  "open": {
     context: {
-      summaryText: 'How to find your NHS number',
+      summary: {
+        text: "How to find your NHS number"
+      },
+      text: "You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you.",
       open: true
+    }
+  },
+  "closed explicitly": {
+    context: {
+      summary: {
+        text: "How to find your NHS number"
+      },
+      text: "You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you.",
+      open: false
+    }
+  },
+  "with HTML": {
+    context: {
+      summary: {
+        text: "How to find your NHS number"
+      },
+      html: outdent`
+        <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
+        <p>You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you, such as your:</p>
+        <ul>
+          <li>prescriptions</li>
+          <li>test results</li>
+          <li>hospital referral letters</li>
+          <li>appointment letters</li>
+        </ul>
+        <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
+      `
+    },
+    screenshot: {
+      states: ["click"],
+      selector: ".nhsuk-details__summary"
+    }
+  },
+  "with HTML via call block": {
+    context: {
+      summary: {
+        text: "How to find your NHS number"
+      }
     },
     callBlock: outdent`
       <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
@@ -47,28 +76,76 @@ const fixtures = {
       <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
     `
   },
-  'expander': {
+  "with summary HTML": {
     context: {
-      summaryText: 'Opening times',
-      classes: 'nhsuk-expander'
-    },
-    callBlock: outdent`
-      ${components.render('tables', tablesExamples['with first cell as header'])}
-    `,
-    screenshot: {
-      states: ['click'],
-      selector: '.nhsuk-details__summary'
+      summary: {
+        html: "How to find your <span>NHS number</span>"
+      },
+      text: "An NHS number is a 10 digit number, like 999 123 4567"
     }
   },
-  'expander open': {
+  "with summary as string": {
     context: {
-      summaryText: 'Opening times',
-      classes: 'nhsuk-expander',
+      summary: "How to find your NHS number",
+      text: "An NHS number is a 10 digit number, like 999 123 4567"
+    }
+  },
+  "expander": {
+    context: {
+      summary: {
+        text: "Opening times"
+      },
+      text: "We are open 9am to 6pm, Monday to Saturday.",
+      classes: "nhsuk-expander"
+    }
+  },
+  "expander open": {
+    context: {
+      summary: {
+        text: "Opening times"
+      },
+      text: "We are open 9am to 6pm, Monday to Saturday.",
+      classes: "nhsuk-expander",
       open: true
+    }
+  },
+  "expander closed explicitly": {
+    context: {
+      summary: {
+        text: "Opening times"
+      },
+      text: "We are open 9am to 6pm, Monday to Saturday.",
+      classes: "nhsuk-expander",
+      open: false
+    }
+  },
+  "expander with HTML": {
+    context: {
+      summary: {
+        text: "Opening times"
+      },
+      html: components.render(
+        "tables",
+        tablesExamples["with first cell as header"]
+      ),
+      classes: "nhsuk-expander"
     },
-    callBlock: outdent`
-      ${components.render('tables', tablesExamples['with first cell as header'])}
-    `
+    screenshot: {
+      states: ["click"],
+      selector: ".nhsuk-details__summary"
+    }
+  },
+  "expander with HTML via call block": {
+    context: {
+      summary: {
+        text: "Opening times"
+      },
+      classes: "nhsuk-expander"
+    },
+    callBlock: components.render(
+      "tables",
+      tablesExamples["with first cell as header"]
+    )
   }
 }
 

@@ -16,21 +16,21 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'Text content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored.',
+      'Text content to be used within the inset text component. If `html` is provided, the `text` option will be ignored.',
     released: '9.2.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'HTML content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored.',
+      'HTML content to be used within the inset text component. If `html` is provided, the `text` option will be ignored.',
     released: '8.2.0'
   },
   caller: {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire inset text component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire inset text component in a `call` block.',
     released: '9.5.0'
   },
   classes: {

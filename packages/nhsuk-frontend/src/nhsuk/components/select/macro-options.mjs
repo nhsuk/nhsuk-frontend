@@ -9,7 +9,7 @@ const options = {
   id: {
     type: 'string',
     required: false,
-    description: 'ID for the select box. Defaults to the value of `name`.',
+    description: 'ID for the select. Defaults to the value of `name`.',
     released: '1.0.0'
   },
   name: {
@@ -76,7 +76,7 @@ const options = {
     type: 'boolean',
     required: false,
     description:
-      'If `true`, select box will be disabled. Use the `disabled` option on each individual item to only disable certain options.',
+      'If `true`, select will be disabled. Use the `disabled` option on each individual item to only disable certain options.',
     released: '10.0.0'
   },
   describedBy: {

@@ -159,7 +159,7 @@ describe('Password input', () => {
         // Expect: hidePasswordText
         expect(await getText($button)).toBe('Cuddio')
 
-        // Expect: hidePasswordAriaLabelText
+        // Expect: hidePasswordAriaLabel
         expect(await getAttribute($button, 'aria-label')).toBe(
           'Cuddio cyfrinair'
         )
@@ -179,7 +179,7 @@ describe('Password input', () => {
         // Expect: showPasswordText
         expect(await getText($button)).toBe('Datguddia')
 
-        // Expect: showPasswordAriaLabelText
+        // Expect: showPasswordAriaLabel
         expect(await getAttribute($button, 'aria-label')).toBe(
           'Datgelu cyfrinair'
         )

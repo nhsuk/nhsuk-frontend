@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Install dependencies
         uses: ./.github/workflows/actions/install
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -81,7 +81,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v6
@@ -101,7 +101,7 @@ jobs:
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -146,7 +146,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v6
@@ -173,7 +173,7 @@ jobs:
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -211,7 +211,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v6
@@ -231,7 +231,7 @@ jobs:
           path: packages/*/dist/
 
       - name: Setup Node
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -246,6 +246,8 @@ jobs:
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.mjs'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.js'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/core/settings/_colours-applied.scss'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/core/settings/_colours-applied.scss'))" --conditions sass
 
   sass:
     name: Sass import
@@ -264,7 +266,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -303,7 +305,7 @@ jobs:
     steps:
       - name: Checkout
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -317,4 +319,4 @@ jobs:
 
       - name: Sonar analysis
         if: ${{ env.SONAR_TOKEN }}
-        uses: SonarSource/sonarqube-scan-action@v8.2.1
+        uses: SonarSource/sonarqube-scan-action@v8.3.0

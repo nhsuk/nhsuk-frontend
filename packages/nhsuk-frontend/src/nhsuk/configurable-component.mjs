@@ -25,7 +25,7 @@ export class ConfigurableComponent extends Component {
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
    * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<ConfigurationType>} [config] - HTML element to use for component
+   * @param {Partial<ConfigurationType>} [config] - Component config
    */
   constructor($root, config) {
     super($root)
@@ -80,6 +80,9 @@ export class ConfigurableComponent extends Component {
     if (errors[0]) {
       throw new ConfigError(formatErrorMessage(childConstructor, errors[0]))
     }
+
+    childConstructor.checkSupport(this.$root, this.config)
+    this.setInitialised()
   }
 
   /**
@@ -93,7 +96,7 @@ export class ConfigurableComponent extends Component {
    * @param {Partial<ConfigurationType>} _datasetConfig - Config specified by dataset
    * @returns {Partial<ConfigurationType>} Config to override by dataset
    */
-  configOverride(_datasetConfig = {}) {
+  configOverride(_datasetConfig) {
     return {}
   }
 }

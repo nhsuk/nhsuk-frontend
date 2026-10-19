@@ -1,6 +1,6 @@
-{% extends "layouts/page-full-width.njk" %}
+{% extends "layouts/blank-full-width.njk" %}
 
-{% set pageName = "Links" %}
+{% set pageHeading = "Links" %}
 
 {% block beforeContent %}
   {{ breadcrumb({
@@ -23,7 +23,7 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+          <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
           <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-6">Page background</h2>
         </div>
       </div>
@@ -42,7 +42,7 @@
           <br>
 
           {{ breadcrumb({
-            labelText: "Breadcrumb (page background)",
+            label: "Breadcrumb (page background)",
             classes: "nhsuk-u-margin-bottom-4",
             items: [
               {
@@ -175,7 +175,7 @@
           <br>
 
           {{ breadcrumb({
-            labelText: "Breadcrumb (white background)",
+            label: "Breadcrumb (white background)",
             classes: "nhsuk-u-margin-bottom-4",
             items: [
               {
@@ -297,7 +297,7 @@
           <br>
 
           {{ breadcrumb({
-            labelText: "Breadcrumb (grey background)",
+            label: "Breadcrumb (grey background)",
             classes: "nhsuk-u-margin-bottom-4",
             items: [
               {
@@ -368,7 +368,7 @@
           <br>
 
           {{ breadcrumb({
-            labelText: "Breadcrumb (reversed)",
+            label: "Breadcrumb (reversed)",
             classes: "nhsuk-u-margin-bottom-4",
             variant: "reverse",
             items: [

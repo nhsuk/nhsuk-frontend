@@ -1,6 +1,6 @@
-{% extends "layouts/page.njk" %}
+{% extends "layouts/blank.njk" %}
 
-{% set pageName = "Conditional reveals" %}
+{% set pageHeading = "Conditional reveals" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -21,10 +21,10 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
 
-      {% set emailHtml %}
-        {{ input({
+      {%- set emailHtml %}
+        {{- input({
           id: "contact-by-email",
           name: "contact-by-email",
           type: "email",
@@ -33,11 +33,11 @@
           label: {
             text: "Email address"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set phoneHtml %}
-        {{ input({
+      {%- set phoneHtml %}
+        {{- input({
           id: "contact-by-phone",
           name: "contact-by-phone",
           type: "tel",
@@ -45,11 +45,11 @@
           label: {
             text: "Phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set textHtml %}
-        {{ input({
+      {%- set textHtml %}
+        {{- input({
           id: "contact-by-text",
           name: "contact-by-text",
           type: "tel",
@@ -57,8 +57,8 @@
           label: {
             text: "Mobile phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
       <p class="nhsuk-body">
         <a class="nhsuk-link" href="#">Focusable element</a>
@@ -69,9 +69,8 @@
         name: "contact",
         fieldset: {
           legend: {
-            text: "How would you like to be contacted?",
-            size: "l",
-            isPageHeading: true
+            heading: "How would you like to be contacted?",
+            size: "l"
           }
         },
         hint: {
@@ -102,8 +101,8 @@
         ]
       }) }}
 
-      {% set emailHtml %}
-        {{ input({
+      {%- set emailHtml %}
+        {{- input({
           id: "radio-contact-by-email",
           name: "radio-contact-by-email",
           type: "email",
@@ -112,11 +111,11 @@
           label: {
             text: "Email address"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set phoneHtml %}
-        {{ input({
+      {%- set phoneHtml %}
+        {{- input({
           id: "radio-contact-by-phone",
           name: "radio-contact-by-phone",
           type: "tel",
@@ -124,11 +123,11 @@
           label: {
             text: "Phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set textHtml %}
-        {{ input({
+      {%- set textHtml %}
+        {{- input({
           id: "radio-contact-by-text",
           name: "radio-contact-by-text",
           type: "tel",
@@ -136,8 +135,8 @@
           label: {
             text: "Mobile phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
       <p class="nhsuk-body">
         <a class="nhsuk-link" href="#">Focusable element</a>
@@ -148,9 +147,8 @@
         name: "radio-contact",
         fieldset: {
           legend: {
-            text: "How do you want to be contacted about this?",
-            size: "l",
-            isPageHeading: true
+            heading: "How do you want to be contacted about this?",
+            size: "l"
           }
         },
         hint: {
@@ -198,12 +196,12 @@
             {
               value: "red",
               text: "Red",
-              exclusiveGroup: "colour-primary"
+              behaviourGroup: "colour-primary"
             },
             {
               value: "yellow",
               text: "Yellow",
-              exclusiveGroup: "colour-primary",
+              behaviourGroup: "colour-primary",
               conditional: {
                 html: '<p class="nhsuk-body">Orange is much nicer than yellow!</p>'
               }
@@ -211,7 +209,7 @@
             {
               value: "blue",
               text: "Blue",
-              exclusiveGroup: "colour-primary"
+              behaviourGroup: "colour-primary"
             },
             {
               divider: "or"
@@ -219,8 +217,8 @@
             {
               value: "none-primary",
               text: "None of the primary colours",
-              exclusive: true,
-              exclusiveGroup: "colour-primary"
+              behaviour: "exclusive",
+              behaviourGroup: "colour-primary"
             }
           ]
         }) }}
@@ -234,17 +232,17 @@
             {
               value: "green",
               text: "Green",
-              exclusiveGroup: "colour-secondary"
+              behaviourGroup: "colour-secondary"
             },
             {
               value: "purple",
               text: "Purple",
-              exclusiveGroup: "colour-secondary"
+              behaviourGroup: "colour-secondary"
             },
             {
               value: "orange",
               text: "Orange",
-              exclusiveGroup: "colour-secondary",
+              behaviourGroup: "colour-secondary",
               conditional: {
                 html: '<p class="nhsuk-body">I like orange too!</p>'
               }
@@ -255,8 +253,8 @@
             {
               value: "none-secondary",
               text: "None of the secondary colours",
-              exclusive: true,
-              exclusiveGroup: "colour-secondary"
+              behaviour: "exclusive",
+              behaviourGroup: "colour-secondary"
             }
           ]
         }) }}
@@ -270,15 +268,15 @@
             {
               value: "imaginary",
               text: "An imaginary colour",
-              exclusiveGroup: "colour-other"
+              behaviourGroup: "colour-other"
             },
             {
               divider: "or"
             },
             {
               value: "none",
-              text: "None of the above",
-              exclusive: true
+              text: "None of these colours",
+              behaviour: "exclusive"
             }
           ]
         }) }}
@@ -355,7 +353,7 @@
             },
             {
               value: "none",
-              text: "None of the above",
+              text: "None of these colours",
               behaviour: "exclusive"
             }
           ]

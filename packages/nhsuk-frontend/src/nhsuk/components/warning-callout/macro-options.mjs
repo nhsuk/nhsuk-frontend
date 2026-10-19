@@ -13,16 +13,72 @@ const options = {
     released: '10.0.0'
   },
   heading: {
-    type: 'string',
+    type: 'object',
     required: true,
     description: 'Heading to be used on the warning callout.',
-    released: '1.0.0'
+    released: '10.6.0',
+    isComponent: true,
+    params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the heading.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the heading.',
+        released: '10.6.0'
+      },
+      level: {
+        type: 'integer',
+        required: false,
+        description: 'Optional heading level for the heading. Defaults to `3`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the heading.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the heading.',
+        released: '10.6.0'
+      }
+    }
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description: 'Optional heading level for the heading. Defaults to `3`.',
-    released: '1.0.0'
+    description: 'Replaced by the `heading.level` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
+  },
+  headingClasses: {
+    type: 'string',
+    required: false,
+    description: 'Replaced by the `heading.classes` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   text: {
     type: 'string',
@@ -36,11 +92,34 @@ const options = {
     description: 'HTML content to be used within the warning callout.',
     released: '9.5.0'
   },
+  actions: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add actions to the warning callout.',
+    released: '10.3.0',
+    params: {
+      items: {
+        type: 'array',
+        required: false,
+        description:
+          'Array of actions as links for use in the warning callout.',
+        alias: 'link',
+        released: '10.3.0',
+        isComponent: true
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the actions wrapper.',
+        released: '10.3.0'
+      }
+    }
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire warning callout component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire warning callout component in a `call` block.',
     released: '9.5.0'
   },
   classes: {

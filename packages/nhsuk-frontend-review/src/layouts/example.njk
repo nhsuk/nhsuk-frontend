@@ -1,15 +1,16 @@
-{% extends "layouts/page.njk" %}
+{% extends "layouts/blank.njk" %}
 
 {% set htmlClasses = htmlClasses | default("app-template") %}
 {% set bodyClasses = bodyClasses | default("app-template__body") %}
 {% set classNamesColumn = "" -%}
 
 {# Append grid column width classes #}
-{% for width in ([options.width] if options.width is string else options.width | default([], true)) -%}
+{% for width in ([options.width] if options.width is string else options.width | default([], true)) %}
   {% set classNamesColumn = (classNamesColumn ~ " nhsuk-grid-column-" ~ width) | trim %}
-{% endfor -%}
+{% endfor %}
 
-{# Turn the skip link off #}
+{# Turn the header and skip link off #}
+{% block header %}{% endblock %}
 {% block skipLink %}{% endblock %}
 
 {% block content %}
@@ -21,9 +22,9 @@
 {% endblock %}
 
 {% block bodyEnd %}
-  {%- if options.throwOnError == false -%}
-    {%- include "partials/scripts.njk" -%}
-  {%- else -%}
-    {%- include "partials/scripts-throw-errors.njk" -%}
-  {%- endif -%}
+  {%- if options.throwOnError is sameas(false) %}
+    {%- include "partials/scripts.njk" %}
+  {%- else %}
+    {%- include "partials/scripts-throw-errors.njk" %}
+  {%- endif %}
 {% endblock %}

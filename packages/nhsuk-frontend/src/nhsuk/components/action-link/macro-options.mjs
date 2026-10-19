@@ -26,25 +26,39 @@ const options = {
       'If `text` is set, this is not required. HTML to use within the action link. If `html` is provided, the `text` option will be ignored.',
     released: '10.2.0'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire action link component in a `call` block.',
+    released: '10.6.0'
+  },
   type: {
     type: 'string',
     required: false,
     description:
-      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+      'Type of action link as a button – `"button"` or `"submit"`. Defaults to `"submit"` unless `href` is provided.',
     released: '10.5.0'
   },
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the link `href` attribute.',
+    description:
+      'The action link `href` attribute. If set, the action link will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
   openInNewWindow: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, then the link will open in a new window. This has no effect on `button` elements.',
+    description: 'Optional alias for the `openInNewTab` option.',
     released: '1.0.0'
+  },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, then the action link will open in a new tab. If `type` is set, this has no effect.',
+    released: '10.7.0'
   },
   variant: {
     type: 'string',
@@ -65,13 +79,6 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the action link component.',
     released: '1.0.0'
-  },
-  element: {
-    type: 'string',
-    required: false,
-    description:
-      'HTML element for the action link component – `"button"` or `"a"`. Defaults to `"a"`.',
-    released: '10.5.0'
   }
 }
 

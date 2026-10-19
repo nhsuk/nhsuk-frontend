@@ -13,56 +13,132 @@ const options = {
     released: '10.0.0'
   },
   heading: {
-    type: 'string',
+    type: 'object',
     required: true,
-    description:
-      'Text to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored.',
-    released: '4.0.0'
+    description: 'Heading of the card component.',
+    released: '10.6.0',
+    isComponent: true,
+    params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the heading.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the heading.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the heading.',
+        released: '10.6.0'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden prefix used before the heading.',
+        released: '10.6.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'If set, the heading will become a link.',
+        released: '10.7.0'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the heading link will open in a new tab.',
+        released: '10.7.0'
+      },
+      size: {
+        type: 'string',
+        required: false,
+        description:
+          'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
+        released: '10.6.0'
+      },
+      level: {
+        type: 'integer',
+        required: false,
+        description: 'Optional heading level. Defaults to `2`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the heading.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the heading.',
+        released: '10.6.0'
+      }
+    }
   },
   headingHtml: {
     type: 'string',
     required: true,
-    description:
-      'HTML to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored.',
-    released: '4.0.0'
+    description: 'Replaced by the `heading.html` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   headingClasses: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the card heading.',
-    released: '4.0.0'
+    description: 'Replaced by the `heading.classes` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   headingSize: {
     type: 'string',
     required: false,
-    description:
-      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
-    released: '10.3.0'
+    description: 'Replaced by the `heading.size` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description:
-      'Optional heading level for the card heading. Defaults to `2`.',
-    released: '4.0.0'
+    description: 'Replaced by the `heading.level` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   headingId: {
     type: 'string',
     required: false,
-    description: 'Optional `id` attribute for the card heading.',
-    released: '10.3.0'
+    description: 'Replaced by the `heading.id` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   headingVisuallyHiddenText: {
     type: 'string',
     required: false,
-    description: 'Optional visually hidden prefix used before the heading.',
-    released: '10.3.0'
+    description: 'Replaced by the `heading.visuallyHiddenText` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   href: {
     type: 'string',
     required: false,
-    description: 'The value of the card link `href` attribute.',
+    description: 'The card link `href` attribute.',
     released: '4.0.0'
+  },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, then the card link will open in a new tab.',
+    released: '10.7.0'
   },
   clickable: {
     type: 'boolean',
@@ -78,61 +154,33 @@ const options = {
       'Optional variant of card – `"feature"`, `"primary"`, `"secondary"`, `"warning"`, `"non-urgent"`, `"urgent"` or `"emergency"`.',
     released: '10.4.0'
   },
-  type: {
-    type: 'string',
-    required: false,
-    description:
-      'Optional type of care card – `"non-urgent"`, `"urgent"` or `"emergency"`. Replaced by the `variant` option.',
-    released: '6.0.0',
-    deprecated: '10.4.0'
-  },
   feature: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, then the card will become a feature card variant.',
+    description: 'Replaced by the `variant: "feature"` option.',
     released: '4.0.0',
     deprecated: '10.4.0'
   },
   primary: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, the card will become a primary card variant (with chevron).',
+    description: 'Replaced by the `variant: "primary"` option.',
     released: '7.1.0',
     deprecated: '10.4.0'
   },
   secondary: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, the card will become a secondary card variant.',
+    description: 'Replaced by the `variant: "secondary"` option.',
     released: '7.1.0',
     deprecated: '10.4.0'
   },
   warning: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, then the card will become a warning card variant used by the warning callout.',
+    description: 'Replaced by the `variant: "warning"` option.',
     released: '10.3.0',
     deprecated: '10.4.0'
-  },
-  imgURL: {
-    type: 'string',
-    required: false,
-    description:
-      'The URL of the image in the card. Replaced by the `image.src` option.',
-    released: '4.0.0',
-    deprecated: '10.3.0'
-  },
-  imgALT: {
-    type: 'string',
-    required: false,
-    description:
-      'The alternative text of the image in the card. Replaced by the `image.alt` option.',
-    released: '4.0.0',
-    deprecated: '10.3.0'
   },
   image: {
     type: 'object',
@@ -156,24 +204,72 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'HTML to use for the image content. If `html` is provided, the `src` and `alt` arguments will be ignored.',
+          'HTML to use for the image content. If `html` is provided, the `src` and `alt` options will be ignored.',
         released: '10.3.0'
       }
     }
   },
   description: {
-    type: 'string',
+    type: 'object',
     required: false,
     description:
-      'Text description within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
-    released: '4.0.0'
+      'Description to use within the card content. If `descriptionHtml` is provided, the `description` option will be ignored.',
+    released: '10.6.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the card content. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the card content. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the description.',
+        released: '10.7.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'The card description link `href` attribute.',
+        released: '10.7.0'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the card description link will open in a new tab.',
+        released: '10.7.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the card content.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the card content.',
+        released: '10.6.0'
+      }
+    }
   },
   descriptionHtml: {
     type: 'string',
     required: false,
-    description:
-      'HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
-    released: '4.0.0'
+    description: 'Replaced by the `description.html` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   actions: {
     type: 'object',
@@ -185,50 +281,9 @@ const options = {
         type: 'array',
         required: false,
         description: 'Array of actions as links for use in the card component.',
+        alias: 'link',
         released: '10.3.0',
-        params: {
-          href: {
-            type: 'string',
-            required: true,
-            description:
-              "The value of the link's `href` attribute for an action item.",
-            released: '10.3.0'
-          },
-          text: {
-            type: 'string',
-            required: true,
-            description:
-              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.',
-            released: '10.3.0'
-          },
-          html: {
-            type: 'string',
-            required: true,
-            description:
-              'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.',
-            released: '10.3.0'
-          },
-          visuallyHiddenText: {
-            type: 'string',
-            required: false,
-            description:
-              'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.',
-            released: '10.3.0'
-          },
-          classes: {
-            type: 'string',
-            required: false,
-            description: 'Classes to add to the action item.',
-            released: '10.3.0'
-          },
-          attributes: {
-            type: 'object',
-            required: false,
-            description:
-              'HTML attributes (for example data attributes) to add to the action item.',
-            released: '10.3.0'
-          }
-        }
+        isComponent: true
       },
       classes: {
         type: 'string',
@@ -242,7 +297,7 @@ const options = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire card component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire card component in a `call` block.',
     released: '9.5.0'
   },
   classes: {

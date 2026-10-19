@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as tableExamples } from '../tables/fixtures.mjs'
+import { examples as tableExamples } from "../tables/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -10,79 +10,87 @@ import { examples as tableExamples } from '../tables/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
+      idPrefix: "example",
       items: [
         {
-          label: 'Past day',
-          id: 'past-day',
+          label: {
+            text: "Past day"
+          },
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric data (full width, past day)']
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
             )
           }
         },
         {
-          label: 'Past week',
-          id: 'past-week',
+          label: {
+            text: "Past week"
+          },
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric data (full width, past week)']
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
             )
           }
         },
         {
-          label: 'Past month',
-          id: 'past-month',
+          label: {
+            text: "Past month"
+          },
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric data (full width, past month)']
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
             )
           }
         },
         {
-          label: 'Past year',
-          id: 'past-year',
+          label: {
+            text: "Past year"
+          },
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric data (full width, past year)']
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
             )
           }
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with anchor in panel': {
+  "with anchor in panel": {
     context: {
+      idPrefix: "with-anchor",
       items: [
         {
-          label: 'Tab 1',
-          id: 'tab-1',
+          label: {
+            text: "Tab 1"
+          },
           panel: {
             html: outdent`
               <h2>Tab 1 content</h2>
               <p>Testing that when you <a href="#anchor">click the link</a> it moves focus.</p>
               <ul>
-                <li><a href="#tab-1" id="anchor">Tab panel 1</a></li>
-                <li><a href="#tab-2">Tab panel 2</a></li>
-                <li><a href="#tab-3">Tab panel 3</a></li>
+                <li><a href="#with-anchor-1" id="anchor">Tab panel 1</a></li>
+                <li><a href="#with-anchor-2">Tab panel 2</a></li>
+                <li><a href="#with-anchor-3">Tab panel 3</a></li>
               </ul>
             `
           }
         },
         {
-          label: 'Tab 2',
-          id: 'tab-2',
+          label: {
+            text: "Tab 2"
+          },
           panel: {
             html: outdent`
               <h2>Tab 2 content</h2>
@@ -91,8 +99,9 @@ const fixtures = {
           }
         },
         {
-          label: 'Tab 3',
-          id: 'tab-3',
+          label: {
+            text: "Tab 3"
+          },
           panel: {
             html: outdent`
               <h2>Tab 3 content</h2>
@@ -101,6 +110,222 @@ const fixtures = {
           }
         }
       ]
+    }
+  },
+  "with id attribute": {
+    context: {
+      id: "tab-id-attribute",
+      items: [
+        {
+          label: {
+            text: "Past day"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past week"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past month"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past year"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
+            )
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
+  "with id attribute on panels": {
+    context: {
+      items: [
+        {
+          label: {
+            text: "Past day"
+          },
+          id: "past-day",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past week"
+          },
+          id: "past-week",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past month"
+          },
+          id: "past-month",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past year"
+          },
+          id: "past-year",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
+            )
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
+  "with panels as strings": {
+    context: {
+      idPrefix: "with-panels-strings",
+      items: [
+        {
+          label: {
+            text: "Tab 1"
+          },
+          panel: "Tab 1 content"
+        },
+        {
+          label: {
+            text: "Tab 2"
+          },
+          panel: "Tab 2 content"
+        },
+        {
+          label: {
+            text: "Tab 3"
+          },
+          panel: "Tab 3 content"
+        }
+      ]
+    }
+  },
+  "with labels as strings": {
+    context: {
+      idPrefix: "with-labels-strings",
+      items: [
+        {
+          label: "Tab 1",
+          panel: {
+            text: "Tab 1 content"
+          }
+        },
+        {
+          label: "Tab 2",
+          panel: {
+            text: "Tab 2 content"
+          }
+        },
+        {
+          label: "Tab 3",
+          panel: {
+            text: "Tab 3 content"
+          }
+        }
+      ]
+    }
+  },
+  "with visually hidden text": {
+    context: {
+      idPrefix: "visually-hidden",
+      visuallyHiddenText: "Cases per manager",
+      items: [
+        {
+          label: {
+            text: "Past day"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past week"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past month"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
+            )
+          }
+        },
+        {
+          label: {
+            text: "Past year"
+          },
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
+            )
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
     }
   }
 }

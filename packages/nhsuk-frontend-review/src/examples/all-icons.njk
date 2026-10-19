@@ -1,8 +1,9 @@
-{% extends "layouts/page-full-width.njk" %}
+{% extends "layouts/blank-full-width.njk" %}
 
-{% set pageName = "Icons" %}
+{% set pageHeading = "Icons" %}
 
 {% set icons = [
+  { name: "Arrow up-down", modifier: "arrow-up-down" },
   { name: "Arrow left", modifier: "arrow-left" },
   { name: "Arrow right", modifier: "arrow-right" },
   { name: "Arrow up", modifier: "arrow-up" },
@@ -44,59 +45,64 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+          <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
         </div>
       </div>
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
-          {% set rows = [] %}
+          {%- set rows = [] %}
 
-          {% for icon in icons %}
-            {% set modifierHtml %}
+          {%- for icon in icons %}
+            {%- set modifierHtml -%}
               <var class="nhsuk-body-s">{{ icon.modifier }}</var>
-            {% endset %}
+            {%- endset %}
 
-            {% set iconHtml %}
-              {% for size, params in {
+            {%- set iconHtml %}
+              {%- for size, params in {
                 "100%": {},
                 "125%": { size: 25 },
                 "150%": { size: 50 },
                 "175%": { size: 75 },
                 "200%": { size: 100 }
               } %}
-                <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
-                  {{ nhsukIcon(icon.modifier, params) }}
-                  <figcaption class="nhsuk-body-s">{{ size }}</figcaption>
-                </figure>
-              {% endfor %}
-            {% endset %}
+                {{- image({
+                  html: nhsukIcon(icon.modifier, params) | trim,
+                  caption: size,
+                  classes: "app-image",
+                  background: false,
+                  border: false
+                }) | trim -}}
+              {%- endfor %}
+            {%- endset %}
 
-            {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+            {%- set rows = (rows.push([
+              { text: icon.name },
+              { text: modifierHtml | safe },
               { text: iconHtml | safe }
             ]), rows) %}
-          {% endfor %}
+          {%- endfor %}
 
           {{ table({
-            caption: "Page background",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Page background",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Modifier",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Icon",
-                classes: "nhsuk-u-width-one-half"
+                width: "one-half"
               }
             ],
             rows: rows
@@ -113,54 +119,59 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
-          {% set rows = [] %}
+          {%- set rows = [] %}
 
-          {% for icon in icons %}
-            {% set modifierHtml %}
+          {%- for icon in icons %}
+            {%- set modifierHtml -%}
               <var class="nhsuk-body-s">{{ icon.modifier }}</var>
-            {% endset %}
+            {%- endset %}
 
-            {% set iconHtml %}
-              {% for size, params in {
+            {%- set iconHtml %}
+              {%- for size, params in {
                 "100%": {},
                 "125%": { classes: "nhsuk-icon--size-25" },
                 "150%": { classes: "nhsuk-icon--size-50" },
                 "175%": { classes: "nhsuk-icon--size-75" },
                 "200%": { classes: "nhsuk-icon--size-100" }
               } %}
-                <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
-                  {{ nhsukIcon(icon.modifier, params) }}
-                  <figcaption class="nhsuk-body-s">{{ size }}</figcaption>
-                </figure>
-              {% endfor %}
-            {% endset %}
+                {{- image({
+                  html: nhsukIcon(icon.modifier, params) | trim,
+                  caption: size,
+                  classes: "app-image",
+                  background: false,
+                  border: false
+                }) | trim -}}
+              {%- endfor %}
+            {%- endset %}
 
-            {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+            {%- set rows = (rows.push([
+              { text: icon.name },
+              { text: modifierHtml | safe },
               { text: iconHtml | safe }
             ]), rows) %}
-          {% endfor %}
+          {%- endfor %}
 
           {{ table({
-            caption: "Blue background (used in hero)",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Blue background (used in hero)",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             variant: "reverse",
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Modifier",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Icon",
-                classes: "nhsuk-u-width-one-half"
+                width: "one-half"
               }
             ],
             rows: rows

@@ -26,11 +26,81 @@ const options = {
       'The navigation section of the footer before the copyright information. Alternatively supports an array of `navigation` objects.',
     released: '10.0.0',
     params: {
+      heading: {
+        type: 'object',
+        required: false,
+        description: 'Heading for group of footer navigation links.',
+        alias: 'heading',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the heading.',
+            released: '10.6.0'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description: 'A visually hidden suffix added to the heading.',
+            released: '10.6.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'If set, the heading will become a link.',
+            released: '10.6.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the heading link will open in a new tab.',
+            released: '10.7.0'
+          },
+          caption: {
+            type: 'object',
+            required: false,
+            description: 'Optional caption for the heading.',
+            released: '10.6.0',
+            isComponent: true
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the heading.',
+            released: '10.6.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the heading.',
+            released: '10.6.0'
+          }
+        }
+      },
       title: {
         type: 'string',
         required: false,
-        description: 'Title for group of footer navigation links.',
-        released: '10.0.0'
+        description: 'Replaced by the `navigation.heading.text` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       text: {
         type: 'string',
@@ -58,36 +128,9 @@ const options = {
         required: false,
         description:
           'Contains the array of footer navigation link items for this group.',
+        alias: 'link',
         released: '10.0.0',
-        params: {
-          href: {
-            type: 'string',
-            required: true,
-            description: 'Footer navigation link `href` attribute.',
-            released: '10.0.0'
-          },
-          text: {
-            type: 'string',
-            required: true,
-            description:
-              'If `html` is set, this is not required. Text to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.',
-            released: '10.0.0'
-          },
-          html: {
-            type: 'string',
-            required: true,
-            description:
-              'If `text` is set, this is not required. HTML to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.',
-            released: '10.0.0'
-          },
-          attributes: {
-            type: 'object',
-            required: false,
-            description:
-              'HTML attributes (for example data attributes) to add to the anchor in the footer meta section.',
-            released: '10.0.0'
-          }
-        }
+        isComponent: true
       }
     }
   },
@@ -98,12 +141,19 @@ const options = {
       'The meta section of the footer after any navigation, before the copyright information.',
     released: '10.0.0',
     params: {
-      visuallyHiddenTitle: {
+      visuallyHiddenText: {
         type: 'string',
         required: false,
         description:
-          'Title for meta `items` links. Defaults to `"Support links"`.',
-        released: '10.0.0'
+          'Visually hidden heading for meta `items` links. Defaults to `"Support links"`.',
+        released: '10.6.0'
+      },
+      visuallyHiddenTitle: {
+        type: 'string',
+        required: false,
+        description: 'Replaced by the `meta.visuallyHiddenText` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       html: {
         type: 'string',
@@ -123,36 +173,9 @@ const options = {
         type: 'array',
         required: false,
         description: 'Contains the array of key policy footer link items.',
+        alias: 'link',
         released: '10.0.0',
-        params: {
-          href: {
-            type: 'string',
-            required: true,
-            description: 'Footer meta link `href` attribute.',
-            released: '10.0.0'
-          },
-          text: {
-            type: 'string',
-            required: true,
-            description:
-              'If `html` is set, this is not required. Text to use within each footer meta link. If `html` is provided, the `text` option will be ignored.',
-            released: '10.0.0'
-          },
-          html: {
-            type: 'string',
-            required: true,
-            description:
-              'If `text` is set, this is not required. HTML to use within each footer meta link. If `html` is provided, the `text` option will be ignored.',
-            released: '10.0.0'
-          },
-          attributes: {
-            type: 'object',
-            required: false,
-            description:
-              'HTML attributes (for example data attributes) to add to the footer meta link.',
-            released: '10.0.0'
-          }
-        }
+        isComponent: true
       }
     }
   },
@@ -196,7 +219,7 @@ const options = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire footer component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire footer component in a `call` block.',
     released: '10.0.0'
   },
   attributes: {

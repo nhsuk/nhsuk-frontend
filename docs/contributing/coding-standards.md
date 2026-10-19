@@ -228,16 +228,16 @@ We're still writing our JavaScript style guide, as we're only just figuring it o
 
 ## Nunjucks
 
-We have chosen as Nunjucks as the templating language for NHS.UK frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.
+We have chosen Nunjucks as the templating language for NHS.UK frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data using the `params` argument.
 
-To provide a level of consistency for developers we have standardised argument names, their expected input, use and placement. There are expectations, and if so they are documented accordingly.
+To provide a level of consistency for developers we have standardised option names, their expected input, use and placement. There are expectations, and if so they are documented accordingly.
 
 ### Specifying content
 
-When providing _content_ to a macro, say for a label or a button, we accept two argument options:
+When providing _content_ to a macro, say for a label or a button, we accept two options:
 
 - `text` accepts a plain string and is the default way of passing content
-- `html` accepts html markup. In the template we will not escape html so it will be rendered. In a scenario where both text and html are set, html argument will take precedence over text.
+- `html` accepts HTML markup. In the template we will not escape HTML so it will be rendered. In a scenario where both `text` and `html` are set, the `html` option will take precedence over text.
 
 Example:
 
@@ -257,7 +257,7 @@ Example of implementing logic in a component template:
 
 `{{ params.html | safe if params.html else params.text }}`
 
-Example shows that if `html` and `text` arguments are present, then `html` takes precedence over `text` and we are not escaping it.
+Example shows that if `html` and `text` options are present, then `html` takes precedence over `text` and we are not escaping it.
 
 ### Naming attributes
 
@@ -269,7 +269,7 @@ When a component accepts a _single array of items_ for an output, such as checkb
 
 ### Use of classes to specify variants
 
-When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.
+When a component has multiple visual presentations, such as the care cards, we use the `classes` option to differentiate between them.
 
 Care card urgent (red) example:
 

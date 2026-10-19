@@ -17,9 +17,11 @@ $nhsuk-footer-border-colour: $nhsuk-secondary-border-colour;
     border-top: $nhsuk-border-width solid $nhsuk-brand-colour;
     background-color: $nhsuk-template-background-colour;
 
-    @include nhsuk-print-hide;
-    @include nhsuk-responsive-padding(5, bottom);
-    @include nhsuk-responsive-padding(5, top);
+    @include nhsuk-responsive-padding(5, ("top", "bottom"));
+
+    @media print {
+      display: none;
+    }
   }
 
   .nhsuk-footer__heading {
@@ -36,6 +38,7 @@ $nhsuk-footer-border-colour: $nhsuk-secondary-border-colour;
     @include nhsuk-font(16);
   }
 
+  .nhsuk-footer__heading .nhsuk-link,
   .nhsuk-footer__list-item-link {
     color: $nhsuk-footer-link-visited-colour;
     @include nhsuk-link-style-visited($nhsuk-footer-link-visited-colour);
@@ -49,7 +52,7 @@ $nhsuk-footer-border-colour: $nhsuk-secondary-border-colour;
     }
 
     .nhsuk-footer__list-item {
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         display: inline-block;
         margin-right: $nhsuk-gutter;
       }

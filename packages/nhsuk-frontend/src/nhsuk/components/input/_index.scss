@@ -19,7 +19,7 @@
     width: 100%;
     height: nhsuk-px-to-rem(40px);
     margin-top: 0;
-    padding: nhsuk-px-to-rem(nhsuk-spacing(1));
+    padding: nhsuk-spacing(1, $unit: "rem");
     // Setting any background-color makes text invisible when changing colours
     // to dark backgrounds in Firefox (https://bugzil.la/1335476). As
     // background-color and color need to always be set together, color should
@@ -34,12 +34,12 @@
 
     // Increase left padding with prefix
     .nhsuk-input-wrapper:has(.nhsuk-input-wrapper__prefix) & {
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(1) + $nhsuk-border-width-form-element);
+      padding-left: nhsuk-spacing(1, $adjustment: $nhsuk-border-width-form-element, $unit: "rem");
     }
 
     // Increase right padding with suffix
     .nhsuk-input-wrapper:has(.nhsuk-input-wrapper__suffix) &:not([type="search"]) {
-      padding-right: nhsuk-px-to-rem(nhsuk-spacing(1) + $nhsuk-border-width-form-element);
+      padding-right: nhsuk-spacing(1, $adjustment: $nhsuk-border-width-form-element, $unit: "rem");
     }
 
     &:focus {
@@ -131,21 +131,21 @@
 
   .nhsuk-input--large {
     height: nhsuk-px-to-rem(48px);
-    padding-right: nhsuk-px-to-rem(nhsuk-spacing(2));
-    padding-left: nhsuk-px-to-rem(nhsuk-spacing(2));
+    padding-right: nhsuk-spacing(2, $unit: "rem");
+    padding-left: nhsuk-spacing(2, $unit: "rem");
     @include nhsuk-font($size: 22);
 
     // Increase left padding with prefix
     .nhsuk-input-wrapper:has(.nhsuk-input-wrapper__prefix) & {
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(2) + $nhsuk-border-width-form-element);
+      padding-left: nhsuk-spacing(2, $adjustment: $nhsuk-border-width-form-element, $unit: "rem");
     }
 
     // Increase right padding with suffix
     .nhsuk-input-wrapper:has(.nhsuk-input-wrapper__suffix) &:not([type="search"]) {
-      padding-right: nhsuk-px-to-rem(nhsuk-spacing(2) + $nhsuk-border-width-form-element);
+      padding-right: nhsuk-spacing(2, $adjustment: $nhsuk-border-width-form-element, $unit: "rem");
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       height: nhsuk-px-to-rem(60px);
     }
   }
@@ -213,7 +213,7 @@
 
     min-width: nhsuk-px-to-rem(40px);
     height: nhsuk-px-to-rem(40px);
-    padding: nhsuk-px-to-rem(nhsuk-spacing(1)) nhsuk-px-to-rem(nhsuk-spacing(2));
+    padding: nhsuk-spacing(1, $unit: "rem") nhsuk-spacing(2, $unit: "rem");
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
 
@@ -227,7 +227,7 @@
     @include nhsuk-font($size: 19);
 
     // Split prefix/suffix onto separate lines on narrow screens
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       display: block;
       height: 100%;
       white-space: normal;
@@ -236,20 +236,20 @@
 
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__prefix,
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix {
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       height: nhsuk-px-to-rem(52px);
-      padding-right: nhsuk-px-to-rem(nhsuk-spacing(3));
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(3));
+      padding-right: nhsuk-spacing(3, $unit: "rem");
+      padding-left: nhsuk-spacing(3, $unit: "rem");
       @include nhsuk-font($size: 22);
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
     }
   }
 
   .nhsuk-input-wrapper__prefix {
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       border-bottom-width: 0;
 
       // Remove top margin when preceded by a prefix
@@ -258,7 +258,7 @@
       }
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       margin-left: nhsuk-spacing(2);
       border-right-width: 0;
 
@@ -275,11 +275,11 @@
 
   // Split prefix/suffix onto separate lines on narrow screens
   .nhsuk-input-wrapper__suffix {
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       border-top-width: 0;
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       border-left-width: 0;
     }
   }

@@ -1,6 +1,6 @@
-{% extends "layouts/page.njk" %}
+{% extends "layouts/blank.njk" %}
 
-{% set pageName = "Translated examples" %}
+{% set pageHeading = "Translated examples" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -21,7 +21,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
     </div>
   </div>
 
@@ -37,14 +37,13 @@
 
       {{ characterCount({
         label: {
-          text: "Allwch chi roi mwy o fanylion?",
-          size: "l",
-          isPageHeading: true
+          heading: "Allwch chi roi mwy o fanylion?",
+          size: "l"
         },
         hint: {
           text: "Peidiwch â chynnwys gwybodaeth bersonol, fel eich enw, dyddiad geni na rhif y GIG"
         },
-        name: "with-translations-maxlength",
+        name: "with-translations-characters",
         maxlength: 200,
         textareaDescriptionText: "Gallwch ddefnyddio hyd at %{count} nod",
         charactersUnderLimitText: {
@@ -66,14 +65,13 @@
 
       {{ characterCount({
         label: {
-          text: "Allwch chi roi mwy o fanylion?",
-          size: "l",
-          isPageHeading: true
+          heading: "Allwch chi roi mwy o fanylion?",
+          size: "l"
         },
         hint: {
           text: "Peidiwch â chynnwys gwybodaeth bersonol, fel eich enw, dyddiad geni na rhif y GIG"
         },
-        name: "with-translations-maxwords",
+        name: "with-translations-words",
         maxlength: 10,
         countType: "words",
         textareaDescriptionText: "Gallwch ddefnyddio hyd at %{count} nod",
@@ -97,9 +95,8 @@
       {{ dateInput({
         fieldset: {
           legend: {
-            text: "Beth yw eich dyddiad geni?",
-            size: "l",
-            isPageHeading: true
+            heading: "Beth yw eich dyddiad geni?",
+            size: "l"
           }
         },
         hint: {
@@ -125,16 +122,15 @@
 
       {{ passwordInput({
         label: {
-          text: "Cyfrinair",
-          size: "l",
-          isPageHeading: true
+          heading: "Cyfrinair",
+          size: "l"
         },
         id: "with-translations-password",
         name: "example",
         showPasswordText: "Datguddia",
         hidePasswordText: "Cuddio",
-        showPasswordAriaLabelText: "Datgelu cyfrinair",
-        hidePasswordAriaLabelText: "Cuddio cyfrinair",
+        showPasswordAriaLabel: "Datgelu cyfrinair",
+        hidePasswordAriaLabel: "Cuddio cyfrinair",
         passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
         passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."
       }) }}
@@ -166,12 +162,12 @@
       {{ pagination({
         previous: {
           text: "Blaenorol",
-          labelText: "Driniaethau",
+          label: "Driniaethau",
           href: "/section/driniaethau"
         },
         next: {
           text: "Nesaf",
-          labelText: "Symptomau",
+          label: "Symptomau",
           href: "/section/symptomau"
         }
       }) }}

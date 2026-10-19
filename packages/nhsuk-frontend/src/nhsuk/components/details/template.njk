@@ -1,31 +1,50 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-details" -%}
+{%- set classNames = "nhsuk-details" %}
+
+{#- Support summary as string (with deprecated options) #}
+{%- set summary = params.summary if params.summary is mapping and params.summary is not escaped else {
+  text: params.summary if params.summary is string else params.summaryText,
+  html: params.summary if params.summary is escaped else params.summaryHtml
+} %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-details--reverse" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-details--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-details--" ~ variant %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif -%}
+
+{%- set content = {
+  text: params.text,
+  html: params.html
+} -%}
 
 <details class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
-  <summary class="nhsuk-details__summary">
+  <summary class="nhsuk-details__summary {%- if summary.classes %} {{ summary.classes }}{% endif %}"
+    {{- nhsukAttributes(summary.attributes) }}>
     <span class="nhsuk-details__summary-text">
-      {{ params.summaryHtml | safe | trim | indent(6) if params.summaryHtml else params.summaryText }}
+      {{ nhsukContent({
+        text: summary.text,
+        html: summary.html
+      }) | trim | indent(6) }}
     </span>
   </summary>
   <div class="nhsuk-details__text">
-  {% if caller or params.html %}
-    {{ caller() if caller else params.html | safe | trim | indent(4) }}
-  {% elif params.text %}
-    {{ params.text }}
+  {% if caller %}
+    {%- set outerCaller = caller %}
+    {%- call nhsukContent(content) %}
+      {{- outerCaller() }}
+    {% endcall %}
+  {% else %}
+    {{ nhsukContent(content) | trim | indent(4) }}
   {% endif %}
   </div>
 </details>

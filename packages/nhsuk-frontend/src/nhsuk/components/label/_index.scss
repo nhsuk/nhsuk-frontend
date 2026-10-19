@@ -39,6 +39,45 @@
     @include nhsuk-font-weight-bold;
   }
 
+  p,
+  .nhsuk-body-m,
+  .nhsuk-body-s,
+  .nhsuk-body,
+  ol,
+  ul,
+  .nhsuk-list {
+    &:has(+ .nhsuk-form-group > .nhsuk-label:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label) {
+      margin-bottom: nhsuk-spacing(3) + nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        margin-bottom: nhsuk-spacing(4) + nhsuk-spacing(2);
+      }
+    }
+  }
+
+  .nhsuk-body-l {
+    &:has(+ .nhsuk-form-group > .nhsuk-label:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label) {
+      margin-bottom: nhsuk-spacing(4);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        margin-bottom: nhsuk-spacing(5);
+      }
+    }
+
+    &:has(+ .nhsuk-form-group > .nhsuk-label--m:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-label--l:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--m),
+    &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l) {
+      margin-bottom: nhsuk-spacing(4) + nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        margin-bottom: nhsuk-spacing(5) + nhsuk-spacing(2);
+      }
+    }
+  }
+
   // When the label is nested inside a heading, override the heading so that it
   // does not have a margin. Effectively we want to be able to treat the heading
   // as if it is not there.

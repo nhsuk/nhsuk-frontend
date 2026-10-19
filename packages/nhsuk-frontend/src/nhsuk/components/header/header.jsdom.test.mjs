@@ -160,7 +160,7 @@ describe('Header class', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new Header($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -405,7 +405,7 @@ describe('Header class', () => {
       expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Submit search form
-      $searchForm?.submit()
+      $searchForm?.requestSubmit()
 
       // Menu closed
       expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
@@ -423,21 +423,19 @@ describe('Header class', () => {
       expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger tab switching
-      window.dispatchEvent(
-        new PageTransitionEvent('pageshow', {
-          persisted: false
-        })
-      )
+      // https://github.com/capricorn86/happy-dom/issues/1848
+      const pageshowEvent1 = new Event('pageshow')
+      Object.defineProperty(pageshowEvent1, 'persisted', { value: false })
+      window.dispatchEvent(pageshowEvent1)
 
       // Menu open (still)
       expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger back/forward navigation
-      window.dispatchEvent(
-        new PageTransitionEvent('pageshow', {
-          persisted: true
-        })
-      )
+      // https://github.com/capricorn86/happy-dom/issues/1848
+      const pageshowEvent2 = new Event('pageshow')
+      Object.defineProperty(pageshowEvent2, 'persisted', { value: true })
+      window.dispatchEvent(pageshowEvent2)
 
       // Menu closed
       expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')

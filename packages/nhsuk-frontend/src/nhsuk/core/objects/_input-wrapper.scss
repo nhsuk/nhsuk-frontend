@@ -46,7 +46,7 @@
       }
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       flex-direction: row;
 
       // The default of `stretch` makes small buttons appear taller than the

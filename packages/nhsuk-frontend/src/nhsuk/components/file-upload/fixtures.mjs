@@ -4,131 +4,175 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload'
+      id: "file-upload",
+      name: "file-upload"
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'disabled': {
+  "disabled": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload',
+      id: "file-upload",
+      name: "file-upload",
       disabled: true
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'with hint': {
+  "with hint": {
     context: {
       label: {
-        text: 'Upload your photo',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload your photo",
+        size: "l"
       },
       hint: {
-        text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder'
+        text: "Your photo may be in your Pictures, Photos, Downloads or Desktop folder"
       },
-      id: 'file-upload',
-      name: 'file-upload'
+      id: "file-upload",
+      name: "file-upload"
     }
   },
-  'with error message': {
+  "with error only": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
+      },
+      errorMessage: true,
+      id: "file-upload",
+      name: "file-upload"
+    }
+  },
+  "with error message": {
+    context: {
+      label: {
+        heading: "Upload a file",
+        size: "l"
       },
       errorMessage: {
-        text: 'The selected file must be a JPG, BMP or TIF'
+        text: "The selected file must be a JPG, BMP or TIF"
       },
-      id: 'file-upload',
-      name: 'file-upload'
+      id: "file-upload",
+      name: "file-upload"
     }
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload',
+      id: "file-upload",
+      name: "file-upload",
       hint: {
-        text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder'
+        text: "Your photo may be in your Pictures, Photos, Downloads or Desktop folder"
       },
       errorMessage: {
-        text: 'The selected file must be a JPG, BMP or TIF'
+        text: "The selected file must be a JPG, BMP or TIF"
       }
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'label': {
+  "with error message and hint as strings": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload'
+      id: "file-upload",
+      name: "file-upload",
+      hint: "Your photo may be in your Pictures, Photos, Downloads or Desktop folder",
+      errorMessage: "The selected file must be a JPG, BMP or TIF"
+    }
+  },
+  "with error message, without heading": {
+    context: {
+      label: {
+        text: "Upload a file"
+      },
+      errorMessage: {
+        text: "The selected file must be a JPG, BMP or TIF"
+      },
+      id: "file-upload",
+      name: "file-upload"
+    }
+  },
+  "with error message and hint, without heading": {
+    context: {
+      label: {
+        text: "Upload a file"
+      },
+      id: "file-upload",
+      name: "file-upload",
+      hint: {
+        text: "Your photo may be in your Pictures, Photos, Downloads or Desktop folder"
+      },
+      errorMessage: {
+        text: "The selected file must be a JPG, BMP or TIF"
+      }
+    }
+  },
+  "label": {
+    context: {
+      label: {
+        heading: "Upload a file",
+        size: "l"
+      },
+      id: "file-upload",
+      name: "file-upload"
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
           label: {
-            size: 's'
+            size: "s"
           }
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
           label: {
-            size: 'm'
+            size: "m"
           }
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
           label: {
-            size: 'l'
+            size: "l"
           }
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
           label: {
-            size: 'xl'
+            size: "xl"
           }
         }
       },
       {
-        description: 'with id attribute on',
+        description: "with id attribute on",
         context: {
           label: {
-            id: 'custom-id'
+            id: "custom-id"
           }
         },
         options: {
@@ -137,76 +181,71 @@ const fixtures = {
       }
     ]
   },
-  'button': {
+  "button": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload'
+      id: "file-upload",
+      name: "file-upload"
     },
     variants: [
       {
-        description: 'with primary',
+        description: "with primary",
         context: {
           chooseFilesButtonClassList: []
         }
       },
       {
-        description: 'with small primary',
+        description: "with small primary",
         context: {
-          chooseFilesButtonClassList: ['nhsuk-button--small']
+          chooseFilesButtonClassList: ["nhsuk-button--small"]
         }
       },
       {
-        description: 'with small secondary',
+        description: "with small secondary",
         context: {
           chooseFilesButtonClassList: [
-            'nhsuk-button--secondary',
-            'nhsuk-button--small'
+            "nhsuk-button--secondary",
+            "nhsuk-button--small"
           ]
         }
       }
     ]
   },
-  'without page heading': {
+  "without heading": {
     context: {
-      label: {
-        text: 'Upload a file'
-      },
-      id: 'file-upload',
-      name: 'file-upload'
+      label: "Upload a file",
+      id: "file-upload",
+      name: "file-upload"
     }
   },
-  'with multiple': {
+  "with multiple": {
     context: {
       label: {
-        text: 'Upload multiple files',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload multiple files",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload',
+      id: "file-upload",
+      name: "file-upload",
       multiple: true,
-      chooseFilesButtonText: 'Choose files',
-      dropInstructionText: 'or drop files',
-      noFileChosenText: 'No files chosen'
+      chooseFilesButtonText: "Choose files",
+      dropInstructionText: "or drop files",
+      noFileChosenText: "No files chosen"
     }
   },
-  'with translations': {
+  "with translations": {
     context: {
       label: {
-        text: 'Llwythwch ffeil i fyny',
-        size: 'l',
-        isPageHeading: true
+        heading: "Llwythwch ffeil i fyny",
+        size: "l"
       },
-      id: 'file-upload',
-      name: 'file-upload',
+      id: "file-upload",
+      name: "file-upload",
       multiple: true,
-      chooseFilesButtonText: 'Dewiswch ffeil',
-      dropInstructionText: 'neu ollwng ffeil',
+      chooseFilesButtonText: "Dewiswch ffeil",
+      dropInstructionText: "neu ollwng ffeil",
       noFileChosenText: "Dim ffeil wedi'i dewis",
       multipleFilesChosenText: {
         other: "%{count} ffeil wedi'u dewis",
@@ -216,15 +255,32 @@ const fixtures = {
       leftDropZoneText: "Parth gollwng i'r chwith"
     }
   },
-  'to configure in JavaScript': {
+  "with before and after input content": {
     context: {
       label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
+        heading: "Upload a file",
+        size: "l"
       },
-      id: 'to-configure-in-javascript',
-      name: 'file-upload'
+      id: "file-upload",
+      name: "file-upload",
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
+  "to configure in JavaScript": {
+    context: {
+      label: {
+        heading: "Upload a file",
+        size: "l"
+      },
+      id: "to-configure-in-javascript",
+      name: "file-upload"
     },
     options: {
       hidden: true

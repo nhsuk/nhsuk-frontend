@@ -36,9 +36,7 @@ describe('Nunjucks global: getComponentMacro', () => {
       {% call label({
         size: "l"
       }) -%}
-
       What is your full name?
-
       {%- endcall %}
     `)
   })

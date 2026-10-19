@@ -53,6 +53,7 @@ updates:
       test:
         patterns:
           - '@axe-core/*'
+          - '@happy-dom/*'
           - '@testing-library/*'
           - '@types/jest'
           - '@types/jest-*'
@@ -61,7 +62,6 @@ updates:
           - 'backstopjs'
           - 'jest'
           - 'jest-*'
-          - 'jsdom-*'
           - 'playwright'
           - 'playwright-*'
           - 'puppeteer'

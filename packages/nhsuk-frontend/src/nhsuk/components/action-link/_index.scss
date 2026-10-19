@@ -41,22 +41,29 @@
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-underline;
 
-    @include nhsuk-print-colour {
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    @media print {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
     }
 
-    @include nhsuk-responsive-margin(6, "bottom");
-
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       padding-left: $_large-icon-size + $_large-icon-spacing; // [2]
       line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
+    }
+
+    &:focus .nhsuk-u-secondary-text-colour,
+    &:hover .nhsuk-u-secondary-text-colour,
+    &:active .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: currentcolor !important;
     }
 
     .nhsuk-icon {
       position: absolute;
       left: -$_small-icon-spacing;
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         left: -$_large-icon-spacing;
         width: $_large-icon-size;
         height: $_large-icon-size;
@@ -75,6 +82,13 @@
   .nhsuk-action-link--reverse {
     @include nhsuk-link-style-reverse;
 
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
+
+    &:not(:focus) .nhsuk-icon,
+    &:not(:focus):hover .nhsuk-icon,
     &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
       fill: $nhsuk-reverse-text-colour;
 

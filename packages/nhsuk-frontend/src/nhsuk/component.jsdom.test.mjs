@@ -1,4 +1,5 @@
-import { Component } from './component.mjs'
+import { MockComponent } from '#lib/fixtures/configuration/mock-component.mjs'
+
 import { SupportError } from './errors/index.mjs'
 
 describe('Component', () => {
@@ -8,34 +9,68 @@ describe('Component', () => {
   })
 
   describe('checkSupport()', () => {
-    describe('default implementation', () => {
-      class ServiceComponent extends Component {
-        static moduleName = 'app-service-component'
-      }
+    let /** @type {HTMLElement} */ $root
 
+    beforeEach(() => {
+      $root = document.createElement('div')
+      $root.setAttribute('data-module', MockComponent.moduleName)
+
+      document.body.appendChild($root)
+    })
+
+    describe('default implementation', () => {
       it('Makes initialisation throw if NHS.UK frontend is not supported', () => {
         document.body.classList.remove('nhsuk-frontend-supported')
-        expect(() => new ServiceComponent(document.body)).toThrow(SupportError)
+        expect(() => new MockComponent($root)).toThrow(SupportError)
       })
 
       it('Allows initialisation if NHS.UK frontend is supported', () => {
-        expect(() => new ServiceComponent(document.body)).not.toThrow()
+        expect(() => new MockComponent($root)).not.toThrow()
       })
     })
 
     describe('when overriden', () => {
-      it('Allows child classes to define their own condition for support', () => {
-        class ServiceComponent extends Component {
-          static moduleName = 'app-service-component'
+      let /** @type {HTMLElement} */ $root1
+      let /** @type {HTMLElement} */ $root2
 
+      beforeEach(() => {
+        $root1 = $root
+        $root2 = document.createElement('div')
+
+        document.body.appendChild($root2)
+      })
+
+      it('Allows child classes to define support checks', () => {
+        class ServiceComponent extends MockComponent {
           static checkSupport() {
-            throw new Error('Custom error')
+            throw new Error('Error thrown from support check')
           }
         }
 
-        // Use the message rather than the class as `SupportError` extends `Error`
-        expect(() => new ServiceComponent(document.body)).toThrow(
-          'Custom error'
+        expect(() => new ServiceComponent($root)).toThrow(
+          'Error thrown from support check'
+        )
+      })
+
+      it('Allows child classes to define conditional $root support checks', () => {
+        class ServiceComponent extends MockComponent {
+          /**
+           * @param {HTMLElement} [$root]
+           */
+          static checkSupport($root) {
+            if ($root?.dataset.throw === 'true') {
+              throw new Error('Error thrown from $root support check')
+            }
+          }
+        }
+
+        $root1.dataset.throw = 'false'
+        $root2.dataset.throw = 'true'
+
+        expect(() => new ServiceComponent($root1)).not.toThrow()
+
+        expect(() => new ServiceComponent($root2)).toThrow(
+          'Error thrown from $root support check'
         )
       })
     })

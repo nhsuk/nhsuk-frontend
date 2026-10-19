@@ -4,13 +4,17 @@
   "description": "NHS.UK frontend shared helpers",
   "license": "MIT",
   "exports": {
-    "./*": "./*"
+    "./*": {
+      "types": "./*/index.d.mts",
+      "default": "./*"
+    }
   },
   "dependencies": {
-    "@axe-core/puppeteer": "^4.12.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.3.0",
+    "@axe-core/puppeteer": "^4.13.0",
+    "@happy-dom/jest-environment": "^20.14.5",
+    "@testing-library/jest-dom": "^7.0.1",
+    "jest-axe": "^11.0.0",
+    "jest-environment-node": "^30.5.1",
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
     "jest-puppeteer-istanbul": "^0.5.3",

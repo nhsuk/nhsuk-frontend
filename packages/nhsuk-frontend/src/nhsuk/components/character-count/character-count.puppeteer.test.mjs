@@ -128,11 +128,11 @@ describe('Character count', () => {
         await initExample('with value')
 
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 49 characters remaining'
+          'You have 55 characters remaining'
         )
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 49 characters remaining'
+          'You have 55 characters remaining'
         )
       })
 
@@ -235,11 +235,11 @@ describe('Character count', () => {
 
         it('shows the number of characters over the limit', async () => {
           expect(await getText($visibleCountMessage)).toBe(
-            'You have 48 characters too many'
+            'You have 42 characters too many'
           )
 
           expect(await getText($screenReaderCountMessage)).toBe(
-            'You have 48 characters too many'
+            'You have 42 characters too many'
           )
         })
 
@@ -596,32 +596,10 @@ describe('Character count', () => {
 
           await $textarea.type('👩🏻‍🚀')
 
-          // Note that code point counting (string length) is used by default
+          // Note that grapheme cluster counting (user-perceived characters) is
+          // used by default
           expect(await getText($visibleCountMessage)).toBe(
-            'You have 8 characters too many'
-          )
-        })
-
-        it('configures `maxwords` (deprecated)', async () => {
-          await initExample('to configure in JavaScript', {
-            config: {
-              maxwords: 5
-            }
-          })
-
-          await $textarea.type('My mother-in-law—Wait, what?')
-
-          // Note that only consecutive whitespace separates words
-          expect(await getText($visibleCountMessage)).toBe(
-            'You have 2 words remaining'
-          )
-
-          await $textarea.press('Space')
-          await $textarea.type("what-d'you-call-it")
-
-          // Note that words are not split on hyphens or apostrophes by default
-          expect(await getText($visibleCountMessage)).toBe(
-            'You have 1 word remaining'
+            'You have 2 characters too many'
           )
         })
 
@@ -725,19 +703,16 @@ describe('Character count', () => {
           // This tests that a description can be provided through JavaScript attributes
           // and interpolated with the limit provided to the character count in JS.
 
-          await initExample(
-            'with neither maxlength, maxwords nor textarea description set',
-            {
-              config: {
-                maxlength: 10,
-                i18n: {
-                  textareaDescription: {
-                    other: 'No more than %{count} characters'
-                  }
+          await initExample('without maxlength or textarea description', {
+            config: {
+              maxlength: 10,
+              i18n: {
+                textareaDescription: {
+                  other: 'No more than %{count} characters'
                 }
               }
             }
-          )
+          })
 
           expect(await getText($textareaDescription)).toBe(
             'No more than 10 characters'
@@ -766,66 +741,6 @@ describe('Character count', () => {
           )
         })
 
-        it('uses `maxlength` data attribute instead of JavaScript `maxwords`', async () => {
-          await initExample('default', {
-            config: {
-              maxwords: 202
-            }
-          })
-
-          await $textarea.type('A'.repeat(201))
-
-          expect(await getText($visibleCountMessage)).not.toBe(
-            // JavaScript config `maxwords: 202` above is overridden
-            'You have 201 words remaining'
-          )
-
-          expect(await getText($visibleCountMessage)).toBe(
-            // HTML data attribute `maxlength: 200` applied from fixture
-            'You have 1 character too many'
-          )
-        })
-
-        it('uses `maxwords` data attribute instead of JavaScript `maxwords`', async () => {
-          await initExample('with maxwords', {
-            config: {
-              maxwords: 152
-            }
-          })
-
-          await $textarea.type('Hello '.repeat(151))
-
-          expect(await getText($visibleCountMessage)).not.toBe(
-            // JavaScript config `maxwords: 152` above is overridden
-            'You have 1 word remaining'
-          )
-
-          expect(await getText($visibleCountMessage)).toBe(
-            // HTML data attribute `maxwords: 150` applied from fixture
-            'You have 1 word too many'
-          )
-        })
-
-        it('uses `maxwords` data attribute instead of JavaScript `maxlength`', async () => {
-          await initExample('with maxwords', {
-            config: {
-              maxlength: 150
-            }
-          })
-
-          await $textarea.type('Hello '.repeat(151))
-
-          expect(await getText($visibleCountMessage)).not.toBe(
-            // JavaScript config `maxlength: 150` above is overridden
-            'You have 756 characters too many'
-          )
-
-          expect(await getText($visibleCountMessage)).toBe(
-            // HTML data attribute `maxwords: 150` applied from fixture
-            'You have 1 word too many'
-          )
-        })
-
         it('interpolates the textarea description in data attributes with the maximum set in JavaScript', async () => {
           // This tests that any textarea description provided through data-attributes
           // (or the Nunjucks macro), waiting for a maximum to be provided in
@@ -833,7 +748,7 @@ describe('Character count', () => {
           // element holding the textarea's accessible description
           // (and interpolated to replace `%{count}` with the maximum)
 
-          await initExample('with neither maxlength nor maxwords set', {
+          await initExample('without maxlength', {
             config: {
               maxlength: 150
             }
@@ -996,8 +911,7 @@ describe('Character count', () => {
         ).rejects.toMatchObject({
           cause: {
             name: 'ConfigError',
-            message:
-              'nhsuk-character-count: Either "maxlength" or "maxwords" must be provided'
+            message: 'nhsuk-character-count: "maxlength" must be provided'
           }
         })
       })

@@ -1,0 +1,11 @@
+// stylelint-disable declaration-no-important
+
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-button-group {
+  margin-bottom: 0;
+}
+
+.app-button-group--nowrap {
+  flex-wrap: nowrap;
+}

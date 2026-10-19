@@ -10,15 +10,22 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `html` is set, this is not required. Text to use within the hint. If `html` is provided, the `text` argument will be ignored.',
+      'If `html` is set, this is not required. Text to use within the hint. If `html` is provided, the `text` option will be ignored.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. HTML to use within the hint. If `html` is provided, the `text` argument will be ignored.',
+      'If `text` is set, this is not required. HTML to use within the hint. If `html` is provided, the `text` option will be ignored.',
     released: '1.0.0'
+  },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire hint component in a `call` block.',
+    released: '10.6.0'
   },
   id: {
     type: 'string',

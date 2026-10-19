@@ -26,7 +26,7 @@
 @mixin nhsuk-text-colour {
   color: $nhsuk-text-colour;
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     color: $nhsuk-print-text-colour;
   }
 }
@@ -44,19 +44,6 @@
   }
 }
 
-/// Normal typography weight (deprecated)
-///
-/// @alias nhsuk-font-weight-normal
-/// @deprecated To be removed in v11.0, replaced by nhsuk-font-weight-normal
-
-@mixin nhsuk-typography-weight-normal($important: false) {
-  @include nhsuk-warning(
-    "nhsuk-typography-weight",
-    "nhsuk-typography-weight-normal is deprecated. Use nhsuk-font-weight-normal instead."
-  );
-  @include nhsuk-font-weight-normal($important);
-}
-
 /// Bold font weight
 ///
 /// @param {Boolean} $important [false] - Whether to mark declarations as
@@ -68,19 +55,6 @@
   } @else {
     font-weight: $nhsuk-font-weight-bold;
   }
-}
-
-/// Bold typography weight (deprecated)
-///
-/// @alias nhsuk-font-weight-bold
-/// @deprecated To be removed in v11.0, replaced by nhsuk-font-weight-bold
-
-@mixin nhsuk-typography-weight-bold($important: false) {
-  @include nhsuk-warning(
-    "nhsuk-typography-weight",
-    "nhsuk-typography-weight-bold is deprecated. Use nhsuk-font-weight-bold instead."
-  );
-  @include nhsuk-font-weight-bold($important);
 }
 
 /// Code font helper
@@ -109,7 +83,7 @@
   }
 
   font-family: $font-family-value;
-  font-size-adjust: 0.5;
+  font-size-adjust: 0.52;
 }
 
 /// Word break helper
@@ -232,7 +206,7 @@
 
   // Still no match? Throw error
   @if not $font-map {
-    @error "Unknown font size `#{$size}` - expected a point from the typography scale.";
+    @error "Unknown font size `#{$size}` - expected a point from the typography scale";
   }
 
   // Check for a deprecation within the typography scale
@@ -281,12 +255,12 @@
         font-size: $font-size-rem;
         line-height: $calculated-line-height;
       } @else if $breakpoint == "print" {
-        @include nhsuk-media-query($media-type: print) {
+        @media print {
           font-size: $font-size;
           line-height: $calculated-line-height;
         }
       } @else {
-        @include nhsuk-media-query($from: $breakpoint) {
+        @media #{nhsuk-from-breakpoint($breakpoint)} {
           font-size: $font-size-rem;
           line-height: $calculated-line-height;
         }

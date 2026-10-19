@@ -36,14 +36,15 @@
 
     // Hide when no textarea description is provided, during initialisation,
     // or when optionally hidden until the configured threshold is reached
-    &[hidden],
-    .nhsuk-frontend-supported & {
+    @include nhsuk-frontend-supported {
       display: none;
     }
 
     // Show when initialisation is complete (unless already hidden)
-    .nhsuk-frontend-supported [data-nhsuk-character-count-init] &:not([hidden]) {
-      display: block;
+    [data-nhsuk-character-count-init] &:not([hidden]) {
+      @include nhsuk-frontend-supported {
+        display: block;
+      }
     }
   }
 }

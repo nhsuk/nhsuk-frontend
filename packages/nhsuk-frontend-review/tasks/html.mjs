@@ -9,10 +9,10 @@ import * as filters from 'nhsuk-frontend/lib/nunjucks/filters/index.mjs'
 import * as globals from 'nhsuk-frontend/lib/nunjucks/globals/index.mjs'
 import PluginError from 'plugin-error'
 
-import validatorConfig from '../.htmlvalidate.js'
+import validatorConfig from '../.htmlvalidate.mjs'
 
 const { configure, renderTemplate } = nunjucks
-const { HEROKU_BRANCH = 'main' } = process.env
+const { HEROKU_BRANCH, HEROKU_PR_NUMBER, NODE_ENV } = process.env
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -50,7 +50,28 @@ export const compile = task.name('html:render', async () => {
   const context = {
     assetPath: `/nhsuk-frontend/assets`,
     baseUrl: '/nhsuk-frontend/',
-    branchName: HEROKU_BRANCH,
+
+    // Identify Heroku branch previews, pull requests or local development
+    environmentName:
+      HEROKU_BRANCH || HEROKU_PR_NUMBER
+        ? HEROKU_PR_NUMBER
+          ? 'Review'
+          : 'Preview'
+        : NODE_ENV === 'production'
+          ? 'Preview'
+          : 'Development',
+
+    // Link to GitHub pull request when available
+    gitHub: HEROKU_PR_NUMBER
+      ? {
+          text: `pull request #${HEROKU_PR_NUMBER}`,
+          href: `https://github.com/nhsuk/nhsuk-frontend/pull/${HEROKU_PR_NUMBER}`
+        }
+      : {
+          html: `<code class="nhsuk-code--inline">${HEROKU_BRANCH ?? 'main'}</code> branch`,
+          href: `https://github.com/nhsuk/nhsuk-frontend/commits/${HEROKU_BRANCH ?? 'main'}`
+        },
+
     serviceName: 'NHS.UK frontend',
     version: config.version,
     components: components.getAllFixtures()
@@ -64,7 +85,7 @@ export const compile = task.name('html:render', async () => {
 
     // Render component listing
     const templateHtml = renderTemplate('layouts/listing.njk', {
-      context: { ...context, ...data, pageName: name },
+      context: { ...context, ...data, pageHeading: name },
       env
     })
 
@@ -84,7 +105,7 @@ export const compile = task.name('html:render', async () => {
       // Render component example into layout
       const templateHtml = renderTemplate('layouts/preview.njk', {
         blocks: { example: html },
-        context: { ...context, pageName: `${name} ${exampleName}`, options },
+        context: { ...context, pageHeading: `${name} ${exampleName}`, options },
         env
       })
 

@@ -74,7 +74,7 @@
     margin-right: calc($nhsuk-button-padding-left-right - nhsuk-spacing(1));
     margin-bottom: $nhsuk-button-shadow-size;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       margin-right: $nhsuk-button-padding-left-right;
     }
   }
@@ -139,7 +139,7 @@
       background-color: Canvas;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       padding: (nhsuk-spacing(4) + $nhsuk-border-width - $nhsuk-border-width-form-element);
     }
   }

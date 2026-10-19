@@ -26,7 +26,7 @@
   }
 
   .nhsuk-form-group--inline {
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: flex;
       flex-direction: row;
 

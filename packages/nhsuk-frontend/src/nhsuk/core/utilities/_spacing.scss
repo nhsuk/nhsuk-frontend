@@ -72,12 +72,12 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
 @mixin _nhsuk-generate-static-spacing-overrides($property) {
   @each $spacing-point in map.keys($nhsuk-spacing-points) {
     .nhsuk-u-static-#{$property}-#{$spacing-point} {
-      #{$property}: nhsuk-spacing($spacing-point) !important;
+      #{$property}: nhsuk-spacing($spacing-point, $important: true);
     }
 
     @each $direction in $_spacing-directions {
       .nhsuk-u-static-#{$property}-#{$direction}-#{$spacing-point} {
-        #{$property}-#{$direction}: nhsuk-spacing($spacing-point) !important;
+        #{$property}-#{$direction}: nhsuk-spacing($spacing-point, $important: true);
       }
     }
   }

@@ -4,221 +4,274 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      name: 'example'
+      name: "example"
     }
   },
-  'disabled': {
+  "disabled": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      name: 'example',
+      name: "example",
       disabled: true
     },
     screenshot: true
   },
-  'disabled with enabled button': {
+  "disabled with enabled button": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      name: 'example',
+      name: "example",
       disabled: true,
       button: {
         disabled: false
       }
     }
   },
-  'disabled button': {
+  "disabled button": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      name: 'example',
+      name: "example",
       button: {
         disabled: true
       }
     }
   },
-  'with button double click prevented': {
+  "with before and after input content": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      name: 'example',
+      name: "example",
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
+  "with button double click prevented": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      name: "example",
       button: {
         preventDoubleClick: true
       }
     }
   },
-  'with button double click not prevented': {
+  "with button double click not prevented": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      name: 'example',
+      name: "example",
       button: {
         preventDoubleClick: false
       }
     }
   },
-  'with hint': {
+  "with hint": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       hint: {
-        text: 'It probably has some letters, numbers and maybe even some symbols in it'
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
       },
-      id: 'with-hint-text',
-      name: 'example'
+      id: "with-hint-text",
+      name: "example"
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'with error message': {
+  "with error only": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
+      },
+      errorMessage: true,
+      id: "with-error-only",
+      name: "example"
+    }
+  },
+  "with error message": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
       },
       errorMessage: {
-        text: 'Enter a password'
+        text: "Enter a password"
       },
-      id: 'with-error-message',
-      name: 'example'
+      id: "with-error-message",
+      name: "example"
     }
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       hint: {
-        text: 'It probably has some letters, numbers and maybe even some symbols in it'
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
       },
       errorMessage: {
-        text: 'Enter a password'
+        text: "Enter a password"
       },
-      id: 'with-error-message',
-      name: 'example'
+      id: "with-error-message",
+      name: "example"
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'with prefix': {
+  "with error message and hint as strings": {
     context: {
       label: {
-        text: 'Secret code',
-        size: 'm',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
+      },
+      hint: "It probably has some letters, numbers and maybe even some symbols in it",
+      errorMessage: "Enter a password",
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message, without heading": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message and hint, without heading": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      hint: {
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with prefix": {
+    context: {
+      label: {
+        heading: "Secret code",
+        size: "m"
       },
       prefix: {
-        text: 'PIN'
+        text: "PIN"
       },
-      id: 'with-prefix',
-      name: 'example',
-      value: '3.14159',
+      id: "with-prefix",
+      name: "example",
+      value: "3.14159",
       width: 5,
       code: true,
       button: {
-        variant: 'brand'
+        variant: "brand"
       }
     }
   },
-  'with prefix and error message': {
+  "with prefix and error message": {
     context: {
       label: {
-        text: 'Secret code',
-        size: 'm',
-        isPageHeading: true
+        heading: "Secret code",
+        size: "m"
       },
       prefix: {
-        text: 'PIN'
+        text: "PIN"
       },
       errorMessage: {
-        text: 'Enter secret code'
+        text: "Enter secret code"
       },
-      id: 'with-prefix',
-      name: 'example',
+      id: "with-prefix",
+      name: "example",
       width: 5,
       code: true,
       button: {
-        variant: 'brand'
+        variant: "brand"
       }
     }
   },
-  'without page heading': {
+  "without heading": {
     context: {
-      label: {
-        text: 'Password'
-      },
-      id: 'without-heading',
-      name: 'example'
+      label: "Password",
+      id: "without-heading",
+      name: "example"
     }
   },
-  'with width': {
+  "with width": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      id: 'width-class',
-      name: 'example',
+      id: "width-class",
+      name: "example",
       width: 10
     }
   },
-  'with autocomplete attribute': {
+  "with autocomplete attribute": {
     context: {
       label: {
-        text: 'Password',
-        size: 'l',
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
-      id: 'new-password',
-      name: 'example',
-      autocomplete: 'new-password'
+      id: "new-password",
+      name: "example",
+      autocomplete: "new-password"
     }
   },
-  'with translations': {
+  "with translations": {
     context: {
       label: {
-        text: 'Cyfrinair',
-        size: 'l',
-        isPageHeading: true
+        heading: "Cyfrinair",
+        size: "l"
       },
-      id: 'password-translated',
-      name: 'example',
-      showPasswordText: 'Datguddia',
-      hidePasswordText: 'Cuddio',
-      showPasswordAriaLabelText: 'Datgelu cyfrinair',
-      hidePasswordAriaLabelText: 'Cuddio cyfrinair',
-      passwordShownAnnouncementText: 'Mae eich cyfrinair yn weladwy.',
+      id: "password-translated",
+      name: "example",
+      showPasswordText: "Datguddia",
+      hidePasswordText: "Cuddio",
+      showPasswordAriaLabel: "Datgelu cyfrinair",
+      hidePasswordAriaLabel: "Cuddio cyfrinair",
+      passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
       passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."
     }
   }

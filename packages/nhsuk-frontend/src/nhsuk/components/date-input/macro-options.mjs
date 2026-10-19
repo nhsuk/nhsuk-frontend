@@ -17,7 +17,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional prefix. This is used to prefix each date input `name` attribute, wrapped in `[` and `]`. For example, setting `namePrefix: "dob"` will output the `name` attributes `dob[day]`, `dob[month]` and `dob[year]` respectively.',
+      'Optional prefix. This is used to prefix each date input `name` attribute, wrapped in `[` and `]` – for example, `namePrefix: "dob"` will output the `name` attributes `dob[day]`, `dob[month]` and `dob[year]` respectively.',
     released: '1.0.0'
   },
   items: {
@@ -40,7 +40,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Item-specific label. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'Item-specific label. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -170,7 +170,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the day input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the day input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -208,7 +208,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the month input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the month input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -246,7 +246,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the year input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the year input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -297,28 +297,6 @@ const options = {
     required: false,
     description: 'Classes to add to the date input container.',
     released: '1.0.0'
-  },
-  inputWrapper: {
-    type: 'object',
-    required: false,
-    description:
-      'Additional options for the wrapping element containing the date input component.',
-    released: '10.5.0',
-    params: {
-      classes: {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to the wrapping element.',
-        released: '10.5.0'
-      },
-      attributes: {
-        type: 'object',
-        required: false,
-        description:
-          'HTML attributes (for example data attributes) to add to the wrapping element.',
-        released: '10.5.0'
-      }
-    }
   },
   attributes: {
     type: 'object',

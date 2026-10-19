@@ -10,6 +10,8 @@ const { NODE_ENV, NPM_PACKAGE_VERSION = config.version } = process.env
 
 /**
  * Rollup build cache
+ *
+ * @type {RollupCache}
  */
 const cache = {
   modules: []
@@ -46,7 +48,7 @@ export const compile = gulp.series(
         external: [
           '#lib',
           '@prettier/sync',
-          /highlight\.js(\/lib\/languages\/)?/,
+          /highlight\.js(\/(es|lib)\/languages\/)?/,
           'nunjucks',
           'outdent',
           'slug'
@@ -145,3 +147,7 @@ export const version = task.name("scripts:version 'minified'", () =>
     output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js` }
   })
 )
+
+/**
+ * @import { RollupCache } from 'rollup'
+ */

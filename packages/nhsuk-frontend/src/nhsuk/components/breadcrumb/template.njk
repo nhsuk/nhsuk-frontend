@@ -1,51 +1,65 @@
-{% from "nhsuk/components/back-link/macro.njk" import backLink %}
+{% from "nhsuk/components/back-link/macro.njk" import backLink as nhsukBackLink %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
-{%- set variant = params.variant -%}
+{%- set variant = params.variant %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-breadcrumb" -%}
+{%- set classNames = "nhsuk-breadcrumb" %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-breadcrumb--reverse" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-breadcrumb--" ~ variant %}
-{% endif %}
+  {%- set classNames = classNames ~ " nhsuk-breadcrumb--" ~ variant %}
+{%- endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
 
-<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.labelText | default("Breadcrumb") }}"
+{%- set ariaLabel = params.ariaLabel | default(params.labelText, true) | default("Breadcrumb", true) -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
 {% for item in params.items %}
   {% if item.href %}
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>{{ item.text }}</a>
+      {{ nhsukLink({
+        href: item.href,
+        text: item.text,
+        html: item.html,
+        className: "nhsuk-breadcrumb__link",
+        attributes: item.attributes
+      }) | trim | indent(6) }}
     </li>
   {% endif %}
 {% endfor %}
-{% if params.href %}
-  <li class="nhsuk-breadcrumb__list-item">
-    <a class="nhsuk-breadcrumb__link" href="{{ params.href }}">{{ params.text }}</a>
-  </li>
-  {% set lastHref = params.href %}
-  {% set lastText = params.text %}
+{% if params.text and params.href %}
+    <li class="nhsuk-breadcrumb__list-item">
+      {{ nhsukLink({
+        href: params.href,
+        text: params.text,
+        className: "nhsuk-breadcrumb__link"
+      }) | trim | indent(6) }}
+    </li>
+  {%- set lastHref = params.href %}
+  {%- set lastText = params.text %}
 {% else %}
-  {% set lastItem = params.items | last %}
-  {% set lastHref = lastItem.href %}
-  {% set lastText = lastItem.text %}
+  {%- set lastItem = params.items | last %}
+  {%- set lastHref = lastItem.href %}
+  {%- set lastText = lastItem.text %}
 {% endif %}
   </ol>
-  {{ backLink({
+  {{ nhsukBackLink({
     id: params.backLink.id,
-    visuallyHiddenText: params.backLink.visuallyHiddenText if params.backLink.visuallyHiddenText else "Back to",
+    visuallyHiddenText: params.backLink.visuallyHiddenText | default("Back to"),
     text: params.backLink.text if (params.backLink.html or params.backLink.text) else lastText,
     html: params.backLink.html if (params.backLink.html or params.backLink.text),
-    href: params.backLink.href if params.backLink.href else lastHref,
+    href: params.backLink.href | default(lastHref),
+    type: params.backLink.type,
     classes: params.backLink.classes,
-    attributes: params.backLink.attributes if params.backLink.attributes else lastItem.attributes,
+    attributes: params.backLink.attributes | default(lastItem.attributes),
     variant: params.backLink.variant | default(variant),
     element: params.backLink.element
-  }) | indent(2) }}
+  }) | trim | indent(2) }}
 </nav>

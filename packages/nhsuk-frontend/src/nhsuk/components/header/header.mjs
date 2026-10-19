@@ -468,7 +468,7 @@ export class Header extends ConfigurableComponent {
   static moduleName = 'nhsuk-header'
 
   /**
-   * Tabs default config
+   * Header default config
    *
    * @see {@link HeaderConfig}
    * @constant
@@ -484,7 +484,7 @@ export class Header extends ConfigurableComponent {
   })
 
   /**
-   * Tabs config schema
+   * Header config schema
    *
    * @constant
    * @satisfies {Schema<HeaderConfig>}

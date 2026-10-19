@@ -168,7 +168,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by each checkbox item within the checkboxes component. The `label.size` and `label.isPageHeading` options are not supported.',
+          'The label used by each checkbox item within the checkboxes component. The `label.size` and `label.heading` options are not supported.',
         released: '1.0.0',
         isComponent: true
       },
@@ -181,11 +181,27 @@ const options = {
         isComponent: true
       },
       divider: {
-        type: 'string',
+        type: 'object',
         required: false,
         description:
           'Divider text to separate checkbox items, for example the text `"or"`.',
-        released: '3.1.0'
+        released: '3.1.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for the divider. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for the divider. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          }
+        }
       },
       checked: {
         type: 'boolean',
@@ -201,10 +217,18 @@ const options = {
           'Provide additional content to reveal when the checkbox is checked.',
         released: '1.0.0',
         params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. The text to reveal when the checkbox is checked.',
+            released: '10.7.0'
+          },
           html: {
             type: 'string',
             required: true,
-            description: 'The HTML to reveal when the checkbox is checked.',
+            description:
+              'If `text` is set, this is not required. The HTML to reveal when the checkbox is checked.',
             released: '1.0.0'
           }
         }
@@ -228,19 +252,33 @@ const options = {
           'HTML attributes (for example data attributes) to add to the checkbox input tag.',
         released: '1.0.0'
       },
+      behaviour: {
+        type: 'string',
+        required: false,
+        description:
+          'Behaviour of the checkbox when JavaScript is enabled – `"exclusive"` or `"inclusive"`. Use `"exclusive"` for a "none" option or `"inclusive"` for an "all" option.',
+        released: '10.6.0'
+      },
+      behaviourGroup: {
+        type: 'string',
+        required: false,
+        description:
+          'Used in conjunction with `behaviour` - this should be set to a string which groups checkboxes together into a set for use with a "none" or "all" option.',
+        released: '10.6.0'
+      },
       exclusive: {
         type: 'boolean',
         required: false,
-        description:
-          'If set to `true`, marks this checkbox as the None option in a None of these type behaviour. Unchecking all other checkboxes in the group when None is clicked.',
-        released: '5.2.0'
+        description: 'Replaced by `item.behaviour` in the `items` option.',
+        released: '5.2.0',
+        deprecated: '10.6.0'
       },
       exclusiveGroup: {
         type: 'string',
         required: false,
-        description:
-          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a None of these scenario.',
-        released: '5.2.0'
+        description: 'Replaced by `item.behaviourGroup` in the `items` option.',
+        released: '5.2.0',
+        deprecated: '10.6.0'
       }
     }
   },

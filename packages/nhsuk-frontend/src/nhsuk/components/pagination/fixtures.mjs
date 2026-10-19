@@ -4,169 +4,169 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       previous: {
-        labelText: 'Treatments',
-        href: '#/section/treatments'
+        label: "Treatments",
+        href: "#/section/treatments"
       },
       next: {
-        labelText: 'Symptoms',
-        href: '#/section/symptoms'
+        label: "Symptoms",
+        href: "#/section/symptoms"
       }
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-pagination-item--previous a',
-      viewports: ['mobile', 'tablet', 'desktop']
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-pagination-item--previous a",
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with only previous': {
+  "with only previous": {
     context: {
       previous: {
-        labelText: 'Treatments',
-        href: '#/section/treatments'
+        label: "Treatments",
+        href: "#/section/treatments"
       }
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with only next': {
+  "with only next": {
     context: {
       next: {
-        labelText: 'Symptoms',
-        href: '#/section/symptoms'
+        label: "Symptoms",
+        href: "#/section/symptoms"
       }
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with translations': {
+  "with translations": {
     context: {
       previous: {
-        text: 'Blaenorol',
-        labelText: 'Driniaethau',
-        href: '#/section/driniaethau'
+        text: "Blaenorol",
+        label: "Driniaethau",
+        href: "#/section/driniaethau"
       },
       next: {
-        text: 'Nesaf',
-        labelText: 'Symptomau',
-        href: '#/section/symptomau'
+        text: "Nesaf",
+        label: "Symptomau",
+        href: "#/section/symptomau"
       }
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'numbered': {
+  "numbered": {
     context: {
       previous: {
-        href: '#/section/1'
+        href: "#/section/1"
       },
       next: {
-        href: '#/section/3'
+        href: "#/section/3"
       },
       items: [
         {
           number: 1,
-          href: '#/section/1'
+          href: "#/section/1"
         },
         {
           number: 2,
-          href: '#/section/2',
+          href: "#/section/2",
           current: true
         },
         {
           number: 3,
-          href: '#/section/3'
+          href: "#/section/3"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-pagination__item--current a',
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-pagination__item--current a",
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'numbered with many pages': {
+  "numbered with many pages": {
     context: {
       previous: {
-        href: '#/section/9'
+        href: "#/section/9"
       },
       next: {
-        href: '#/section/11'
+        href: "#/section/11"
       },
       items: [
         {
           number: 1,
-          href: '#/section/1'
+          href: "#/section/1"
         },
         {
           ellipsis: true
         },
         {
           number: 8,
-          href: '#/section/8'
+          href: "#/section/8"
         },
         {
           number: 9,
-          href: '#/section/9'
+          href: "#/section/9"
         },
         {
           number: 10,
-          href: '#/section/10',
+          href: "#/section/10",
           current: true
         },
         {
           number: 11,
-          href: '#/section/11'
+          href: "#/section/11"
         },
         {
           number: 12,
-          href: '#/section/12'
+          href: "#/section/12"
         },
         {
           ellipsis: true
         },
         {
           number: 40,
-          href: '#/section/40'
+          href: "#/section/40"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'numbered with many pages (empty items)': {
+  "numbered with many pages (empty items)": {
     context: {
       previous: {
-        href: '#/section/9'
+        href: "#/section/9"
       },
       next: {
-        href: '#/section/11'
+        href: "#/section/11"
       },
       items: [
         {
           number: 1,
-          href: '#/section/1'
+          href: "#/section/1"
         },
         {
           ellipsis: true
@@ -174,16 +174,16 @@ const fixtures = {
         false,
         {
           number: 9,
-          href: '#/section/9'
+          href: "#/section/9"
         },
         {
           number: 10,
-          href: '#/section/10',
+          href: "#/section/10",
           current: true
         },
         {
           number: 11,
-          href: '#/section/11'
+          href: "#/section/11"
         },
         false,
         {
@@ -191,98 +191,98 @@ const fixtures = {
         },
         {
           number: 40,
-          href: '#/section/40'
+          href: "#/section/40"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'numbered first page': {
+  "numbered first page": {
     context: {
       next: {
-        href: '#/section/2'
+        href: "#/section/2"
       },
       items: [
         {
           number: 1,
-          href: '#/section/1',
+          href: "#/section/1",
           current: true
         },
         {
           number: 2,
-          href: '#/section/2'
+          href: "#/section/2"
         },
         {
           number: 3,
-          href: '#/section/3'
+          href: "#/section/3"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'numbered last page': {
+  "numbered last page": {
     context: {
       previous: {
-        href: '#/section/2'
+        href: "#/section/2"
       },
       items: [
         {
           number: 1,
-          href: '#/section/1'
+          href: "#/section/1"
         },
         {
           number: 2,
-          href: '#/section/2'
+          href: "#/section/2"
         },
         {
           number: 3,
-          href: '#/section/3',
+          href: "#/section/3",
           current: true
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'numbered with translations': {
+  "numbered with translations": {
     context: {
       previous: {
-        text: 'Blaenorol',
-        href: '#/section/1'
+        text: "Blaenorol",
+        href: "#/section/1"
       },
       next: {
-        text: 'Nesaf',
-        href: '#/section/3'
+        text: "Nesaf",
+        href: "#/section/3"
       },
       items: [
         {
           number: 1,
-          href: '#/section/1'
+          href: "#/section/1"
         },
         {
           number: 2,
-          href: '#/section/2',
+          href: "#/section/2",
           current: true
         },
         {
           number: 3,
-          href: '#/section/3'
+          href: "#/section/3"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   }
 }

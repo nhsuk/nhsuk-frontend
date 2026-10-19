@@ -77,7 +77,7 @@
 @mixin nhsuk-grid-column($width: full, $float: left, $at: tablet) {
   @include nhsuk-grid-column-common;
 
-  @include nhsuk-media-query($from: $at) {
+  @media #{nhsuk-from-breakpoint($at)} {
     @include nhsuk-grid-column-width($width, $float);
   }
 }

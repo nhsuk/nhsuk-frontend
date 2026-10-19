@@ -18,7 +18,9 @@ import {
   NotificationBanner,
   PasswordInput,
   Radios,
+  Scroll,
   SkipLink,
+  Table,
   Tabs,
   createAll,
   initAll
@@ -34,7 +36,9 @@ jest.mock('./components/header/header.mjs')
 jest.mock('./components/notification-banner/notification-banner.mjs')
 jest.mock('./components/password-input/password-input.mjs')
 jest.mock('./components/radios/radios.mjs')
+jest.mock('./components/scroll/scroll.mjs')
 jest.mock('./components/skip-link/skip-link.mjs')
+jest.mock('./components/tables/table.mjs')
 jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
@@ -47,7 +51,9 @@ describe('NHS.UK frontend', () => {
     'FileUpload',
     'Header',
     'Radios',
+    'Scroll',
     'SkipLink',
+    'Table',
     'Tabs',
     'NotificationBanner',
     'PasswordInput'
@@ -84,7 +90,9 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('NotificationBanner')
       expect(NHSUKFrontend).toHaveProperty('PasswordInput')
       expect(NHSUKFrontend).toHaveProperty('Radios')
+      expect(NHSUKFrontend).toHaveProperty('Scroll')
       expect(NHSUKFrontend).toHaveProperty('SkipLink')
+      expect(NHSUKFrontend).toHaveProperty('Table')
       expect(NHSUKFrontend).toHaveProperty('Tabs')
     })
 
@@ -108,7 +116,9 @@ describe('NHS.UK frontend', () => {
         <div data-module="${NotificationBanner.moduleName}"></div>
         <div data-module="${PasswordInput.moduleName}"></div>
         <div data-module="${Radios.moduleName}"></div>
+        <div data-module="${Scroll.moduleName}"></div>
         <div data-module="${SkipLink.moduleName}"></div>
+        <div data-module="${Table.moduleName}"></div>
         <div data-module="${Tabs.moduleName}"></div>
       `
     })
@@ -222,7 +232,9 @@ describe('NHS.UK frontend', () => {
       expect(NotificationBanner).not.toHaveBeenCalled()
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
+      expect(Scroll).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
 
@@ -247,7 +259,9 @@ describe('NHS.UK frontend', () => {
       expect(NotificationBanner).not.toHaveBeenCalled()
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
+      expect(Scroll).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
 
@@ -259,7 +273,8 @@ describe('NHS.UK frontend', () => {
       expect(console.log).toHaveBeenCalledWith(expect.any(Error))
       expect(console.log).toHaveBeenCalledWith(
         expect.objectContaining({
-          message: 'NHS.UK frontend is not supported in this browser'
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
         })
       )
 
@@ -272,7 +287,9 @@ describe('NHS.UK frontend', () => {
       expect(NotificationBanner).not.toHaveBeenCalled()
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
+      expect(Scroll).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
   })
@@ -383,7 +400,8 @@ describe('NHS.UK frontend', () => {
       expect(console.log).toHaveBeenCalledWith(expect.any(Error))
       expect(console.log).toHaveBeenCalledWith(
         expect.objectContaining({
-          message: 'NHS.UK frontend is not supported in this browser'
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
         })
       )
     })

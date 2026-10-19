@@ -1,17 +1,16 @@
 {% extends "layouts/page.njk" %}
 
 {% block header %}
+  {% include "partials/environment.njk" %}
+  {{ header({
+    logo: {
+      href: baseUrl
+    }
+  }) }}
   {% include "partials/banner.njk" %}
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds-from-desktop">
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ serviceName }}</h1>
-      <p class="nhsuk-body nhsuk-u-margin-bottom-8">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
-    </div>
-  </div>
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-third-from-desktop">
       <h2 class="nhsuk-heading-l" id="components">Components</h2>
@@ -41,7 +40,22 @@
           <h3 class="nhsuk-heading-m">Full pages</h3>
 
           <ul class="nhsuk-list">
+            <li><a href="examples/full-page/health-a-to-z/">Health A to Z</a></li>
+            <li><a href="examples/full-page/conditions/">Conditions A to Z</a></li>
+            <li><a href="examples/full-page/conditions/anaphylaxis/">Conditions A to Z: Anaphylaxis</a></li>
+            <li><a href="examples/full-page/medicines/">Medicines A to Z</a></li>
+            <li><a href="examples/full-page/medicines/aspirin/">Medicines A to Z: Aspirin</a></li>
             <li><a href="examples/full-page/update-your-account-details/">Update your account details</a></li>
+          </ul>
+
+          <h3 class="nhsuk-heading-m">Question pages</h3>
+
+          <ul class="nhsuk-list">
+            <li><a href="examples/question-page/">Single question</a></li>
+            <li><a href="examples/question-page/multiple/">Multiple questions</a></li>
+            <li><a href="examples/question-page/label-heading/">Label as heading</a></li>
+            <li><a href="examples/question-page/legend-heading/">Legend as heading</a></li>
+            <li><a href="examples/question-page/complex/">Detailed explanation</a></li>
           </ul>
 
           <h3 class="nhsuk-heading-m">Variants</h3>
@@ -78,6 +92,7 @@
             <li><a href="examples/form-alignment/">Form elements alignment</a></li>
             <li><a href="examples/form-controls-states/">Form controls states</a></li>
             <li><a href="examples/grid/">Grid layout</a></li>
+            <li><a href="examples/scrolling-tables/">Scrolling tables</a></li>
             <li><a href="examples/small-form-controls/">Small form controls</a></li>
             <li><a href="examples/task-list-multiple-sections/">Task list with multiple sections</a></li>
             <li><a href="examples/translated/">Translated examples</a></li>
@@ -98,3 +113,6 @@
     </div>
   </div>
 {% endblock %}
+
+{# Turn the footer off #}
+{% block footer %}{% endblock %}

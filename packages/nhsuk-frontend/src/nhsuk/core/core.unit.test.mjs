@@ -46,6 +46,7 @@ describe('Core', () => {
         --nhsuk-card-background-colour: white;
         --nhsuk-print-text-colour: black;
         --nhsuk-secondary-text-colour: #4c6272;
+        --nhsuk-reverse-secondary-text-colour: #c7dcef;
         --nhsuk-focus-colour: #ffeb3b;
         --nhsuk-focus-text-colour: #212b32;
         --nhsuk-error-colour: #d5281b;
@@ -55,6 +56,9 @@ describe('Core', () => {
         --nhsuk-reverse-border-colour: #337ec6;
         --nhsuk-input-border-colour: #4c6272;
         --nhsuk-hover-colour: #aeb7bd;
+        --nhsuk-reverse-hover-colour: #004b93;
+        --nhsuk-target-hover-colour: #e0e4e6;
+        --nhsuk-reverse-target-hover-colour: #0055a6;
         --nhsuk-input-background-colour: white;
         --nhsuk-code-colour: #d5281b;
         --nhsuk-link-colour: #005eb8;

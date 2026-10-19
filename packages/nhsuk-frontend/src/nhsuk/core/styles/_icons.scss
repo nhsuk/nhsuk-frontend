@@ -24,7 +24,7 @@
   // (https://github.com/w3c/csswg-drafts/issues/6310)
   forced-color-adjust: auto;
 
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     width: nhsuk-px-to-rem($nhsuk-icon-size-large);
     height: nhsuk-px-to-rem($nhsuk-icon-size-large);
   }
@@ -44,7 +44,7 @@ $_icon-sizes: (25%, 50%, 75%, 100%);
     width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
     height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
       height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
     }

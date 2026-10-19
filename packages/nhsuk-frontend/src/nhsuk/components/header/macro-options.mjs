@@ -22,7 +22,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The `href` of the link for the logo. If not set, and a `service.href` is set, or both are set to same value, then the logo and service name will be combined into a single link.',
+          'The logo link `href` attribute. If not set, and a `service.href` is set, or both are set to same value, then the logo and service name will be combined into a single link.',
         released: '10.0.0'
       },
       src: {
@@ -62,7 +62,7 @@ const options = {
       href: {
         type: 'string',
         required: false,
-        description: 'The `href` of the link for the service name.',
+        description: 'The service name link `href` attribute.',
         released: '10.0.0'
       }
     }
@@ -111,27 +111,36 @@ const options = {
         type: 'array',
         required: false,
         description: 'Array of navigation links for use in the header.',
+        alias: 'link',
         released: '10.0.0',
+        isComponent: true,
         params: {
-          href: {
-            type: 'string',
-            required: false,
-            description: 'The href of a navigation item in the header.',
-            released: '10.0.0'
-          },
           text: {
             type: 'string',
             required: true,
             description:
-              'If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` argument will be ignored.',
+              'If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` argument will be ignored.',
+              'If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'The navigation item `href` attribute.',
+            released: '10.0.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the navigation item link will open in a new tab.',
+            released: '10.7.0'
           },
           current: {
             type: 'boolean',
@@ -234,29 +243,81 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The `name` attribute for the search field. Defaults to `"q"`.',
+          'The `name` attribute for the search input. Defaults to `"q"`.',
         released: '10.0.0'
       },
       placeholder: {
         type: 'string',
         required: false,
-        description:
-          'The placeholder text for the search field. Defaults to `"Search"`.',
-        released: '10.0.0'
+        description: 'Replaced by the `search.input.placeholder` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       visuallyHiddenLabel: {
         type: 'string',
         required: false,
         description:
-          'The label for the search field. Defaults to `"Search the NHS website"`.',
-        released: '10.0.0'
+          'Replaced by the `search.label.visuallyHiddenText` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       visuallyHiddenButton: {
         type: 'string',
         required: false,
+        description: 'Replaced by the `search.button.ariaLabel` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
         description:
-          'The label for the visually hidden button. Defaults to `"Search"`.',
-        released: '10.0.0'
+          'Optional object allowing customisation of the search input label.',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'The visually hidden label text for the search input. Defaults to `"Search the NHS website"`.',
+            released: '10.6.0'
+          }
+        }
+      },
+      input: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional object allowing customisation of the search input.',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          placeholder: {
+            type: 'string',
+            required: false,
+            description:
+              'The placeholder text for the search input. Defaults to `"Search"`.',
+            released: '10.6.0'
+          }
+        }
+      },
+      button: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional object allowing customisation of the search button.',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          ariaLabel: {
+            type: 'string',
+            required: false,
+            description:
+              'Search button text exposed to assistive technologies, like screen readers, when only an icon is used. Defaults to `"Search"`.',
+            released: '10.6.0'
+          }
+        }
       },
       classes: {
         type: 'string',
@@ -284,26 +345,22 @@ const options = {
         type: 'array',
         required: false,
         description: 'Array of account items for use in the header.',
+        alias: 'link',
         released: '10.0.0',
+        isComponent: true,
         params: {
-          href: {
-            type: 'string',
-            required: false,
-            description: 'The href of an account item in the header.',
-            released: '10.0.0'
-          },
           text: {
             type: 'string',
             required: true,
             description:
-              'If `html` is set, this is not required. Text for the account item. If `html` is provided, the `text` argument will be ignored.',
+              'If `html` is set, this is not required. Text for the account item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'If `text` is set, this is not required. HTML for the account item. If `html` is provided, the `text` argument will be ignored.',
+              'If `text` is set, this is not required. HTML for the account item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           icon: {
@@ -312,6 +369,19 @@ const options = {
             description:
               'Whether to include the account icon for the account item. Defaults to `false`.',
             released: '10.0.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'The account item `href` attribute.',
+            released: '10.0.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the account item link will open in a new tab.',
+            released: '10.7.0'
           },
           action: {
             type: 'string',
@@ -357,12 +427,6 @@ const options = {
         released: '10.0.0'
       }
     }
-  },
-  baseUrl: {
-    type: 'string',
-    required: false,
-    description: 'Base URL to prepend to the `logo.src` path.',
-    released: '10.0.0'
   },
   containerClasses: {
     type: 'string',

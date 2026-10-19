@@ -82,7 +82,7 @@ describe('Code', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new Code($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -118,6 +118,7 @@ describe('Code', () => {
     })
 
     it('should not throw with missing $button element', () => {
+      $root.classList.remove('nhsuk-code--button')
       $button.remove()
 
       expect(() => new Code($root)).not.toThrow()

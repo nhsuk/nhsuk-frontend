@@ -31,8 +31,7 @@ describe('Warnings settings', () => {
     // Expect our mocked @warn function to have been called once with a single
     // argument, which should be the test message
     expect(logger.warn).toHaveBeenCalledWith(
-      'This is a warning. To silence this warning, update ' +
-        '$nhsuk-suppressed-warnings with key: "test"',
+      'This is a warning. To silence this warning, update $nhsuk-suppressed-warnings with key: "test"',
       expect.anything()
     )
   })

@@ -24,6 +24,7 @@
       "require": "./dist/nhsuk/index.js",
       "default": "./dist/nhsuk/index.js"
     },
+    "./dist/*": "./dist/*",
     "./lib": {
       "types": "./dist/nhsuk/lib/index.d.mts",
       "import": "./dist/nhsuk/lib/index.mjs",
@@ -60,15 +61,15 @@
   },
   "devDependencies": {
     "@prettier/sync": "^0.6.1",
-    "autoprefixer": "^10.5.4",
-    "cssnano": "^8.0.2",
+    "autoprefixer": "^10.6.1",
+    "cssnano": "^9.3.2",
     "del-cli": "^7.0.0",
     "gulp-zip": "^6.1.0",
-    "highlight.js": "^11.11.1",
+    "highlight.js": "^11.12.0",
     "jsdom-testing-mocks": "^1.16.0",
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
-    "sass-embedded": "^1.100.0",
+    "sass-embedded": "^1.105.1",
     "slug": "^12.0.1"
   },
   "peerDependencies": {

@@ -1,10 +1,14 @@
-{% extends "layouts/page-full-width.njk" %}
+{% extends "layouts/blank-full-width.njk" %}
 
-{% set pageName = "Tags" %}
+{% set pageHeading = "Tags" %}
 
 {% set examples = {
   "Default": {
     text: "Default"
+  },
+  "Transparent": {
+    text: "Completed",
+    colour: false
   },
   "White": {
     text: "In progress",
@@ -69,55 +73,57 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+          <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
         </div>
       </div>
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {% set rows = [] %}
+          {%- set rows = [] %}
 
-          {% for name, params in examples %}
-            {% set colourHtml %}
-              {% if params.colour %}
-                <var class="nhsuk-body-s">{{ params.colour }}</var>
-              {% else %}
+          {%- for name, params in examples %}
+            {%- set colourHtml %}
+              {%- if params.colour is defined -%}
+                <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
+              {%- else -%}
                 None
-              {% endif %}
-            {% endset %}
+              {%- endif %}
+            {%- endset %}
 
-            {% set tagHtml %}
-              {{ tag({
+            {%- set tagHtml %}
+              {{- tag({
                 text: params.text,
                 colour: params.colour
-              }) }}
-            {% endset %}
+              }) | trim -}}
+            {%- endset %}
 
-            {% set rows = (rows.push([
-              { text: name, header: "Name" },
-              { html: colourHtml, header: "Colour" },
-              { html: tagHtml, header: "Tag" }
+            {%- set rows = (rows.push([
+              { text: name },
+              { text: colourHtml | safe },
+              { text: tagHtml | safe }
             ]), rows) %}
-          {% endfor %}
+          {%- endfor %}
 
           {{ table({
-            caption: "Page background",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Page background",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Colour",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Tag",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               }
             ],
             rows: rows
@@ -134,51 +140,53 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {% set rows = [] %}
+          {%- set rows = [] %}
 
-          {% for name, params in examples %}
-            {% set colourHtml %}
-              {% if params.colour %}
-                <var class="nhsuk-body-s">{{ params.colour }}</var>
-              {% else %}
+          {%- for name, params in examples %}
+            {%- set colourHtml %}
+              {%- if params.colour is defined -%}
+                <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
+              {%- else -%}
                 None
-              {% endif %}
-            {% endset %}
+              {%- endif %}
+            {%- endset %}
 
-            {% set tagHtml %}
-              {{ tag({
+            {%- set tagHtml %}
+              {{- tag({
                 text: params.text,
                 colour: params.colour,
                 border: false
-              }) }}
-            {% endset %}
+              }) | trim -}}
+            {%- endset %}
 
-            {% set rows = (rows.push([
-              { text: name, header: "Name" },
-              { html: colourHtml, header: "Colour" },
-              { html: tagHtml, header: "Tag" }
+            {%- set rows = (rows.push([
+              { text: name },
+              { text: colourHtml | safe },
+              { text: tagHtml | safe }
             ]), rows) %}
-          {% endfor %}
+          {%- endfor %}
 
           {{ table({
-            caption: "Blue background (used in hero)",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Blue background (used in hero)",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             variant: "reverse",
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Colour",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Tag",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               }
             ],
             rows: rows
