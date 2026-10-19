@@ -129,7 +129,7 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set iconHtml = icon.html if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
+{%- set iconHtml = icon.html | trim if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
 
 {%- set content = {
   text: params.text,
