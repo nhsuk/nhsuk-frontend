@@ -1,6 +1,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Panel component
@@ -22,11 +24,6 @@
 ///
 /// @group components/panel
 ////
-
-$nhsuk-panel-border-width: nhsuk-spacing(1);
-
-// @deprecated To be removed in v11.0
-$nhsuk-border-width-panel: $nhsuk-panel-border-width;
 
 @include nhsuk-exports("nhsuk/components/panel") {
   .nhsuk-panel {

@@ -2,15 +2,14 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Footer component
 ///
 /// @group components/footer
 ////
-
-$nhsuk-footer-link-visited-colour: nhsuk-colour("dark-blue");
-$nhsuk-footer-border-colour: nhsuk-colour("grey-3");
 
 @include nhsuk-exports("nhsuk/components/footer") {
   .nhsuk-footer {

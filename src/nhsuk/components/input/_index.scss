@@ -1,21 +1,18 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
 @forward "../../core/objects/input-wrapper";
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
+@forward "settings";
 
 ////
 /// Input component
 ///
 /// @group components/input
 ////
-
-$nhsuk-input-height: nhsuk-px-to-rem(40px) !default;
-$nhsuk-input-height-tablet: $nhsuk-input-height !default;
-$nhsuk-input-height-large: nhsuk-px-to-rem(48px) !default;
-$nhsuk-input-height-large-tablet: nhsuk-px-to-rem(60px) !default;
 
 @include nhsuk-exports("nhsuk/components/input") {
   .nhsuk-input {
