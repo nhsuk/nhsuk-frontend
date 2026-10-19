@@ -43,28 +43,44 @@ export function kebabCaseToCamelCase(value) {
 }
 
 /**
+ * Convert macro file name to Nunjucks macro name
+ *
+ * File names are kebab-cased (attributes, content), whilst Nunjucks macro
+ * names are camel cased with a prefix (nhsukAttributes, nhsukContent)
+ *
+ * @param {string} macro - Macro file name without extension
+ * @param {string | null} [prefix] - Macro name prefix (optional)
+ * @returns {string} The name of its corresponding Nunjucks macro
+ */
+export function macroName(macro, prefix = 'nhsuk') {
+  return prefix
+    ? kebabCaseToCamelCase(`${prefix}-${macro}`)
+    : kebabCaseToCamelCase(macro)
+}
+
+/**
  * Convert component name to Nunjucks macro name
  *
  * Component names are kebab-cased (button, file-upload), whilst Nunjucks macro
  * names are camel cased (button, fileUpload)
  *
  * @param {string} component - A kebab-cased component name with optional prefix
- * @param {string} [prefix] - Component name prefix (optional)
+ * @param {string | null} [prefix] - Component name prefix (optional)
  * @returns {string} The name of its corresponding Nunjucks macro
  */
 export function componentNameToMacroName(component, prefix) {
   const componentName = moduleNameToComponentName(component, prefix)
 
   return prefix && prefix !== 'nhsuk'
-    ? kebabCaseToCamelCase(`${prefix}-${componentName}`)
-    : kebabCaseToCamelCase(componentName)
+    ? macroName(componentName, prefix)
+    : macroName(componentName, null)
 }
 
 /**
  * Convert component name to its JavaScript class name
  *
  * @param {string} component - A kebab-cased component name with optional prefix
- * @param {string} [prefix] - Component name prefix (optional)
+ * @param {string | null} [prefix] - Component name prefix (optional)
  * @returns {string} The name of its corresponding JavaScript class
  */
 export function componentNameToClassName(component, prefix) {
@@ -79,7 +95,7 @@ export function componentNameToClassName(component, prefix) {
  * names have an added `nhsuk` prefix (nhsuk-button, nhsuk-file-upload)
  *
  * @param {string} component - A kebab-cased component name with optional prefix
- * @param {string} [prefix] - Component name prefix (optional, defaults to `nhsuk`)
+ * @param {string | null} [prefix] - Component name prefix (optional, defaults to `nhsuk`)
  * @returns {string} The name of its corresponding HTML data-module name
  */
 export function componentNameToModuleName(component, prefix = 'nhsuk') {
@@ -91,7 +107,7 @@ export function componentNameToModuleName(component, prefix = 'nhsuk') {
  * Convert HTML `data-module` name to its component name
  *
  * @param {string} moduleName - An HTML data-module name
- * @param {string} [prefix] - Component name prefix (optional, defaults to `nhsuk`)
+ * @param {string | null} [prefix] - Component name prefix (optional, defaults to `nhsuk`)
  * @returns {string} The name of its corresponding component
  */
 export function moduleNameToComponentName(moduleName, prefix = 'nhsuk') {
