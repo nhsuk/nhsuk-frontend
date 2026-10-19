@@ -1,6 +1,9 @@
 @use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../input" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Button component
@@ -16,24 +19,6 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom: nhsuk-px-to-rem(10px);
-$nhsuk-button-padding-top-bottom-tablet: nhsuk-px-to-rem(14px);
-$nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
-$nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
-$nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
-
-$nhsuk-button-search-icon-size: 28px;
-$nhsuk-button-search-icon-size-large: 38px;
-
-// @deprecated To be removed in v11.0
-$button-border-radius: $nhsuk-button-border-radius;
-$button-padding-top-bottom: $nhsuk-button-padding-top-bottom;
-$button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom;
-$button-padding-top-bottom-tablet: $nhsuk-button-padding-top-bottom-tablet;
-$button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-tablet;
-$button-padding-left-right: $nhsuk-button-padding-left-right;
-$button-shadow-size: $nhsuk-button-shadow-size;
-
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {
     box-sizing: border-box;
@@ -43,9 +28,9 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     position: relative;
 
     width: 100%;
-    min-height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
+    min-height: calc($nhsuk-button-height - $nhsuk-button-shadow-size);
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom $nhsuk-button-padding-left-right; // [5]
+    padding: $nhsuk-button-padding-top-bottom $nhsuk-button-padding-left-right;
 
     overflow: visible;
 
@@ -72,9 +57,9 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       width: auto;
-      min-height: nhsuk-px-to-rem(52px + $nhsuk-button-shadow-size);
-      padding: $nhsuk-button-padding-top-bottom-tablet $nhsuk-button-padding-left-right; // [5]
-      line-height: nhsuk-line-height(24px, $font-size: 19px);
+      min-height: calc($nhsuk-button-height-tablet - $nhsuk-button-shadow-size);
+      padding: $nhsuk-button-padding-top-bottom-tablet $nhsuk-button-padding-left-right;
+      line-height: nhsuk-line-height(24px, $font-size: 19);
     }
 
     // [1]
@@ -223,7 +208,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   // =========================================================
 
   .nhsuk-button--small {
-    min-height: nhsuk-px-to-rem(32px + $nhsuk-button-shadow-size);
+    min-height: calc($nhsuk-button-height-small - $nhsuk-button-shadow-size);
     padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small; // [5]
 
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
@@ -243,7 +228,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     align-items: center;
 
     // Add minimum width for icon-only buttons
-    min-width: nhsuk-px-to-rem(44px);
+    min-width: calc($nhsuk-button-height-small + $nhsuk-button-shadow-size);
 
     // Prevent users from selecting icon button text
     // e.g. When double clicking the button
@@ -260,10 +245,10 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   }
 
   .nhsuk-button--icon:not(.nhsuk-button--small) {
-    min-width: nhsuk-px-to-rem(52px);
+    min-width: calc($nhsuk-button-height + $nhsuk-button-shadow-size);
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      min-width: nhsuk-px-to-rem(66px);
+      min-width: calc($nhsuk-button-height-tablet + $nhsuk-button-shadow-size);
     }
   }
 

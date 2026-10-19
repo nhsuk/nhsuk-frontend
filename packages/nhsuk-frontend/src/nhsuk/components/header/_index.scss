@@ -3,8 +3,13 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../button/settings" as *;
+@use "../input/settings" as *;
+@use "settings" as *;
 @forward "../../core/styles/icons";
+@forward "../button";
 @forward "../input";
+@forward "settings";
 
 ////
 /// Header component
@@ -24,15 +29,6 @@
 ///
 /// @group components/header
 ////
-
-$nhsuk-header-item-colour: $nhsuk-brand-colour;
-$nhsuk-header-item-button-colour: nhsuk-tint($nhsuk-brand-colour, 93%);
-$nhsuk-header-item-hover-colour: nhsuk-shade($nhsuk-brand-colour, 20%);
-$nhsuk-header-item-active-colour: nhsuk-shade($nhsuk-brand-colour, 35%);
-
-$nhsuk-header-reverse-item-colour: $nhsuk-reverse-text-colour;
-$nhsuk-header-reverse-item-hover-colour: $nhsuk-reverse-text-colour;
-$nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
 /// Header link styling
 ///
@@ -356,7 +352,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // Deprecated, to be removed in v11.0
   .nhsuk-header__search-input {
     width: 100%;
-    height: nhsuk-px-to-rem(40px);
+    height: $nhsuk-input-height;
     padding-right: $_header-item-padding - $nhsuk-border-width-form-element;
     padding-left: $_header-item-padding - $nhsuk-border-width-form-element;
 
@@ -393,8 +389,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__search-submit {
     flex-shrink: 0;
 
-    width: nhsuk-px-to-rem(44px);
-    height: nhsuk-px-to-rem(40px);
+    width: calc($nhsuk-button-height-small + $nhsuk-button-shadow-size);
+    height: $nhsuk-input-height;
 
     // stylelint-disable-next-line declaration-no-important
     margin: 0 !important;

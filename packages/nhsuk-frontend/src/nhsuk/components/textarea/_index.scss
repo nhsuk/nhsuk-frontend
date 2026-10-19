@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../input/settings" as *;
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
@@ -17,7 +18,7 @@
     display: block;
 
     width: 100%;
-    min-height: nhsuk-px-to-rem(40px);
+    min-height: $nhsuk-input-height;
     padding: nhsuk-spacing(1, $unit: "rem");
 
     resize: vertical;

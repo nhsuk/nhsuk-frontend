@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/spacing" as *;
+@use "../input/settings" as *;
+
+////
+/// Button settings
+///
+/// @group components/button
+////
+
+$nhsuk-button-height: $nhsuk-input-height-large;
+$nhsuk-button-height-tablet: $nhsuk-input-height-large-tablet;
+$nhsuk-button-height-small: $nhsuk-input-height;
+
+$nhsuk-button-padding-top-bottom: nhsuk-px-to-rem(10px);
+$nhsuk-button-padding-top-bottom-tablet: nhsuk-px-to-rem(14px);
+$nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
+$nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
+$nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
+
+$nhsuk-button-search-icon-size: 28px;
+$nhsuk-button-search-icon-size-large: 38px;
+
+// @deprecated To be removed in v11.0
+$button-border-radius: $nhsuk-button-border-radius;
+$button-padding-top-bottom: $nhsuk-button-padding-top-bottom;
+$button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom;
+$button-padding-top-bottom-tablet: $nhsuk-button-padding-top-bottom-tablet;
+$button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-tablet;
+$button-padding-left-right: $nhsuk-button-padding-left-right;
+$button-shadow-size: $nhsuk-button-shadow-size;
