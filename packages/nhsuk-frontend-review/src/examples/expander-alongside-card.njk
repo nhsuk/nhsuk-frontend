@@ -1,6 +1,6 @@
 {% extends "layouts/example.njk" %}
 
-{% set pageName = "Expander alongside card" %}
+{% set pageHeading = "Expander alongside card" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -21,7 +21,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
 
       {{ card({
         heading: {

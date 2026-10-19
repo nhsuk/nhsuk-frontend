@@ -7,6 +7,8 @@ const { NODE_ENV } = process.env
 
 /**
  * Rollup build cache
+ *
+ * @type {RollupCache}
  */
 const cache = {
   modules: []
@@ -46,3 +48,7 @@ export const copy = task.name('scripts:copy', () =>
     destPath: join(config.paths.app, 'dist/javascripts')
   })
 )
+
+/**
+ * @import { RollupCache } from 'rollup'
+ */

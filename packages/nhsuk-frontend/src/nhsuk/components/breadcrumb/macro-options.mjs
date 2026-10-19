@@ -16,7 +16,9 @@ const options = {
     type: 'array',
     required: true,
     description: 'Array of breadcrumbs items.',
+    alias: 'link',
     released: '1.0.0',
+    isComponent: true,
     params: {
       text: {
         type: 'string',

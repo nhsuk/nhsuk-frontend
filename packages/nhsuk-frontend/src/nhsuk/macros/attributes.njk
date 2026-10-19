@@ -1,10 +1,10 @@
-{# Adapted from https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/macros/attributes.njk #}
+{#- Adapted from https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/macros/attributes.njk #}
 
-{#
+{#-
   Renders component attributes as string
 
   * By default or using `optional: false`, attributes render as ` name="value"`
-  * Using `optional: true`, attributes with empty (`null`, `undefined` or `false`) values are omitted
+  * Using `optional: true`, attributes with empty (`none`, `undefined` or `false`) values are omitted
   * Using `optional: true`, attributes with `true` (boolean) values render `name` only without value
 
   {@link https://developer.mozilla.org/en-US/docs/Glossary/Boolean/HTML}
@@ -52,7 +52,7 @@
   ```
 
   @example
-  Output attribute ` hidden=""` when `null`, `undefined` or empty `""` (string)
+  Output attribute ` hidden=""` when `none`, `undefined` or empty `""` (string)
 
   ```njk
   nhsukAttributes({
@@ -73,7 +73,7 @@
   ```
 
   @example
-  Output empty string when optional and `null`, `undefined` or `false`
+  Output empty string when optional and `none`, `undefined` or `false`
 
   ```njk
   nhsukAttributes({
@@ -87,39 +87,40 @@
   @private
   @param {{ [attribute: string]: string | { value: unknown, type?: 'string' | 'array', optional?: boolean } } | string} attributes - Component attributes param
 #}
-{% macro nhsukAttributes(attributes) -%}
-  {#- Default attributes output as string -#}
-  {% set attributesHtml = attributes if attributes is string else "" %}
+{%- macro nhsukAttributes(attributes = {}) %}
+  {#- Default attributes output as string #}
+  {%- set attributesHtml = attributes if attributes is string else "" %}
 
-  {#- Default attributes output as `safe` filtered string -#}
-  {%- if attributes is escaped and attributes.val is string %}
-    {% set attributesHtml = attributes %}
+  {#- Default attributes output as `safe` filtered string #}
+  {%- if attributes is escaped %}
+    {%- set attributesHtml = attributes %}
 
-  {#- Append attribute name/value pairs -#}
-  {%- elif attributes is mapping and attributes is not escaped %}
-    {% for name, item in attributes %}
-      {#- Set default attribute options -#}
-      {% set options = item if item is mapping and item is not escaped else {
+  {#- Append attribute name/value pairs #}
+  {%- elif attributes is mapping %}
+    {%- for name, item in attributes %}
+      {#- Set default attribute options #}
+      {%- set options = item if item is mapping and item is not escaped else {
         value: item,
         type: "string",
         optional: false
       } %}
 
-      {#- Remove values when not provided -#}
-      {%- if options.value in [undefined, null] %}
-        {% set value = null %}
-        {% set valueEscaped = "" %}
+      {#- Remove values when not provided #}
+      {%- if options.value is undefined or options.value is none %}
+        {%- set value = none %}
+        {%- set valueEscaped = "" %}
 
-      {#- Extract unescaped value when `safe` filtered -#}
-      {#- https://github.com/alphagov/govuk-frontend/issues/4937 -#}
+      {#- Extract unescaped value when `safe` filtered #}
+      {#- https://github.com/alphagov/govuk-frontend/issues/4937 #}
       {%- elif options.value is escaped %}
-        {% set value = options.value.val %}
-        {% set valueEscaped = options.value %}
+        {%- set value = options.value.val | default(options.value) %}
+        {%- set valueEscaped = options.value %}
 
-      {#- Use escaped JSON for iterable values -#}
-      {#- https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.tojson -#}
-      {%- elif options.type === "array" and options.value is iterable %}
-        {% set valueEscaped = options.value
+      {#- Use escaped JSON for iterable values #}
+      {#- https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.tojson #}
+      {%- elif options.type == "array" and options.value is iterable %}
+        {%- set value = options.value %}
+        {%- set valueEscaped = options.value
           | dump
           | replace("<", "\\u003c")
           | replace(">", "\\u003e")
@@ -127,26 +128,36 @@
           | replace("'", "\\u0027")
         %}
 
-      {#- Otherwise assume escaping is necessary -#}
-      {#- https://github.com/alphagov/govuk-frontend/issues/4940 -#}
-      {%- else %}
-        {% set value = options.value %}
-        {% set valueEscaped = options.value | escape %}
-      {% endif %}
+      {#- Use lowercase booleans for Jinja compatibility #}
+      {%- elif options.value is sameas(true) or options.value is sameas(false) %}
+        {%- set value = options.value %}
+        {%- set valueEscaped = options.value | string | lower %}
 
-      {#- Output ` name` only (no value) for boolean attributes -#}
-      {% if options.optional === true and value === true %}
-        {% set attributesHtml = attributesHtml ~ " " ~ name | escape %}
-      {#- Skip optional empty attributes or output ` name="value"` pair by default -#}
-      {% elif (options.optional === true and value not in [undefined, null, false]) or options.optional !== true %}
-        {% if '"' in valueEscaped %}
-          {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ "='" ~ valueEscaped ~ "'" %}
-        {% else %}
-          {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ valueEscaped ~ '"' %}
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  {% endif -%}
+      {#- Otherwise assume escaping is necessary #}
+      {#- https://github.com/alphagov/govuk-frontend/issues/4940 #}
+      {%- else %}
+        {%- set value = options.value %}
+        {%- set valueEscaped = options.value | escape %}
+      {%- endif %}
+
+      {#- Output ` name` only (no value) for boolean attributes #}
+      {%- if options.optional is sameas(true) and value is sameas(true) %}
+        {%- set attributesHtml = attributesHtml | safe ~ " " | safe ~ name | escape %}
+
+      {#- Skip optional empty attributes or output ` name="value"` pair by default #}
+      {%- elif options.optional is not sameas(true) or (
+        value is defined and
+        value is not none and
+        value is not sameas(false)
+      ) %}
+        {%- if '"' in (valueEscaped ~ "") %}
+          {%- set attributesHtml = attributesHtml | safe ~ " " | safe ~ name | escape ~ "='" | safe ~ valueEscaped | safe ~ "'" | safe %}
+        {%- else %}
+          {%- set attributesHtml = attributesHtml | safe ~ " " | safe ~ name | escape ~ '="' | safe ~ valueEscaped | safe ~ '"' | safe %}
+        {%- endif %}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
 
   {{- attributesHtml | safe -}}
-{%- endmacro %}
+{% endmacro %}

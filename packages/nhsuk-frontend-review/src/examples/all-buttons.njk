@@ -1,12 +1,12 @@
-{% extends "layouts/page-full-width.njk" %}
+{% extends "layouts/blank-full-width.njk" %}
 
-{% set pageName = "Buttons" %}
+{% set pageHeading = "Buttons" %}
 
 {% set examples = [
   { name: "Arrow up-down", modifier: "arrow-up-down" },
-  null,
-  null,
-  null,
+  none,
+  none,
+  none,
   { name: "Arrow left", modifier: "arrow-left" },
   { name: "Arrow right", modifier: "arrow-right" },
   { name: "Arrow up", modifier: "arrow-up" },
@@ -48,7 +48,7 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+          <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
           <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-0">Page background</h2>
         </div>
       </div>

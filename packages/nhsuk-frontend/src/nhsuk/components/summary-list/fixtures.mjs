@@ -405,6 +405,104 @@ const fixtures = {
       width: "full"
     }
   },
+  "with multiple actions array": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+            }
+          ]
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "contact information"
+            }
+          ]
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: [
+            {
+              href: "#/add",
+              text: "Add",
+              visuallyHiddenText: "new contact details"
+            },
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: [
+            {
+              href: "#/add",
+              text: "Add",
+              visuallyHiddenText: "new medicine"
+            },
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "medicines"
+            }
+          ]
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
   "with multiple actions as buttons": {
     context: {
       rows: [
@@ -643,7 +741,21 @@ const fixtures = {
       ]
     }
   },
-  "with item strings": {
+  "with item values as array of strings": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: ["Karen Francis"]
+        },
+        {
+          key: "Appointments",
+          value: ["18 November 2023", "5 August 2024"]
+        }
+      ]
+    }
+  },
+  "with item values as strings": {
     context: {
       rows: [
         {
@@ -653,6 +765,20 @@ const fixtures = {
         {
           key: "Date of birth",
           value: "15 March 1984"
+        }
+      ]
+    }
+  },
+  "with item values as numbers": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: "Karen Francis"
+        },
+        {
+          key: "Age",
+          value: 42
         }
       ]
     }
@@ -1220,7 +1346,8 @@ const fixtures = {
                   context: {
                     text: "Recall for assessment",
                     colour: "red"
-                  }
+                  },
+                  indent: 2
                 })}
               </p>
             `
@@ -1251,11 +1378,11 @@ const fixtures = {
                       context: {
                         text: "Abnormal",
                         colour: "red"
-                      }
+                      },
+                      indent: 6
                     })}
                   </p>
                 </div>
-
                 <div class="nhsuk-grid-column-one-half-from-desktop">
                   <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
                     Left breast

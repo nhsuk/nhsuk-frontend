@@ -57,7 +57,8 @@ const fixtures = {
               text: "Continue anyway",
               variant: "reverse",
               href: "#"
-            }
+            },
+            indent: 2
           })}
           <a href="#">Cancel</a>
         </div>
@@ -83,7 +84,8 @@ const fixtures = {
               text: "Cancel appointment",
               variant: "reverse",
               href: "#"
-            }
+            },
+            indent: 2
           })}
           <a href="#">Change my weight</a>
         </div>
@@ -105,7 +107,8 @@ const fixtures = {
               text: "Yes, this is correct",
               variant: "reverse",
               href: "#"
-            }
+            },
+            indent: 2
           })}
           <a href="#">Change my weight</a>
         </div>
