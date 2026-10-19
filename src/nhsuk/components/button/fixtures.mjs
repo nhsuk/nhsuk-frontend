@@ -141,19 +141,6 @@ const fixtures = {
       small: true
     }
   },
-  "with icon and visually hidden text only": {
-    context: {
-      icon: "plus",
-      visuallyHiddenText: "Increase"
-    }
-  },
-  "with icon and visually hidden text only, small": {
-    context: {
-      icon: "plus",
-      visuallyHiddenText: "Increase",
-      small: true
-    }
-  },
   "with icon HTML": {
     context: {
       text: "Increase",
