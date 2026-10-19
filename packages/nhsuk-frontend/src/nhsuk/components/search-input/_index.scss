@@ -91,23 +91,17 @@
   }
 
   .nhsuk-search-input__button {
-    height: calc($nhsuk-button-height-small - $nhsuk-button-shadow-size);
-
-    .nhsuk-input--large ~ & {
-      height: calc($nhsuk-button-height - $nhsuk-button-shadow-size);
-    }
-
     // Prevent height change when pressed
     &:active,
     &:active:focus {
       top: 0;
-      height: $nhsuk-button-height-small;
+      min-height: $nhsuk-button-height-small;
       margin-bottom: 0;
       // stylelint-disable-next-line declaration-no-important
       box-shadow: none !important;
 
       .nhsuk-input--large ~ & {
-        height: $nhsuk-button-height;
+        min-height: $nhsuk-button-height;
       }
     }
 
@@ -127,7 +121,7 @@
       // Prevent height change when pressed
       .nhsuk-input--large ~ &:active,
       .nhsuk-input--large ~ &:active:focus {
-        height: $nhsuk-button-height-tablet;
+        min-height: $nhsuk-button-height-tablet;
       }
     }
   }
