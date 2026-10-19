@@ -138,7 +138,7 @@
     text: "Warning" if className ~ "--warning" in classNames else params.visuallyHiddenText,
     placement: "start",
     slots: { end: ": " if caller or params.html or params.text else undefined }
-  }
+  } if not params.ariaLabel else undefined
 } %}
 
 {%- set slots = {
