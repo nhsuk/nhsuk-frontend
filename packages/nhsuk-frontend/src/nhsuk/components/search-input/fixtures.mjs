@@ -69,6 +69,25 @@ const fixtures = {
     },
     screenshot: true
   },
+  "large with before and after input content": {
+    context: {
+      label: {
+        heading: "Search by NHS number",
+        size: "l"
+      },
+      name: "example",
+      large: true,
+      width: 30,
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "large with brand button": {
     context: {
       label: {
@@ -81,6 +100,27 @@ const fixtures = {
       name: "example",
       large: true,
       width: 30
+    }
+  },
+  "large with prefix": {
+    context: {
+      label: {
+        heading: "Code lookup",
+        size: "m"
+      },
+      prefix: {
+        text: "SNOMED"
+      },
+      id: "with-prefix",
+      name: "example",
+      value: "160245001",
+      large: true,
+      width: 10,
+      code: true,
+      button: {
+        icon: "arrow-right",
+        variant: "brand"
+      }
     }
   },
   "with before and after input content": {
