@@ -1,17 +1,13 @@
 import { outdent } from 'outdent'
 
-import { nunjucks } from '#lib'
+import { macros, nunjucks } from '#lib'
 
 describe('Macro: Attributes', () => {
   /**
    * @param {MacroRenderOptions['context']} [context]
    */
   function renderMacro(context) {
-    return nunjucks.renderMacro(
-      'nhsukAttributes',
-      'nhsuk/macros/attributes.njk',
-      { context }
-    )
+    return macros.render('attributes', { context })
   }
 
   describe('nhsukAttributes', () => {
