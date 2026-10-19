@@ -3,7 +3,7 @@ name: Publish release
 on:
   release:
     # Run when GitHub release is published
-    # Tick "Set as a pre-release" for versions like v1.0.0-beta.1
+    # Tick "Set as a pre-release" for versions like v1.0.0-internal.0
     # to publish with npm tag "next" instead of "latest".
     types: [published]
 
