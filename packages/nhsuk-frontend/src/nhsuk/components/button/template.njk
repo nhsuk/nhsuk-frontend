@@ -129,7 +129,7 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set iconHtml = icon.html if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
+{%- set iconHtml = icon.html | trim if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
 
 {%- set content = {
   text: params.text,
@@ -137,13 +137,13 @@
   visuallyHidden: {
     text: "Warning" if className ~ "--warning" in classNames else params.visuallyHiddenText,
     placement: "start",
-    slots: { end: ": " }
-  }
+    slots: { end: ": " if caller or params.html or params.text else undefined }
+  } if not params.ariaLabel else undefined
 } %}
 
 {%- set slots = {
-  before: iconHtml if icon.placement == "start",
-  after: iconHtml if icon.placement == "end"
+  before: iconHtml | safe if icon.placement == "start" or (iconHtml | length and not icon.placement),
+  after: iconHtml | safe if icon.placement == "end"
 } %}
 
 {%- set innerHtml %}
