@@ -16,7 +16,7 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
+$nhsuk-button-padding-top-bottom: nhsuk-px-to-rem(10px);
 $nhsuk-button-padding-top-bottom-tablet: nhsuk-px-to-rem(14px);
 $nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 $nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
@@ -27,7 +27,8 @@ $nhsuk-button-search-icon-size-large: 38px;
 
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
-$button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom-mobile;
+$button-padding-top-bottom: $nhsuk-button-padding-top-bottom;
+$button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom;
 $button-padding-top-bottom-tablet: $nhsuk-button-padding-top-bottom-tablet;
 $button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-tablet;
 $button-padding-left-right: $nhsuk-button-padding-left-right;
@@ -44,7 +45,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     width: 100%;
     min-height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
+    padding: $nhsuk-button-padding-top-bottom $nhsuk-button-padding-left-right; // [5]
 
     overflow: visible;
 
@@ -404,8 +405,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     // Move padding to content to better fit icon
     @media #{nhsuk-until-breakpoint(tablet)} {
-      padding-top: $nhsuk-button-padding-top-bottom-mobile;
-      padding-bottom: $nhsuk-button-padding-top-bottom-mobile;
+      padding-top: $nhsuk-button-padding-top-bottom;
+      padding-bottom: $nhsuk-button-padding-top-bottom;
 
       .nhsuk-button.nhsuk-button--small & {
         padding-top: $nhsuk-button-padding-top-bottom-small;
