@@ -1,8 +1,9 @@
 // stylelint-disable block-no-redundant-nested-style-rules
 
 @use "sass:color";
-@use "../settings" as *;
-@use "../helpers" as *;
+@use "../settings/colours-applied" as *;
+@use "../settings/warnings" as *;
+@use "../helpers/colour" as *;
 @use "focused" as *;
 
 ////
