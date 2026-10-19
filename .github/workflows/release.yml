@@ -66,10 +66,27 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Publish npm package
-        if: ${{ !github.event.release.prerelease }}
-        run: npm publish --workspace nhsuk-frontend --tag latest
+      # Pre-releases use "next", older major versions use "latest-v<major>"
+      # so "latest" isn't moved backwards, everything else uses "latest"
+      - name: Get npm tag
+        id: get_npm_tag
+        run: |
+          if [ "$PRERELEASE" = "true" ]; then
+            NPM_TAG="next"
+          else
+            LATEST=$(npm view nhsuk-frontend dist-tags.latest)
+            if [ "${VERSION%%.*}" -lt "${LATEST%%.*}" ]; then
+              NPM_TAG="latest-v${VERSION%%.*}"
+            else
+              NPM_TAG="latest"
+            fi
+          fi
+          echo "NPM_TAG=$NPM_TAG" >> "$GITHUB_OUTPUT"
+        env:
+          PRERELEASE: ${{ github.event.release.prerelease }}
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Publish npm package (pre-release)
-        if: ${{ github.event.release.prerelease }}
-        run: npm publish --workspace nhsuk-frontend --tag next
+      - name: Publish npm package
+        run: npm publish --workspace nhsuk-frontend --tag "$NPM_TAG"
+        env:
+          NPM_TAG: ${{ steps.get_npm_tag.outputs.NPM_TAG }}
