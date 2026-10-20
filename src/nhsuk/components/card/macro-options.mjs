@@ -58,6 +58,13 @@ const options = {
           'If set to `true`, then the heading link will open in a new tab.',
         released: '10.7.0'
       },
+      caption: {
+        type: 'object',
+        required: false,
+        description: 'Optional caption for the heading.',
+        released: '10.6.0',
+        isComponent: true
+      },
       size: {
         type: 'string',
         required: false,
