@@ -138,6 +138,13 @@ const options = {
             description: 'Footer navigation link `href` attribute.',
             released: '10.0.0'
           },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the footer navigation link will open in a new tab.',
+            released: '10.7.0'
+          },
           text: {
             type: 'string',
             required: true,
@@ -211,6 +218,13 @@ const options = {
             required: true,
             description: 'Footer meta link `href` attribute.',
             released: '10.0.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the footer meta link will open in a new tab.',
+            released: '10.7.0'
           },
           text: {
             type: 'string',
