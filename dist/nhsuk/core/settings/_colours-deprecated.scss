@@ -1,0 +1,114 @@
+// stylelint-disable scss/dollar-variable-pattern
+
+@use "../helpers/colour" as *;
+@use "colours-applied" as *;
+
+////
+/// NHS colour variables (deprecated)
+///
+/// @group settings/colours
+///
+
+// Primary colours
+// @deprecated To be removed in v11.0
+$color_nhsuk-blue: nhsuk-colour("blue");
+$color_nhsuk-white: nhsuk-colour("white");
+$color_nhsuk-black: nhsuk-colour("black");
+$color_nhsuk-green: nhsuk-colour("green");
+$color_nhsuk-purple: nhsuk-colour("purple");
+$color_nhsuk-dark-pink: nhsuk-colour("dark-pink");
+$color_nhsuk-red: nhsuk-colour("red");
+$color_nhsuk-yellow: nhsuk-colour("yellow");
+
+// Secondary colours
+// @deprecated To be removed in v11.0
+$color_nhsuk-dark-blue: nhsuk-colour("dark-blue");
+$color_nhsuk-pale-yellow: nhsuk-colour("pale-yellow");
+$color_nhsuk-warm-yellow: nhsuk-colour("warm-yellow");
+$color_nhsuk-orange: nhsuk-colour("orange");
+$color_nhsuk-aqua-green: nhsuk-colour("aqua-green");
+$color_nhsuk-pink: nhsuk-colour("pink");
+
+// Greyscale
+// @deprecated To be removed in v11.0
+$color_nhsuk-grey-1: nhsuk-colour("grey-1");
+$color_nhsuk-grey-2: nhsuk-colour("grey-2");
+$color_nhsuk-grey-3: nhsuk-colour("grey-3");
+$color_nhsuk-grey-4: nhsuk-colour("grey-4");
+$color_nhsuk-grey-5: nhsuk-colour("grey-5");
+
+// Text (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-text-color: $nhsuk-text-colour;
+$nhsuk-reverse-text-color: $nhsuk-reverse-text-colour;
+$nhsuk-print-text-color: $nhsuk-print-text-colour;
+$nhsuk-secondary-text-color: $nhsuk-secondary-text-colour;
+
+// Focus (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-focus-color: $nhsuk-focus-colour;
+$nhsuk-focus-text-color: $nhsuk-focus-text-colour;
+
+// Error, Success (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-error-color: $nhsuk-error-colour;
+$nhsuk-success-color: $nhsuk-success-colour;
+
+// Border (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-border-color: $nhsuk-border-colour;
+$nhsuk-secondary-border-color: $nhsuk-secondary-border-colour;
+
+// Forms (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-form-border-color: $nhsuk-input-border-colour;
+$nhsuk-form-border-colour: $nhsuk-input-border-colour;
+$nhsuk-form-element-background-color: $nhsuk-input-background-colour;
+$nhsuk-form-element-background-colour: $nhsuk-input-background-colour;
+
+// Links (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-link-color: $nhsuk-link-colour;
+$nhsuk-link-visited-color: $nhsuk-link-visited-colour;
+$nhsuk-link-hover-color: $nhsuk-link-hover-colour;
+$nhsuk-link-active-color: $nhsuk-link-active-colour;
+
+// Buttons (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-button-color: $nhsuk-button-colour;
+$nhsuk-button-text-color: $nhsuk-button-text-colour;
+$nhsuk-button-hover-color: $nhsuk-button-hover-colour;
+$nhsuk-button-active-color: $nhsuk-button-active-colour;
+$nhsuk-button-shadow-color: $nhsuk-button-shadow-colour;
+
+// Secondary buttons (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-secondary-button-color: $nhsuk-secondary-button-colour;
+$nhsuk-secondary-button-solid-background-color: $nhsuk-secondary-button-solid-background-colour;
+$nhsuk-secondary-button-border-color: $nhsuk-secondary-button-border-colour;
+$nhsuk-secondary-button-text-color: $nhsuk-secondary-button-text-colour;
+$nhsuk-secondary-button-hover-color: $nhsuk-secondary-button-hover-colour;
+$nhsuk-secondary-button-active-color: $nhsuk-secondary-button-active-colour;
+$nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-shadow-colour;
+
+// Reverse buttons (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-reverse-button-color: $nhsuk-reverse-button-colour;
+$nhsuk-reverse-button-text-color: $nhsuk-reverse-button-text-colour;
+$nhsuk-reverse-button-hover-color: $nhsuk-reverse-button-hover-colour;
+$nhsuk-reverse-button-active-color: $nhsuk-reverse-button-active-colour;
+$nhsuk-reverse-button-shadow-color: $nhsuk-reverse-button-shadow-colour;
+
+// Warning buttons (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-warning-button-color: $nhsuk-warning-button-colour;
+$nhsuk-warning-button-hover-color: $nhsuk-warning-button-hover-colour;
+$nhsuk-warning-button-active-color: $nhsuk-warning-button-active-colour;
+$nhsuk-warning-button-shadow-color: $nhsuk-warning-button-shadow-colour;
+
+// Login buttons (legacy spelling)
+// @deprecated To be removed in v11.0
+$nhsuk-login-button-color: $nhsuk-login-button-colour;
+$nhsuk-login-button-hover-color: $nhsuk-login-button-hover-colour;
+$nhsuk-login-button-active-color: $nhsuk-login-button-active-colour;
+$nhsuk-login-button-shadow-color: $nhsuk-login-button-shadow-colour;
