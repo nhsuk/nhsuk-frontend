@@ -2,6 +2,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Details component
@@ -16,21 +18,6 @@
 /// @group components/details
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
-
-$nhsuk-expander-border-width: 1px;
-$nhsuk-expander-border-bottom-width: $nhsuk-border-width;
-$nhsuk-expander-border-colour: $nhsuk-border-colour;
-$nhsuk-expander-border-hover-colour: nhsuk-colour("grey-3");
-$nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
-
-// @deprecated To be removed in v11.0
-$expander-border-width: $nhsuk-expander-border-width;
-$expander-border-bottom-width: $nhsuk-expander-border-bottom-width;
-$expander-border-color: $nhsuk-expander-border-colour;
-$expander-border-colour: $nhsuk-expander-border-colour;
-$expander-border-hover-color: $nhsuk-expander-border-hover-colour;
-$expander-border-hover-colour: $nhsuk-expander-border-hover-colour;
-$expander-icon-size: $nhsuk-expander-icon-size;
 
 @include nhsuk-exports("nhsuk/components/details") {
   .nhsuk-details {

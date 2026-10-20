@@ -1,4 +1,4 @@
-@use "." as *;
+@use "../settings/warnings" as *;
 @forward "colours-palette";
 @forward "colours-applied";
 @forward "colours-deprecated";

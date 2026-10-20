@@ -1,0 +1,10 @@
+@use "../../core/tools/spacing" as *;
+
+////
+/// Scroll settings
+///
+/// @group components/scroll
+////
+
+$nhsuk-scroll-shadow-width: nhsuk-spacing(4);
+$nhsuk-scroll-bar-height: nhsuk-spacing(4);
