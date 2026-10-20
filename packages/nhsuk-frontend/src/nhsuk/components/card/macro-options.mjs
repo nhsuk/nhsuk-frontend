@@ -368,6 +368,13 @@ const options = {
               'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
             released: '10.3.0'
           },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the action will open in a new tab.',
+            released: '10.7.0'
+          },
           classes: {
             type: 'string',
             required: false,
