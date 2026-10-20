@@ -130,7 +130,36 @@ const options = {
           'Contains the array of footer navigation link items for this group.',
         alias: 'link',
         released: '10.0.0',
-        isComponent: true
+        isComponent: true,
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description: 'Footer navigation link `href` attribute.',
+            released: '10.0.0'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.',
+            released: '10.0.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.',
+            released: '10.0.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the footer navigation link.',
+            released: '10.0.0'
+          }
+        }
       }
     }
   },
@@ -175,7 +204,36 @@ const options = {
         description: 'Contains the array of key policy footer link items.',
         alias: 'link',
         released: '10.0.0',
-        isComponent: true
+        isComponent: true,
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description: 'Footer meta link `href` attribute.',
+            released: '10.0.0'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within each footer meta link. If `html` is provided, the `text` option will be ignored.',
+            released: '10.0.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each footer meta link. If `html` is provided, the `text` option will be ignored.',
+            released: '10.0.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the footer meta link.',
+            released: '10.0.0'
+          }
+        }
       }
     }
   },
