@@ -121,6 +121,7 @@
     id: item.id if item.id else (parent.params.id ~ "-" ~ itemName),
     name: (parent.params.namePrefix ~ "[" ~ itemName ~ "]") if parent.params.namePrefix else itemName,
     value: itemValue | default(parent.params.values[itemName]),
+    placeholder: item.placeholder,
     type: item.type | default("text", true),
     prefix: item.prefix,
     suffix: item.suffix,
