@@ -319,6 +319,10 @@
   @media #{nhsuk-from-breakpoint(tablet)} {
     margin-top: nhsuk-spacing(3); // [1]
   }
+
+  &:not(:first-child) {
+    @include nhsuk-responsive-margin(7, "top");
+  }
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -404,6 +408,10 @@
 ///
 
 @mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
+  &:not(:first-child) {
+    @include nhsuk-responsive-margin(7, "top");
+  }
+
   .nhsuk-card__heading-container,
   .nhsuk-card--care__heading-container {
     color: $heading-text-colour;
