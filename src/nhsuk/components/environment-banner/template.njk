@@ -55,10 +55,13 @@
   <div class="nhsuk-environment-banner__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
   {% if params.tag not in ["", none, false] %}
     {{ nhsukTag({
+      id: tag.id,
       text: tag.text | default(name.text),
       html: tag.html | default(name.html),
       colour: tag.colour | default(params.colour) | default("white"),
-      border: tag.border | default(true if params.colour else false)
+      border: tag.border | default(true if params.colour else false),
+      classes: tag.classes,
+      attributes: tag.attributes
     }) | trim | indent(4) }}
   {% endif %}
     {{ innerHtml | replace("%{name}", environment) | safe | trim | indent(4) }}
