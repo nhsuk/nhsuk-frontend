@@ -36,6 +36,13 @@ const options = {
           'Item-specific `name` attribute. Defaults to `"day"`, `"month"` or `"year"`.',
         released: '1.0.0'
       },
+      value: {
+        type: 'string',
+        required: false,
+        description:
+          'If provided, it will be used as the initial `value` attribute of the input.',
+        released: '1.0.0'
+      },
       label: {
         type: 'object',
         required: false,
