@@ -142,5 +142,12 @@
     "sassdoc-extras@^2": {
       "marked": "^1"
     }
+  },
+  "allowScripts": {
+    "@parcel/watcher": false,
+    "core-js": false,
+    "fsevents": false,
+    "puppeteer": false,
+    "unrs-resolver": false
   }
 }
