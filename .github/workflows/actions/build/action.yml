@@ -19,17 +19,10 @@ runs:
   using: composite
 
   steps:
-    - name: Install dependencies
-      uses: ./.github/workflows/actions/install
-
     - name: Switch branch or SHA
       if: ${{ inputs.ref }}
       shell: bash
       run: git switch --detach ${{ inputs.ref }}
-
-    - name: Install dependencies for branch or SHA
-      shell: bash
-      run: npm install --no-save
 
     - name: Restore build (from cache)
       uses: actions/cache/restore@v6
@@ -37,6 +30,9 @@ runs:
       with:
         key: build-${{ inputs.environment || 'production' }}-${{ inputs.ref || github.sha }}
         path: packages/*/dist/
+
+    - name: Install dependencies for branch or SHA
+      uses: ./.github/workflows/actions/install
 
     - name: Build
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
