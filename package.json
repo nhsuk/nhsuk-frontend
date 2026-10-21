@@ -118,7 +118,7 @@
   },
   "engines": {
     "node": "^24.11.0",
-    "npm": "^11.16.0"
+    "npm": "^11.16.0 || ^12.1.0"
   },
   "overrides": {
     "axe-core": "$axe-core",
