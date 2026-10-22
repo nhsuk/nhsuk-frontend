@@ -31,7 +31,7 @@ describe('Back link', () => {
 
     it.each(list)('$title passes accessibility tests', async (options) => {
       await goToComponent(page, 'back-link', options)
-      return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+      return expect(axe(page, axeRules, options)).resolves.toHaveNoViolations()
     })
   })
 })
