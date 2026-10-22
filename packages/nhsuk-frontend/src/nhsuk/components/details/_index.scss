@@ -202,6 +202,8 @@
     border: none;
     background-color: $nhsuk-card-background-colour;
 
+    @include nhsuk-responsive-margin(6, "bottom");
+
     .nhsuk-details__summary {
       display: block;
       width: auto;
@@ -377,9 +379,9 @@
 
   // Reduce margin between a group of expanders so they sit together
   .nhsuk-expander-group {
-    @include nhsuk-responsive-margin(4, "bottom");
+    @include nhsuk-responsive-margin(6, "bottom");
 
-    > .nhsuk-details {
+    > .nhsuk-details:not(:last-child) {
       @include nhsuk-responsive-margin(2, "bottom");
     }
   }
