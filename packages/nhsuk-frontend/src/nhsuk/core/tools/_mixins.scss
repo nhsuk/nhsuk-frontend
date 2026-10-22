@@ -321,7 +321,11 @@
   }
 
   &:not(:first-child) {
-    @include nhsuk-responsive-margin(7, "top");
+    margin-top: nhsuk-spacing(6, $adjustment: nhsuk-spacing(2)); // [1]
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      margin-top: nhsuk-spacing(7, $adjustment: nhsuk-spacing(3)); // [1]
+    }
   }
 }
 
