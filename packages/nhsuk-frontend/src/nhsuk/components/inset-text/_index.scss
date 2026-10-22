@@ -21,11 +21,11 @@
     @include nhsuk-reading-width; // [2]
     @include nhsuk-top-and-bottom; // [1]
 
-    @include nhsuk-responsive-margin(7, "bottom");
+    @include nhsuk-responsive-margin(6, "bottom");
     @include nhsuk-responsive-padding(4);
 
     &:not(:first-child) {
-      @include nhsuk-responsive-margin(7, "top");
+      @include nhsuk-responsive-margin(6, "top");
     }
 
     @media print {
