@@ -13,8 +13,9 @@ const {
  *
  * @param {Page} page - Puppeteer page object
  * @param {RuleObject} [overrides] - Axe rule overrides
+ * @param {NavigationOptions} [options] - Navigation options
  */
-export async function axe(page, overrides = {}) {
+export async function axe(page, overrides = {}, options) {
   const reporter = new AxePuppeteer(page)
     .setLegacyMode(true) // Share single page via iframe
     .include('body')
@@ -24,7 +25,7 @@ export async function axe(page, overrides = {}) {
    *
    * @satisfies {RunOptions}
    */
-  const options = {
+  const axeOptions = {
     runOnly: {
       type: 'tag',
       values: [
@@ -55,11 +56,11 @@ export async function axe(page, overrides = {}) {
 
   // Ignore colour contrast for 'inactive' components
   if (page.url().includes('-disabled')) {
-    options.rules['color-contrast'] = { enabled: false }
+    axeOptions.rules['color-contrast'] = { enabled: false }
   }
 
   // Create report
-  const report = await reporter.options(options).analyze()
+  const report = await reporter.options(axeOptions).analyze()
 
   /**
    * Add review app preview URL below link to violation
@@ -103,7 +104,7 @@ async function goTo(page, pathOrUrl, options) {
   page.off('pageerror', onPageError)
 
   // Add error handler unless suppressed
-  if (options?.throwOnError !== false) {
+  if (options?.example?.throwOnError !== false) {
     page.on('pageerror', onPageError)
   }
 
@@ -285,11 +286,10 @@ export function getURL(path) {
  */
 export function getOptions(name, example) {
   const { options = {}, variants = [] } = example
-  const { throwOnError } = options
 
   // Options for single example only
   if (!variants.length) {
-    return [{ name, title: 'example', throwOnError }]
+    return [{ name, title: 'example', example: options }]
   }
 
   // Options for multiple variants
@@ -297,7 +297,7 @@ export function getOptions(name, example) {
     name,
     description,
     title: `'${description ?? 'example'}'`,
-    throwOnError
+    example: options
   }))
 }
 
@@ -406,7 +406,7 @@ export async function isVisible($element) {
  * @property {string} name - Example name (e.g. 'with hint')
  * @property {string} [description] - Example description (e.g. 'small')
  * @property {string} [title] - Unique test title (optional)
- * @property {boolean} [throwOnError] - Whether to throw on error (optional)
+ * @property {NonNullable<MacroExample['options']>} [example] - Nunjucks macro example options
  */
 
 /**

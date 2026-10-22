@@ -31,7 +31,7 @@ describe('Character count', () => {
 
     it.each(list)('$title passes accessibility tests', async (options) => {
       await goToComponent(page, 'character-count', options)
-      return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+      return expect(axe(page, axeRules, options)).resolves.toHaveNoViolations()
     })
   })
 })

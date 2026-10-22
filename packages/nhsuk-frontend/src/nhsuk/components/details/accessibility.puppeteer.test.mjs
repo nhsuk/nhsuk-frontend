@@ -31,7 +31,7 @@ describe('Details', () => {
 
     it.each(list)('$title passes accessibility tests', async (options) => {
       await goToComponent(page, 'details', options)
-      return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+      return expect(axe(page, axeRules, options)).resolves.toHaveNoViolations()
     })
   })
 })
