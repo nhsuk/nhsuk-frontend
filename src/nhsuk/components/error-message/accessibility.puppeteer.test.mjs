@@ -22,7 +22,7 @@ describe('Error message', () => {
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'error-message')
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-  }, 20000)
+  })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
@@ -30,8 +30,7 @@ describe('Error message', () => {
       async (options) => {
         await goToComponent(page, 'error-message', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      },
-      20000
+      }
     )
   })
 })

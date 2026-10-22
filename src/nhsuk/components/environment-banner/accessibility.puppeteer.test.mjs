@@ -12,7 +12,7 @@ describe('Environment banner', () => {
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'environment-banner')
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-  }, 20000)
+  })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
@@ -20,8 +20,7 @@ describe('Environment banner', () => {
       async (options) => {
         await goToComponent(page, 'environment-banner', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      },
-      20000
+      }
     )
   })
 })

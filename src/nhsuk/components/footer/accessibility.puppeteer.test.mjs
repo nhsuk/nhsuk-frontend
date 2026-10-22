@@ -16,7 +16,7 @@ describe('Footer', () => {
 
     await goToComponent(page, 'footer')
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-  }, 20000)
+  })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
@@ -24,8 +24,7 @@ describe('Footer', () => {
       async (options) => {
         await goToComponent(page, 'footer', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      },
-      20000
+      }
     )
   })
 })

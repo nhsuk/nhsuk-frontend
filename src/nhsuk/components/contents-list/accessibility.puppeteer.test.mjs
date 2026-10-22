@@ -22,7 +22,7 @@ describe('Contents list', () => {
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'contents-list')
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-  }, 20000)
+  })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
@@ -30,8 +30,7 @@ describe('Contents list', () => {
       async (options) => {
         await goToComponent(page, 'contents-list', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      },
-      20000
+      }
     )
   })
 })
