@@ -34,11 +34,11 @@ describe('Core', () => {
         --nhsuk-pale-green-colour: #cce5d8;
         --nhsuk-pale-aqua-green-colour: #bae6e3;
         --nhsuk-aqua-green-colour: #00a499;
-        --nhsuk-dark-aqua-green-colour: #00524c;
+        --nhsuk-dark-aqua-green-colour: #004a45;
         --nhsuk-dark-purple-colour: #330072;
         --nhsuk-purple-colour: #5c338e;
         --nhsuk-pale-purple-colour: #ded6e8;
-        --nhsuk-dark-pink-colour: #7c2855;
+        --nhsuk-dark-pink-colour: #6e234b;
         --nhsuk-pink-colour: #ae2573;
         --nhsuk-pale-pink-colour: #efd3e3;
         --nhsuk-dark-red-colour: #801810;
@@ -50,7 +50,7 @@ describe('Core', () => {
         --nhsuk-dark-warm-yellow-colour: #664a0b;
         --nhsuk-warm-yellow-colour: #ffb81c;
         --nhsuk-pale-warm-yellow-colour: #fff1d2;
-        --nhsuk-dark-yellow-colour: #4c4612;
+        --nhsuk-dark-yellow-colour: #595215;
         --nhsuk-yellow-colour: #ffeb3b;
         --nhsuk-pale-yellow-colour: #fff9c4;
         --nhsuk-brand-colour: #005eb8;
@@ -81,7 +81,7 @@ describe('Core', () => {
         --nhsuk-code-colour: #d5281b;
         --nhsuk-link-colour: #005eb8;
         --nhsuk-link-visited-colour: #330072;
-        --nhsuk-link-hover-colour: #7c2855;
+        --nhsuk-link-hover-colour: #6e234b;
         --nhsuk-link-active-colour: #002f5c;
         --nhsuk-button-colour: #007f3b;
         --nhsuk-button-text-colour: white;
