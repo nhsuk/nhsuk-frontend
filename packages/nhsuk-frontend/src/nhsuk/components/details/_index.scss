@@ -217,6 +217,10 @@ $expander-icon-size: $nhsuk-expander-icon-size;
 
     @include nhsuk-responsive-margin(6, "bottom");
 
+    &:not(:first-child) {
+      @include nhsuk-responsive-margin(6, "top");
+    }
+
     .nhsuk-details__summary {
       display: block;
       width: auto;
@@ -393,6 +397,14 @@ $expander-icon-size: $nhsuk-expander-icon-size;
   // Reduce margin between a group of expanders so they sit together
   .nhsuk-expander-group {
     @include nhsuk-responsive-margin(6, "bottom");
+
+    &:not(:first-child) {
+      @include nhsuk-responsive-margin(6, "top");
+    }
+
+    > .nhsuk-details:not(:first-child) {
+      @include nhsuk-responsive-margin(2, "top");
+    }
 
     > .nhsuk-details:not(:last-child) {
       @include nhsuk-responsive-margin(2, "bottom");
