@@ -30,7 +30,7 @@ describe('Notification banner', () => {
 
     await goToComponent(page, 'notification-banner')
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-  }, 20000)
+  })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
@@ -38,8 +38,7 @@ describe('Notification banner', () => {
       async (options) => {
         await goToComponent(page, 'notification-banner', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      },
-      20000
+      }
     )
   })
 })

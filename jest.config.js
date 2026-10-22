@@ -75,8 +75,8 @@ module.exports = {
     'github-actions'
   ],
 
-  // Increase test timeout (5s to 10s)
-  testTimeout: 10000
+  // Increase test timeout (5s to 20s)
+  testTimeout: 20000
 }
 
 /**

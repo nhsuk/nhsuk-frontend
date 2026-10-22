@@ -14,7 +14,7 @@ describe('Scroll', () => {
 
     await goToComponent(page, 'scroll')
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-  }, 20000)
+  })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
@@ -22,8 +22,7 @@ describe('Scroll', () => {
       async (options) => {
         await goToComponent(page, 'scroll', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      },
-      20000
+      }
     )
   })
 })
