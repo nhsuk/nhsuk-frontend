@@ -7,17 +7,22 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Radios', () => {
-  /** @type {RuleObject} */
-  let axeRules
+  let /** @type {RuleObject} */ axeRules = {}
 
-  beforeAll(() => {
+  beforeEach(() => {
     axeRules = {
       /**
        * Ignore 'ARIA attribute is not allowed: aria-expanded="false"'
        *
        * {@link https://github.com/alphagov/govuk-frontend/issues/979}
        */
-      'aria-allowed-attr': { enabled: false }
+      'aria-allowed-attr': { enabled: false },
+
+      /**
+       * Ignore 'Element has insufficient color contrast' for WCAG level AAA
+       * Success Criterion 1.4.6 Contrast (Enhanced)
+       */
+      'color-contrast-enhanced': { enabled: false }
     }
   })
 

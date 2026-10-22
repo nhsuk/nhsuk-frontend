@@ -7,9 +7,11 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Environment banner', () => {
+  let /** @type {RuleObject} */ axeRules = {}
+
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'environment-banner')
-    return expect(axe(page)).resolves.toHaveNoViolations()
+    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
   }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -17,9 +19,13 @@ describe('Environment banner', () => {
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'environment-banner', options)
-        return expect(axe(page)).resolves.toHaveNoViolations()
+        return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
       },
       20000
     )
   })
 })
+
+/**
+ * @import { RuleObject } from 'axe-core'
+ */

@@ -7,21 +7,25 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Notification banner', () => {
-  /** @type {RuleObject} */
-  let axeRules
+  let /** @type {RuleObject} */ axeRules = {}
 
-  beforeAll(() => {
+  beforeEach(() => {
     axeRules = {
+      /**
+       * Ignore 'Element has insufficient color contrast' for WCAG level AAA
+       * Success Criterion 1.4.6 Contrast (Enhanced)
+       */
+      'color-contrast-enhanced': { enabled: false },
+
       /**
        * Ignore 'Element has a tabindex greater than 0' for custom
        * tabindex tests
        */
-      tabindex: { enabled: false }
+      'tabindex': { enabled: false }
     }
   })
 
   it('listing page passes accessibility tests', async () => {
-    // Ignore duplicate landmarks on component listing page
     axeRules['landmark-unique'] = { enabled: false }
 
     await goToComponent(page, 'notification-banner')

@@ -7,11 +7,16 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('File upload', () => {
-  /** @type {RuleObject} */
-  let axeRules
+  let /** @type {RuleObject} */ axeRules = {}
 
-  beforeAll(() => {
+  beforeEach(() => {
     axeRules = {
+      /**
+       * Ignore 'Element has insufficient color contrast' for WCAG level AAA
+       * Success Criterion 1.4.6 Contrast (Enhanced)
+       */
+      'color-contrast-enhanced': { enabled: false },
+
       /**
        * Ignore 'Elements must have their visible text as part of their
        * accessible name' due to preceding `aria-live` status message

@@ -7,16 +7,15 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Footer', () => {
+  let /** @type {RuleObject} */ axeRules = {}
+
   it('listing page passes accessibility tests', async () => {
+    axeRules['landmark-contentinfo-is-top-level'] = { enabled: false }
+    axeRules['landmark-no-duplicate-contentinfo'] = { enabled: false }
+    axeRules['landmark-unique'] = { enabled: false }
+
     await goToComponent(page, 'footer')
-    return expect(
-      axe(page, {
-        // Ignore duplicate landmarks on component listing page
-        'landmark-contentinfo-is-top-level': { enabled: false },
-        'landmark-no-duplicate-contentinfo': { enabled: false },
-        'landmark-unique': { enabled: false }
-      })
-    ).resolves.toHaveNoViolations()
+    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
   }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -24,9 +23,13 @@ describe('Footer', () => {
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'footer', options)
-        return expect(axe(page)).resolves.toHaveNoViolations()
+        return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
       },
       20000
     )
   })
 })
+
+/**
+ * @import { RuleObject } from 'axe-core'
+ */

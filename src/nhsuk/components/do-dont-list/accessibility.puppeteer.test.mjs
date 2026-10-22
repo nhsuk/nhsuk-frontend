@@ -7,9 +7,11 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe("Do and Don't list", () => {
+  let /** @type {RuleObject} */ axeRules = {}
+
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'do-dont-list')
-    return expect(axe(page)).resolves.toHaveNoViolations()
+    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
   }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -17,9 +19,13 @@ describe("Do and Don't list", () => {
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'do-dont-list', options)
-        return expect(axe(page)).resolves.toHaveNoViolations()
+        return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
       },
       20000
     )
   })
 })
+
+/**
+ * @import { RuleObject } from 'axe-core'
+ */
