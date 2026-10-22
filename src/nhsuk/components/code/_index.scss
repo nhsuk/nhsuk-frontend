@@ -14,7 +14,7 @@
     position: relative;
     margin: -$nhsuk-focus-width;
     border: $nhsuk-focus-width solid transparent;
-    @include nhsuk-responsive-margin(6, "bottom", $adjustment: - $nhsuk-focus-width);
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: - $nhsuk-focus-width);
   }
 
   .nhsuk-code--inline {
