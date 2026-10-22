@@ -36,7 +36,40 @@ If you are not using Nunjucks macros, update your HTML markup using the [environ
 
 This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
 
+#### Colour tints and shades
+
+We've added pale tints and dark shades to our colour palette. They have been uplifted and adjusted from NHS App frontend.
+
+```patch
++  "dark-blue": #003087
++  "pale-blue": #ccdff1
++  "dark-green": #004c23
++  "pale-green": #cce5d8
++  "dark-aqua-green": #004a45
++  "pale-aqua-green": #bae6e3
++  "dark-purple": #330072
++  "pale-purple": #ded6e8
++  "dark-pink": #6e234b
++  "pale-pink": #efd3e3
++  "dark-red": #801810
++  "pale-red": #f7d4d1
++  "dark-orange": #5f3800
++  "pale-orange": #fbe8cc
++  "dark-warm-yellow": #664a0b
++  "pale-warm-yellow": #fff1d2
++  "dark-yellow": #595215
++  "pale-yellow": #fff9c4
+```
+
+This was added in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
+
 ### :recycle: **Changes**
+
+#### A different shade of purple
+
+Whilst adding new pale and dark shades to our palette, we've changed our purple to a lighter shade: `#5c338e` and moved our original darker purple to be the new `dark-purple`.
+
+This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
 #### Add visually hidden text to warning buttons
 
