@@ -7,13 +7,23 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Search input', () => {
+  it('listing page passes accessibility tests', async () => {
+    await goToComponent(page, 'search-input')
+    return expect(axe(page)).resolves.toHaveNoViolations()
+  }, 20000)
+
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'search-input', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
+
+/**
+ * @import { RuleObject } from 'axe-core'
+ */
