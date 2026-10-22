@@ -71,6 +71,12 @@ Whilst adding new pale and dark shades to our palette, we've changed our purple 
 
 This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
+#### Orange and warm yellow tags
+
+Orange tags now use the colour palette's `orange` colour instead of `warm-yellow`. We've retained the original orange tag by adding a new `warm-yellow` tag.
+
+This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
+
 #### Add visually hidden text to warning buttons
 
 We've added default visually hidden text to warning buttons that reads "Warning:". This helps to signal the button's importance without relying on its colour.
