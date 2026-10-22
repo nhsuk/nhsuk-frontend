@@ -254,13 +254,13 @@
   // Flexbox is used to make each card in a row the same height.
 
   .nhsuk-card-group {
-    margin-bottom: nhsuk-spacing(3);
+    margin-bottom: nhsuk-spacing(4);
     padding: 0;
 
     @include nhsuk-flex;
 
-    @media #{nhsuk-until-breakpoint(desktop)} {
-      margin-bottom: nhsuk-spacing(6);
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      margin-bottom: nhsuk-spacing(3);
     }
 
     + h2:not([class^="nhsuk-caption"]),
@@ -278,31 +278,22 @@
     @include nhsuk-flex-item;
 
     .nhsuk-card {
-      margin-bottom: nhsuk-spacing(5);
+      margin-bottom: nhsuk-spacing(3);
     }
 
     .nhsuk-card--clickable,
     .nhsuk-card--secondary {
-      margin-bottom: nhsuk-spacing(5) + $nhsuk-card-border-bottom-width; // [18]
+      margin-bottom: nhsuk-spacing(3, $adjustment: $nhsuk-card-border-bottom-width); // [18]
     }
 
-    @media #{nhsuk-until-breakpoint(desktop)} {
+    @media #{nhsuk-from-breakpoint(desktop)} {
       .nhsuk-card {
-        margin-bottom: nhsuk-spacing(3);
+        margin-bottom: nhsuk-spacing(5);
       }
 
       .nhsuk-card--clickable,
       .nhsuk-card--secondary {
-        margin-bottom: nhsuk-spacing(3) + $nhsuk-card-border-bottom-width; // [18]
-      }
-
-      &:last-child .nhsuk-card {
-        margin-bottom: 0;
-      }
-
-      &:last-child .nhsuk-card--clickable,
-      &:last-child .nhsuk-card--secondary {
-        margin-bottom: $nhsuk-card-border-bottom-width; // [18]
+        margin-bottom: nhsuk-spacing(5, $adjustment: $nhsuk-card-border-bottom-width); // [18]
       }
     }
   }
