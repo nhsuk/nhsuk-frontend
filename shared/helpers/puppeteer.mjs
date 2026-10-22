@@ -1,4 +1,5 @@
 import { AxePuppeteer } from '@axe-core/puppeteer'
+import { mergeExample } from '@nhsuk/frontend-lib/components.mjs'
 import { components, names } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import slug from 'slug'
 
@@ -285,19 +286,19 @@ export function getURL(path) {
  * @returns {NavigationOptions[]} Navigation options list
  */
 export function getOptions(name, example) {
-  const { options = {}, variants = [] } = example
+  const { variants = [] } = example
 
-  // Options for single example only
-  if (!variants.length) {
-    return [{ name, title: 'example', example: options }]
-  }
+  // Duplicate examples for each variant
+  const examples = variants.length
+    ? variants.map((variant) => mergeExample(example, variant))
+    : [example]
 
   // Options for multiple variants
-  return variants.map(({ description }) => ({
+  return examples.map(({ description, options }) => ({
     name,
     description,
     title: `'${description ?? 'example'}'`,
-    example: options
+    example: options ?? {}
   }))
 }
 
