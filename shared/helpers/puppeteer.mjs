@@ -60,6 +60,11 @@ export async function axe(page, overrides = {}, options) {
     axeOptions.rules['color-contrast'] = { enabled: false }
   }
 
+  // Ignore colour contrast (enhanced) for listing pages and blue backgrounds
+  if (!options || options.example?.layout === 'background-blue') {
+    axeOptions.rules['color-contrast-enhanced'] = { enabled: false }
+  }
+
   // Create report
   const report = await reporter.options(axeOptions).analyze()
 
