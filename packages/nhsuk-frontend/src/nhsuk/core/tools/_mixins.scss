@@ -279,6 +279,10 @@
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
 
+  &:not(:first-child) {
+    @include nhsuk-responsive-margin(7, "top");
+  }
+
   @media print {
     border: 1px solid $nhsuk-print-text-colour;
     break-inside: avoid;
