@@ -4,9 +4,11 @@ import {
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
-import { examples } from './fixtures.mjs'
+import * as fixtures from './fixtures.mjs'
 
 describe('Hint text', () => {
+  const examples = Object.entries(fixtures.examples)
+
   let /** @type {RuleObject} */ axeRules = {}
 
   beforeEach(() => {
@@ -24,14 +26,13 @@ describe('Hint text', () => {
     return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
   })
 
-  describe.each(Object.entries(examples))('%s', (name, example) => {
-    it.each(getOptions(name, example))(
-      '$title passes accessibility tests',
-      async (options) => {
-        await goToComponent(page, 'hint', options)
-        return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      }
-    )
+  describe.each(examples)('%s', (name, example) => {
+    const list = getOptions(name, example)
+
+    it.each(list)('$title passes accessibility tests', async (options) => {
+      await goToComponent(page, 'hint', options)
+      return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+    })
   })
 })
 
