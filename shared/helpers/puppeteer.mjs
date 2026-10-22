@@ -45,17 +45,10 @@ export async function axe(page, overrides = {}) {
     },
     rules: {
       /**
-       * Ignore 'Element has insufficient color contrast' for WCAG Level AAA
-       *
-       * Affects buttons, links and hint text etc
-       */
-      'color-contrast-enhanced': { enabled: false },
-
-      /**
        * Ignore 'Some page content is not contained by landmarks'
        * {@link https://github.com/alphagov/govuk-frontend/issues/1604}
        */
-      'region': { enabled: false },
+      region: { enabled: false },
       ...overrides
     }
   }

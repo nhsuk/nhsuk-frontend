@@ -7,14 +7,23 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Tables', () => {
+  let /** @type {RuleObject} */ axeRules = {}
+
+  beforeEach(() => {
+    axeRules = {
+      /**
+       * Ignore 'Element has insufficient color contrast' for WCAG level AAA
+       * Success Criterion 1.4.6 Contrast (Enhanced)
+       */
+      'color-contrast-enhanced': { enabled: false }
+    }
+  })
+
   it('listing page passes accessibility tests', async () => {
+    axeRules['landmark-unique'] = { enabled: false }
+
     await goToComponent(page, 'tables')
-    return expect(
-      axe(page, {
-        // Ignore duplicate landmarks on component listing page
-        'landmark-unique': { enabled: false }
-      })
-    ).resolves.toHaveNoViolations()
+    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
   }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -22,9 +31,13 @@ describe('Tables', () => {
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'tables', options)
-        return expect(axe(page)).resolves.toHaveNoViolations()
+        return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
       },
       20000
     )
   })
 })
+
+/**
+ * @import { RuleObject } from 'axe-core'
+ */
