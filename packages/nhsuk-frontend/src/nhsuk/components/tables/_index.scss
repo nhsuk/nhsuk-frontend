@@ -265,7 +265,7 @@
 
     // Where possible use the cross as a mask instead. This lets us use
     // currentcolor, increasing the contrast of the image and matching the
-    // user's prefered foreground colour in e.g. forced colors mode.
+    // user's preferred foreground colour in e.g. forced colors mode.
     // We test for `mask-position` rather than `mask-image` because of a false
     // positive in Edge 17.
     @supports (mask-position: initial) {
