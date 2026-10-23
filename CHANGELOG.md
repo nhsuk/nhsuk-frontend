@@ -34,7 +34,7 @@ nunjucks.render('example.njk', {
 
 If you are not using Nunjucks macros, update your HTML markup using the [environment banner on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/environment-banner/)
 
-This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
+This was added in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
 
 #### Colour tints and shades
 
