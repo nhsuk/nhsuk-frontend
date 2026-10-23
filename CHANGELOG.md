@@ -65,9 +65,22 @@ This was added in [pull request #2139: Update NHS colour palette with pale/dark 
 
 ### :recycle: **Changes**
 
-#### A different shade of purple
+#### A different shade of dark pink and purple
 
-Whilst adding new pale and dark shades to our palette, we've changed our purple to a lighter shade: `#5c338e` and moved our original darker purple to be the new `dark-purple`.
+Whilst adding new pale and dark shades to our palette, we've made changes to existing colours:
+
+- changed `purple` to use a lighter shade
+- changed `dark-pink` to use a darker shade
+- added `dark-purple` using the old `purple` value
+
+If you're not using Sass, change the values of the following colours:
+
+| Colour name | Old value | New value |
+| ----------- | --------- | --------- |
+| `purple`    | #330072   | #5c338e   |
+| `dark-pink` | #7c2855   | #6e234b   |
+
+Note: The update to `dark-pink` has changed the link hover colour (`$nhsuk-link-hover-colour`), but the visited link colour (`$nhsuk-link-visited-colour`) has changed from `purple` to `dark-purple` to maintain the original value.
 
 This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
