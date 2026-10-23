@@ -13,6 +13,9 @@ const fixtures = {
         // Regular variant
         context: {
           tag: "Default"
+        },
+        options: {
+          layout: "background-blue"
         }
       },
       {
@@ -97,6 +100,7 @@ const fixtures = {
       html: 'This is a %{name} environment for <a class="nhsuk-link nhsuk-link--reverse" href="https://github.com/nhsuk/nhsuk-frontend/pulls">pull request #1234</a>'
     },
     options: {
+      layout: "background-blue",
       width: false
     }
   },
@@ -110,6 +114,7 @@ const fixtures = {
     callBlock:
       'This is a %{name} environment for <a class="nhsuk-link nhsuk-link--reverse" href="https://github.com/nhsuk/nhsuk-frontend/pulls">pull request #1234</a>',
     options: {
+      layout: "background-blue",
       width: false
     }
   },
@@ -118,6 +123,7 @@ const fixtures = {
       tag: false
     },
     options: {
+      layout: "background-blue",
       width: false
     }
   }
