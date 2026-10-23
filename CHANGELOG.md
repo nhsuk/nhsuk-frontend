@@ -41,7 +41,6 @@ This was added in [pull request #2115: Add environment banner component](https:/
 We've added pale tints and dark shades to our colour palette. They have been uplifted and adjusted from NHS App frontend.
 
 ```patch
-+  "dark-blue": #003087
 +  "pale-blue": #ccdff1
 +  "dark-green": #004c23
 +  "pale-green": #cce5d8
@@ -49,7 +48,6 @@ We've added pale tints and dark shades to our colour palette. They have been upl
 +  "pale-aqua-green": #bae6e3
 +  "dark-purple": #330072
 +  "pale-purple": #ded6e8
-+  "dark-pink": #6e234b
 +  "pale-pink": #efd3e3
 +  "dark-red": #801810
 +  "pale-red": #f7d4d1
@@ -58,8 +56,9 @@ We've added pale tints and dark shades to our colour palette. They have been upl
 +  "dark-warm-yellow": #664a0b
 +  "pale-warm-yellow": #fff1d2
 +  "dark-yellow": #595215
-+  "pale-yellow": #fff9c4
 ```
+
+These colours join the existing `dark-blue`, `dark-pink`, `pale-yellow` and `warm-yellow` palette tints and shades.
 
 This was added in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
