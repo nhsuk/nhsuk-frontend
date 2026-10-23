@@ -103,6 +103,7 @@ These changes were introduced in pull requests [#2103: Add visually hidden compo
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
+- [#2086: Adjust margins for cards, code, expanders, inset text, images, pagination, tabs and task list](https://github.com/nhsuk/nhsuk-frontend/pull/2086)
 - [#2096: Adjust checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2096)
 - [#2105: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
 - [#2106: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2106)
