@@ -16,7 +16,7 @@ let list
  * @param {Pick<FileOptions, 'destPath'>} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
-  list ??= await components.loadAll()
+  list ??= await Promise.all(components.getNames().map(components.load))
 
   // Loop component names
   const fixtures = list.map(async (data) => {
@@ -45,7 +45,7 @@ export async function generateFixtures({ destPath }) {
  * @param {Pick<FileOptions, 'destPath'>} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
-  list ??= await components.loadAll()
+  list ??= await Promise.all(components.getNames().map(components.load))
 
   // Loop component names
   const macroOptions = list.map(async (data) => {

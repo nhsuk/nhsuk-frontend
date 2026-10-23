@@ -70,16 +70,6 @@ export async function load(component) {
 }
 
 /**
- * Load all component data (from source)
- */
-export async function loadAll() {
-  const components = getNames()
-
-  // Load component data per directory
-  return Promise.all(components.map(load))
-}
-
-/**
  * Get component names
  */
 export function getNames() {
@@ -153,16 +143,6 @@ export function getFixtures(component) {
       'utf8'
     )
   )
-}
-
-/**
- * Get all component fixtures (from dist)
- */
-export function getAllFixtures() {
-  const components = getNames()
-
-  // Load component fixtures per directory
-  return components.map(getFixtures).filter((data) => data.fixtures.length)
 }
 
 /**
