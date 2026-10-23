@@ -1,0 +1,15 @@
+@use "../tools" as *;
+
+////
+/// Clearfix
+///
+/// Automatically clear an elements
+/// child elements
+///
+/// @example html
+///   <div class="nhsuk-u-clear"></div>
+////
+
+.nhsuk-u-clear {
+  @include nhsuk-clearfix;
+}

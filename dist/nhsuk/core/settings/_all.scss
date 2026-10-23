@@ -1,0 +1,8 @@
+@use "warnings" as *;
+@forward ".";
+
+@include nhsuk-warning(
+  "import-using-all",
+  "Importing using 'core/settings/all' is deprecated. Update your import statement to import 'core/settings'.",
+  $silence-further-warnings: false
+);

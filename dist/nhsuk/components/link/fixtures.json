@@ -1,0 +1,331 @@
+{
+  "name": "Link",
+  "component": "link",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Change",
+        "href": "#/change"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\">Change</a>\n"
+    },
+    {
+      "name": "current",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "current": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\" aria-current=\"true\">Change</a>\n"
+    },
+    {
+      "name": "current \"page\"",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "current": "page"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\" aria-current=\"page\">Change</a>\n"
+    },
+    {
+      "name": "opens in a new tab",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "openInNewTab": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\" rel=\"noopener noreferrer\" target=\"_blank\">Change</a>\n"
+    },
+    {
+      "name": "opens in a new tab (with \"rel\" attribute)",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "openInNewTab": true,
+        "attributes": {
+          "rel": "noopener"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\" target=\"_blank\" rel=\"noopener\">Change</a>\n"
+    },
+    {
+      "name": "opens in a new tab (with \"target\" and \"rel\" attributes)",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "openInNewTab": true,
+        "attributes": {
+          "target": "_blank",
+          "rel": "noopener"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\" target=\"_blank\" rel=\"noopener\">Change</a>\n"
+    },
+    {
+      "name": "opens in a new tab (with \"target\" attribute)",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "openInNewTab": true,
+        "attributes": {
+          "target": "_blank"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\" rel=\"noopener noreferrer\" target=\"_blank\">Change</a>\n"
+    },
+    {
+      "name": "reverse",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "variant": "reverse"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<a class=\"nhsuk-link nhsuk-link--reverse\" href=\"#/change\">Change</a>\n"
+    },
+    {
+      "name": "with ARIA label",
+      "context": {
+        "text": "Read more",
+        "href": "#/privacy-policy",
+        "ariaLabel": "Read more about our privacy policy"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/privacy-policy\" aria-label=\"Read more about our privacy policy\">Read more</a>\n"
+    },
+    {
+      "name": "with content slots",
+      "context": {
+        "text": "A&E waiting times",
+        "href": "#/waiting-times",
+        "slots": {
+          "before": {
+            "html": "<samp class=\"app-annotate\">Before</samp>"
+          },
+          "start": {
+            "html": "<samp class=\"app-annotate app-annotate--start\">Start</samp>"
+          },
+          "end": {
+            "html": "<samp class=\"app-annotate app-annotate--end\">End</samp>"
+          },
+          "after": {
+            "html": "<samp class=\"app-annotate\">After</samp>"
+          }
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<samp class=\"app-annotate\">Before</samp>\n<a class=\"nhsuk-link\" href=\"#/waiting-times\"><samp class=\"app-annotate app-annotate--start\">Start</samp>A&amp;E waiting times<samp class=\"app-annotate app-annotate--end\">End</samp></a>\n<samp class=\"app-annotate\">After</samp>\n"
+    },
+    {
+      "name": "with custom class",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "className": "app-link"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"app-link\" href=\"#/change\">Change</a>\n"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "A&amp;E waiting times",
+        "href": "#/waiting-times"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/waiting-times\">A&amp;E waiting times</a>\n"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "href": "#/waiting-times"
+      },
+      "callBlock": "A&amp;E waiting times",
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/waiting-times\">A&amp;E waiting times</a>\n"
+    },
+    {
+      "name": "without class",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "className": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a href=\"#/change\">Change</a>\n"
+    },
+    {
+      "name": "with reverse class",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "classes": "nhsuk-link--reverse"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<a class=\"nhsuk-link nhsuk-link--reverse\" href=\"#/change\">Change</a>\n"
+    },
+    {
+      "name": "with reverse class overriding reverse variant",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "classes": "nhsuk-link--reverse",
+        "variant": "reverse"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<a class=\"nhsuk-link nhsuk-link--reverse\" href=\"#/change\">Change</a>\n"
+    },
+    {
+      "name": "with text escaping",
+      "context": {
+        "text": "A&E waiting times",
+        "href": "#/waiting-times"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/waiting-times\">A&amp;E waiting times</a>\n"
+    },
+    {
+      "name": "with visually hidden array of text",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "visuallyHidden": [
+          "date of birth",
+          "(Karen Francis)"
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\">Change<span class=\"nhsuk-u-visually-hidden\"> date of birth, (Karen Francis)</span></a>\n"
+    },
+    {
+      "name": "with visually hidden HTML",
+      "context": {
+        "text": "Visit",
+        "href": "#/visit",
+        "visuallyHidden": {
+          "html": "A&amp;E",
+          "slots": {
+            "start": " "
+          }
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/visit\">Visit<span class=\"nhsuk-u-visually-hidden\"> A&amp;E</span></a>\n"
+    },
+    {
+      "name": "with visually hidden text",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "visuallyHidden": "date of birth"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\">Change<span class=\"nhsuk-u-visually-hidden\"> date of birth</span></a>\n"
+    },
+    {
+      "name": "with visually hidden text (alias)",
+      "context": {
+        "text": "Change",
+        "href": "#/change",
+        "visuallyHiddenText": "date of birth"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/change\">Change<span class=\"nhsuk-u-visually-hidden\"> date of birth</span></a>\n"
+    },
+    {
+      "name": "with visually hidden text \"end\"",
+      "context": {
+        "text": "Enter your date of birth",
+        "href": "#/date-of-birth",
+        "visuallyHidden": {
+          "text": "(Karen Francis)",
+          "placement": "end",
+          "slots": {
+            "start": " "
+          }
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/date-of-birth\">Enter your date of birth<span class=\"nhsuk-u-visually-hidden\"> (Karen Francis)</span></a>\n"
+    },
+    {
+      "name": "with visually hidden text escaping",
+      "context": {
+        "text": "Visit",
+        "href": "#/visit",
+        "visuallyHidden": {
+          "text": "A&E",
+          "slots": {
+            "start": " "
+          }
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/visit\">Visit<span class=\"nhsuk-u-visually-hidden\"> A&amp;E</span></a>\n"
+    },
+    {
+      "name": "with visually hidden text \"start\"",
+      "context": {
+        "text": "Enter your date of birth",
+        "href": "#/date-of-birth",
+        "visuallyHidden": {
+          "text": "Error:",
+          "placement": "start",
+          "slots": {
+            "end": " "
+          }
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-link\" href=\"#/date-of-birth\"><span class=\"nhsuk-u-visually-hidden\">Error: </span>Enter your date of birth</a>\n"
+    },
+    {
+      "name": "as a button",
+      "context": {
+        "text": "Change",
+        "type": "submit"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-link\" type=\"submit\">Change</button>\n"
+    }
+  ]
+}

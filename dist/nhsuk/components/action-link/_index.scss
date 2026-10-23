@@ -1,0 +1,109 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+
+////
+/// Action link component
+///
+/// 1. Display inline-block so top and bottom margins are respected.
+/// 2. Add sufficient space between icon and text.
+/// 3. Position is relative so the arrow icon can display absolute.
+/// 4. Text decoration none used to override default <a> styling.
+///
+/// @group components/action-link
+////
+
+@include nhsuk-exports("nhsuk/components/action-link") {
+  $_small-icon-size: nhsuk-px-to-rem($nhsuk-icon-size);
+  $_small-icon-spacing: math.div($_small-icon-size, 10);
+
+  $_large-icon-size: nhsuk-px-to-rem(36px);
+  $_large-icon-spacing: math.div($_large-icon-size, 10);
+
+  .nhsuk-action-link {
+    box-sizing: border-box;
+    display: inline-block; // [1]
+
+    position: relative; // [3]
+
+    padding-left: $_small-icon-size + $_small-icon-spacing; // [2]
+
+    border: 0;
+
+    background: none;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    &:not(:focus):hover {
+      .nhsuk-action-link__text {
+        text-decoration: underline; // [4]
+      }
+    }
+
+    @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-underline;
+
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    @media print {
+      @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-left: $_large-icon-size + $_large-icon-spacing; // [2]
+      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
+    }
+
+    &:focus .nhsuk-u-secondary-text-colour,
+    &:hover .nhsuk-u-secondary-text-colour,
+    &:active .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: currentcolor !important;
+    }
+
+    .nhsuk-icon {
+      position: absolute;
+      left: -$_small-icon-spacing;
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        left: -$_large-icon-spacing;
+        width: $_large-icon-size;
+        height: $_large-icon-size;
+      }
+    }
+
+    &:not(:focus) .nhsuk-icon,
+    &:not(:focus):hover .nhsuk-icon,
+    &:not(:focus):active .nhsuk-icon {
+      fill: nhsuk-colour("green");
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: ButtonText;
+      }
+    }
+  }
+
+  .nhsuk-action-link--reverse {
+    @include nhsuk-link-style-reverse;
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
+
+    &:not(:focus) .nhsuk-icon,
+    &:not(:focus):hover .nhsuk-icon,
+    &:not(:focus):active .nhsuk-icon {
+      fill: $nhsuk-reverse-text-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: ButtonText;
+      }
+    }
+  }
+}
