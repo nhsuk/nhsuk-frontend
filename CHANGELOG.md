@@ -34,9 +34,61 @@ nunjucks.render('example.njk', {
 
 If you are not using Nunjucks macros, update your HTML markup using the [environment banner on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/environment-banner/)
 
-This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
+This was added in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
+
+#### Colour tints and shades
+
+We've added pale tints and dark shades to our colour palette. They have been uplifted and adjusted from NHS App frontend.
+
+```patch
++  "dark-blue": #003087
++  "pale-blue": #ccdff1
++  "dark-green": #004c23
++  "pale-green": #cce5d8
++  "dark-aqua-green": #004a45
++  "pale-aqua-green": #bae6e3
++  "dark-purple": #330072
++  "pale-purple": #ded6e8
++  "dark-pink": #6e234b
++  "pale-pink": #efd3e3
++  "dark-red": #801810
++  "pale-red": #f7d4d1
++  "dark-orange": #5f3800
++  "pale-orange": #fbe8cc
++  "dark-warm-yellow": #664a0b
++  "pale-warm-yellow": #fff1d2
++  "dark-yellow": #595215
++  "pale-yellow": #fff9c4
+```
+
+This was added in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
 ### :recycle: **Changes**
+
+#### A different shade of dark pink and purple
+
+Whilst adding new pale and dark shades to our palette, we've made changes to existing colours:
+
+- changed `purple` to use a lighter shade
+- changed `dark-pink` to use a darker shade
+- added `dark-purple` using the old `purple` value
+
+If you're not using Sass, change the values of the following colours:
+
+| Colour name | Old value | New value |
+| ----------- | --------- | --------- |
+| `purple`    | #330072   | #5c338e   |
+| `dark-pink` | #7c2855   | #6e234b   |
+
+Note: The update to `dark-pink` has changed the link hover colour (`$nhsuk-link-hover-colour`), but the visited link colour (`$nhsuk-link-visited-colour`) has changed from `purple` to `dark-purple` to maintain the original value.
+
+This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
+
+#### Orange and warm yellow tags
+
+Orange tags now use the colour palette's `orange` colour instead of `warm-yellow`. We've retained the original orange tag by adding a new `warm-yellow` tag.
+
+This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
 #### Add visually hidden text to warning buttons
 
