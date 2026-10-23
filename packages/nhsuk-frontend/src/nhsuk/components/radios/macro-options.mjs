@@ -154,7 +154,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by each radio item within the radios component. The `label.size` and `label.heading` options are not supported.',
+          'The label used by each radio item within the radios component. The `label.caption`, `label.heading` and `label.size` options are not supported.',
         released: '1.0.0',
         isComponent: true
       },

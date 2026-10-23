@@ -24,7 +24,7 @@ const options = {
     type: 'array',
     required: false,
     description:
-      'The inputs within the date input component. The `input.errorMessage` and `input.hint` options are not supported.',
+      'The inputs within the date input component. The `input.code`, `input.errorMessage`, `input.formGroup`, `input.hint` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '1.0.0',
     isComponent: true,
@@ -36,11 +36,18 @@ const options = {
           'Item-specific `name` attribute. Defaults to `"day"`, `"month"` or `"year"`.',
         released: '1.0.0'
       },
+      value: {
+        type: 'string',
+        required: false,
+        description:
+          'If provided, it will be used as the initial `value` attribute of the input.',
+        released: '1.0.0'
+      },
       label: {
         type: 'object',
         required: false,
         description:
-          'Item-specific label. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
+          'Item-specific label. The `label.caption`, `label.heading` and `label.size` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -148,7 +155,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to customise the day input within the date input component. The `input.formGroup` and `input.inputWrapper` options are not supported.',
+      'Can be used to customise the day input within the date input component. The `input.code`, `input.errorMessage`, `input.formGroup`, `input.hint` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '10.5.0',
     isComponent: true,
@@ -170,7 +177,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the day input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the day input. The `label.caption`, `label.heading` and `label.size` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -186,7 +193,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to customise the month input within the date input component. The `input.formGroup` and `input.inputWrapper` options are not supported.',
+      'Can be used to customise the month input within the date input component. The `input.code`, `input.errorMessage`, `input.formGroup`, `input.hint` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '10.5.0',
     isComponent: true,
@@ -208,7 +215,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the month input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the month input. The `label.caption`, `label.heading` and `label.size` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -224,7 +231,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to customise the year input within the date input component. The `input.formGroup` and `input.inputWrapper` options are not supported.',
+      'Can be used to customise the year input within the date input component. The `input.code`, `input.errorMessage`, `input.formGroup`, `input.hint` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '10.5.0',
     isComponent: true,
@@ -246,7 +253,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the year input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the year input. The `label.caption`, `label.heading` and `label.size` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
