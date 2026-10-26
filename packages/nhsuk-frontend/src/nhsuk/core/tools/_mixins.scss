@@ -284,6 +284,10 @@
     border: 1px solid $nhsuk-print-text-colour;
     break-inside: avoid;
   }
+
+  &:not(:first-child) {
+    @include nhsuk-responsive-margin(7, "top");
+  }
 }
 
 /// Panel mixin (deprecated)
