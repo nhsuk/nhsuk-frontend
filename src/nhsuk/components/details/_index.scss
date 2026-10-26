@@ -402,4 +402,15 @@
   .nhsuk-details + .nhsuk-heading-l {
     @include nhsuk-responsive-padding(4, "top");
   }
+
+  .nhsuk-details + h3:not([class^="nhsuk-caption"]),
+  .nhsuk-details + h4:not([class^="nhsuk-caption"]),
+  .nhsuk-details + .nhsuk-heading-m,
+  .nhsuk-details + .nhsuk-heading-s {
+    padding-top: nhsuk-spacing(1);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-top: nhsuk-spacing(2);
+    }
+  }
 }
