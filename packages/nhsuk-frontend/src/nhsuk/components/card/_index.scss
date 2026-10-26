@@ -265,8 +265,10 @@
 
     + h2:not([class^="nhsuk-caption"]),
     + h3:not([class^="nhsuk-caption"]),
+    + h4:not([class^="nhsuk-caption"]),
+    + .nhsuk-heading-l,
     + .nhsuk-heading-m,
-    + .nhsuk-heading-l {
+    + .nhsuk-heading-s {
       padding-top: 0; // [4]
     }
   }
