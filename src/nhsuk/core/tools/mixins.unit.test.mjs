@@ -243,12 +243,12 @@ describe('Mixins', () => {
       'throws a deprecation warning if %s is used',
       async (mixin) => {
         const sass = outdent`
-        ${sassModules}
+          ${sassModules}
 
-        .foo {
-          @include ${mixin};
-        }
-      `
+          .foo {
+            @include ${mixin};
+          }
+        `
 
         await compileStringAsync(sass, {
           loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
@@ -272,12 +272,12 @@ describe('Mixins', () => {
       'throws a deprecation warning if %s is used',
       async (mixin) => {
         const sass = outdent`
-        ${sassModules}
+          ${sassModules}
 
-        .foo {
-          @include ${mixin};
-        }
-      `
+          .foo {
+            @include ${mixin};
+          }
+        `
 
         await compileStringAsync(sass, {
           loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
