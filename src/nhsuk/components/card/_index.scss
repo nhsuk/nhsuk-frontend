@@ -568,4 +568,17 @@
     padding-right: 0;
     padding-left: 0;
   }
+
+  // Contextual adjustments
+
+  h1 + .nhsuk-card:not(:first-child),
+  h2 + .nhsuk-card:not(:first-child),
+  h3 + .nhsuk-card:not(:first-child),
+  h4 + .nhsuk-card:not(:first-child),
+  h5 + .nhsuk-card:not(:first-child),
+  h6 + .nhsuk-card:not(:first-child),
+  [class^="nhsuk-heading"] + .nhsuk-card:not(:first-child),
+  [class^="nhsuk-caption"] + .nhsuk-card:not(:first-child) {
+    margin-top: nhsuk-spacing(0);
+  }
 }
