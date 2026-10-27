@@ -261,6 +261,8 @@
 ///
 /// See components/card
 ///
+/// 1. Top margin set to account for heading that sits just outside the box.
+///
 /// @param {Colour} $card-background-colour - Card background colour
 /// @param {Colour} $card-text-colour - Card text colour
 /// @param {Colour} $card-border-colour [null] - Optional card border colour
@@ -271,9 +273,16 @@
 ///
 
 @mixin nhsuk-card($card-background-colour, $card-text-colour, $card-border-colour: null, $variant: null) {
+  $margin-top: 0;
+  $margin-top-tablet: 0;
+
   box-sizing: border-box;
+  margin-bottom: nhsuk-spacing(6);
 
   @if $variant == "feature" {
+    $margin-top: nhsuk-spacing(2);
+    $margin-top-tablet: nhsuk-spacing(3);
+
     padding-top: 0 !important;
   }
 
@@ -285,7 +294,6 @@
   background-color: $card-background-colour;
 
   @include nhsuk-top-and-bottom;
-  @include nhsuk-responsive-margin(7, "bottom");
 
   @if $variant == "feature" {
     @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
@@ -297,8 +305,26 @@
     break-inside: avoid;
   }
 
+  &,
+  &:first-child {
+    margin-top: $margin-top; // [1]
+  }
+
   &:not(:first-child) {
-    @include nhsuk-responsive-margin(7, "top");
+    margin-top: nhsuk-spacing(6, $adjustment: $margin-top); // [1]
+  }
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+
+    &,
+    &:first-child {
+      margin-top: $margin-top-tablet; // [1]
+    }
+
+    &:not(:first-child) {
+      margin-top: nhsuk-spacing(7, $adjustment: $margin-top-tablet); // [1]
+    }
   }
 }
 
@@ -331,56 +357,41 @@
 }
 
 /// Panel with label mixin, inherits panel styling
-/// and removes padding top for the label positioning
+/// and removes padding top for the label positioning (deprecated)
 ///
-/// 1. Top margin set to account for heading that sits just outside the box.
-///
-/// @param {Colour} $panel-background-colour - Panel background colour
-/// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour - Panel border colour
-///
-/// @example scss
-///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
-///
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card with `$variant: "feature"`
 
-@mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
+@mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning(
+    "nhsuk-panel-with-label",
+    'nhsuk-panel-with-label is deprecated. Use nhsuk-card with `$variant: "feature"` instead.'
+  );
   @include nhsuk-card(
     $card-background-colour: $panel-background-colour,
     $card-text-colour: $panel-text-colour,
     $card-border-colour: $panel-border-colour,
     $variant: "feature"
   );
-
-  &,
-  &:first-child {
-    margin-top: nhsuk-spacing(2); // [1]
-  }
-
-  &:not(:first-child) {
-    margin-top: nhsuk-spacing(6, $adjustment: nhsuk-spacing(2)); // [1]
-  }
-
-  @media #{nhsuk-from-breakpoint(tablet)} {
-    &,
-    &:first-child {
-      margin-top: nhsuk-spacing(3); // [1]
-    }
-
-    &:not(:first-child) {
-      margin-top: nhsuk-spacing(7, $adjustment: nhsuk-spacing(3)); // [1]
-    }
-  }
 }
 
 /// Panel with label mixin, inherits panel styling
 /// and removes padding top for the label positioning (deprecated)
 ///
-/// @alias nhsuk-panel-with-label
-/// @deprecated To be removed in v11.0, replaced by nhsuk-panel-with-label
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card with `$variant: "feature"`
 
-@mixin panel-with-label($args...) {
-  @include nhsuk-warning("panel-with-label", "panel-with-label is deprecated. Use nhsuk-panel-with-label instead.");
-  @include nhsuk-panel-with-label($args...);
+@mixin panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning(
+    "panel-with-label",
+    'panel-with-label is deprecated. Use nhsuk-card with `$variant: "feature"` instead.'
+  );
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour,
+    $variant: "feature"
+  );
 }
 
 /// Heading label mixin, adds a tab heading to

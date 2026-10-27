@@ -187,6 +187,33 @@ describe('Mixins', () => {
     )
   })
 
+  describe('@mixin panel-with-label (and aliases)', () => {
+    it.each(['panel-with-label', 'nhsuk-panel-with-label'])(
+      'throws a deprecation warning if %s is used',
+      async (mixin) => {
+        const sass = outdent`
+          ${sassModules}
+
+          .foo {
+            @include ${mixin}($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
+          }
+        `
+
+        await compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
+
+        // Expect our mocked @warn function to have been called once with a single
+        // argument, which should be the deprecation notice
+        expect(logger.warn).toHaveBeenCalledWith(
+          `${mixin} is deprecated. Use nhsuk-card with \`$variant: "feature"\` instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "${mixin}"`,
+          expect.anything()
+        )
+      }
+    )
+  })
+
   describe('@mixin heading-label (and aliases)', () => {
     it.each(['heading-label', 'nhsuk-heading-label'])(
       'throws a deprecation warning if %s is used',
