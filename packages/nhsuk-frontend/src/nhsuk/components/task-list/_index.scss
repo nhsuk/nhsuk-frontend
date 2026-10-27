@@ -25,7 +25,7 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
     list-style-type: none;
 
     @include nhsuk-font($size: 19);
-    @include nhsuk-responsive-margin(5, "bottom");
+    @include nhsuk-responsive-margin(6, "bottom");
   }
 
   // This uses table layout so that the task name and status always appear side-by-side, with the width of

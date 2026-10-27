@@ -16,16 +16,21 @@
 @include nhsuk-exports("nhsuk/components/do-dont-list") {
   // Deprecated, to be removed in v11.0
   .nhsuk-do-dont-list {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
+    @include nhsuk-card(
+      $card-background-colour: $nhsuk-card-background-colour,
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: $nhsuk-card-border-colour,
+      $variant: "feature"
+    );
   }
 
   // Deprecated, to be removed in v11.0
   .nhsuk-do-dont-list__label {
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
-
-    @media print {
-      color: $nhsuk-print-text-colour;
-    }
+    @include nhsuk-heading-label(
+      $heading-background-colour: $nhsuk-brand-colour,
+      $heading-text-colour: $nhsuk-reverse-text-colour,
+      $silence-warning: true
+    );
   }
 
   .nhsuk-list--cross .nhsuk-icon--cross,

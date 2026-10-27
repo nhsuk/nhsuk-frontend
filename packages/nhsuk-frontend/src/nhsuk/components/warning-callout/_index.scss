@@ -12,11 +12,20 @@
 @include nhsuk-exports("nhsuk/components/warning-callout") {
   // Deprecated, to be removed in v11.0
   .nhsuk-warning-callout {
-    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow")); // [1]
+    @include nhsuk-card(
+      $card-background-colour: nhsuk-colour("pale-yellow"),
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: nhsuk-colour("yellow"),
+      $variant: "feature"
+    ); // [1]
   }
 
   // Deprecated, to be removed in v11.0
   .nhsuk-warning-callout__label {
-    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour); // [2]
+    @include nhsuk-heading-label(
+      $heading-background-colour: nhsuk-colour("yellow"),
+      $heading-text-colour: $nhsuk-text-colour,
+      $silence-warning: true
+    ); // [2]
   }
 }

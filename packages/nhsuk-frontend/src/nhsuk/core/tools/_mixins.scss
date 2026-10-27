@@ -1,6 +1,7 @@
 // stylelint-disable declaration-no-important
 // stylelint-disable selector-no-qualifying-type
 
+@use "sass:selector";
 @use "../settings/colours-applied" as *;
 @use "../settings/warnings" as *;
 @use "../helpers" as *;
@@ -257,74 +258,155 @@
   @include nhsuk-top-and-bottom;
 }
 
-/// Panel mixin
+/// Card mixin
 ///
-/// See components/_panel
+/// See components/card
 ///
-/// @param {Colour} $panel-background-colour - Panel background colour
-/// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour [null] - Optional panel border colour
+/// 1. Top margin set to account for heading that sits just outside the box.
+///
+/// @param {Colour} $card-background-colour - Card background colour
+/// @param {Colour} $card-text-colour - Card text colour
+/// @param {Colour} $card-border-colour [null] - Optional card border colour
+/// @param {String} $variant [null] - Optional variant
 ///
 /// @example scss
-///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
+///   @include nhsuk-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
 ///
 
-@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+@mixin nhsuk-card($card-background-colour, $card-text-colour, $card-border-colour: null, $variant: null) {
+  $selector-after-empty-first-child: selector.unify(&, ":first-child:empty + *");
+
+  $margin-top: 0;
+  $margin-top-tablet: 0;
+
   box-sizing: border-box;
-  @if $panel-border-colour {
-    border: 1px solid $panel-border-colour;
+  margin-bottom: nhsuk-spacing(6);
+
+  @if $variant == "feature" {
+    $margin-top: nhsuk-spacing(2);
+    $margin-top-tablet: nhsuk-spacing(3);
+
+    padding-top: 0 !important;
   }
-  color: $panel-text-colour;
-  background-color: $panel-background-colour;
+
+  @if $card-border-colour {
+    border: 1px solid $card-border-colour;
+  }
+
+  color: $card-text-colour;
+  background-color: $card-background-colour;
 
   @include nhsuk-top-and-bottom;
-  @include nhsuk-responsive-margin(7, "bottom");
+
+  @if $variant == "feature" {
+    @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+  }
 
   @media print {
     border: 1px solid $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-colour;
     break-inside: avoid;
+  }
+
+  &,
+  &:first-child {
+    margin-top: $margin-top; // [1]
+  }
+
+  @if $selector-after-empty-first-child {
+    @at-root #{$selector-after-empty-first-child} {
+      margin-top: $margin-top; // [1]
+    }
+  }
+
+  &:not(:first-child) {
+    margin-top: nhsuk-spacing(6, $adjustment: $margin-top); // [1]
+  }
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+
+    &,
+    &:first-child {
+      margin-top: $margin-top-tablet; // [1]
+    }
+
+    @if $selector-after-empty-first-child {
+      @at-root #{$selector-after-empty-first-child} {
+        margin-top: $margin-top-tablet; // [1]
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: nhsuk-spacing(7, $adjustment: $margin-top-tablet); // [1]
+    }
   }
 }
 
 /// Panel mixin (deprecated)
 ///
-/// @alias nhsuk-panel
-/// @deprecated To be removed in v11.0, replaced by nhsuk-panel
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card
 
-@mixin panel($args...) {
-  @include nhsuk-warning("panel", "panel is deprecated. Use nhsuk-panel instead.");
-  @include nhsuk-panel($args...);
+@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning("nhsuk-panel", "nhsuk-panel is deprecated. Use nhsuk-card instead.");
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour
+  );
 }
 
-/// Panel with label mixin, inherits panel styling
-/// and removes padding top for the label positioning
+/// Panel mixin (deprecated)
 ///
-/// @param {Colour} $panel-background-colour - Panel background colour
-/// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour - Panel border colour
-///
-/// @example scss
-///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
-///
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card
 
-@mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  padding-top: 0 !important;
-  border: 1px solid $panel-border-colour;
-
-  @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
-  @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+@mixin panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning("panel", "panel is deprecated. Use nhsuk-card instead.");
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour
+  );
 }
 
 /// Panel with label mixin, inherits panel styling
 /// and removes padding top for the label positioning (deprecated)
 ///
-/// @alias nhsuk-panel-with-label
-/// @deprecated To be removed in v11.0, replaced by nhsuk-panel-with-label
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card with `$variant: "feature"`
 
-@mixin panel-with-label($args...) {
-  @include nhsuk-warning("panel-with-label", "panel-with-label is deprecated. Use nhsuk-panel-with-label instead.");
-  @include nhsuk-panel-with-label($args...);
+@mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning(
+    "nhsuk-panel-with-label",
+    'nhsuk-panel-with-label is deprecated. Use nhsuk-card with `$variant: "feature"` instead.'
+  );
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour,
+    $variant: "feature"
+  );
+}
+
+/// Panel with label mixin, inherits panel styling
+/// and removes padding top for the label positioning (deprecated)
+///
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card with `$variant: "feature"`
+
+@mixin panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning(
+    "panel-with-label",
+    'panel-with-label is deprecated. Use nhsuk-card with `$variant: "feature"` instead.'
+  );
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour,
+    $variant: "feature"
+  );
 }
 
 /// Heading label mixin, adds a tab heading to
@@ -339,12 +421,21 @@
 ///
 /// @param {Colour} $heading-background-colour - Heading background colour
 /// @param {Colour} $heading-text-colour - Heading text colour
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
 /// @example scss
 ///   @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
 ///
 
-@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
+@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-heading-label",
+      "nhsuk-heading-label is deprecated and will be removed in a future release."
+    );
+  }
+
   display: inline-block; // [4]
 
   position: relative;
@@ -382,9 +473,9 @@
 /// @alias nhsuk-heading-label
 /// @deprecated To be removed in v11.0, replaced by nhsuk-heading-label
 
-@mixin heading-label($args...) {
-  @include nhsuk-warning("heading-label", "heading-label is deprecated. Use nhsuk-heading-label instead.");
-  @include nhsuk-heading-label($args...);
+@mixin heading-label($heading-background-colour, $heading-text-colour) {
+  @include nhsuk-warning("heading-label", "heading-label is deprecated and will be removed in a future release.");
+  @include nhsuk-heading-label($heading-background-colour, $heading-text-colour, $silence-warning: true);
 }
 
 /// Care card mixin, used for creating
@@ -393,12 +484,18 @@
 /// @param {Colour} $heading-background-colour - Heading background colour
 /// @param {Colour} $heading-text-colour - Heading text colour
 /// @param {Number} $print-border-size - Print border size
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
 /// @example scss
 ///   @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px);
 ///
 
-@mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
+@mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning("nhsuk-care-card", "nhsuk-care-card is deprecated and will be removed in a future release.");
+  }
+
   .nhsuk-card__heading-container,
   .nhsuk-card--care__heading-container {
     color: $heading-text-colour;
@@ -416,11 +513,16 @@
 /// different coloured care cards (deprecated)
 ///
 /// @alias nhsuk-care-card
-/// @deprecated To be removed in v11.0, replaced by nhsuk-care-card
+/// @deprecated To be removed in v11.0
 
-@mixin care-card($args...) {
-  @include nhsuk-warning("care-card", "care-card is deprecated. Use nhsuk-care-card instead.");
-  @include nhsuk-care-card($args...);
+@mixin care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
+  @include nhsuk-warning("care-card", "care-card is deprecated and will be removed in a future release.");
+  @include nhsuk-care-card(
+    $heading-background-colour,
+    $heading-text-colour,
+    $print-border-size,
+    $silence-warning: true
+  );
 }
 
 /// Print colour mixin, sets the text print colour
