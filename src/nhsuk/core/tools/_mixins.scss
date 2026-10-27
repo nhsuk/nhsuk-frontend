@@ -458,14 +458,16 @@
 /// @param {Colour} $heading-background-colour - Heading background colour
 /// @param {Colour} $heading-text-colour - Heading text colour
 /// @param {Number} $print-border-size - Print border size
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
 /// @example scss
 ///   @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px);
 ///
 
-@mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
-  &:not(:first-child) {
-    @include nhsuk-responsive-margin(7, "top");
+@mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning("nhsuk-care-card", "nhsuk-care-card is deprecated and will be removed in a future release.");
   }
 
   .nhsuk-card__heading-container,
@@ -485,11 +487,16 @@
 /// different coloured care cards (deprecated)
 ///
 /// @alias nhsuk-care-card
-/// @deprecated To be removed in v11.0, replaced by nhsuk-care-card
+/// @deprecated To be removed in v11.0
 
-@mixin care-card($args...) {
-  @include nhsuk-warning("care-card", "care-card is deprecated. Use nhsuk-care-card instead.");
-  @include nhsuk-care-card($args...);
+@mixin care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
+  @include nhsuk-warning("care-card", "care-card is deprecated and will be removed in a future release.");
+  @include nhsuk-care-card(
+    $heading-background-colour,
+    $heading-text-colour,
+    $print-border-size,
+    $silence-warning: true
+  );
 }
 
 /// Print colour mixin, sets the text print colour

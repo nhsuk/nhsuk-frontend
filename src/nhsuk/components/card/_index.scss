@@ -16,11 +16,8 @@
 /// 4. Removes padding-top from headings directly after the card group.
 /// 5. Includes the border width to achieve the correct left alignment.
 /// 6. Stops the heading from spanning the full width of the card.
-/// 7. Removes padding as added to container by nhsuk-panel-with-label mixin.
-/// 8. Default care card colour set to blue (non-urgent care card) -
-///    using the @mixin care-card tools/_mixins.scss.
-///    The same mixin is used for each care card, setting the background
-///    colour,text colour and print border width with the variables.
+/// 7. Removes padding added by nhsuk-card mixin with `$variant: "feature"`.
+/// 8. Default care card colour set to blue (non-urgent care card).
 /// 9. 'Random number' for the heading triangle.
 /// 10. 'Random number' for the heading triangle positioning.
 /// 11. 'Random number' used for spacing to compensate for the triangle.
@@ -328,7 +325,12 @@
   // Card feature
 
   .nhsuk-card--feature {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
+    @include nhsuk-card(
+      $card-background-colour: $nhsuk-card-background-colour,
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: $nhsuk-card-border-colour,
+      $variant: "feature"
+    );
   }
 
   .nhsuk-card--feature > .nhsuk-card__heading-container > .nhsuk-card__heading,
@@ -347,7 +349,12 @@
   // Card warning
 
   .nhsuk-card--warning {
-    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow"));
+    @include nhsuk-card(
+      $card-background-colour: nhsuk-colour("pale-yellow"),
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: nhsuk-colour("yellow"),
+      $variant: "feature"
+    );
   }
 
   .nhsuk-card--warning > .nhsuk-card__heading-container > .nhsuk-card__heading,
@@ -364,16 +371,24 @@
   // Care card
 
   .nhsuk-card--care {
-    @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px); // [8]
+    @media print {
+      border-width: 4px;
+    }
   }
 
   .nhsuk-card--care > .nhsuk-card__heading-container,
   // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading-container {
     position: relative;
+
     padding-top: nhsuk-spacing(3);
     padding-bottom: nhsuk-spacing(3) - $nhsuk-card-border-width;
+
     border-bottom: $nhsuk-card-border-width solid transparent;
+
+    // [8]
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-brand-colour;
   }
 
   .nhsuk-card--care > .nhsuk-card__heading-container > .nhsuk-card__heading,
@@ -458,6 +473,14 @@
   }
 
   .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--emergency > .nhsuk-card__heading-container,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-card--care--emergency > .nhsuk-card--care__heading-container,
+  .nhsuk-card--care--urgent > .nhsuk-card--care__heading-container {
+    background-color: nhsuk-colour("red");
+  }
+
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
   .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
     .nhsuk-card__action {
       border-color: nhsuk-tint(nhsuk-colour("red"), 20%);
@@ -465,7 +488,9 @@
   }
 
   .nhsuk-card--care--urgent {
-    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 6px);
+    @media print {
+      border-width: 6px;
+    }
 
     .nhsuk-card--care__arrow {
       &::before,
@@ -476,7 +501,9 @@
   }
 
   .nhsuk-card--care--emergency {
-    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 8px);
+    @media print {
+      border-width: 8px;
+    }
 
     .nhsuk-card--care__arrow {
       &::before,
