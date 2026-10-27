@@ -184,28 +184,31 @@ describe('Mixins', () => {
     })
   })
 
-  describe('@mixin heading-label', () => {
-    it('throws a deprecation warning if heading-label is used', async () => {
-      const sass = outdent`
-        ${sassModules}
+  describe('@mixin heading-label (and aliases)', () => {
+    it.each(['heading-label', 'nhsuk-heading-label'])(
+      'throws a deprecation warning if %s is used',
+      async (mixin) => {
+        const sass = outdent`
+          ${sassModules}
 
-        .foo {
-          @include heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
-        }
-      `
+          .foo {
+            @include ${mixin}($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
+          }
+        `
 
-      await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
-        logger
-      })
+        await compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
 
-      // Expect our mocked @warn function to have been called once with a single
-      // argument, which should be the deprecation notice
-      expect(logger.warn).toHaveBeenCalledWith(
-        'heading-label is deprecated. Use nhsuk-heading-label instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "heading-label"',
-        expect.anything()
-      )
-    })
+        // Expect our mocked @warn function to have been called once with a single
+        // argument, which should be the deprecation notice
+        expect(logger.warn).toHaveBeenCalledWith(
+          `${mixin} is deprecated and will be removed in a future release. To silence this warning, update $nhsuk-suppressed-warnings with key: "${mixin}"`,
+          expect.anything()
+        )
+      }
+    )
   })
 
   describe('@mixin care-card', () => {
