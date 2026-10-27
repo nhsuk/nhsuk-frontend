@@ -364,12 +364,21 @@
 ///
 /// @param {Colour} $heading-background-colour - Heading background colour
 /// @param {Colour} $heading-text-colour - Heading text colour
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
 /// @example scss
 ///   @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
 ///
 
-@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
+@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-heading-label",
+      "nhsuk-heading-label is deprecated and will be removed in a future release."
+    );
+  }
+
   display: inline-block; // [4]
 
   position: relative;
@@ -407,9 +416,9 @@
 /// @alias nhsuk-heading-label
 /// @deprecated To be removed in v11.0, replaced by nhsuk-heading-label
 
-@mixin heading-label($args...) {
-  @include nhsuk-warning("heading-label", "heading-label is deprecated. Use nhsuk-heading-label instead.");
-  @include nhsuk-heading-label($args...);
+@mixin heading-label($heading-background-colour, $heading-text-colour) {
+  @include nhsuk-warning("heading-label", "heading-label is deprecated and will be removed in a future release.");
+  @include nhsuk-heading-label($heading-background-colour, $heading-text-colour, $silence-warning: true);
 }
 
 /// Care card mixin, used for creating

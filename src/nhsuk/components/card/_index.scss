@@ -338,7 +338,11 @@
   .nhsuk-card__heading--feature {
     flex-basis: auto;
     flex-grow: 0;
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
+    @include nhsuk-heading-label(
+      $heading-background-colour: $nhsuk-brand-colour,
+      $heading-text-colour: $nhsuk-reverse-text-colour,
+      $silence-warning: true
+    );
   }
 
   // Card warning
@@ -351,7 +355,11 @@
   .nhsuk-card--warning > .nhsuk-card__content > .nhsuk-card__heading {
     flex-basis: auto;
     flex-grow: 0;
-    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour);
+    @include nhsuk-heading-label(
+      $heading-background-colour: nhsuk-colour("yellow"),
+      $heading-text-colour: $nhsuk-text-colour,
+      $silence-warning: true
+    );
   }
 
   // Care card

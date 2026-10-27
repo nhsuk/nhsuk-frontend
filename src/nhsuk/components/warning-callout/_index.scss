@@ -17,6 +17,10 @@
 
   // Deprecated, to be removed in v11.0
   .nhsuk-warning-callout__label {
-    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour); // [2]
+    @include nhsuk-heading-label(
+      $heading-background-colour: nhsuk-colour("yellow"),
+      $heading-text-colour: $nhsuk-text-colour,
+      $silence-warning: true
+    ); // [2]
   }
 }

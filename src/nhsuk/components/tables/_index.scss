@@ -148,7 +148,11 @@
 
   // Deprecated, to be removed in v11.0
   .nhsuk-table__heading-tab {
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
+    @include nhsuk-heading-label(
+      $heading-background-colour: $nhsuk-brand-colour,
+      $heading-text-colour: $nhsuk-reverse-text-colour,
+      $silence-warning: true
+    );
   }
 
   // Responsive table
