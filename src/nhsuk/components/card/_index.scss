@@ -581,4 +581,27 @@
   [class^="nhsuk-caption"] + .nhsuk-card:not(:first-child) {
     margin-top: nhsuk-spacing(0);
   }
+
+  h1:has(+ .nhsuk-card--feature),
+  h2:has(+ .nhsuk-card--feature),
+  h3:has(+ .nhsuk-card--feature),
+  h4:has(+ .nhsuk-card--feature),
+  h5:has(+ .nhsuk-card--feature),
+  h6:has(+ .nhsuk-card--feature),
+  h1:has(+ .nhsuk-card--warning),
+  h2:has(+ .nhsuk-card--warning),
+  h3:has(+ .nhsuk-card--warning),
+  h4:has(+ .nhsuk-card--warning),
+  h5:has(+ .nhsuk-card--warning),
+  h6:has(+ .nhsuk-card--warning),
+  [class^="nhsuk-heading"]:has(+ .nhsuk-card--feature),
+  [class^="nhsuk-caption"]:has(+ .nhsuk-card--feature),
+  [class^="nhsuk-heading"]:has(+ .nhsuk-card--warning),
+  [class^="nhsuk-caption"]:has(+ .nhsuk-card--warning) {
+    padding-bottom: nhsuk-spacing(2);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-bottom: nhsuk-spacing(3);
+    }
+  }
 }
