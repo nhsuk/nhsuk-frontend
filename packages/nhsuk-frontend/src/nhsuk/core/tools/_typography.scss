@@ -4,7 +4,10 @@
 @use "sass:map";
 @use "sass:math";
 @use "sass:string";
-@use "../settings" as *;
+@use "../settings/colours-applied" as *;
+@use "../settings/globals" as *;
+@use "../settings/typography" as *;
+@use "../settings/warnings" as *;
 @use "functions" as *;
 @use "sass-mq" as *;
 

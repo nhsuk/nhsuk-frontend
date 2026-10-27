@@ -13,7 +13,7 @@
     margin-top: 0; // Reset any default browser margins for paragraphs
     margin-bottom: nhsuk-spacing(3);
     clear: both;
-    color: $nhsuk-error-colour;
+    color: $nhsuk-error-text-colour;
 
     @include nhsuk-font(19, $weight: bold);
   }

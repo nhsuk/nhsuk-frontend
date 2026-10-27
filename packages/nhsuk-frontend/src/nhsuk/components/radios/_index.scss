@@ -2,30 +2,18 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
 @forward "../error-message";
 @forward "../fieldset";
 @forward "../hint";
 @forward "../label";
+@forward "settings";
 
 ////
 /// Radios component
 ///
 /// @group components/radios
 ////
-
-$nhsuk-radios-size: nhsuk-px-to-rem(40px);
-$nhsuk-radios-small-size: nhsuk-px-to-rem(24px);
-
-$nhsuk-radios-label-padding-left-right: nhsuk-px-to-rem(12px);
-
-// When the default focus width is used on a curved edge it looks visually
-// smaller. So for the circular radios we bump the default to make it look
-// visually consistent.
-$nhsuk-radios-focus-width: nhsuk-px-to-rem($nhsuk-focus-width + 1px);
-
-// Offset 2px due to 40px form control with 44px clickable area
-// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
-$nhsuk-radios-offset: $nhsuk-border-width-form-element;
 
 @include nhsuk-exports("nhsuk/components/radios") {
   $nhsuk-touch-target-gutter: nhsuk-px-to-rem(4px);

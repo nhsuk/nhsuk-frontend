@@ -14,14 +14,14 @@ const options = {
   },
   text: {
     type: 'string',
-    required: false,
+    required: true,
     description:
       'If `html` is set, this is not required. Text to use within the environment banner. If `html` is provided, the `text` option will be ignored.',
     released: '10.7.0'
   },
   html: {
     type: 'string',
-    required: false,
+    required: true,
     description:
       'If `text` is set, this is not required. HTML to use within the environment banner. If `html` is provided, the `text` option will be ignored.',
     released: '10.7.0'
@@ -86,7 +86,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"` or `"yellow"`.',
+      'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"`, `"warm-yellow"` or `"yellow"`.',
     released: '10.7.0'
   }
 }

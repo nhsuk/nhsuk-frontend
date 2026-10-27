@@ -33,7 +33,15 @@ $app-annotate-outline-width: nhsuk-px-to-rem($nhsuk-border-width-form-element);
 }
 
 .nhsuk-input-wrapper > .app-annotate {
-  height: nhsuk-px-to-rem(40px) - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
+  height: $nhsuk-input-height - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
+}
+
+.nhsuk-input-wrapper--large > .app-annotate {
+  height: $nhsuk-input-height-large - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    height: $nhsuk-input-height-large-tablet - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
+  }
 }
 
 .app-annotate--start,

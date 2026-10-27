@@ -1,7 +1,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
-@use "../button" as *;
+@use "../button/settings" as *;
+@use "../input/settings" as *;
 @forward "../../core/styles/icons";
 @forward "../button";
 @forward "../input";
@@ -27,7 +28,7 @@
       .nhsuk-input-wrapper__prefix,
       .nhsuk-input-wrapper__suffix {
         display: flex;
-        height: nhsuk-px-to-rem(40px);
+        height: $nhsuk-input-height;
         white-space: normal;
       }
 
@@ -90,23 +91,17 @@
   }
 
   .nhsuk-search-input__button {
-    height: nhsuk-px-to-rem(32px + $nhsuk-button-shadow-size);
-
-    .nhsuk-input--large ~ & {
-      height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
-    }
-
     // Prevent height change when pressed
     &:active,
     &:active:focus {
       top: 0;
-      height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+      min-height: $nhsuk-button-height-small;
       margin-bottom: 0;
       // stylelint-disable-next-line declaration-no-important
       box-shadow: none !important;
 
       .nhsuk-input--large ~ & {
-        height: nhsuk-px-to-rem(48px);
+        min-height: $nhsuk-button-height;
       }
     }
 
@@ -126,7 +121,7 @@
       // Prevent height change when pressed
       .nhsuk-input--large ~ &:active,
       .nhsuk-input--large ~ &:active:focus {
-        height: nhsuk-px-to-rem(60px);
+        min-height: $nhsuk-button-height-tablet;
       }
     }
   }

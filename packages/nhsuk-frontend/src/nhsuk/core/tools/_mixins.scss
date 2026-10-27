@@ -1,7 +1,9 @@
 // stylelint-disable declaration-no-important
 // stylelint-disable selector-no-qualifying-type
 
-@use "../settings" as *;
+@use "sass:selector";
+@use "../settings/colours-applied" as *;
+@use "../settings/warnings" as *;
 @use "../helpers" as *;
 @use "sass-mq" as *;
 @use "spacing" as *;
@@ -150,53 +152,89 @@
   }
 }
 
-/// Panel mixin
+/// Card mixin
 ///
-/// See components/_panel
+/// See components/card
 ///
-/// @param {Colour} $panel-background-colour - Panel background colour
-/// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour [null] - Optional panel border colour
+/// 1. Top margin set to account for heading that sits just outside the box.
+///
+/// @param {Colour} $card-background-colour - Card background colour
+/// @param {Colour} $card-text-colour - Card text colour
+/// @param {Colour} $card-border-colour [null] - Optional card border colour
+/// @param {String} $variant [null] - Optional variant
 ///
 /// @example scss
-///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
+///   @include nhsuk-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
 ///
 
-@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+@mixin nhsuk-card($card-background-colour, $card-text-colour, $card-border-colour: null, $variant: null) {
+  $selector-after-empty-first-child: selector.unify(&, ":first-child:empty + *");
+
+  $margin-top: 0;
+  $margin-top-tablet: 0;
+
   box-sizing: border-box;
-  @if $panel-border-colour {
-    border: 1px solid $panel-border-colour;
+  margin-bottom: nhsuk-spacing(6);
+
+  @if $variant == "feature" {
+    $margin-top: nhsuk-spacing(2);
+    $margin-top-tablet: nhsuk-spacing(3);
+
+    padding-top: 0 !important;
   }
-  color: $panel-text-colour;
-  background-color: $panel-background-colour;
+
+  @if $card-border-colour {
+    border: 1px solid $card-border-colour;
+  }
+
+  color: $card-text-colour;
+  background-color: $card-background-colour;
 
   @include nhsuk-top-and-bottom;
-  @include nhsuk-responsive-margin(7, "bottom");
+
+  @if $variant == "feature" {
+    @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+  }
 
   @media print {
     border: 1px solid $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-colour;
     break-inside: avoid;
   }
-}
 
-/// Panel with label mixin, inherits panel styling
-/// and removes padding top for the label positioning
-///
-/// @param {Colour} $panel-background-colour - Panel background colour
-/// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour - Panel border colour
-///
-/// @example scss
-///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
-///
+  &,
+  &:first-child {
+    margin-top: $margin-top; // [1]
+  }
 
-@mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  padding-top: 0 !important;
-  border: 1px solid $panel-border-colour;
+  @if $selector-after-empty-first-child {
+    @at-root #{$selector-after-empty-first-child} {
+      margin-top: $margin-top; // [1]
+    }
+  }
 
-  @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
-  @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+  &:not(:first-child) {
+    margin-top: nhsuk-spacing(6, $adjustment: $margin-top); // [1]
+  }
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+
+    &,
+    &:first-child {
+      margin-top: $margin-top-tablet; // [1]
+    }
+
+    @if $selector-after-empty-first-child {
+      @at-root #{$selector-after-empty-first-child} {
+        margin-top: $margin-top-tablet; // [1]
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: nhsuk-spacing(7, $adjustment: $margin-top-tablet); // [1]
+    }
+  }
 }
 
 /// Heading label mixin, adds a tab heading to
@@ -211,12 +249,21 @@
 ///
 /// @param {Colour} $heading-background-colour - Heading background colour
 /// @param {Colour} $heading-text-colour - Heading text colour
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
 /// @example scss
 ///   @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
 ///
 
-@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
+@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-heading-label",
+      "nhsuk-heading-label is deprecated and will be removed in a future release."
+    );
+  }
+
   display: inline-block; // [4]
 
   position: relative;
@@ -245,31 +292,6 @@
 
   @media #{nhsuk-from-breakpoint(tablet)} {
     top: nhsuk-spacing(-3); // [6]
-  }
-}
-
-/// Care card mixin, used for creating
-/// different coloured care cards
-///
-/// @param {Colour} $heading-background-colour - Heading background colour
-/// @param {Colour} $heading-text-colour - Heading text colour
-/// @param {Number} $print-border-size - Print border size
-///
-/// @example scss
-///   @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px);
-///
-
-@mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
-  .nhsuk-card__heading-container,
-  .nhsuk-card--care__heading-container {
-    color: $heading-text-colour;
-    background-color: $heading-background-colour;
-  }
-
-  @media print {
-    border: $print-border-size solid $nhsuk-print-text-colour;
-    color: $nhsuk-print-text-colour;
-    break-inside: avoid;
   }
 }
 
