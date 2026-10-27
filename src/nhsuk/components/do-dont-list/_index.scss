@@ -26,10 +26,6 @@
       $heading-text-colour: $nhsuk-reverse-text-colour,
       $silence-warning: true
     );
-
-    @media print {
-      color: $nhsuk-print-text-colour;
-    }
   }
 
   .nhsuk-list--cross .nhsuk-icon--cross,
