@@ -62,6 +62,21 @@ These colours join the existing `dark-blue`, `dark-pink`, `pale-yellow` and `war
 
 This was added in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
 
+### :wastebasket: **Deprecated features**
+
+#### Stop using Sass mixins for cards and panels
+
+The following Sass mixins are now deprecated and will be removed in a future release:
+
+- `nhsuk-care-card`
+- `nhsuk-heading-label`
+- `nhsuk-panel` replaced by `nhsuk-card`
+- `nhsuk-panel-with-label` replaced by `nhsuk-card` with `$variant: "feature"`
+
+Please carefully review all cards, including custom components that use the `nhsuk-panel` or `nhsuk-panel-with-label` mixins, to make sure their [spacing has not changed unexpectedly](#adjusted-spacing-for-cards-inset-text-and-other-components).
+
+This change was introduced in [pull request #2086: Adjust margins for cards, code, expanders, inset text, images, pagination, tabs and task list](https://github.com/nhsuk/nhsuk-frontend/pull/2086).
+
 ### :recycle: **Changes**
 
 #### Adjusted spacing for cards, inset text and other components
