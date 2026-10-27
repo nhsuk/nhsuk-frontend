@@ -41,7 +41,7 @@
     position: relative; // [1]
     width: 100%;
 
-    @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
+    @include nhsuk-card($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
   .nhsuk-card__img,
