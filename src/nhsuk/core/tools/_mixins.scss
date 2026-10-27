@@ -257,25 +257,25 @@
   @include nhsuk-top-and-bottom;
 }
 
-/// Panel mixin
+/// Card mixin
 ///
-/// See components/_panel
+/// See components/card
 ///
-/// @param {Colour} $panel-background-colour - Panel background colour
-/// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour [null] - Optional panel border colour
+/// @param {Colour} $card-background-colour - Card background colour
+/// @param {Colour} $card-text-colour - Card text colour
+/// @param {Colour} $card-border-colour [null] - Optional card border colour
 ///
 /// @example scss
-///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
+///   @include nhsuk-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
 ///
 
-@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+@mixin nhsuk-card($card-background-colour, $card-text-colour, $card-border-colour: null) {
   box-sizing: border-box;
-  @if $panel-border-colour {
-    border: 1px solid $panel-border-colour;
+  @if $card-border-colour {
+    border: 1px solid $card-border-colour;
   }
-  color: $panel-text-colour;
-  background-color: $panel-background-colour;
+  color: $card-text-colour;
+  background-color: $card-background-colour;
 
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
@@ -292,12 +292,30 @@
 
 /// Panel mixin (deprecated)
 ///
-/// @alias nhsuk-panel
-/// @deprecated To be removed in v11.0, replaced by nhsuk-panel
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card
 
-@mixin panel($args...) {
-  @include nhsuk-warning("panel", "panel is deprecated. Use nhsuk-panel instead.");
-  @include nhsuk-panel($args...);
+@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning("nhsuk-panel", "nhsuk-panel is deprecated. Use nhsuk-card instead.");
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour
+  );
+}
+
+/// Panel mixin (deprecated)
+///
+/// @alias nhsuk-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-card
+
+@mixin panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @include nhsuk-warning("panel", "panel is deprecated. Use nhsuk-card instead.");
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour
+  );
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -317,7 +335,12 @@
   padding-top: 0 !important;
   border: 1px solid $panel-border-colour;
 
-  @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
+  @include nhsuk-card(
+    $card-background-colour: $panel-background-colour,
+    $card-text-colour: $panel-text-colour,
+    $card-border-colour: $panel-border-colour
+  );
+
   @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
 
   &,
