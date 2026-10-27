@@ -1,0 +1,463 @@
+{
+  "name": "Tag",
+  "component": "tag",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Active"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag\">Active</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "white",
+      "context": {
+        "text": "In progress",
+        "colour": "white"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--white\">In progress</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "grey",
+      "context": {
+        "text": "Inactive",
+        "colour": "grey"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--grey\">Inactive</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "green",
+      "context": {
+        "text": "New",
+        "colour": "green"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--green\">New</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "aqua-green",
+      "context": {
+        "text": "Active",
+        "colour": "aqua-green"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--aqua-green\">Active</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "blue",
+      "context": {
+        "text": "Pending",
+        "colour": "blue"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--blue\">Pending</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "purple",
+      "context": {
+        "text": "Received",
+        "colour": "purple"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--purple\">Received</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "pink",
+      "context": {
+        "text": "Sent",
+        "colour": "pink"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--pink\">Sent</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "red",
+      "context": {
+        "text": "Rejected",
+        "colour": "red"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">Rejected</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "orange",
+      "context": {
+        "text": "Declined",
+        "colour": "orange"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--orange\">Declined</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "warm-yellow",
+      "context": {
+        "text": "On hold",
+        "colour": "warm-yellow"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--warm-yellow\">On hold</strong>\n"
+    },
+    {
+      "name": "default",
+      "description": "yellow",
+      "context": {
+        "text": "Delayed",
+        "colour": "yellow"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--yellow\">Delayed</strong>\n"
+    },
+    {
+      "name": "colour class",
+      "context": {
+        "text": "Green",
+        "classes": "nhsuk-tag--green"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--green\">Green</strong>\n"
+    },
+    {
+      "name": "colour class overriding colour option",
+      "context": {
+        "text": "Not green",
+        "colour": "green",
+        "classes": "nhsuk-tag--red"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">Not green</strong>\n"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "A&amp;E",
+        "colour": "red"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">A&amp;E</strong>\n"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "colour": "red"
+      },
+      "callBlock": "A&amp;E",
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">A&amp;E</strong>\n"
+    },
+    {
+      "name": "without border",
+      "context": {
+        "border": false,
+        "text": "Active"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--no-border\">Active</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "white",
+      "context": {
+        "border": false,
+        "text": "In progress",
+        "colour": "white"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--white nhsuk-tag--no-border\">In progress</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "grey",
+      "context": {
+        "border": false,
+        "text": "Inactive",
+        "colour": "grey"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--grey nhsuk-tag--no-border\">Inactive</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "green",
+      "context": {
+        "border": false,
+        "text": "New",
+        "colour": "green"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--green nhsuk-tag--no-border\">New</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "aqua-green",
+      "context": {
+        "border": false,
+        "text": "Active",
+        "colour": "aqua-green"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--aqua-green nhsuk-tag--no-border\">Active</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "blue",
+      "context": {
+        "border": false,
+        "text": "Pending",
+        "colour": "blue"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--blue nhsuk-tag--no-border\">Pending</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "purple",
+      "context": {
+        "border": false,
+        "text": "Received",
+        "colour": "purple"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--purple nhsuk-tag--no-border\">Received</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "pink",
+      "context": {
+        "border": false,
+        "text": "Sent",
+        "colour": "pink"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--pink nhsuk-tag--no-border\">Sent</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "red",
+      "context": {
+        "border": false,
+        "text": "Rejected",
+        "colour": "red"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red nhsuk-tag--no-border\">Rejected</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "orange",
+      "context": {
+        "border": false,
+        "text": "Declined",
+        "colour": "orange"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--orange nhsuk-tag--no-border\">Declined</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "warm-yellow",
+      "context": {
+        "border": false,
+        "text": "On hold",
+        "colour": "warm-yellow"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--warm-yellow nhsuk-tag--no-border\">On hold</strong>\n"
+    },
+    {
+      "name": "without border",
+      "description": "yellow",
+      "context": {
+        "border": false,
+        "text": "Delayed",
+        "colour": "yellow"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--yellow nhsuk-tag--no-border\">Delayed</strong>\n"
+    },
+    {
+      "name": "without colour",
+      "context": {
+        "text": "Completed",
+        "colour": false
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--no-colour\">Completed</strong>\n"
+    },
+    {
+      "name": "with text escaping",
+      "context": {
+        "text": "A&E",
+        "colour": "red"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">A&amp;E</strong>\n"
+    }
+  ]
+}

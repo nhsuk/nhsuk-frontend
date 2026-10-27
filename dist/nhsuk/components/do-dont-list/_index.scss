@@ -1,0 +1,47 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+@forward "../../core/styles/lists";
+
+////
+/// Do and Don't list component
+///
+/// Do and Don't lists help users understand more easily what they should
+/// and shouldn't do.
+///
+/// @group components/do-dont-list
+////
+
+@include nhsuk-exports("nhsuk/components/do-dont-list") {
+  // Deprecated, to be removed in v11.0
+  .nhsuk-do-dont-list {
+    @include nhsuk-card(
+      $card-background-colour: $nhsuk-card-background-colour,
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: $nhsuk-card-border-colour,
+      $variant: "feature"
+    );
+  }
+
+  // Deprecated, to be removed in v11.0
+  .nhsuk-do-dont-list__label {
+    @include nhsuk-heading-label(
+      $heading-background-colour: $nhsuk-brand-colour,
+      $heading-text-colour: $nhsuk-reverse-text-colour,
+      $silence-warning: true
+    );
+  }
+
+  .nhsuk-list--cross .nhsuk-icon--cross,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-list--cross .nhsuk-icon__cross {
+    fill: nhsuk-colour("red");
+  }
+
+  .nhsuk-list--tick .nhsuk-icon--tick,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-list--tick .nhsuk-icon__tick {
+    fill: nhsuk-colour("green");
+  }
+}

@@ -1,0 +1,22 @@
+@use "../../core/settings/colours-applied" as *;
+@use "../../core/helpers/colour" as *;
+@use "../../core/tools/spacing" as *;
+
+////
+/// Card settings
+///
+/// @group components/card
+////
+
+$nhsuk-card-border-width: 1px;
+$nhsuk-card-border-bottom-width: nhsuk-spacing(1, $adjustment: - 1px);
+$nhsuk-card-border-colour: $nhsuk-border-colour;
+$nhsuk-card-border-hover-colour: nhsuk-colour("grey-3");
+
+// @deprecated To be removed in v11.0
+$card-border-width: $nhsuk-card-border-width;
+$card-border-bottom-width: $nhsuk-card-border-bottom-width;
+$card-border-color: $nhsuk-card-border-colour;
+$card-border-colour: $nhsuk-card-border-colour;
+$card-border-hover-color: $nhsuk-card-border-hover-colour;
+$card-border-hover-colour: $nhsuk-card-border-hover-colour;
