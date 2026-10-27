@@ -577,6 +577,7 @@
   h4 + .nhsuk-card:not(:first-child),
   h5 + .nhsuk-card:not(:first-child),
   h6 + .nhsuk-card:not(:first-child),
+  nav + .nhsuk-card:not(:first-child),
   [class^="nhsuk-heading"] + .nhsuk-card:not(:first-child),
   [class^="nhsuk-caption"] + .nhsuk-card:not(:first-child) {
     margin-top: nhsuk-spacing(0);
@@ -588,12 +589,14 @@
   h4:has(+ .nhsuk-card--feature),
   h5:has(+ .nhsuk-card--feature),
   h6:has(+ .nhsuk-card--feature),
+  nav:has(+ .nhsuk-card--feature),
   h1:has(+ .nhsuk-card--warning),
   h2:has(+ .nhsuk-card--warning),
   h3:has(+ .nhsuk-card--warning),
   h4:has(+ .nhsuk-card--warning),
   h5:has(+ .nhsuk-card--warning),
   h6:has(+ .nhsuk-card--warning),
+  nav:has(+ .nhsuk-card--warning),
   [class^="nhsuk-heading"]:has(+ .nhsuk-card--feature),
   [class^="nhsuk-caption"]:has(+ .nhsuk-card--feature),
   [class^="nhsuk-heading"]:has(+ .nhsuk-card--warning),
