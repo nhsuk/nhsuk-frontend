@@ -264,24 +264,36 @@
 /// @param {Colour} $card-background-colour - Card background colour
 /// @param {Colour} $card-text-colour - Card text colour
 /// @param {Colour} $card-border-colour [null] - Optional card border colour
+/// @param {String} $variant [null] - Optional variant
 ///
 /// @example scss
 ///   @include nhsuk-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
 ///
 
-@mixin nhsuk-card($card-background-colour, $card-text-colour, $card-border-colour: null) {
+@mixin nhsuk-card($card-background-colour, $card-text-colour, $card-border-colour: null, $variant: null) {
   box-sizing: border-box;
+
+  @if $variant == "feature" {
+    padding-top: 0 !important;
+  }
+
   @if $card-border-colour {
     border: 1px solid $card-border-colour;
   }
+
   color: $card-text-colour;
   background-color: $card-background-colour;
 
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
 
+  @if $variant == "feature" {
+    @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+  }
+
   @media print {
     border: 1px solid $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-colour;
     break-inside: avoid;
   }
 
@@ -332,16 +344,12 @@
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  padding-top: 0 !important;
-  border: 1px solid $panel-border-colour;
-
   @include nhsuk-card(
     $card-background-colour: $panel-background-colour,
     $card-text-colour: $panel-text-colour,
-    $card-border-colour: $panel-border-colour
+    $card-border-colour: $panel-border-colour,
+    $variant: "feature"
   );
-
-  @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
 
   &,
   &:first-child {
