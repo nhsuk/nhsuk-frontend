@@ -64,6 +64,23 @@ This was added in [pull request #2139: Update NHS colour palette with pale/dark 
 
 ### :recycle: **Changes**
 
+#### Adjusted spacing for cards, inset text and other components
+
+Please carefully review all cards, code blocks, do and don't lists, expanders, inset text, images, pagination, tabs, task lists and warning callouts to make sure their spacing has not changed unexpectedly.
+
+Where necessary, components now include a default top margin when placed after other elements. Adjustments include:
+
+- reduced code block and inset text margins
+- increased expander and task list margins
+- increased feature card top margin to make room for its heading  
+  (also applies to do and don't lists, warning callouts and deprecated tables as a panel)
+
+Card top margins are automatically removed when following headings, captions and `<nav>` elements. Similarly, spacing has been adjusted for headings that follow card groups, details and panel components.
+
+Override classes added previously, such as `nhsuk-u-margin-top-4`, may no longer be necessary.
+
+This change was introduced in [pull request #2086: Adjust margins for cards, code, expanders, inset text, images, pagination, tabs and task list](https://github.com/nhsuk/nhsuk-frontend/pull/2086).
+
 #### A different shade of dark pink and purple
 
 Whilst adding new pale and dark shades to our palette, we've made changes to existing colours:
