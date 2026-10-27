@@ -16,6 +16,10 @@
     border: $nhsuk-focus-width solid transparent;
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: - $nhsuk-focus-width);
 
+    :first-child:empty + & {
+      margin-top: -$nhsuk-focus-width;
+    }
+
     &:not(:first-child) {
       @include nhsuk-responsive-margin(5, "top", $adjustment: - $nhsuk-focus-width);
     }
