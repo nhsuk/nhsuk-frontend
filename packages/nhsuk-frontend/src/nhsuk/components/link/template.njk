@@ -17,15 +17,11 @@
   {%- set classNames = (classNames ~ " " ~ params.classes) | trim %}
 {%- endif %}
 
-{#- Determine type of element to use, if not explicitly set #}
-{%- if params.element %}
-  {%- set element = params.element | lower %}
+{#- Determine type of element to use #}
+{%- if not params.type %}
+  {%- set element = "a" %}
 {%- else %}
-  {%- if not params.type %}
-    {%- set element = "a" %}
-  {%- else %}
-    {%- set element = "button" %}
-  {%- endif %}
+  {%- set element = "button" %}
 {%- endif %}
 
 {%- set attributes = params.attributes if params.attributes is mapping and params.attributes is not escaped else {} %}
