@@ -93,16 +93,12 @@
     {%- set itemDescribedBy = parent.describedBy if not parent.hasFieldset else "" %}
     {%- set itemDescribedBy = (itemDescribedBy ~ " " ~ itemHintId) | trim %}
     {%- set itemClasses = "nhsuk-checkboxes__input" ~ (" " ~ item.classes if item.classes) %}
-    {#- The item.exclusive option is deprecated, to be removed in v11.0 #}
-    {%- set itemBehaviour = "exclusive" if item.exclusive else item.behaviour %}
-    {#- The item.exclusiveGroup option is deprecated, to be removed in v11.0 #}
-    {%- set itemBehaviourGroup = item.exclusiveGroup | default(item.behaviourGroup) %}
     <div class="nhsuk-checkboxes__item {{- " nhsuk-u-frontend-not-supported-hidden" if item.behaviour == "inclusive" else "" }}">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
         {{- " checked" if isChecked }}
         {{- " disabled" if item.disabled or (item.disabled is not sameas(false) and parent.params.disabled) }}
-        {%- if itemBehaviour %} data-behaviour="{{ itemBehaviour }}"{% endif %}
-        {%- if itemBehaviourGroup %} data-behaviour-group="{{ itemBehaviourGroup }}"{% endif %}
+        {%- if item.behaviour %} data-behaviour="{{ item.behaviour }}"{% endif %}
+        {%- if item.behaviourGroup %} data-behaviour-group="{{ item.behaviourGroup }}"{% endif %}
         {%- if itemConditional.html or itemConditional.text %} data-aria-controls="{{ conditionalId }}"{% endif %}
         {%- if itemDescribedBy %} aria-describedby="{{ itemDescribedBy }}"{% endif %}
         {{- nhsukAttributes(item.attributes) }}>
