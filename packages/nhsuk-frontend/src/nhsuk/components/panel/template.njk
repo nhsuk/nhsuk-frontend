@@ -9,13 +9,10 @@
 {%- set classNames = "nhsuk-panel" %}
 {%- set classNamesHeading = "nhsuk-panel__heading" %}
 
-{#- Support heading as string (with deprecated options) #}
+{#- Support heading as string #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
-  text: params.heading if params.heading is string else params.titleText,
-  html: params.heading if params.heading is escaped else params.titleHtml,
-  level: params.headingLevel,
-  size: params.titleSize,
-  classes: params.titleClasses
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else undefined
 } %}
 
 {%- if variant == "interruption" and (not params.classes or not "nhsuk-panel--interruption" in params.classes) %}
