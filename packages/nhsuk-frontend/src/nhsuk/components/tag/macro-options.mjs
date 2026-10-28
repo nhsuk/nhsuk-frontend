@@ -33,19 +33,6 @@ const options = {
       'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire tag component in a `call` block.',
     released: '10.6.0'
   },
-  classes: {
-    type: 'string',
-    required: false,
-    description: 'Classes to add to the tag.',
-    released: '4.0.0'
-  },
-  attributes: {
-    type: 'object',
-    required: false,
-    description:
-      'HTML attributes (for example data attributes) to add to the tag.',
-    released: '4.0.0'
-  },
   colour: {
     type: 'string',
     required: false,
@@ -58,6 +45,19 @@ const options = {
     required: false,
     description: 'If set to `false`, remove border from the tag.',
     released: '10.4.0'
+  },
+  classes: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the tag.',
+    released: '4.0.0'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description:
+      'HTML attributes (for example data attributes) to add to the tag.',
+    released: '4.0.0'
   }
 }
 
