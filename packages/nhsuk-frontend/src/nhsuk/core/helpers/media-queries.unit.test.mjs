@@ -2,7 +2,7 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 const sassModules = outdent`
-  @use "core/tools/sass-mq" as *;
+  @use "core/helpers/media-queries" as *;
 `
 
 const sassBootstrap = outdent`
