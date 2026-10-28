@@ -16,12 +16,17 @@
   {%- set classNames = classNames ~ " " ~ params.classes %}
 {%- endif %}
 
-{%- set ariaLabel = params.ariaLabel | default(params.labelText, true) | default("Breadcrumb", true) -%}
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
+{%- set lastItem = items | last %}
+{%- set lastHref = lastItem.href %}
+{%- set lastText = lastItem.text %}
+
+{%- set ariaLabel = params.ariaLabel | default("Breadcrumb", true) -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
-{% for item in params.items %}
+{% for item in items %}
   {% if item.href %}
     <li class="nhsuk-breadcrumb__list-item">
       {{ nhsukLink({
@@ -34,21 +39,6 @@
     </li>
   {% endif %}
 {% endfor %}
-{% if params.text and params.href %}
-    <li class="nhsuk-breadcrumb__list-item">
-      {{ nhsukLink({
-        href: params.href,
-        text: params.text,
-        className: "nhsuk-breadcrumb__link"
-      }) | trim | indent(6) }}
-    </li>
-  {%- set lastHref = params.href %}
-  {%- set lastText = params.text %}
-{% else %}
-  {%- set lastItem = params.items | last %}
-  {%- set lastHref = lastItem.href %}
-  {%- set lastText = lastItem.text %}
-{% endif %}
   </ol>
   {{ nhsukBackLink({
     id: params.backLink.id,
