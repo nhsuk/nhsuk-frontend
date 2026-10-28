@@ -9,7 +9,7 @@
   {%- set classNames = classNames ~ " " ~ params.classes %}
 {%- endif %}
 
-{%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pages in this guide", true) %}
+{%- set ariaLabel = params.ariaLabel | default("Pages in this guide", true) %}
 
 {%- macro _contentsList(items) %}
 <ol class="nhsuk-contents-list__list">
