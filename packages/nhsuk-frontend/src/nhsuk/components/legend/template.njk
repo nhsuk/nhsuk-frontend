@@ -21,12 +21,8 @@
   } %}
 {%- endif %}
 
-{%- set hasHeading = true if (params.isPageHeading and heading is not sameas(false)) or (
-  params.isPageHeading is not sameas(false) and (
-    (heading is mapping and heading is not escaped) or
-    heading is sameas(true)
-  )
-) else false %}
+{%- set hasHeading = true if (heading is mapping and heading is not escaped) or
+  heading is sameas(true) else false %}
 
 {#- Set caption from heading or caption options #}
 {%- set legendCaption = heading.caption | default(params.caption) if hasHeading else params.caption %}

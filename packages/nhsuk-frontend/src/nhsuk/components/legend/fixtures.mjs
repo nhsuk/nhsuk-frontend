@@ -153,23 +153,6 @@ const fixtures = {
       text: "What is your address?"
     }
   },
-  "with deprecated page heading": {
-    context: {
-      text: "What is your address?",
-      size: "m",
-      isPageHeading: true
-    }
-  },
-  "with deprecated page heading overriding heading": {
-    context: {
-      heading: {
-        text: "What is your address?",
-        level: 3,
-        size: "s"
-      },
-      isPageHeading: false
-    }
-  },
   "with id attribute": {
     context: {
       id: "custom-id",
