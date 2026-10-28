@@ -13,10 +13,10 @@ const fixtures = {
       heading: {
         text: "We're here for you"
       },
-      text: "Helping you take control of your health and wellbeing.",
-      border: false
+      text: "Helping you take control of your health and wellbeing."
     },
     options: {
+      layout: "background-blue",
       width: false
     },
     screenshot: {
@@ -28,10 +28,10 @@ const fixtures = {
       heading: {
         text: "We're here for you"
       },
-      text: "Helping you take control of your health and wellbeing.",
-      border: false
+      text: "Helping you take control of your health and wellbeing."
     },
     options: {
+      layout: "background-blue",
       width: false
     },
     variants: [
@@ -67,10 +67,10 @@ const fixtures = {
   "with heading as string": {
     context: {
       heading: "Prototyping",
-      text: "Helping you take control of your health and wellbeing.",
-      border: false
+      text: "Helping you take control of your health and wellbeing."
     },
     options: {
+      layout: "background-blue",
       width: false
     }
   },
@@ -82,6 +82,7 @@ const fixtures = {
       }
     },
     options: {
+      layout: "background-blue",
       width: false
     }
   },
@@ -92,6 +93,7 @@ const fixtures = {
       }
     },
     options: {
+      layout: "background-blue",
       width: false
     }
   },
@@ -144,6 +146,18 @@ const fixtures = {
       width: false
     }
   },
+  "without border": {
+    context: {
+      heading: {
+        text: "We're here for you"
+      },
+      text: "Helping you take control of your health and wellbeing.",
+      border: false
+    },
+    options: {
+      width: false
+    }
+  },
   "product page": {
     context: {
       content: [
@@ -170,10 +184,10 @@ const fixtures = {
             border: false
           }
         }
-      ],
-      border: false
+      ]
     },
     options: {
+      layout: "background-blue",
       width: false
     },
     screenshot: {
@@ -203,10 +217,10 @@ const fixtures = {
             border: false
           }
         }
-      ],
-      border: false
+      ]
     },
     options: {
+      layout: "background-blue",
       width: false
     }
   }

@@ -1,0 +1,12 @@
+@use "../../core/tools/functions" as *;
+
+////
+/// Input settings
+///
+/// @group components/input
+////
+
+$nhsuk-input-height: nhsuk-px-to-rem(40px) !default;
+$nhsuk-input-height-tablet: $nhsuk-input-height !default;
+$nhsuk-input-height-large: nhsuk-px-to-rem(48px) !default;
+$nhsuk-input-height-large-tablet: nhsuk-px-to-rem(60px) !default;

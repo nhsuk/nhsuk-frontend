@@ -4,29 +4,32 @@ import {
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
-import { examples } from './fixtures.mjs'
+import * as fixtures from './fixtures.mjs'
 
 describe('Footer', () => {
-  it('listing page passes accessibility tests', async () => {
-    await goToComponent(page, 'footer')
-    return expect(
-      axe(page, {
-        // Ignore duplicate landmarks on component listing page
-        'landmark-contentinfo-is-top-level': { enabled: false },
-        'landmark-no-duplicate-contentinfo': { enabled: false },
-        'landmark-unique': { enabled: false }
-      })
-    ).resolves.toHaveNoViolations()
-  }, 20000)
+  const examples = Object.entries(fixtures.examples)
 
-  describe.each(Object.entries(examples))('%s', (name, example) => {
-    it.each(getOptions(name, example))(
-      '$title passes accessibility tests',
-      async (options) => {
-        await goToComponent(page, 'footer', options)
-        return expect(axe(page)).resolves.toHaveNoViolations()
-      },
-      20000
-    )
+  let /** @type {RuleObject} */ axeRules = {}
+
+  it('listing page passes accessibility tests', async () => {
+    axeRules['landmark-contentinfo-is-top-level'] = { enabled: false }
+    axeRules['landmark-no-duplicate-contentinfo'] = { enabled: false }
+    axeRules['landmark-unique'] = { enabled: false }
+
+    await goToComponent(page, 'footer')
+    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+  })
+
+  describe.each(examples)('%s', (name, example) => {
+    const list = getOptions(name, example)
+
+    it.each(list)('$title passes accessibility tests', async (options) => {
+      await goToComponent(page, 'footer', options)
+      return expect(axe(page, axeRules, options)).resolves.toHaveNoViolations()
+    })
   })
 })
+
+/**
+ * @import { RuleObject } from 'axe-core'
+ */

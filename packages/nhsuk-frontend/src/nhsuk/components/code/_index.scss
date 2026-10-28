@@ -14,7 +14,15 @@
     position: relative;
     margin: -$nhsuk-focus-width;
     border: $nhsuk-focus-width solid transparent;
-    @include nhsuk-responsive-margin(6, "bottom", $adjustment: - $nhsuk-focus-width);
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: - $nhsuk-focus-width);
+
+    :first-child:empty + & {
+      margin-top: -$nhsuk-focus-width;
+    }
+
+    &:not(:first-child) {
+      @include nhsuk-responsive-margin(5, "top", $adjustment: - $nhsuk-focus-width);
+    }
   }
 
   .nhsuk-code--inline {
@@ -23,8 +31,8 @@
   }
 
   .nhsuk-code--inline.nhsuk-code--reverse {
-    color: nhsuk-tint(nhsuk-colour("red"), 85%);
-    background-color: nhsuk-shade(nhsuk-colour("blue"), 25%);
+    color: nhsuk-colour("pale-red");
+    background-color: nhsuk-colour("dark-blue");
   }
 
   .nhsuk-code--reverse:has(.nhsuk-code__content:focus) {

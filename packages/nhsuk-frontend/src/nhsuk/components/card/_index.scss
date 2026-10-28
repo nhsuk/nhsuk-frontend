@@ -2,7 +2,9 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
 @forward "../../core/styles/icons";
+@forward "settings";
 
 ////
 /// Card component
@@ -14,11 +16,8 @@
 /// 4. Removes padding-top from headings directly after the card group.
 /// 5. Includes the border width to achieve the correct left alignment.
 /// 6. Stops the heading from spanning the full width of the card.
-/// 7. Removes padding as added to container by nhsuk-panel-with-label mixin.
-/// 8. Default care card colour set to blue (non-urgent care card) -
-///    using the @mixin care-card tools/_mixins.scss.
-///    The same mixin is used for each care card, setting the background
-///    colour,text colour and print border width with the variables.
+/// 7. Removes padding added by nhsuk-card mixin with `$variant: "feature"`.
+/// 8. Default care card colour set to blue (non-urgent care card).
 /// 9. 'Random number' for the heading triangle.
 /// 10. 'Random number' for the heading triangle positioning.
 /// 11. 'Random number' used for spacing to compensate for the triangle.
@@ -33,18 +32,12 @@
 /// @group components/card
 ////
 
-$nhsuk-card-border-width: 1px;
-$nhsuk-card-border-bottom-width: nhsuk-spacing(1) - 1px;
-$nhsuk-card-border-colour: $nhsuk-border-colour;
-$nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
-
 @include nhsuk-exports("nhsuk/components/card") {
   .nhsuk-card {
-    box-sizing: border-box;
     position: relative; // [1]
     width: 100%;
 
-    @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
+    @include nhsuk-card($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
   .nhsuk-card__img,
@@ -253,19 +246,21 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
   // Flexbox is used to make each card in a row the same height.
 
   .nhsuk-card-group {
-    margin-bottom: nhsuk-spacing(3);
+    margin-bottom: nhsuk-spacing(4);
     padding: 0;
 
     @include nhsuk-flex;
 
-    @media #{nhsuk-until-breakpoint(tablet)} {
-      margin-bottom: nhsuk-spacing(6);
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      margin-bottom: nhsuk-spacing(3);
     }
 
     + h2:not([class^="nhsuk-caption"]),
     + h3:not([class^="nhsuk-caption"]),
+    + h4:not([class^="nhsuk-caption"]),
+    + .nhsuk-heading-l,
     + .nhsuk-heading-m,
-    + .nhsuk-heading-l {
+    + .nhsuk-heading-s {
       padding-top: 0; // [4]
     }
   }
@@ -277,31 +272,22 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
     @include nhsuk-flex-item;
 
     .nhsuk-card {
-      margin-bottom: nhsuk-spacing(5);
+      margin-bottom: nhsuk-spacing(3);
     }
 
     .nhsuk-card--clickable,
     .nhsuk-card--secondary {
-      margin-bottom: nhsuk-spacing(5) + $nhsuk-card-border-bottom-width; // [18]
+      margin-bottom: nhsuk-spacing(3, $adjustment: $nhsuk-card-border-bottom-width); // [18]
     }
 
-    @media #{nhsuk-until-breakpoint(tablet)} {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       .nhsuk-card {
-        margin-bottom: nhsuk-spacing(3);
+        margin-bottom: nhsuk-spacing(5);
       }
 
       .nhsuk-card--clickable,
       .nhsuk-card--secondary {
-        margin-bottom: nhsuk-spacing(3) + $nhsuk-card-border-bottom-width; // [18]
-      }
-
-      &:last-child .nhsuk-card {
-        margin-bottom: 0;
-      }
-
-      &:last-child .nhsuk-card--clickable,
-      &:last-child .nhsuk-card--secondary {
-        margin-bottom: $nhsuk-card-border-bottom-width; // [18]
+        margin-bottom: nhsuk-spacing(5, $adjustment: $nhsuk-card-border-bottom-width); // [18]
       }
     }
   }
@@ -333,41 +319,66 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
   // Card feature
 
   .nhsuk-card--feature {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
+    @include nhsuk-card(
+      $card-background-colour: $nhsuk-card-background-colour,
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: $nhsuk-card-border-colour,
+      $variant: "feature"
+    );
   }
 
   .nhsuk-card--feature > .nhsuk-card__heading-container > .nhsuk-card__heading,
   .nhsuk-card--feature > .nhsuk-card__content > .nhsuk-card__heading {
     flex-basis: auto;
     flex-grow: 0;
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
+    @include nhsuk-heading-label(
+      $heading-background-colour: $nhsuk-brand-colour,
+      $heading-text-colour: $nhsuk-reverse-text-colour,
+      $silence-warning: true
+    );
   }
 
   // Card warning
 
   .nhsuk-card--warning {
-    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow"));
+    @include nhsuk-card(
+      $card-background-colour: nhsuk-colour("pale-yellow"),
+      $card-text-colour: $nhsuk-text-colour,
+      $card-border-colour: nhsuk-colour("yellow"),
+      $variant: "feature"
+    );
   }
 
   .nhsuk-card--warning > .nhsuk-card__heading-container > .nhsuk-card__heading,
   .nhsuk-card--warning > .nhsuk-card__content > .nhsuk-card__heading {
     flex-basis: auto;
     flex-grow: 0;
-    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour);
+    @include nhsuk-heading-label(
+      $heading-background-colour: nhsuk-colour("yellow"),
+      $heading-text-colour: $nhsuk-text-colour,
+      $silence-warning: true
+    );
   }
 
   // Care card
 
   .nhsuk-card--care {
-    @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px); // [8]
-    @include nhsuk-responsive-margin(7, "top");
+    @media print {
+      border-width: 4px;
+    }
   }
 
   .nhsuk-card--care > .nhsuk-card__heading-container {
     position: relative;
+
     padding-top: nhsuk-spacing(3);
     padding-bottom: nhsuk-spacing(3) - $nhsuk-card-border-width;
+
     border-bottom: $nhsuk-card-border-width solid transparent;
+
+    // [8]
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-brand-colour;
   }
 
   .nhsuk-card--care > .nhsuk-card__heading-container > .nhsuk-card__heading {
@@ -451,13 +462,20 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
 
   .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
   .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
+    background-color: nhsuk-colour("red");
+  }
+
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
     .nhsuk-card__action {
       border-color: nhsuk-tint(nhsuk-colour("red"), 20%);
     }
   }
 
   .nhsuk-card--care--urgent {
-    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 6px);
+    @media print {
+      border-width: 6px;
+    }
 
     .nhsuk-card--care__arrow {
       &::before,
@@ -468,7 +486,9 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
   }
 
   .nhsuk-card--care--emergency {
-    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 8px);
+    @media print {
+      border-width: 8px;
+    }
 
     .nhsuk-card--care__arrow {
       &::before,
@@ -560,5 +580,44 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
     padding-top: 0;
     padding-right: 0;
     padding-left: 0;
+  }
+
+  // Contextual adjustments
+
+  h1 + .nhsuk-card:not(:first-child),
+  h2 + .nhsuk-card:not(:first-child),
+  h3 + .nhsuk-card:not(:first-child),
+  h4 + .nhsuk-card:not(:first-child),
+  h5 + .nhsuk-card:not(:first-child),
+  h6 + .nhsuk-card:not(:first-child),
+  nav + .nhsuk-card:not(:first-child),
+  [class^="nhsuk-heading"] + .nhsuk-card:not(:first-child),
+  [class^="nhsuk-caption"] + .nhsuk-card:not(:first-child) {
+    margin-top: nhsuk-spacing(0);
+  }
+
+  h1:has(+ .nhsuk-card--feature),
+  h2:has(+ .nhsuk-card--feature),
+  h3:has(+ .nhsuk-card--feature),
+  h4:has(+ .nhsuk-card--feature),
+  h5:has(+ .nhsuk-card--feature),
+  h6:has(+ .nhsuk-card--feature),
+  nav:has(+ .nhsuk-card--feature),
+  h1:has(+ .nhsuk-card--warning),
+  h2:has(+ .nhsuk-card--warning),
+  h3:has(+ .nhsuk-card--warning),
+  h4:has(+ .nhsuk-card--warning),
+  h5:has(+ .nhsuk-card--warning),
+  h6:has(+ .nhsuk-card--warning),
+  nav:has(+ .nhsuk-card--warning),
+  [class^="nhsuk-heading"]:has(+ .nhsuk-card--feature),
+  [class^="nhsuk-caption"]:has(+ .nhsuk-card--feature),
+  [class^="nhsuk-heading"]:has(+ .nhsuk-card--warning),
+  [class^="nhsuk-caption"]:has(+ .nhsuk-card--warning) {
+    padding-bottom: nhsuk-spacing(2);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-bottom: nhsuk-spacing(3);
+    }
   }
 }

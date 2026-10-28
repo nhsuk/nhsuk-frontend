@@ -1,4 +1,6 @@
-{% extends "layouts/example.njk" %}
+{% set layoutName = ("example-" ~ options.layout) if options.layout %}
+
+{% extends "layouts/" ~ layoutName | default("example", true) ~ ".njk" %}
 
 {% block main %}
   {% block beforeContent %}{% endblock %}

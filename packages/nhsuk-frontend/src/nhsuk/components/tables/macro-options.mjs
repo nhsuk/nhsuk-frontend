@@ -134,14 +134,14 @@ const options = {
     params: {
       text: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       html: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'

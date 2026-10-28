@@ -35,7 +35,7 @@
   {{- nhsukButton({
     html: params.button.html,
     text: params.button.text,
-    ariaLabel: params.button.ariaLabel | default("Search"),
+    ariaLabel: params.button.ariaLabel | default("Search" if params.button.icon is not sameas(false) else undefined),
     id: params.button.id,
     href: params.button.href,
     name: params.button.name,

@@ -2,6 +2,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Footer component

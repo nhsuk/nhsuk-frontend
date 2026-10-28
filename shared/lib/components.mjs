@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
+import mergeWith from 'lodash/mergeWith.js'
+import { isObject } from 'nhsuk-frontend/src/nhsuk/common/index.mjs'
 
 import * as files from './files.mjs'
 
@@ -65,16 +67,6 @@ export async function load(component) {
     params,
     examples
   }
-}
-
-/**
- * Load all component data (from source)
- */
-export async function loadAll() {
-  const components = getNames()
-
-  // Load component data per directory
-  return Promise.all(components.map(load))
 }
 
 /**
@@ -154,13 +146,40 @@ export function getFixtures(component) {
 }
 
 /**
- * Get all component fixtures (from dist)
+ * Merge component example with variant
+ *
+ * @param {MacroExample} example - Review app example
+ * @param {MacroExample} variant - Review app example variant
+ * @returns {MacroExample} Review app example (merged)
  */
-export function getAllFixtures() {
-  const components = getNames()
+export function mergeExample(example, variant) {
+  return mergeWith({}, example, variant, (target, source, key) => {
+    if (
+      key === 'classes' &&
+      typeof target === 'string' &&
+      typeof source === 'string' &&
+      !target.includes(source)
+    ) {
+      // Join 'classes' strings without overwriting
+      // e.g. `"nhsuk-radios--small nhsuk-radios--inline"`
+      return `${target} ${source}`.trim()
+    }
 
-  // Load component fixtures per directory
-  return components.map(getFixtures).filter((data) => data.fixtures.length)
+    // Prevent merging over null values
+    // e.g. `fieldset: null`
+    if (target === null) {
+      return null
+    }
+
+    // Prevent merging over string values
+    // e.g. `"Example legend"` with `{ size: "m" }`
+    if (typeof target === 'string' && isObject(source)) {
+      return { text: target, ...source }
+    }
+
+    // Prefer default merge behaviour
+    return
+  })
 }
 
 /**
