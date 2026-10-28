@@ -106,16 +106,14 @@ export class Checkboxes extends ConfigurableComponent {
    * This is useful when a "none" checkbox option is checked.
    *
    * @param {HTMLInputElement} $behaviourInput - Checkbox input
-   * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
-  unCheckAllInputsExcept($behaviourInput, behaviour = 'exclusive') {
-    const behaviourGroup = this.getGroup($behaviourInput, behaviour)
-    const $groupInputs = this.getGroupInputs($behaviourInput, behaviour)
+  unCheckAllInputsExcept($behaviourInput) {
+    const $groupInputs = this.getGroupInputs($behaviourInput)
 
     // Uncheck all with same group type by default, otherwise fall back to
     // GOV.UK Frontend behaviour to uncheck all with the same name attribute
     for (const $input of $groupInputs) {
-      this.setInputState($input, false, behaviourGroup)
+      this.setInputState($input, false)
     }
   }
 
@@ -130,11 +128,10 @@ export class Checkboxes extends ConfigurableComponent {
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
   unCheckInputs($input, behaviour = 'exclusive') {
-    const behaviourGroup = this.getGroup($input, behaviour)
     const $behaviourInputs = this.getBehaviourInputs($input, behaviour)
 
     for (const $behaviourInput of $behaviourInputs) {
-      this.setInputState($behaviourInput, false, behaviourGroup)
+      this.setInputState($behaviourInput, false)
     }
   }
 
@@ -145,16 +142,14 @@ export class Checkboxes extends ConfigurableComponent {
    * This is useful for when an "all" checkbox option is checked.
    *
    * @param {HTMLInputElement} $behaviourInput - Checkbox input
-   * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
-  checkAllInputsExcept($behaviourInput, behaviour = 'exclusive') {
-    const behaviourGroup = this.getGroup($behaviourInput, behaviour)
-    const $groupInputs = this.getGroupInputs($behaviourInput, behaviour)
+  checkAllInputsExcept($behaviourInput) {
+    const $groupInputs = this.getGroupInputs($behaviourInput)
 
     // Check all with same group type by default, otherwise fall back to
     // GOV.UK Frontend behaviour to check all with the same name attribute
     for (const $input of $groupInputs) {
-      this.setInputState($input, true, behaviourGroup)
+      this.setInputState($input, true)
     }
   }
 
@@ -169,15 +164,14 @@ export class Checkboxes extends ConfigurableComponent {
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
   checkInputs($input, behaviour = 'exclusive') {
-    const behaviourGroup = this.getGroup($input, behaviour)
     const $behaviourInputs = this.getBehaviourInputs($input, behaviour)
 
     for (const $behaviourInput of $behaviourInputs) {
-      const $groupInputs = this.getGroupInputs($behaviourInput, behaviour)
+      const $groupInputs = this.getGroupInputs($behaviourInput)
 
       // If all group inputs are checked, check the behaviour input
       if ($groupInputs.every(($groupInput) => $groupInput.checked)) {
-        this.setInputState($behaviourInput, true, behaviourGroup)
+        this.setInputState($behaviourInput, true)
       }
     }
   }
@@ -186,45 +180,32 @@ export class Checkboxes extends ConfigurableComponent {
    * Get checkbox group
    *
    * @param {HTMLInputElement} $input - Checkbox input
-   * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
-  getGroup($input, behaviour) {
-    const { dataset } = $input
-
-    // Check for deprecated `data-checkbox-*` group attributes
-    return !('behaviourGroup' in dataset) && behaviour === 'exclusive'
-      ? dataset.checkboxExclusiveGroup
-      : dataset.behaviourGroup
+  getGroup($input) {
+    return $input.dataset.behaviourGroup
   }
 
   /**
    * Get checkbox group selector
    *
    * @param {HTMLInputElement} $input - Checkbox input
-   * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
-  getGroupSelector($input, behaviour) {
-    const { dataset } = $input
-    const behaviourGroup = this.getGroup($input, behaviour)
+  getGroupSelector($input) {
+    const behaviourGroup = this.getGroup($input)
 
-    if (!behaviourGroup) {
-      return `[name="${$input.name}"]`
-    }
-
-    // Check for deprecated `data-checkbox-*` group attributes
-    return !('behaviourGroup' in dataset) && behaviour === 'exclusive'
-      ? `[data-checkbox-${behaviour}-group="${behaviourGroup}"]`
-      : `[data-behaviour-group="${behaviourGroup}"]`
+    return behaviourGroup
+      ? `[data-behaviour-group="${behaviourGroup}"]`
+      : `[name="${$input.name}"]`
   }
 
   /**
    * Get checkbox group inputs
    *
    * @param {HTMLInputElement} $behaviourInput - Checkbox input
-   * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
-  getGroupInputs($behaviourInput, behaviour) {
-    const groupSelector = this.getGroupSelector($behaviourInput, behaviour)
+  getGroupInputs($behaviourInput) {
+    const groupSelector = this.getGroupSelector($behaviourInput)
+
     const $groupInputs = document.querySelectorAll(
       `input[type="checkbox"]${groupSelector}`
     )
@@ -241,11 +222,10 @@ export class Checkboxes extends ConfigurableComponent {
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
   getBehaviourInputs($input, behaviour) {
-    const groupSelector = this.getGroupSelector($input, behaviour)
+    const groupSelector = this.getGroupSelector($input)
 
-    // Include deprecated `data-checkbox-*` attributes
     const $behaviourInputs = document.querySelectorAll(
-      `input[type="checkbox"][data-behaviour="${behaviour}"]${groupSelector}, input[type="checkbox"][data-checkbox-${behaviour}]${groupSelector}`
+      `input[type="checkbox"][data-behaviour="${behaviour}"]${groupSelector}`
     )
 
     return Array.from($behaviourInputs).filter(
@@ -254,22 +234,12 @@ export class Checkboxes extends ConfigurableComponent {
   }
 
   /**
-   * Set input state, optionally for matching group only
+   * Set input state
    *
    * @param {HTMLInputElement} $input - Checkbox input
    * @param {boolean} checked - Checkbox checked state
-   * @param {string} [behaviourGroup] - Set state for matching behaviour group only (optional)
    */
-  setInputState($input, checked, behaviourGroup) {
-    const { dataset } = $input
-
-    const group = dataset.behaviourGroup ?? dataset.checkboxExclusiveGroup
-
-    // Skip input when behaviour group does not match
-    if (group && behaviourGroup && group !== behaviourGroup) {
-      return
-    }
-
+  setInputState($input, checked) {
     $input.checked = checked
     this.syncConditionalRevealWithInputState($input)
   }
@@ -298,20 +268,15 @@ export class Checkboxes extends ConfigurableComponent {
 
     const { dataset } = $clickedInput
 
-    const isExclusive =
-      dataset.behaviour === 'exclusive' || 'checkboxExclusive' in dataset
-
-    const isInclusive = dataset.behaviour === 'inclusive'
-
-    if (isExclusive) {
+    if (dataset.behaviour === 'exclusive') {
       if ($clickedInput.checked) {
-        this.unCheckAllInputsExcept($clickedInput, 'exclusive')
+        this.unCheckAllInputsExcept($clickedInput)
       }
-    } else if (isInclusive) {
+    } else if (dataset.behaviour === 'inclusive') {
       if ($clickedInput.checked) {
-        this.checkAllInputsExcept($clickedInput, 'inclusive')
+        this.checkAllInputsExcept($clickedInput)
       } else {
-        this.unCheckAllInputsExcept($clickedInput, 'inclusive')
+        this.unCheckAllInputsExcept($clickedInput)
       }
     } else if ($clickedInput.checked) {
       this.checkInputs($clickedInput, 'inclusive')
