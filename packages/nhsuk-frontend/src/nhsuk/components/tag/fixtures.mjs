@@ -113,6 +113,28 @@ const fixtures = {
       classes: "nhsuk-tag--red"
     }
   },
+  "compact": {
+    context: {
+      compact: true
+    },
+    variants,
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
+  "compact without border": {
+    context: {
+      compact: true,
+      border: false
+    },
+    variants,
+    options: {
+      layout: "background-blue"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
   "with text escaping": {
     context: {
       text: "A&E",

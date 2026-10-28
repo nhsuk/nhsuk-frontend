@@ -44,6 +44,11 @@
     }
   }
 
+  .nhsuk-tag--compact {
+    margin: 0;
+    padding: nhsuk-spacing(1, $adjustment: -2px) nhsuk-spacing(2, $adjustment: -2px, $unit: "rem");
+  }
+
   // Colour variants
 
   .nhsuk-tag--white {

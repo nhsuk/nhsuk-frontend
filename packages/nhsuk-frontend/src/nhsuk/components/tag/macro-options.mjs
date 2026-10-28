@@ -33,6 +33,12 @@ const options = {
       'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire tag component in a `call` block.',
     released: '10.6.0'
   },
+  compact: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, padding will be reduced.',
+    released: '11.0.0'
+  },
   colour: {
     type: 'string',
     required: false,
