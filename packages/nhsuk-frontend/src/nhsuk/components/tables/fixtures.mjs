@@ -329,7 +329,7 @@ const fixtures = {
             text: "firstCellIsHeader"
           },
           {
-            text: "string"
+            text: "boolean"
           },
           {
             html: outdent`
