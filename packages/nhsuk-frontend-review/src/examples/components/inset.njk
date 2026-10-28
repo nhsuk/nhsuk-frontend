@@ -287,12 +287,12 @@
       }) }}
 
       {{ card({
-        feature: true,
         heading: {
           text: "Feature card heading",
           size: "m"
         },
-        description: "Feature card description"
+        description: "Feature card description",
+        variant: "feature"
       }) }}
 
       {% call card({
@@ -343,7 +343,7 @@
       {% endcall %}
 
       {{ list({
-        title: "Do",
+        heading: "Do",
         icon: "tick",
         items: [
           {
@@ -359,7 +359,7 @@
       }) }}
 
       {{ list({
-        title: "Don't",
+        heading: "Don't",
         icon: "cross",
         items: [
           {

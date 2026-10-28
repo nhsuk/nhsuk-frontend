@@ -244,12 +244,12 @@
       }) }}
 
       {{ card({
-        feature: true,
         heading: {
           text: "Feature card heading",
           size: "m"
         },
-        description: "Feature card description"
+        description: "Feature card description",
+        variant: "feature"
       }) }}
 
       <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
@@ -544,7 +544,7 @@
       }) }}
 
       {{ list({
-        title: "Do",
+        heading: "Do",
         icon: "tick",
         items: [
           {
@@ -560,7 +560,7 @@
       }) }}
 
       {{ list({
-        title: "Don't",
+        heading: "Don't",
         icon: "cross",
         items: [
           {
