@@ -4,11 +4,10 @@
 @use "sass:meta";
 @use "sass:string";
 @use "../settings/breakpoints" as *;
-@use "../settings/warnings" as *;
-@use "functions" as *;
+@use "../tools/functions" as *;
 
 ////
-/// @group tools
+/// @group helpers/layout
 ////
 
 /// Get the value of a breakpoint by name.

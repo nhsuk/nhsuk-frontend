@@ -8,8 +8,8 @@
 @use "../settings/globals" as *;
 @use "../settings/typography" as *;
 @use "../settings/warnings" as *;
+@use "../helpers/media-queries" as *;
 @use "functions" as *;
-@use "sass-mq" as *;
 
 ////
 /// Typography
