@@ -7,10 +7,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-details" %}
 
-{#- Support summary as string (with deprecated options) #}
+{#- Support summary as string #}
 {%- set summary = params.summary if params.summary is mapping and params.summary is not escaped else {
-  text: params.summary if params.summary is string else params.summaryText,
-  html: params.summary if params.summary is escaped else params.summaryHtml
+  text: params.summary if params.summary is string else undefined,
+  html: params.summary if params.summary is escaped else undefined
 } %}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-details--reverse" in params.classes) %}
