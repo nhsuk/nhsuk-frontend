@@ -5,7 +5,6 @@ export default {
   extends: 'stylelint-config-gds/scss',
   ignoreFiles: [
     '**/dist/**',
-    '**/vendor/**',
 
     // Ignore CSS-in-JS (including dotfiles)
     '**/?(.)*.{cjs,js,mjs}',
