@@ -218,27 +218,6 @@ const options = {
       }
     }
   },
-  headingClasses: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.classes` option.',
-    released: '9.4.0',
-    deprecated: '10.6.0'
-  },
-  headingSize: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.size` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `heading.level` option.',
-    released: '9.4.0',
-    deprecated: '10.6.0'
-  },
   text: {
     type: 'string',
     required: true,
