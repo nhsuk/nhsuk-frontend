@@ -15,8 +15,8 @@
     visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) | default("Important", true)
       if heading.text and not ("Important" in heading.text or "important" in heading.text)
       else undefined,
-    level: heading.level | default(params.headingLevel) | default(3),
-    classes: heading.classes | default(params.headingClasses),
+    level: heading.level | default(3),
+    classes: heading.classes,
     attributes: heading.attributes
   },
   description: {
