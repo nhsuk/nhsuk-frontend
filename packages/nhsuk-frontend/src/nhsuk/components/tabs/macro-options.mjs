@@ -19,13 +19,6 @@ const options = {
       'Optional prefix. This is used to prefix the `id` attribute for each tab item and panel, separated by `-`. Defaults to the `id` option value.',
     released: '7.0.0'
   },
-  title: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `visuallyHiddenText` option.',
-    released: '7.0.0',
-    deprecated: '10.6.0'
-  },
   visuallyHiddenText: {
     type: 'string',
     required: false,
