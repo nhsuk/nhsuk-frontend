@@ -3,7 +3,6 @@
 
 @use "sass:selector";
 @use "../settings/colours-applied" as *;
-@use "../settings/warnings" as *;
 @use "../helpers" as *;
 @use "sass-mq" as *;
 @use "spacing" as *;
@@ -234,64 +233,6 @@
     &:not(:first-child) {
       margin-top: nhsuk-spacing(7, $adjustment: $margin-top-tablet); // [1]
     }
-  }
-}
-
-/// Heading label mixin, adds a tab heading to
-/// warning callout, do and don't lists and panel
-///
-/// 1. Background colour to be set on the @include.
-/// 2. Ensures heading appears separate to the body text in high contrast mode.
-/// 3. Text colour to be set on the @include.
-/// 4. Display inline-block so it does not take up the full width.
-/// 5. Negative left margin aligns the heading to the box.
-/// 6. Top positioning set to minus to make heading sit just outside the box.
-///
-/// @param {Colour} $heading-background-colour - Heading background colour
-/// @param {Colour} $heading-text-colour - Heading text colour
-/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
-/// warning when already logged by another deprecated mixin
-///
-/// @example scss
-///   @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
-///
-
-@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour, $silence-warning: false) {
-  @if not $silence-warning {
-    @include nhsuk-warning(
-      "nhsuk-heading-label",
-      "nhsuk-heading-label is deprecated and will be removed in a future release."
-    );
-  }
-
-  display: inline-block; // [4]
-
-  position: relative;
-  top: nhsuk-spacing(-2); // [6]
-
-  margin: 0;
-  margin-bottom: nhsuk-spacing(2);
-  padding: nhsuk-spacing(2);
-
-  outline: 1px solid transparent; // [2]
-  outline-offset: -1px;
-
-  color: $heading-text-colour; // [3]
-  background-color: $heading-background-colour; // [1]
-
-  @include nhsuk-font-size(26);
-
-  @include nhsuk-responsive-margin(-5, "left", $adjustment: -1px); // [5]
-  @include nhsuk-responsive-padding(5, ("left", "right"));
-
-  @media print {
-    top: 0;
-    color: $nhsuk-print-text-colour;
-    background: none;
-  }
-
-  @media #{nhsuk-from-breakpoint(tablet)} {
-    top: nhsuk-spacing(-3); // [6]
   }
 }
 
