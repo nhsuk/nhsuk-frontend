@@ -24,9 +24,7 @@
     }
   }
 
-  .nhsuk-error-summary__heading,
-  // Deprecated, to be removed in a future release
-  .nhsuk-error-summary__title {
+  .nhsuk-error-summary__heading {
     margin-top: 0;
 
     @include nhsuk-font(26, $weight: bold);
