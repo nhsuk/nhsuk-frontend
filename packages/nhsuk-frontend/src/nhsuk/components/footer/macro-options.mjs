@@ -95,13 +95,6 @@ const options = {
           }
         }
       },
-      title: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by the `navigation.heading.text` option.',
-        released: '10.0.0',
-        deprecated: '10.6.0'
-      },
       text: {
         type: 'string',
         required: false,
@@ -183,13 +176,6 @@ const options = {
         description:
           'Visually hidden heading for meta `items` links. Defaults to `"Support links"`.',
         released: '10.6.0'
-      },
-      visuallyHiddenTitle: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by the `meta.visuallyHiddenText` option.',
-        released: '10.0.0',
-        deprecated: '10.6.0'
       },
       html: {
         type: 'string',
