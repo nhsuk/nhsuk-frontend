@@ -18,11 +18,10 @@
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
   {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
 
-  {#- Support item heading as string (with deprecated options) #}
+  {#- Support item heading as string #}
   {%- set itemHeading = item.heading if item.heading is mapping and item.heading is not escaped else {
-    text: item.heading if item.heading is string else item.title.text,
-    html: item.heading if item.heading is escaped else item.title.html,
-    classes: item.title.classes
+    text: item.heading if item.heading is string else undefined,
+    html: item.heading if item.heading is escaped else undefined
   } %}
 
   {#- Support item hint as string #}
