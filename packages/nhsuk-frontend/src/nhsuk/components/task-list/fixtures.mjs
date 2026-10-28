@@ -83,69 +83,6 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  "with deprecated status classes": {
-    context: {
-      idPrefix: "your-health",
-      items: [
-        {
-          title: {
-            text: "Exercise"
-          },
-          href: "#/task/exercise",
-          status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
-          }
-        },
-        {
-          title: {
-            text: "Personal health"
-          },
-          href: "#/task/personal-health",
-          status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
-          }
-        },
-        {
-          title: {
-            text: "Family health history"
-          },
-          hint: {
-            text: "Details of your parents, brothers and sisters"
-          },
-          href: "#/task/family-health-history",
-          status: {
-            tag: {
-              text: "Incomplete",
-              colour: "blue"
-            }
-          }
-        },
-        {
-          title: {
-            text: "Smoking history"
-          },
-          href: "#/task/smoking-history",
-          status: {
-            tag: {
-              text: "Incomplete",
-              colour: "blue"
-            }
-          }
-        },
-        {
-          title: {
-            text: "Blood test"
-          },
-          status: {
-            text: "Cannot start yet",
-            classes: "nhsuk-task-list__status--cannot-start-yet"
-          }
-        }
-      ]
-    }
-  },
   "with headings and hints as strings": {
     context: {
       idPrefix: "your-health",
