@@ -23,7 +23,8 @@
     // where to break off of.
     max-width: $nhsuk-tag-max-width;
 
-    padding: nhsuk-spacing(1, $adjustment: -1px) nhsuk-spacing(2, $adjustment: -1px);
+    margin: -3px 0;
+    padding: nhsuk-spacing(1, $adjustment: 1px) nhsuk-spacing(2, $adjustment: -1px);
 
     border: 1px solid nhsuk-colour("dark-blue");
     border-radius: 2px;
@@ -36,7 +37,7 @@
     text-decoration: none;
 
     @include nhsuk-text-break-word;
-    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1.5);
+    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1.25);
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       max-width: $nhsuk-tag-max-width-tablet;
