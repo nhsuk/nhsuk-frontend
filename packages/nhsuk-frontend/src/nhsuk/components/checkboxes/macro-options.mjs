@@ -265,20 +265,6 @@ const options = {
         description:
           'Used in conjunction with `behaviour` - this should be set to a string which groups checkboxes together into a set for use with a "none" or "all" option.',
         released: '10.6.0'
-      },
-      exclusive: {
-        type: 'boolean',
-        required: false,
-        description: 'Replaced by `item.behaviour` in the `items` option.',
-        released: '5.2.0',
-        deprecated: '10.6.0'
-      },
-      exclusiveGroup: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by `item.behaviourGroup` in the `items` option.',
-        released: '5.2.0',
-        deprecated: '10.6.0'
       }
     }
   },

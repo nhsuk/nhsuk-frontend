@@ -6,16 +6,16 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-error-summary" %}
 
-{#- Support heading as string (with deprecated options) #}
+{#- Support heading as string #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
-  text: params.heading if params.heading is string else params.titleText,
-  html: params.heading if params.heading is escaped else params.titleHtml
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else undefined
 } %}
 
-{#- Support description as string (with deprecated options) #}
+{#- Support description as string #}
 {%- set description = params.description if params.description is mapping and params.description is not escaped else {
-  text: params.description if params.description is string else params.descriptionText,
-  html: params.description if params.description is escaped else params.descriptionHtml
+  text: params.description if params.description is string else undefined,
+  html: params.description if params.description is escaped else undefined
 } %}
 
 {%- if params.classes %}

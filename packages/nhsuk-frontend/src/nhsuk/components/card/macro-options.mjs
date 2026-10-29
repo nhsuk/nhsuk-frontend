@@ -93,48 +93,6 @@ const options = {
       }
     }
   },
-  headingHtml: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `heading.html` option.',
-    released: '4.0.0',
-    deprecated: '10.6.0'
-  },
-  headingClasses: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.classes` option.',
-    released: '4.0.0',
-    deprecated: '10.6.0'
-  },
-  headingSize: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.size` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `heading.level` option.',
-    released: '4.0.0',
-    deprecated: '10.6.0'
-  },
-  headingId: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.id` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
-  headingVisuallyHiddenText: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.visuallyHiddenText` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
   href: {
     type: 'string',
     required: false,
@@ -160,34 +118,6 @@ const options = {
     description:
       'Optional variant of card – `"feature"`, `"primary"`, `"secondary"`, `"warning"`, `"non-urgent"`, `"urgent"` or `"emergency"`.',
     released: '10.4.0'
-  },
-  feature: {
-    type: 'boolean',
-    required: false,
-    description: 'Replaced by the `variant: "feature"` option.',
-    released: '4.0.0',
-    deprecated: '10.4.0'
-  },
-  primary: {
-    type: 'boolean',
-    required: false,
-    description: 'Replaced by the `variant: "primary"` option.',
-    released: '7.1.0',
-    deprecated: '10.4.0'
-  },
-  secondary: {
-    type: 'boolean',
-    required: false,
-    description: 'Replaced by the `variant: "secondary"` option.',
-    released: '7.1.0',
-    deprecated: '10.4.0'
-  },
-  warning: {
-    type: 'boolean',
-    required: false,
-    description: 'Replaced by the `variant: "warning"` option.',
-    released: '10.3.0',
-    deprecated: '10.4.0'
   },
   image: {
     type: 'object',
@@ -219,8 +149,7 @@ const options = {
   description: {
     type: 'object',
     required: false,
-    description:
-      'Description to use within the card content. If `descriptionHtml` is provided, the `description` option will be ignored.',
+    description: 'Description to use within the card content.',
     released: '10.6.0',
     params: {
       text: {
@@ -270,13 +199,6 @@ const options = {
         released: '10.6.0'
       }
     }
-  },
-  descriptionHtml: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `description.html` option.',
-    released: '4.0.0',
-    deprecated: '10.6.0'
   },
   actions: {
     type: 'object',

@@ -8,12 +8,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-notification-banner" %}
 
-{#- Support title as string (with deprecated options) #}
+{#- Support title as string #}
 {%- set title = params.title if params.title is mapping and params.title is not escaped else {
-  id: params.titleId,
-  text: params.title if params.title is string else params.titleText,
-  html: params.title if params.title is escaped else params.titleHtml,
-  level: params.titleHeadingLevel
+  text: params.title if params.title is string else undefined,
+  html: params.title if params.title is escaped else undefined
 } %}
 
 {#- Support heading as string #}

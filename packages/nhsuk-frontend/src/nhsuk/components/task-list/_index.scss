@@ -75,22 +75,6 @@ $nhsuk-task-list-hover-border-colour: $nhsuk-secondary-border-colour;
     vertical-align: top;
   }
 
-  // Deprecated, to be removed in v11.0
-  .nhsuk-task-list__status--completed,
-  .nhsuk-task-list__status--cannot-start-yet {
-    padding-top: nhsuk-spacing(1, $adjustment: 2px);
-    padding-right: nhsuk-spacing(2, $adjustment: 1px);
-    padding-bottom: nhsuk-spacing(1);
-    text-decoration: none;
-
-    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1);
-  }
-
-  // Deprecated, to be removed in v11.0
-  .nhsuk-task-list__status--cannot-start-yet {
-    color: $nhsuk-secondary-text-colour;
-  }
-
   // This adds an empty transparent box covering the whole row, including the task status and
   // any hint text. Because this is generated within the link element, this allows the whole area
   // to be clickable.

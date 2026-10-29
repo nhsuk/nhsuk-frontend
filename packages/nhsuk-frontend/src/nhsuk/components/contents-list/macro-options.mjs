@@ -76,13 +76,6 @@ const options = {
       'HTML attributes (for example data attributes) to add to the contents list container.',
     released: '1.0.0'
   },
-  landmarkLabel: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `ariaLabel` option.',
-    released: '10.1.0',
-    deprecated: '10.6.0'
-  },
   ariaLabel: {
     type: 'string',
     required: false,

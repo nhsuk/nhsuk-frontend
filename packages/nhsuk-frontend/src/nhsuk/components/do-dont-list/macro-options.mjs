@@ -12,13 +12,6 @@ const options = {
     description: "The ID of the do and don't list component.",
     released: '10.0.0'
   },
-  title: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `heading.text` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
   heading: {
     type: 'object',
     required: true,
@@ -72,13 +65,6 @@ const options = {
         released: '10.6.0'
       }
     }
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `heading.level` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
   },
   icon: {
     type: 'string',

@@ -80,34 +80,6 @@ const options = {
       }
     }
   },
-  titleId: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `title.id` option.',
-    released: '10.0.0',
-    deprecated: '10.6.0'
-  },
-  titleText: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `title.text` option.',
-    released: '10.0.0',
-    deprecated: '10.6.0'
-  },
-  titleHtml: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `title.html` option.',
-    released: '10.0.0',
-    deprecated: '10.6.0'
-  },
-  titleHeadingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `title.level` option.',
-    released: '10.0.0',
-    deprecated: '10.6.0'
-  },
   heading: {
     type: 'object',
     required: false,

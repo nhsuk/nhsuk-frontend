@@ -116,13 +116,6 @@ const options = {
       }
     }
   },
-  isPageHeading: {
-    type: 'boolean',
-    required: false,
-    description: 'Replaced by the `heading` option.',
-    released: '1.0.0',
-    deprecated: '10.6.1'
-  },
   size: {
     type: 'string',
     required: false,

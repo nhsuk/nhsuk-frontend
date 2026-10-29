@@ -48,24 +48,24 @@
         idPrefix: "before-you-start",
         items: [
           {
-            title: {
-              text: "Check eligibility"
-            },
+            heading: "Check eligibility",
             href: "#",
             status: {
-              text: "Completed",
-              variant: "completed"
+              tag: {
+                text: "Completed",
+                border: false,
+                colour: false,
+                classes: "nhsuk-u-font-weight-normal"
+              }
             }
           },
           {
-            title: {
-              text: "Read declaration"
-            },
+            heading: "Read declaration",
             href: "#",
             status: {
               tag: {
                 text: "Incomplete",
-                classes: "nhsuk-tag--blue"
+                colour: "blue"
               }
             }
           }
@@ -82,59 +82,60 @@
         idPrefix: "your-health",
         items: [
           {
-            title: {
-              text: "Exercise"
-            },
-            href: "#",
-            status: {
-              text: "Completed",
-              variant: "completed"
-            }
-          },
-          {
-            title: {
-              text: "Personal health"
-            },
-            href: "#",
-            status: {
-              text: "Completed",
-              variant: "completed"
-            }
-          },
-          {
-            title: {
-              text: "Family health history"
-            },
-            hint: {
-              text: "Details of your parents, brothers and sisters"
-            },
+            heading: "Exercise",
             href: "#",
             status: {
               tag: {
-                text: "Incomplete",
-                classes: "nhsuk-tag--blue"
+                text: "Completed",
+                border: false,
+                colour: false,
+                classes: "nhsuk-u-font-weight-normal"
               }
             }
           },
           {
-            title: {
-              text: "Smoking history"
-            },
+            heading: "Personal health",
             href: "#",
             status: {
               tag: {
-                text: "Incomplete",
-                classes: "nhsuk-tag--blue"
+                text: "Completed",
+                border: false,
+                colour: false,
+                classes: "nhsuk-u-font-weight-normal"
               }
             }
           },
           {
-            title: {
-              text: "Blood test"
-            },
+            heading: "Family health history",
+            hint: "Details of your parents, brothers and sisters",
+            href: "#",
             status: {
-              text: "Cannot start yet",
-              variant: "cannot-start-yet"
+              tag: {
+                text: "Incomplete",
+                colour: "blue"
+              }
+            }
+          },
+          {
+            heading: "Smoking history",
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                colour: "blue"
+              }
+            }
+          },
+          {
+            heading: "Blood test",
+            status: {
+              tag: {
+                text: "Cannot start yet",
+                border: false,
+                colour: false,
+                classes:
+                  "nhsuk-u-font-weight-normal nhsuk-u-secondary-text-colour"
+              }
             }
           }
         ]

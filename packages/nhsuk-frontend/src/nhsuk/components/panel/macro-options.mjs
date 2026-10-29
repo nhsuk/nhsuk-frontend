@@ -92,41 +92,6 @@ const options = {
       }
     }
   },
-  titleText: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `heading.text` option.',
-    released: '9.3.0',
-    deprecated: '10.6.0'
-  },
-  titleHtml: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.html` option.',
-    released: '9.3.0',
-    deprecated: '10.6.0'
-  },
-  titleSize: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.size` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
-  titleClasses: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.classes` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `heading.level` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
   text: {
     type: 'string',
     required: true,
