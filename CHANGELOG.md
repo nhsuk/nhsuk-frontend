@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2173: Update template theme colours to match updated colour palette](https://github.com/nhsuk/nhsuk-frontend/pull/2173)
+
 ## 10.7.0 - 27 October 2026
 
 Note: This release was created from the `support/10.x` branch.
