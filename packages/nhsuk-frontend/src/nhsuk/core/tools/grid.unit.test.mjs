@@ -1,10 +1,19 @@
 import { outdent } from 'outdent'
-import { compileStringAsync } from 'sass-embedded'
+import { compileStringAsync, sassNull } from 'sass-embedded'
 
 describe('Grid system', () => {
   const sassModules = outdent`
     @use "core/tools/grid" as *;
   `
+
+  /** @type {Logger} */
+  let logger = {}
+
+  beforeEach(() => {
+    // Create a mock warn function that we can use to override the native @warn
+    // function, that we can make assertions about post-render.
+    logger.warn = jest.fn().mockReturnValue(sassNull)
+  })
 
   describe('@function nhsuk-grid-width', () => {
     it('outputs the specified key value from the map of widths', async () => {
@@ -17,7 +26,8 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       expect(results.css).toBe(
@@ -37,7 +47,8 @@ describe('Grid system', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).rejects.toThrow('Unknown grid width `seven-fifths`')
@@ -55,7 +66,8 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       expect(results.css).toBe(outdent`
@@ -83,7 +95,8 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       expect(results.css).toBe(outdent`
@@ -101,7 +114,36 @@ describe('Grid system', () => {
       `)
     })
 
-    it('allows predefined breakpoints to be specified using $at', async () => {
+    it('allows predefined breakpoints to be specified using $from', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .nhsuk-grid-column-one-quarter-from-desktop {
+          @include nhsuk-grid-column(one-quarter, $from: desktop);
+        }
+      `
+
+      const results = await compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      expect(results.css).toBe(outdent`
+        .nhsuk-grid-column-one-quarter-from-desktop {
+          box-sizing: border-box;
+          width: 100%;
+          padding: 0 16px;
+        }
+        @media (min-width: 48.0625em) {
+          .nhsuk-grid-column-one-quarter-from-desktop {
+            width: 25%;
+            float: left;
+          }
+        }
+      `)
+    })
+
+    it('outputs a warning if a predefined breakpoints is specified using $at', async () => {
       const sass = outdent`
         ${sassModules}
 
@@ -111,7 +153,8 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       expect(results.css).toBe(outdent`
@@ -127,29 +170,35 @@ describe('Grid system', () => {
           }
         }
       `)
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        'nhsuk-grid-column `$at` parameter is deprecated. Use `$from` instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "nhsuk-grid-column-at"',
+        expect.anything()
+      )
     })
 
-    it('allows custom breakpoints to be specified using $at', async () => {
+    it('allows custom breakpoints to be specified using $from', async () => {
       const sass = outdent`
         ${sassModules}
 
-        .nhsuk-grid-column-one-quarter-at-500px {
-          @include nhsuk-grid-column(one-quarter, $at: 500px);
+        .nhsuk-grid-column-one-quarter-from-500px {
+          @include nhsuk-grid-column(one-quarter, $from: 500px);
         }
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       expect(results.css).toBe(outdent`
-        .nhsuk-grid-column-one-quarter-at-500px {
+        .nhsuk-grid-column-one-quarter-from-500px {
           box-sizing: border-box;
           width: 100%;
           padding: 0 16px;
         }
         @media (min-width: 31.25em) {
-          .nhsuk-grid-column-one-quarter-at-500px {
+          .nhsuk-grid-column-one-quarter-from-500px {
             width: 25%;
             float: left;
           }
@@ -167,7 +216,8 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       expect(results.css).toBe(outdent`
@@ -186,3 +236,7 @@ describe('Grid system', () => {
     })
   })
 })
+
+/**
+ * @import { Logger } from 'sass-embedded'
+ */
