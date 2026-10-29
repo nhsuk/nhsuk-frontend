@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -17,6 +37,7 @@ const fixtures = {
       },
       id: "example"
     },
+    variants,
     screenshot: true
   },
   "disabled": {
@@ -33,6 +54,7 @@ const fixtures = {
       id: "example",
       disabled: true
     },
+    variants,
     screenshot: true
   },
   "disabled with enabled input": {
@@ -51,7 +73,8 @@ const fixtures = {
       year: {
         disabled: false
       }
-    }
+    },
+    variants
   },
   "disabled input": {
     context: {
@@ -68,7 +91,8 @@ const fixtures = {
       year: {
         disabled: true
       }
-    }
+    },
+    variants
   },
   "disabled input (using items)": {
     context: {
@@ -120,7 +144,8 @@ const fixtures = {
       year: {
         label: "Blwyddyn"
       }
-    }
+    },
+    variants
   },
   "with fields": {
     context: {
@@ -196,7 +221,8 @@ const fixtures = {
         month: "8",
         year: "2024"
       }
-    }
+    },
+    variants
   },
   "with values as numbers": {
     context: {
@@ -230,7 +256,8 @@ const fixtures = {
       },
       id: "example",
       year: false
-    }
+    },
+    variants
   },
   "day and month (using items)": {
     context: {
@@ -294,7 +321,8 @@ const fixtures = {
       },
       id: "example",
       day: false
-    }
+    },
+    variants
   },
   "month and year (using items)": {
     context: {
@@ -408,7 +436,8 @@ const fixtures = {
         month: "8",
         year: "2024"
       }
-    }
+    },
+    variants
   },
   "legend": {
     context: {
@@ -485,7 +514,8 @@ const fixtures = {
         legend: "What is your date of birth?"
       },
       id: "example"
-    }
+    },
+    variants
   },
   "with autocomplete values": {
     context: {
@@ -580,7 +610,8 @@ const fixtures = {
         text: "Enter your date of birth"
       },
       id: "example"
-    }
+    },
+    variants
   },
   "with error message and hint": {
     context: {
@@ -598,6 +629,7 @@ const fixtures = {
       },
       id: "example"
     },
+    variants,
     screenshot: true
   },
   "with error message and hint as strings": {
@@ -656,7 +688,8 @@ const fixtures = {
       year: {
         error: true
       }
-    }
+    },
+    variants
   },
   "with errors only (using items)": {
     context: {
@@ -710,7 +743,8 @@ const fixtures = {
       year: {
         value: "1980"
       }
-    }
+    },
+    variants
   },
   "with error on day input (using items)": {
     context: {
@@ -778,7 +812,8 @@ const fixtures = {
           value: "1980"
         }
       ]
-    }
+    },
+    variants
   },
   "with error on month input (using items)": {
     context: {
@@ -830,7 +865,8 @@ const fixtures = {
       year: {
         error: true
       }
-    }
+    },
+    variants
   },
   "with error on year input (using items)": {
     context: {

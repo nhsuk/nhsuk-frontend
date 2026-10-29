@@ -5,6 +5,9 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant %}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-date-input" %}
 {%- set classNamesFormGroup = "nhsuk-form-group" %}
@@ -134,7 +137,8 @@
     disabled: item.disabled | default(parent.params.disabled),
     describedBy: item.describedBy,
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
-    attributes: item.attributes
+    attributes: item.attributes,
+    variant: item.variant | default(variant)
   }) | trim | indent(2) }}
 </div>
 {% endmacro %}
@@ -165,7 +169,8 @@
     text: hint.text,
     id: hint.id | default(hintId),
     classes: hint.classes,
-    attributes: hint.attributes
+    attributes: hint.attributes,
+    variant: hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if errorMessage.text or errorMessage.html %}
@@ -177,7 +182,8 @@
     visuallyHiddenText: errorMessage.visuallyHiddenText,
     id: errorMessage.id | default(errorId),
     classes: errorMessage.classes,
-    attributes: errorMessage.attributes
+    attributes: errorMessage.attributes,
+    variant: errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
   <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
@@ -190,7 +196,7 @@
 {%- endset %}
 
 {%- if errorMessage.text or errorMessage.html or params.errorMessage is sameas(true) or anyItemHasError %}
-  {%- set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {%- set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {%- endif %}
 
 {%- if params.formGroup.classes %}
@@ -210,7 +216,8 @@
     role: params.fieldset.role | default("group"),
     describedBy: describedBy,
     classes: params.fieldset.classes,
-    attributes: params.fieldset.attributes
+    attributes: params.fieldset.attributes,
+    variant: params.fieldset.variant | default(variant)
   }) | trim | indent(2, true) }}
 {% else %}
   {{- innerHtml | safe }}
