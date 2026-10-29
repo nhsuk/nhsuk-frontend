@@ -122,6 +122,19 @@ const fixtures = {
       viewports: ["mobile"]
     }
   },
+  "compact without border, white background": {
+    context: {
+      compact: true,
+      border: false
+    },
+    variants,
+    options: {
+      layout: "background-white"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
   "compact without border": {
     context: {
       compact: true,
@@ -152,6 +165,18 @@ const fixtures = {
       colour: "red"
     },
     callBlock: "A&amp;E"
+  },
+  "without border, white background": {
+    context: {
+      border: false
+    },
+    variants,
+    options: {
+      layout: "background-white"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
   },
   "without border": {
     context: {
