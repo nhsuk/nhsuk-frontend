@@ -38,8 +38,8 @@ import { ElementError, SupportError } from './errors/index.mjs'
 /**
  * @param {Config | Element | Document | null} [scopeOrConfig] - Scope of the document to search within or config for all components (with optional scope)
  */
-export function initAll(scopeOrConfig = {}) {
-  const config = isObject(scopeOrConfig) ? scopeOrConfig : {}
+export function initAll(scopeOrConfig) {
+  const config = isObject(scopeOrConfig) ? scopeOrConfig : undefined
 
   // Extract initialisation options
   const options = normaliseOptions(scopeOrConfig)
@@ -71,20 +71,20 @@ export function initAll(scopeOrConfig = {}) {
   }
 
   const components = /** @type {const} */ ([
-    [Button, config.button],
-    [CharacterCount, config.characterCount],
-    [Checkboxes, config.checkboxes],
-    [Code, config.code],
-    [ErrorSummary, config.errorSummary],
-    [FileUpload, config.fileUpload],
-    [Header, config.header],
-    [NotificationBanner, config.notificationBanner],
-    [PasswordInput, config.passwordInput],
-    [Radios, config.radios],
-    [Scroll, config.scroll],
-    [SkipLink, config.skipLink],
-    [Table, config.table],
-    [Tabs, config.tabs]
+    [Button, config?.button],
+    [CharacterCount, config?.characterCount],
+    [Checkboxes, config?.checkboxes],
+    [Code, config?.code],
+    [ErrorSummary, config?.errorSummary],
+    [FileUpload, config?.fileUpload],
+    [Header, config?.header],
+    [NotificationBanner, config?.notificationBanner],
+    [PasswordInput, config?.passwordInput],
+    [Radios, config?.radios],
+    [Scroll, config?.scroll],
+    [SkipLink, config?.skipLink],
+    [Table, config?.table],
+    [Tabs, config?.tabs]
   ])
 
   components.forEach(([Component, componentConfig]) => {
