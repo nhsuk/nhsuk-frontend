@@ -155,7 +155,7 @@ export function createAll(Component, config, scopeOrOptions) {
       })
     }
 
-    $elements = options.scope?.querySelectorAll(
+    $elements = options.scope.querySelectorAll(
       `[data-module="${Component.moduleName}"]`
     )
   } catch (error) {
@@ -171,7 +171,7 @@ export function createAll(Component, config, scopeOrOptions) {
     return []
   }
 
-  return Array.from($elements ?? [])
+  return Array.from($elements)
     .map(($element) => {
       try {
         return /** @type {InstanceType<ComponentClass>} */ (

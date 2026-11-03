@@ -5,7 +5,7 @@ import { isObject, isScope } from '../index.mjs'
  *
  * @template {CompatibleClass} ComponentClass
  * @param {Config | CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions] - Scope of the document to search within, initialisation options or error callback function
- * @returns {CreateAllOptions<ComponentClass>} Normalised options
+ * @returns {{ scope: Element | Document | null, onError?: OnErrorCallback<ComponentClass> }} Normalised options
  */
 export function normaliseOptions(scopeOrOptions) {
   let /** @type {Element | Document | null} */ $scope = document
