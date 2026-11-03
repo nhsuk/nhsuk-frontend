@@ -36,7 +36,7 @@ import { ElementError, SupportError } from './errors/index.mjs'
  */
 
 /**
- * @param {Config | Element | Document | null} [scopeOrConfig]
+ * @param {Config | Element | Document | null} [scopeOrConfig] - Scope of the document to search within or config for all components (with optional scope)
  */
 export function initAll(scopeOrConfig = {}) {
   const config = isObject(scopeOrConfig) ? scopeOrConfig : {}
@@ -131,7 +131,7 @@ export function initAll(scopeOrConfig = {}) {
  * @template {CompatibleClass | CompatibleClass<typeof ConfigurableComponent>} ComponentClass
  * @param {ComponentClass} Component - Component class to initialise
  * @param {ComponentConfig<ComponentClass>} [config] - Config supplied to component
- * @param {CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions]
+ * @param {CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions] - Scope of the document to search within, initialisation options or error callback function
  */
 export function createAll(Component, config, scopeOrOptions) {
   let /** @type {NodeListOf<Element> | undefined} */ $elements
@@ -239,7 +239,7 @@ export * from './errors/index.mjs'
  */
 
 /**
- * Initialisation error context
+ * Initialisation or create all error context
  *
  * Contains the element, component class and configuration
  *
@@ -251,7 +251,7 @@ export * from './errors/index.mjs'
  */
 
 /**
- * Initialisation error callback
+ * Initialisation or create all error callback
  *
  * @template {CompatibleClass} ComponentClass
  * @callback OnErrorCallback
@@ -260,7 +260,7 @@ export * from './errors/index.mjs'
  */
 
 /**
- * Initialisation options
+ * Create all options
  *
  * @template {CompatibleClass} ComponentClass
  * @typedef {object} CreateAllOptions
