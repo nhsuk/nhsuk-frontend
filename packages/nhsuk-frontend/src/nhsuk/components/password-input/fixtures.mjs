@@ -49,6 +49,23 @@ const fixtures = {
       }
     }
   },
+  "with before and after input content": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      name: "example",
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with button double click prevented": {
     context: {
       label: {
@@ -250,9 +267,9 @@ const fixtures = {
       },
       id: "password-translated",
       name: "example",
-      showPasswordText: "Datguddia",
+      showPasswordText: "Dangos",
       hidePasswordText: "Cuddio",
-      showPasswordAriaLabel: "Datgelu cyfrinair",
+      showPasswordAriaLabel: "Dangos cyfrinair",
       hidePasswordAriaLabel: "Cuddio cyfrinair",
       passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
       passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."

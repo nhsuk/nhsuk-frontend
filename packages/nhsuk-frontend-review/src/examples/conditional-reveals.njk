@@ -23,8 +23,8 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
 
-      {% set emailHtml %}
-        {{ input({
+      {%- set emailHtml %}
+        {{- input({
           id: "contact-by-email",
           name: "contact-by-email",
           type: "email",
@@ -33,11 +33,11 @@
           label: {
             text: "Email address"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set phoneHtml %}
-        {{ input({
+      {%- set phoneHtml %}
+        {{- input({
           id: "contact-by-phone",
           name: "contact-by-phone",
           type: "tel",
@@ -45,11 +45,11 @@
           label: {
             text: "Phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set textHtml %}
-        {{ input({
+      {%- set textHtml %}
+        {{- input({
           id: "contact-by-text",
           name: "contact-by-text",
           type: "tel",
@@ -57,8 +57,8 @@
           label: {
             text: "Mobile phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
       <p class="nhsuk-body">
         <a class="nhsuk-link" href="#">Focusable element</a>
@@ -101,8 +101,8 @@
         ]
       }) }}
 
-      {% set emailHtml %}
-        {{ input({
+      {%- set emailHtml %}
+        {{- input({
           id: "radio-contact-by-email",
           name: "radio-contact-by-email",
           type: "email",
@@ -111,11 +111,11 @@
           label: {
             text: "Email address"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set phoneHtml %}
-        {{ input({
+      {%- set phoneHtml %}
+        {{- input({
           id: "radio-contact-by-phone",
           name: "radio-contact-by-phone",
           type: "tel",
@@ -123,11 +123,11 @@
           label: {
             text: "Phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
-      {% set textHtml %}
-        {{ input({
+      {%- set textHtml %}
+        {{- input({
           id: "radio-contact-by-text",
           name: "radio-contact-by-text",
           type: "tel",
@@ -135,8 +135,8 @@
           label: {
             text: "Mobile phone number"
           }
-        }) }}
-      {% endset -%}
+        }) | trim -}}
+      {% endset %}
 
       <p class="nhsuk-body">
         <a class="nhsuk-link" href="#">Focusable element</a>

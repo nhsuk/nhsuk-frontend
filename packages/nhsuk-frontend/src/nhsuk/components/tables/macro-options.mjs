@@ -65,6 +65,13 @@ const options = {
         description: 'If set, the table cell will become a link.',
         released: '10.6.0'
       },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the table cell link will open in a new tab.',
+        released: '10.7.0'
+      },
       format: {
         type: 'string',
         required: false,
@@ -127,14 +134,14 @@ const options = {
     params: {
       text: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       html: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
@@ -151,6 +158,13 @@ const options = {
         description:
           'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.',
         released: '10.6.0'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the table header link will open in a new tab.',
+        released: '10.7.0'
       },
       format: {
         type: 'string',

@@ -1,4 +1,5 @@
 import { AxePuppeteer } from '@axe-core/puppeteer'
+import { mergeExample } from '@nhsuk/frontend-lib/components.mjs'
 import { components, names } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import slug from 'slug'
 
@@ -13,8 +14,9 @@ const {
  *
  * @param {Page} page - Puppeteer page object
  * @param {RuleObject} [overrides] - Axe rule overrides
+ * @param {NavigationOptions} [options] - Navigation options
  */
-export async function axe(page, overrides = {}) {
+export async function axe(page, overrides = {}, options) {
   const reporter = new AxePuppeteer(page)
     .setLegacyMode(true) // Share single page via iframe
     .include('body')
@@ -24,7 +26,7 @@ export async function axe(page, overrides = {}) {
    *
    * @satisfies {RunOptions}
    */
-  const options = {
+  const axeOptions = {
     runOnly: {
       type: 'tag',
       values: [
@@ -45,28 +47,26 @@ export async function axe(page, overrides = {}) {
     },
     rules: {
       /**
-       * Ignore 'Element has insufficient color contrast' for WCAG Level AAA
-       *
-       * Affects buttons, links and hint text etc
-       */
-      'color-contrast-enhanced': { enabled: false },
-
-      /**
        * Ignore 'Some page content is not contained by landmarks'
        * {@link https://github.com/alphagov/govuk-frontend/issues/1604}
        */
-      'region': { enabled: false },
+      region: { enabled: false },
       ...overrides
     }
   }
 
   // Ignore colour contrast for 'inactive' components
   if (page.url().includes('-disabled')) {
-    options.rules['color-contrast'] = { enabled: false }
+    axeOptions.rules['color-contrast'] = { enabled: false }
+  }
+
+  // Ignore colour contrast (enhanced) for listing pages and blue backgrounds
+  if (!options || options.example?.layout === 'background-blue') {
+    axeOptions.rules['color-contrast-enhanced'] = { enabled: false }
   }
 
   // Create report
-  const report = await reporter.options(options).analyze()
+  const report = await reporter.options(axeOptions).analyze()
 
   /**
    * Add review app preview URL below link to violation
@@ -110,7 +110,7 @@ async function goTo(page, pathOrUrl, options) {
   page.off('pageerror', onPageError)
 
   // Add error handler unless suppressed
-  if (options?.throwOnError !== false) {
+  if (options?.example?.throwOnError !== false) {
     page.on('pageerror', onPageError)
   }
 
@@ -291,20 +291,19 @@ export function getURL(path) {
  * @returns {NavigationOptions[]} Navigation options list
  */
 export function getOptions(name, example) {
-  const { options = {}, variants = [] } = example
-  const { throwOnError } = options
+  const { variants = [] } = example
 
-  // Options for single example only
-  if (!variants.length) {
-    return [{ name, title: 'example', throwOnError }]
-  }
+  // Duplicate examples for each variant
+  const examples = variants.length
+    ? variants.map((variant) => mergeExample(example, variant))
+    : [example]
 
   // Options for multiple variants
-  return variants.map(({ description }) => ({
+  return examples.map(({ description, options }) => ({
     name,
     description,
     title: `'${description ?? 'example'}'`,
-    throwOnError
+    example: options ?? {}
   }))
 }
 
@@ -413,7 +412,7 @@ export async function isVisible($element) {
  * @property {string} name - Example name (e.g. 'with hint')
  * @property {string} [description] - Example description (e.g. 'small')
  * @property {string} [title] - Unique test title (optional)
- * @property {boolean} [throwOnError] - Whether to throw on error (optional)
+ * @property {NonNullable<MacroExample['options']>} [example] - Nunjucks macro example options
  */
 
 /**

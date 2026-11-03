@@ -576,6 +576,200 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+## 10.7.0 - 27 October 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### Environment banner
+
+We've added an environment banner component to help identify development, review or other non-production environments.
+
+To use the `environmentBanner` Nunjucks macro in your service, add it above the header:
+
+```patch
+  {% block header %}
++   {{ environmentBanner({
++     tag: environmentName,
++     colour: themeName
++   }) }}
++
+    {{ header() }}
+  {% endblock %}
+```
+
+Use the Nunjucks global values `environmentName` and `themeName` to update the banner, matching the [toolbar colour on some devices](https://developer.chrome.com/blog/support-for-theme-color-in-chrome-39-for-android). All tag colours are supported.
+
+```mjs
+nunjucks.render('example.njk', {
+  environmentName: 'Review',
+  themeName: 'purple'
+})
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [environment banner on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/environment-banner/)
+
+This was added in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
+
+#### Colour tints and shades
+
+We've added pale tints and dark shades to our colour palette. They have been uplifted and adjusted from NHS App frontend.
+
+| Colour name        | Value   |
+| ------------------ | ------- |
+| `pale-blue`        | #ccdff1 |
+| `dark-green`       | #004c23 |
+| `pale-green`       | #cce5d8 |
+| `dark-aqua-green`  | #004a45 |
+| `pale-aqua-green`  | #bae6e3 |
+| `dark-purple`      | #330072 |
+| `pale-purple`      | #ded6e8 |
+| `pale-pink`        | #efd3e3 |
+| `dark-red`         | #801810 |
+| `pale-red`         | #f7d4d1 |
+| `dark-orange`      | #5f3800 |
+| `pale-orange`      | #fbe8cc |
+| `dark-warm-yellow` | #664a0b |
+| `pale-warm-yellow` | #fff1d2 |
+| `dark-yellow`      | #595215 |
+
+These colours join the existing `dark-blue`, `dark-pink`, `pale-yellow` and `warm-yellow` palette tints and shades.
+
+This was added in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
+
+### :wastebasket: **Deprecated features**
+
+#### Stop using Sass mixins for cards and panels
+
+The following Sass mixins are now deprecated and will be removed in a future release:
+
+- `nhsuk-care-card`
+- `nhsuk-heading-label`
+- `nhsuk-panel` replaced by `nhsuk-card`
+- `nhsuk-panel-with-label` replaced by `nhsuk-card` with `$variant: "feature"`
+
+Please carefully review all cards, including custom components that use the `nhsuk-panel` or `nhsuk-panel-with-label` mixins, to make sure their [spacing has not changed unexpectedly](#adjusted-spacing-for-cards-inset-text-and-other-components).
+
+This change was introduced in [pull request #2086: Adjust margins for cards, code, expanders, inset text, images, pagination, tabs and task list](https://github.com/nhsuk/nhsuk-frontend/pull/2086).
+
+### :recycle: **Changes**
+
+#### Adjusted spacing for cards, inset text and other components
+
+Please carefully review all cards, code blocks, do and don't lists, expanders, inset text, images, pagination, tabs, task lists and warning callouts to make sure their spacing has not changed unexpectedly.
+
+Where necessary, components now include a default top margin when placed after other elements. Adjustments include:
+
+- reduced code block and inset text margins
+- increased expander and task list margins
+- increased feature card top margin to make room for its heading  
+  (also applies to do and don't lists, warning callouts and deprecated tables as a panel)
+
+Card top margins are automatically removed when following headings, captions and `<nav>` elements. Similarly, spacing has been adjusted for headings that follow card groups, details and panel components.
+
+Override classes added previously, such as `nhsuk-u-margin-top-4`, may no longer be necessary.
+
+This change was introduced in [pull request #2086: Adjust margins for cards, code, expanders, inset text, images, pagination, tabs and task list](https://github.com/nhsuk/nhsuk-frontend/pull/2086).
+
+#### A different shade of dark pink and purple
+
+Whilst adding new pale and dark shades to our palette, we've made changes to existing colours:
+
+- changed `purple` to use a lighter shade
+- changed `dark-pink` to use a darker shade
+- added `dark-purple` using the old `purple` value
+
+If you're not using Sass, change the values of the following colours:
+
+| Colour name | Old value | New value |
+| ----------- | --------- | --------- |
+| `purple`    | #330072   | #5c338e   |
+| `dark-pink` | #7c2855   | #6e234b   |
+
+Note: The update to `dark-pink` has changed the link hover colour (`$nhsuk-link-hover-colour`), but the visited link colour (`$nhsuk-link-visited-colour`) has changed from `purple` to `dark-purple` to maintain the original value.
+
+This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
+
+#### Orange and warm yellow tags
+
+Orange tags now use the colour palette's `orange` colour instead of `warm-yellow`. We've retained the original orange tag by adding a new `warm-yellow` tag.
+
+This change was introduced in [pull request #2139: Update NHS colour palette with pale/dark shades](https://github.com/nhsuk/nhsuk-frontend/pull/2139).
+
+#### Add visually hidden text to warning buttons
+
+We've added default visually hidden text to warning buttons that reads "Warning:". This helps to signal the button's importance without relying on its colour.
+
+The text can be overriden with `visuallyHiddenText`:
+
+```patch
+  {{ button({
+    text: "Delete record",
++   visuallyHiddenText: "Caution",
+    variant: "warning"
+  }) }}
+```
+
+This change was introduced in [pull request #2121: Add visually hidden text to warning button](https://github.com/nhsuk/nhsuk-frontend/pull/2121).
+
+#### Use Nunjucks conditional content and before/after input slots as strings
+
+We added support for alternative string values in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0) and [version 10.6.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.1).
+
+The following component options now support alternative string values:
+
+- checkboxes and radios `item.conditional` option
+- date input `day`, `month` and `year` options
+- single field `formGroup.beforeInput` and `formGroup.afterInput` options
+- multiple field `formGroup.beforeInputs` and `formGroup.afterInputs` options
+- tabs `item.panel` option
+
+The following component options now support `text` and `html` nested options:
+
+- checkboxes and radios `item.divider` option
+- tabs `item.label` option
+
+This change was introduced in [pull request #2128: Add fixture coverage for before/after input content etc](https://github.com/nhsuk/nhsuk-frontend/pull/2128).
+
+#### Use Nunjucks macros to add headings, captions, visually hidden text and links
+
+We've updated our components to use Nunjucks macros to render:
+
+- headings and captions via the `heading()` and `caption()` component macros
+- visually hidden text via the `visuallyHidden()` component macro
+- links via the `link()` component macro
+
+We've also added the `nhsukContent()` macro to simplify how text, HTML and visually hidden content is rendered:
+
+```patch
+- {% if item.html %}
+-   {{- item.html | safe | trim }}
+- {% elif item.text %}
+-   {{- item.text | trim }}
+- {% endif %}
+- {% if item.visuallyHiddenText -%}
+-   <span class="nhsuk-u-visually-hidden"> {{ item.visuallyHiddenText }}</span>
+- {% endif %}
++ {{ nhsukContent(item) }}
+```
+
+Shared components and macros can be used by service teams to create their own custom components.
+
+These changes were introduced in pull requests [#2103: Add visually hidden component](https://github.com/nhsuk/nhsuk-frontend/pull/2103), [#2108: Add link component](https://github.com/nhsuk/nhsuk-frontend/pull/2108) and [#1985: Add heading and caption components](https://github.com/nhsuk/nhsuk-frontend/pull/1985).
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2096: Adjust checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2096)
+- [#2105: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
+- [#2106: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2106)
+- [#2117: Restore missing `.nhsuk-back-to-top` styles](https://github.com/nhsuk/nhsuk-frontend/pull/2117)
+- [#2131: Omit stripes on tables with only 1 row](https://github.com/nhsuk/nhsuk-frontend/pull/2131)
+- [#2155: Update default ARIA labels to meet WCAG SC 2.5.3 Label in Name](https://github.com/nhsuk/nhsuk-frontend/pull/2155)
+- [#2157: Calculate button padding using rem units](https://github.com/nhsuk/nhsuk-frontend/pull/2157)
+
 ## 10.6.1 - 25 August 2026
 
 Note: This release was created from the `support/10.x` branch.
