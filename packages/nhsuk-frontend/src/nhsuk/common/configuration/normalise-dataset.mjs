@@ -9,7 +9,6 @@ import { normaliseArray, normaliseString } from './normalise-string.mjs'
  * optionally expanding `data-i18n.property` nested values
  *
  * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
- * @template {[keyof ConfigurationType, SchemaProperty | undefined][]} SchemaEntryType
  * @param {CompatibleClass & { schema?: Schema<ConfigurationType> }} Component - Component class
  * @param {DOMStringMap} dataset - HTML element dataset
  * @returns {ObjectNested} Normalised dataset
@@ -20,7 +19,8 @@ export function normaliseDataset(Component, dataset) {
     return out
   }
 
-  const entries = /** @type {SchemaEntryType} */ (
+  const entries =
+    /** @type {[keyof ConfigurationType, SchemaProperty | undefined][]} */ (
     Object.entries(Component.schema.properties)
   )
 
