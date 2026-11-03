@@ -130,13 +130,6 @@ const options = {
     description: 'A list of errors to include in the error summary.',
     released: '1.0.0',
     params: {
-      href: {
-        type: 'string',
-        required: false,
-        description:
-          'The error `href` attribute. If set, the error will become a link.',
-        released: '1.0.0'
-      },
       text: {
         type: 'string',
         required: true,
@@ -149,6 +142,13 @@ const options = {
         required: true,
         description:
           'If `text` is set, this is not required. HTML for the error link item. If `html` is provided, the `text` option will be ignored.',
+        released: '1.0.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description:
+          'The error `href` attribute. If set, the error will become a link.',
         released: '1.0.0'
       },
       attributes: {

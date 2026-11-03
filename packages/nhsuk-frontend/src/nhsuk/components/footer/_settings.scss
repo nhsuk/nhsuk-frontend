@@ -1,0 +1,11 @@
+@use "../../core/helpers/colour" as *;
+@use "../../core/settings/colours-applied" as *;
+
+////
+/// Footer settings
+///
+/// @group components/footer
+////
+
+$nhsuk-footer-link-visited-colour: nhsuk-colour("dark-blue");
+$nhsuk-footer-border-colour: $nhsuk-secondary-border-colour;

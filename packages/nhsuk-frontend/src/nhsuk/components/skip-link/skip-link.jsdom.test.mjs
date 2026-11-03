@@ -1,7 +1,11 @@
+import { userEvent } from '@testing-library/user-event'
+
 import { components } from '#lib'
 
 import { examples } from './fixtures.mjs'
 import { SkipLink } from './skip-link.mjs'
+
+const user = userEvent.setup()
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */
@@ -84,6 +88,14 @@ describe('Skip link', () => {
       )
     })
 
+    it('should throw with empty hash fragment', () => {
+      $root.setAttribute('href', '#')
+
+      expect(() => new SkipLink($root)).toThrow(
+        `${SkipLink.moduleName}: Target link (\`href="#"\`) hash fragment not found`
+      )
+    })
+
     it('should throw with missing main content', () => {
       $main.remove()
 
@@ -99,6 +111,26 @@ describe('Skip link', () => {
       }).toThrow(
         `${SkipLink.moduleName}: Root element (\`$root\`) already initialised`
       )
+    })
+  })
+
+  describe('Focus behaviour', () => {
+    it('should focus the linked element on click', async () => {
+      new SkipLink($root)
+
+      await user.click($root)
+
+      expect($main).toHaveFocus()
+    })
+
+    it('should add a focused-element class on click, and remove it on blur', async () => {
+      new SkipLink($root)
+
+      await user.click($root)
+      expect($main).toHaveClass('nhsuk-skip-link-focused-element')
+
+      $main.blur()
+      expect($main).not.toHaveClass('nhsuk-skip-link-focused-element')
     })
   })
 

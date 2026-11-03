@@ -1,0 +1,14 @@
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-image {
+  display: inline-block;
+  width: auto;
+  margin: 0 nhsuk-spacing(1);
+  color: currentcolor;
+  text-align: center;
+  @include nhsuk-responsive-margin(3, "bottom", $adjustment: nhsuk-spacing(-1));
+}
+
+.app-image .nhsuk-image__caption {
+  padding: nhsuk-spacing(1);
+}

@@ -68,14 +68,14 @@ const options = {
       },
       text: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `html` is set, this is not required. Text to use within the label as a heading. If `html` is provided, the `text` option will be ignored.',
         released: '10.6.1'
       },
       html: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `text` is set, this is not required. HTML to use within the label as a heading. If `html` is provided, the `text` option will be ignored.',
         released: '10.6.1'

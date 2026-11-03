@@ -120,47 +120,16 @@ jobs:
       # Check output for uncompiled Sass
       - name: Check output
         run: |
-          ! grep "\$nhsuk-" .tmp/check.css
-          ! grep ": nhsuk-" .tmp/check.css
+          failed=0
 
-          ! grep "\$nhsuk-" .tmp/check1.css
-          ! grep ": nhsuk-" .tmp/check1.css
+          for file in .tmp/check.css .tmp/check{1..13}.css; do
+            if [ ! -f "$file" ]; then
+              echo "::error::Missing Sass output $file"
+              failed=1
+            elif grep -F -n -e '$nhsuk-' -e ': nhsuk-' "$file"; then
+              echo "::error::Uncompiled Sass found in $file"
+              failed=1
+            fi
+          done
 
-          ! grep "\$nhsuk-" .tmp/check2.css
-          ! grep ": nhsuk-" .tmp/check2.css
-
-          ! grep "\$nhsuk-" .tmp/check3.css
-          ! grep ": nhsuk-" .tmp/check3.css
-
-          ! grep "\$nhsuk-" .tmp/check4.css
-          ! grep ": nhsuk-" .tmp/check4.css
-
-          ! grep "\$nhsuk-" .tmp/check5.css
-          ! grep ": nhsuk-" .tmp/check5.css
-
-          ! grep "\$nhsuk-" .tmp/check6.css
-          ! grep ": nhsuk-" .tmp/check6.css
-
-          ! grep "\$nhsuk-" .tmp/check7.css
-          ! grep ": nhsuk-" .tmp/check7.css
-
-          ! grep "\$nhsuk-" .tmp/check8.css
-          ! grep ": nhsuk-" .tmp/check8.css
-
-          ! grep "\$nhsuk-" .tmp/check9.css
-          ! grep ": nhsuk-" .tmp/check9.css
-
-          ! grep "\$nhsuk-" .tmp/check10.css
-          ! grep ": nhsuk-" .tmp/check10.css
-
-          ! grep "\$nhsuk-" .tmp/check13.css
-          ! grep ": nhsuk-" .tmp/check13.css
-
-          ! grep "\$nhsuk-" .tmp/check11.css
-          ! grep ": nhsuk-" .tmp/check11.css
-
-          ! grep "\$nhsuk-" .tmp/check12.css
-          ! grep ": nhsuk-" .tmp/check12.css
-
-          ! grep "\$nhsuk-" .tmp/check13.css
-          ! grep ": nhsuk-" .tmp/check13.css
+          exit $failed

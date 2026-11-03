@@ -42,8 +42,28 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'Optional visually hidden prefix used before the heading.',
+        description: 'A visually hidden prefix used before the heading.',
         released: '10.6.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'If set, the heading will become a link.',
+        released: '10.7.0'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the heading link will open in a new tab.',
+        released: '10.7.0'
+      },
+      caption: {
+        type: 'object',
+        required: false,
+        description: 'Optional caption for the heading.',
+        released: '10.6.0',
+        isComponent: true
       },
       size: {
         type: 'string',
@@ -120,6 +140,12 @@ const options = {
     required: false,
     description: 'The card link `href` attribute.',
     released: '4.0.0'
+  },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, then the card link will open in a new tab.',
+    released: '10.7.0'
   },
   clickable: {
     type: 'boolean',
@@ -211,6 +237,25 @@ const options = {
           'If `text` is set, this is not required. HTML to use within the card content. If `html` is provided, the `text` option will be ignored.',
         released: '10.6.0'
       },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the description.',
+        released: '10.7.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'The card description link `href` attribute.',
+        released: '10.7.0'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the card description link will open in a new tab.',
+        released: '10.7.0'
+      },
       classes: {
         type: 'string',
         required: false,
@@ -243,7 +288,9 @@ const options = {
         type: 'array',
         required: false,
         description: 'Array of actions as links for use in the card component.',
+        alias: 'link',
         released: '10.3.0',
+        isComponent: true,
         params: {
           id: {
             type: 'string',
@@ -299,6 +346,13 @@ const options = {
             description:
               'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
             released: '10.3.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the action will open in a new tab.',
+            released: '10.7.0'
           },
           classes: {
             type: 'string',

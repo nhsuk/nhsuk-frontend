@@ -103,7 +103,9 @@ const options = {
         required: false,
         description:
           'Array of actions as links for use in the warning callout.',
+        alias: 'link',
         released: '10.3.0',
+        isComponent: true,
         params: {
           id: {
             type: 'string',
@@ -136,7 +138,7 @@ const options = {
             type: 'string',
             required: false,
             description:
-              'Name for the action as a button. If `type` is set, this has no effect.',
+              'Name for the action as a button. If `href` is provided, this has no effect.',
             released: '10.6.0'
           },
           type: {
@@ -150,7 +152,7 @@ const options = {
             type: 'string',
             required: false,
             description:
-              'The `value` attribute for the action as a button. If `type` is set, this has no effect.',
+              'The `value` attribute for the action as a button. If `href` is provided, this has no effect.',
             released: '10.6.0'
           },
           href: {
@@ -159,6 +161,13 @@ const options = {
             description:
               'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
             released: '10.3.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the action will open in a new tab.',
+            released: '10.7.0'
           },
           classes: {
             type: 'string',

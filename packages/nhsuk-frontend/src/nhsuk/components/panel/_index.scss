@@ -1,6 +1,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Panel component
@@ -23,15 +25,13 @@
 /// @group components/panel
 ////
 
-$nhsuk-panel-border-width: nhsuk-spacing(1);
-
 @include nhsuk-exports("nhsuk/components/panel") {
   .nhsuk-panel {
     box-sizing: border-box;
     padding: nhsuk-spacing(5) - $nhsuk-panel-border-width; /* [2] */
     border: $nhsuk-panel-border-width solid transparent; /* [1] */
     color: $nhsuk-reverse-text-colour;
-    background: $nhsuk-success-colour;
+    background: $nhsuk-success-text-colour;
 
     @include nhsuk-font-size(26);
     @include nhsuk-responsive-margin(4, "bottom");
@@ -114,6 +114,22 @@ $nhsuk-panel-border-width: nhsuk-spacing(1);
     // Deduct button group vertical gap from margin
     > .nhsuk-button-group:last-child {
       margin-bottom: nhsuk-spacing(-3);
+    }
+  }
+
+  .nhsuk-panel + h2:not([class^="nhsuk-caption"]),
+  .nhsuk-panel + .nhsuk-heading-l {
+    @include nhsuk-responsive-padding(4, "top");
+  }
+
+  .nhsuk-panel + h3:not([class^="nhsuk-caption"]),
+  .nhsuk-panel + h4:not([class^="nhsuk-caption"]),
+  .nhsuk-panel + .nhsuk-heading-m,
+  .nhsuk-panel + .nhsuk-heading-s {
+    padding-top: nhsuk-spacing(1);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-top: nhsuk-spacing(2);
     }
   }
 }

@@ -89,5 +89,5 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
 /**
  * @typedef {keyof ObjectNested} NestedKey
  * @typedef {string | boolean | number} NestedValue
- * @typedef {{ [key: string]: NestedValue | NestedValue[] | ((...args: any[]) => NestedValue) | ObjectNested | undefined }} ObjectNested
+ * @typedef {{ [key: string]: NestedValue | NestedValue[] | ((...args: any[]) => NestedValue | NestedValue[] | undefined) | ObjectNested | undefined }} ObjectNested
  */

@@ -73,6 +73,13 @@ export const variants = [
     }
   },
   {
+    description: "warm-yellow",
+    context: {
+      text: "On hold",
+      colour: "warm-yellow"
+    }
+  },
+  {
     description: "yellow",
     context: {
       text: "Delayed",

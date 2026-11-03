@@ -672,6 +672,36 @@ const fixtures = {
     },
     variants
   },
+  "with conditional content as strings": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your favourite colour?",
+          size: "l"
+        }
+      },
+      idPrefix: "conditional-strings",
+      name: "example",
+      items: [
+        {
+          value: "red",
+          text: "Red",
+          conditional: "I like red"
+        },
+        {
+          value: "green",
+          text: "Green",
+          conditional: "I like green"
+        },
+        {
+          value: "blue",
+          text: "Blue",
+          conditional: "I like blue"
+        }
+      ]
+    },
+    variants
+  },
   "with conditional content, special characters": {
     context: {
       fieldset: {
@@ -775,6 +805,39 @@ const fixtures = {
           }
         }
       ]
+    }
+  },
+  "with before and after inputs content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ],
+      formGroup: {
+        beforeInputs: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInputs: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
     }
   }
 }
