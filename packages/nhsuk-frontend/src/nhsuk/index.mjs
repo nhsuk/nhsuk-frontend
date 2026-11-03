@@ -262,7 +262,7 @@ export * from './errors/index.mjs'
 /**
  * Initialisation or create all error callback
  *
- * @template {CompatibleClass | undefined} [ComponentClass=CompatibleClass | undefined]
+ * @template [ComponentClass=unknown]
  * @callback OnErrorCallback
  * @param {unknown} error - Thrown error
  * @param {[ComponentClass] extends [CompatibleClass] ? ErrorContext<ComponentClass> : InitErrorContext | ErrorContext} context - Object containing the element, component class and configuration
@@ -271,7 +271,7 @@ export * from './errors/index.mjs'
 /**
  * Create all options
  *
- * @template {CompatibleClass | undefined} [ComponentClass=CompatibleClass | undefined]
+ * @template [ComponentClass=unknown]
  * @typedef {object} CreateAllOptions
  * @property {Element | Document | null} [scope] - Scope of the document to search within
  * @property {OnErrorCallback<ComponentClass>} [onError] - Initialisation error callback

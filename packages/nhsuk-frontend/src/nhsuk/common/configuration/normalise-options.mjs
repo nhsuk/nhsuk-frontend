@@ -3,7 +3,7 @@ import { isObject, isScope } from '../index.mjs'
 /**
  * Normalise options passed to `initAll` or `createAll`
  *
- * @template {CompatibleClass | undefined} ComponentClass
+ * @template ComponentClass
  * @param {CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions] - Scope of the document to search within, initialisation options or error callback function
  * @returns {{ scope: Element | Document | null, onError?: OnErrorCallback<ComponentClass> }} Normalised options
  */
@@ -41,6 +41,5 @@ export function normaliseOptions(scopeOrOptions) {
 }
 
 /**
- * @import { CompatibleClass } from '../../component.mjs'
  * @import { CreateAllOptions, OnErrorCallback } from '../../index.mjs'
  */
