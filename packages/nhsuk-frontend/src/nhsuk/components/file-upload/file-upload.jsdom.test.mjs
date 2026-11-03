@@ -308,4 +308,200 @@ describe('File upload', () => {
       })
     })
   })
+
+  describe('Drag and drop', () => {
+    /** @type {FileUpload} */
+    let component
+
+    /**
+     * Create a drag event carrying the given `dataTransfer`
+     *
+     * Happy DOM does not support the `dataTransfer` event init option, so it
+     * has to be assigned to the event directly.
+     *
+     * @param {string} type - The drag event type
+     * @param {DataTransfer} dataTransfer - The drag event data
+     * @returns {DragEvent} The drag event
+     */
+    function createDragEvent(type, dataTransfer) {
+      const event = new DragEvent(type, { bubbles: true, cancelable: true })
+      Object.defineProperty(event, 'dataTransfer', { value: dataTransfer })
+      return event
+    }
+
+    /**
+     * Create `DataTransfer` with the given number of files
+     *
+     * @param {number} fileCount - The number of files
+     * @returns {DataTransfer} The drag event data
+     */
+    function createDataTransfer(fileCount) {
+      const dataTransfer = new DataTransfer()
+
+      for (let index = 0; index < fileCount; index++) {
+        dataTransfer.items.add(new File([''], `test-file-${index}.txt`))
+      }
+      return dataTransfer
+    }
+
+    beforeEach(() => {
+      component = new FileUpload($root)
+    })
+
+    it('should show dragging state when entering the drop zone', () => {
+      const showDraggingState = jest.spyOn(component, 'showDraggingState')
+
+      component.$dropButton.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+      component.$dropButton.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+
+      // The dragging state is only shown once to avoid repeated announcements
+      expect(showDraggingState).toHaveBeenCalledTimes(1)
+      expect(component.$dropButton).toHaveClass(
+        `${FileUpload.defaults.dropButtonClass}--dragging`
+      )
+      expect(component.$announcements).toHaveTextContent('Entered drop zone')
+    })
+
+    it('should hide dragging state when entering another element', () => {
+      component.$dropButton.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+      document.body.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+
+      expect(component.$dropButton).not.toHaveClass(
+        `${FileUpload.defaults.dropButtonClass}--dragging`
+      )
+      expect(component.$announcements).toHaveTextContent('Left drop zone')
+    })
+
+    it('should not show dragging state when entering another element', () => {
+      document.body.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+
+      expect(component.$dropButton).not.toHaveClass(
+        `${FileUpload.defaults.dropButtonClass}--dragging`
+      )
+      expect(component.$announcements).toBeEmptyDOMElement()
+    })
+
+    it('should hide dragging state when leaving the document', () => {
+      document.dispatchEvent(
+        createDragEvent('dragleave', createDataTransfer(1))
+      )
+
+      expect(component.$dropButton).not.toHaveClass(
+        `${FileUpload.defaults.dropButtonClass}--dragging`
+      )
+      expect(component.$announcements).toHaveTextContent('Left drop zone')
+    })
+
+    it('should not announce when leaving one element for another', () => {
+      document.body.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+      document.dispatchEvent(
+        createDragEvent('dragleave', createDataTransfer(1))
+      )
+
+      expect(component.$announcements).toBeEmptyDOMElement()
+    })
+
+    it('should ignore drag events when disabled', () => {
+      component.$dropButton.disabled = true
+
+      component.$dropButton.dispatchEvent(
+        createDragEvent('dragenter', createDataTransfer(1))
+      )
+
+      expect(component.$dropButton).not.toHaveClass(
+        `${FileUpload.defaults.dropButtonClass}--dragging`
+      )
+    })
+
+    describe('when dragging files the input cannot accept', () => {
+      it('should not show dragging state when too many files', () => {
+        component.$dropButton.dispatchEvent(
+          createDragEvent('dragenter', createDataTransfer(2))
+        )
+
+        expect(component.$dropButton).not.toHaveClass(
+          `${FileUpload.defaults.dropButtonClass}--dragging`
+        )
+      })
+
+      it('should use data transfer types when no items are listed', () => {
+        const showDraggingState = jest.spyOn(component, 'showDraggingState')
+        const accepted = createDataTransfer(0)
+        const rejected = createDataTransfer(0)
+
+        Object.defineProperty(accepted, 'types', { value: ['Files'] })
+        Object.defineProperty(rejected, 'types', { value: ['text/plain'] })
+
+        component.$dropButton.dispatchEvent(
+          createDragEvent('dragenter', rejected)
+        )
+        component.$dropButton.dispatchEvent(
+          createDragEvent('dragenter', accepted)
+        )
+
+        expect(showDraggingState).toHaveBeenCalledTimes(1)
+      })
+
+      it('should show dragging state when no information is available', () => {
+        component.$dropButton.dispatchEvent(
+          createDragEvent('dragenter', createDataTransfer(0))
+        )
+
+        expect(component.$dropButton).toHaveClass(
+          `${FileUpload.defaults.dropButtonClass}--dragging`
+        )
+      })
+    })
+
+    describe('when files are dropped', () => {
+      it('should fill the input with the dropped file', () => {
+        const changeSpy = jest.fn()
+        $input.addEventListener('change', changeSpy)
+
+        const event = createDragEvent('drop', createDataTransfer(1))
+        component.$dropButton.dispatchEvent(event)
+
+        expect(event.defaultPrevented).toBe(true)
+        expect($input.files?.length).toBe(1)
+        expect(changeSpy).toHaveBeenCalled()
+        expect(component.$status).toHaveTextContent('test-file-0.txt')
+        expect(component.$dropButton).not.toHaveClass(
+          `${FileUpload.defaults.dropButtonClass}--empty`
+        )
+      })
+
+      it('should not fill the input when too many files are dropped', () => {
+        component.$dropButton.dispatchEvent(
+          createDragEvent('drop', createDataTransfer(2))
+        )
+
+        expect($input.files?.length).toBe(0)
+      })
+
+      it('should fill the input with multiple files when allowed', () => {
+        initExample('default')
+        $input.setAttribute('multiple', '')
+        component = new FileUpload($root)
+
+        component.$dropButton.dispatchEvent(
+          createDragEvent('drop', createDataTransfer(2))
+        )
+
+        expect($input.files?.length).toBe(2)
+        expect(component.$status).toHaveTextContent('2 files chosen')
+      })
+    })
+  })
 })
