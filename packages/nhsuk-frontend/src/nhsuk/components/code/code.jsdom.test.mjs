@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
@@ -189,6 +190,146 @@ describe('Code', () => {
       resizeObserverMock.resize()
 
       expect($content).toHaveAttribute('tabindex')
+    })
+
+    it('should remove tabindex when code no longer overflows container', () => {
+      $content.setAttribute('tabindex', '0')
+
+      resizeObserverMock.mockElementSize($content, {
+        contentBoxSize: { inlineSize: 200, blockSize: 200 }
+      })
+
+      // Trigger resize
+      resizeObserverMock.resize()
+
+      expect($content).not.toHaveAttribute('tabindex')
+    })
+  })
+
+  describe('Copy button', () => {
+    it('should reset the button when the clipboard write fails', async () => {
+      const component = new Code($root)
+      const reset = jest.spyOn(component, 'reset')
+
+      jest
+        .spyOn(navigator.clipboard, 'writeText')
+        .mockRejectedValue(new Error('Clipboard write failed'))
+
+      component.copy()
+
+      await waitFor(() => {
+        expect(reset).toHaveBeenCalled()
+      })
+    })
+
+    it('should reuse the existing screen reader status message', () => {
+      const component = new Code($root)
+      const $statusMessage = /** @type {HTMLElement} */ (
+        component.$screenReaderStatusMessage
+      )
+
+      expect($statusMessage).not.toBeNull()
+
+      $statusMessage.textContent = 'Code copied to clipboard'
+      component.setupButton()
+
+      expect(component.$screenReaderStatusMessage).toBe($statusMessage)
+      expect($statusMessage).toHaveTextContent(/^$/)
+    })
+
+    it('should do nothing when the copy button is missing', () => {
+      const component = new Code($root)
+
+      component.$button = null
+
+      expect(() => component.setupButton()).not.toThrow()
+      expect(() => component.enableButton()).not.toThrow()
+      expect(() => component.copied()).not.toThrow()
+      expect(() => component.reset()).not.toThrow()
+    })
+  })
+
+  describe('Browser support', () => {
+    describe('without Clipboard API', () => {
+      /** @type {PropertyDescriptor | undefined} */
+      let clipboardDescriptor
+
+      /** @type {PropertyDescriptor | undefined} */
+      let prototypeClipboardDescriptor
+
+      /** @type {object} */
+      let navigatorPrototype
+
+      beforeEach(() => {
+        navigatorPrototype = Object.getPrototypeOf(navigator)
+        clipboardDescriptor = Object.getOwnPropertyDescriptor(
+          navigator,
+          'clipboard'
+        )
+        prototypeClipboardDescriptor = Object.getOwnPropertyDescriptor(
+          navigatorPrototype,
+          'clipboard'
+        )
+
+        // Simulate a browser without the Clipboard API
+        Reflect.deleteProperty(navigator, 'clipboard')
+        Reflect.deleteProperty(navigatorPrototype, 'clipboard')
+      })
+
+      afterEach(() => {
+        if (clipboardDescriptor) {
+          Object.defineProperty(navigator, 'clipboard', clipboardDescriptor)
+        }
+
+        if (prototypeClipboardDescriptor) {
+          Object.defineProperty(
+            navigatorPrototype,
+            'clipboard',
+            prototypeClipboardDescriptor
+          )
+        }
+      })
+
+      it('should remove copy button support', () => {
+        expect($root).toHaveClass('nhsuk-code--button')
+
+        expect(() => new Code($root)).toThrow(
+          `${Code.moduleName}: Support for "navigator.clipboard" required`
+        )
+
+        expect($root).not.toHaveClass('nhsuk-code--button')
+      })
+    })
+
+    describe('without ResizeObserver', () => {
+      /** @type {typeof ResizeObserver | undefined} */
+      let resizeObserver
+
+      beforeEach(() => {
+        resizeObserver = window.ResizeObserver
+
+        // Simulate a browser without ResizeObserver
+        Reflect.deleteProperty(window, 'ResizeObserver')
+      })
+
+      afterEach(() => {
+        if (resizeObserver) {
+          window.ResizeObserver = resizeObserver
+        }
+      })
+
+      it('should fall back to window resize events', () => {
+        const addEventListener = jest.spyOn(window, 'addEventListener')
+
+        new Code($root)
+
+        expect(addEventListener).toHaveBeenCalledWith(
+          'resize',
+          expect.any(Function)
+        )
+
+        addEventListener.mockRestore()
+      })
     })
   })
 
