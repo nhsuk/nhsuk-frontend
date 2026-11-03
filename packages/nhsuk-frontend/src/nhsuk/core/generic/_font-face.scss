@@ -1,5 +1,5 @@
 @use "sass:math";
-@use "../settings" as *;
+@use "../settings/globals" as *;
 @use "../tools/exports" as *;
 @use "../tools/font-url" as *;
 @forward "../tools/font-url" show nhsuk-font-url;

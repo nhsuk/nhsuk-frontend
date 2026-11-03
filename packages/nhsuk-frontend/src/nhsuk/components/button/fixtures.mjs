@@ -1,3 +1,5 @@
+import { macros } from "#lib"
+
 /**
  * Nunjucks macro option examples
  *
@@ -50,6 +52,137 @@ const fixtures = {
       href: "#"
     }
   },
+  "as a link opens in a new tab": {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true
+    }
+  },
+  'as a link opens in a new tab (with "target" attribute)': {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true,
+      attributes: {
+        target: "_blank"
+      }
+    }
+  },
+  'as a link opens in a new tab (with "rel" attribute)': {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true,
+      attributes: {
+        rel: "noopener"
+      }
+    }
+  },
+  'as a link opens in a new tab (with "target" and "rel" attributes)': {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true,
+      attributes: {
+        target: "_blank",
+        rel: "noopener"
+      }
+    }
+  },
+  "with custom class": {
+    context: {
+      text: "Link as a button",
+      className: "nhsuk-link"
+    }
+  },
+  "with small class": {
+    context: {
+      text: "Save and continue",
+      classes: "nhsuk-button--small"
+    }
+  },
+  "with small class overriding small option": {
+    context: {
+      text: "Save and continue",
+      classes: "nhsuk-button--small",
+      small: true
+    }
+  },
+  "without class": {
+    context: {
+      text: "Default button",
+      className: false
+    }
+  },
+  "with icon": {
+    context: {
+      text: "Increase",
+      icon: "plus"
+    }
+  },
+  "with icon, small": {
+    context: {
+      text: "Increase",
+      icon: "plus",
+      small: true
+    }
+  },
+  "with icon only": {
+    context: {
+      ariaLabel: "Increase",
+      icon: "plus"
+    }
+  },
+  "with icon only, small": {
+    context: {
+      ariaLabel: "Increase",
+      icon: "plus",
+      small: true
+    }
+  },
+  "with icon HTML": {
+    context: {
+      text: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      }
+    }
+  },
+  "with icon HTML, small": {
+    context: {
+      text: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      },
+      small: true
+    }
+  },
+  "with icon HTML only": {
+    context: {
+      ariaLabel: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      }
+    }
+  },
+  "with icon HTML only, small": {
+    context: {
+      ariaLabel: "Increase",
+      icon: {
+        html: macros.render("icon", {
+          context: "plus"
+        })
+      },
+      small: true
+    }
+  },
   "with icon at start": {
     context: {
       text: "Previous",
@@ -57,6 +190,27 @@ const fixtures = {
         name: "arrow-left",
         placement: "start"
       }
+    }
+  },
+  "with icon at start and visually hidden text": {
+    context: {
+      text: "Previous",
+      visuallyHiddenText: "Important",
+      icon: {
+        name: "arrow-left",
+        placement: "start"
+      }
+    }
+  },
+  "with icon at start and visually hidden text, small": {
+    context: {
+      text: "Previous",
+      visuallyHiddenText: "Important",
+      icon: {
+        name: "arrow-left",
+        placement: "start"
+      },
+      small: true
     }
   },
   "with icon at start, small": {
@@ -98,6 +252,12 @@ const fixtures = {
     context: {
       text: "Save and continue",
       preventDoubleClick: false
+    }
+  },
+  "with visually hidden text": {
+    context: {
+      text: "Update",
+      visuallyHiddenText: "Important"
     }
   },
   "login": {
@@ -192,6 +352,13 @@ const fixtures = {
         placement: "end"
       },
       small: true
+    }
+  },
+  "login class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--login"
     }
   },
   "reverse": {
@@ -318,6 +485,16 @@ const fixtures = {
       layout: "background-blue"
     }
   },
+  "reverse class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
   "secondary": {
     context: {
       text: "Find my location",
@@ -410,6 +587,13 @@ const fixtures = {
         placement: "end"
       },
       small: true
+    }
+  },
+  "secondary class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--secondary"
     }
   },
   "secondary, solid background": {
@@ -536,6 +720,16 @@ const fixtures = {
       layout: "background-grey"
     }
   },
+  "secondary, solid background class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--secondary-solid"
+    },
+    options: {
+      layout: "background-grey"
+    }
+  },
   "warning": {
     context: {
       text: "Yes, delete this vaccine",
@@ -628,6 +822,13 @@ const fixtures = {
         placement: "end"
       },
       small: true
+    }
+  },
+  "warning class overriding variant option": {
+    context: {
+      text: "Continue",
+      variant: "brand",
+      classes: "nhsuk-button--warning"
     }
   },
   "example reverse search button, small": {

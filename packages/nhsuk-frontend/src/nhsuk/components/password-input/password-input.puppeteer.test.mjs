@@ -177,11 +177,11 @@ describe('Password input', () => {
         expect(await getText($status)).toBe("Mae eich cyfrinair wedi'i guddio.")
 
         // Expect: showPasswordText
-        expect(await getText($button)).toBe('Datguddia')
+        expect(await getText($button)).toBe('Dangos')
 
         // Expect: showPasswordAriaLabel
         expect(await getAttribute($button, 'aria-label')).toBe(
-          'Datgelu cyfrinair'
+          'Dangos cyfrinair'
         )
       })
     })

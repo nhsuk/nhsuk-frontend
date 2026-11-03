@@ -3,6 +3,7 @@
  */
 
 export * as components from './components.mjs'
+export * as macros from './macros.mjs'
 export * as names from './names.mjs'
 export * as nunjucks from './nunjucks/index.mjs'
 

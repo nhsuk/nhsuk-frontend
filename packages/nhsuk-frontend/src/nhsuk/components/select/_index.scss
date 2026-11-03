@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../input/settings" as *;
 @forward "../../core/objects/input-wrapper";
 @forward "../error-message";
 @forward "../hint";
@@ -18,7 +19,7 @@
 
     min-width: 100%;
     max-width: 100%;
-    height: nhsuk-px-to-rem(40px);
+    height: $nhsuk-input-height;
     padding: nhsuk-spacing(1, $unit: "rem");
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;

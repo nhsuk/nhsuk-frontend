@@ -1,11 +1,15 @@
 @use "vendor/nhsuk-frontend/base" as *;
 
-.app-banner .nhsuk-hero__content {
-  padding-top: nhsuk-spacing(4);
-  padding-bottom: nhsuk-spacing(4);
+.app-banner--small .nhsuk-hero__content {
+  @include nhsuk-responsive-padding(4, ("top", "bottom"));
 
-  @media #{nhsuk-from-breakpoint(tablet)} {
-    padding-top: nhsuk-spacing(7);
-    padding-bottom: nhsuk-spacing(7);
+  .nhsuk-body-s {
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      font-size: inherit;
+    }
+  }
+
+  .nhsuk-header + & {
+    @include nhsuk-responsive-padding(3, ("top", "bottom"));
   }
 }
