@@ -74,7 +74,12 @@ export const compile = task.name('html:render', async () => {
 
     serviceName: 'NHS.UK frontend',
     version: config.version,
-    components: components.getAllFixtures()
+
+    // Get all component fixtures
+    components: components
+      .getNames()
+      .map(components.getFixtures)
+      .filter((data) => data.fixtures.length)
   }
 
   // Render components

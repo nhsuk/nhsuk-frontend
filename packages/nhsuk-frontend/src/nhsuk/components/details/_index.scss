@@ -2,6 +2,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
+@forward "settings";
 
 ////
 /// Details component
@@ -17,12 +19,6 @@
 /// @group components/details
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
-
-$nhsuk-expander-border-width: 1px;
-$nhsuk-expander-border-bottom-width: $nhsuk-border-width;
-$nhsuk-expander-border-colour: $nhsuk-border-colour;
-$nhsuk-expander-border-hover-colour: $nhsuk-secondary-border-colour;
-$nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
 @include nhsuk-exports("nhsuk/components/details") {
   .nhsuk-details {
@@ -216,6 +212,16 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
     border: none;
     background-color: $nhsuk-card-background-colour;
 
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    :first-child:empty + & {
+      margin-top: 0;
+    }
+
+    &:not(:first-child) {
+      @include nhsuk-responsive-margin(6, "top");
+    }
+
     .nhsuk-details__summary {
       display: block;
       width: auto;
@@ -391,9 +397,21 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
   // Reduce margin between a group of expanders so they sit together
   .nhsuk-expander-group {
-    @include nhsuk-responsive-margin(4, "bottom");
+    @include nhsuk-responsive-margin(6, "bottom");
 
-    > .nhsuk-details {
+    :first-child:empty + & {
+      margin-top: 0;
+    }
+
+    &:not(:first-child) {
+      @include nhsuk-responsive-margin(6, "top");
+    }
+
+    > .nhsuk-details:not(:first-child) {
+      @include nhsuk-responsive-margin(2, "top");
+    }
+
+    > .nhsuk-details:not(:last-child) {
       @include nhsuk-responsive-margin(2, "bottom");
     }
   }
@@ -401,5 +419,16 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
   .nhsuk-details + h2:not([class^="nhsuk-caption"]),
   .nhsuk-details + .nhsuk-heading-l {
     @include nhsuk-responsive-padding(4, "top");
+  }
+
+  .nhsuk-details + h3:not([class^="nhsuk-caption"]),
+  .nhsuk-details + h4:not([class^="nhsuk-caption"]),
+  .nhsuk-details + .nhsuk-heading-m,
+  .nhsuk-details + .nhsuk-heading-s {
+    padding-top: nhsuk-spacing(1);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-top: nhsuk-spacing(2);
+    }
   }
 }

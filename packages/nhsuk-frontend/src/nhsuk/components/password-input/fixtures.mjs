@@ -267,9 +267,9 @@ const fixtures = {
       },
       id: "password-translated",
       name: "example",
-      showPasswordText: "Datguddia",
+      showPasswordText: "Dangos",
       hidePasswordText: "Cuddio",
-      showPasswordAriaLabel: "Datgelu cyfrinair",
+      showPasswordAriaLabel: "Dangos cyfrinair",
       hidePasswordAriaLabel: "Cuddio cyfrinair",
       passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
       passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."

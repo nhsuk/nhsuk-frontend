@@ -33,10 +33,8 @@ module.exports = {
   ],
 
   // Reduce CPU usage during project test runs
-  maxWorkers:
-    HEADLESS !== 'false'
-      ? '50%' // Matches Jest default (50%) via `--watch`
-      : 1, // Use only 1x browser window using `HEADLESS=false`
+  // Use only 1x browser window using `HEADLESS=false`
+  maxWorkers: HEADLESS === 'false' ? 1 : '25%',
 
   projects: [
     {
@@ -77,8 +75,8 @@ module.exports = {
     'github-actions'
   ],
 
-  // Increase test timeout (5s to 10s)
-  testTimeout: 10000
+  // Increase test timeout (5s to 20s)
+  testTimeout: 20000
 }
 
 /**

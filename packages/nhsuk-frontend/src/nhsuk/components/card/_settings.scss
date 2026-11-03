@@ -1,0 +1,13 @@
+@use "../../core/settings/colours-applied" as *;
+@use "../../core/tools/spacing" as *;
+
+////
+/// Card settings
+///
+/// @group components/card
+////
+
+$nhsuk-card-border-width: 1px;
+$nhsuk-card-border-bottom-width: nhsuk-spacing(1, $adjustment: - 1px);
+$nhsuk-card-border-colour: $nhsuk-border-colour;
+$nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;

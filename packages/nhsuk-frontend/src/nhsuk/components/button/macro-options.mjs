@@ -37,7 +37,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'A visually hidden prefix used before the button text. Defaults to `"Warning"` for warning buttons.',
+      'A visually hidden prefix used before the button text. Defaults to `"Warning"` for warning buttons. If `ariaLabel` is provided, this has no effect.',
     released: '10.7.0'
   },
   name: {

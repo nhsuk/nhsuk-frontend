@@ -45,7 +45,29 @@ const options = {
         alias: 'heading',
         released: '9.1.0',
         deprecated: '10.6.0',
-        isComponent: true
+        isComponent: true,
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to use within the title. If `html` is provided, the `text` option will be ignored.',
+            released: '9.1.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to use within the title. If `html` is provided, the `text` option will be ignored.',
+            released: '9.1.0'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the title wrapper.',
+            released: '9.1.0'
+          }
+        }
       },
       heading: {
         type: 'object',

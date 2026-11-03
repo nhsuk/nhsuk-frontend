@@ -12,6 +12,10 @@
   }
 }
 
+.nhsuk-back-to-top:has(+ .nhsuk-card) {
+  margin-bottom: 0;
+}
+
 .nhsuk-back-to-top__link {
   display: inline-block;
   @include nhsuk-font(16, $line-height: 1.5);

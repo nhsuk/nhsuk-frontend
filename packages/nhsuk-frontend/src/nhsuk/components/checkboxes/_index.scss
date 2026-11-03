@@ -2,25 +2,18 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
 @forward "../error-message";
 @forward "../fieldset";
 @forward "../hint";
 @forward "../label";
+@forward "settings";
 
 ////
 /// Checkboxes component
 ///
 /// @group components/checkboxes
 ////
-
-$nhsuk-checkboxes-size: nhsuk-px-to-rem(40px);
-$nhsuk-checkboxes-small-size: nhsuk-px-to-rem(24px);
-
-$nhsuk-checkboxes-label-padding-left-right: nhsuk-px-to-rem(12px);
-
-// Offset 2px due to 40px form control with 44px clickable area
-// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
-$nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
 @include nhsuk-exports("nhsuk/components/checkboxes") {
   $nhsuk-touch-target-gutter: nhsuk-px-to-rem(4px);

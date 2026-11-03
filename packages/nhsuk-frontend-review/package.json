@@ -19,13 +19,13 @@
     "autoprefixer": "^10.6.1",
     "cssnano": "^9.3.2",
     "del-cli": "^7.0.0",
-    "html-validate": "^11.16.2",
+    "html-validate": "^11.17.0",
     "plugin-error": "^2.0.1",
     "postcss-pseudo-classes": "^0.4.0",
     "sassdoc": "^2.7.4"
   },
   "engines": {
-    "node": "^24.11.0",
-    "npm": "^11.6.1 <11.6.3 || ^11.6.4"
+    "node": "^26.13.0",
+    "npm": "^11.20.0 || ^12.1.0"
   }
 }

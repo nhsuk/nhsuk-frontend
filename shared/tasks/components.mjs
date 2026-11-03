@@ -1,8 +1,6 @@
 import { join } from 'node:path'
 
 import { components, files } from '@nhsuk/frontend-lib'
-import mergeWith from 'lodash/mergeWith.js'
-import { isObject } from 'nhsuk-frontend/src/nhsuk/common/index.mjs'
 import { render } from 'nhsuk-frontend/src/nhsuk/lib/components.mjs'
 
 /**
@@ -18,7 +16,7 @@ let list
  * @param {Pick<FileOptions, 'destPath'>} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
-  list ??= await components.loadAll()
+  list ??= await Promise.all(components.getNames().map(components.load))
 
   // Loop component names
   const fixtures = list.map(async (data) => {
@@ -47,7 +45,7 @@ export async function generateFixtures({ destPath }) {
  * @param {Pick<FileOptions, 'destPath'>} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
-  list ??= await components.loadAll()
+  list ??= await Promise.all(components.getNames().map(components.load))
 
   // Loop component names
   const macroOptions = list.map(async (data) => {
@@ -91,7 +89,7 @@ export function generateFixture(data) {
 
       // Duplicate examples for each variant
       const examples = variants.length
-        ? variants.map((variant) => mergeExample(example, variant))
+        ? variants.map((variant) => components.mergeExample(example, variant))
         : [example]
 
       // Prepare example fixtures for JSON output
@@ -115,44 +113,7 @@ export function generateFixture(data) {
 }
 
 /**
- * Merge component example with variant
- *
- * @param {MacroExample} example - Review app example
- * @param {MacroExample} variant - Review app example variant
- * @returns {MacroExample} Review app example (merged)
- */
-export function mergeExample(example, variant) {
-  return mergeWith({}, example, variant, (target, source, key) => {
-    if (
-      key === 'classes' &&
-      typeof target === 'string' &&
-      typeof source === 'string' &&
-      !target.includes(source)
-    ) {
-      // Join 'classes' strings without overwriting
-      // e.g. `"nhsuk-radios--small nhsuk-radios--inline"`
-      return `${target} ${source}`.trim()
-    }
-
-    // Prevent merging over null values
-    // e.g. `fieldset: null`
-    if (target === null) {
-      return null
-    }
-
-    // Prevent merging over string values
-    // e.g. `"Example legend"` with `{ size: "m" }`
-    if (typeof target === 'string' && isObject(source)) {
-      return { text: target, ...source }
-    }
-
-    // Prefer default merge behaviour
-    return
-  })
-}
-
-/**
  * @import { ComponentData } from '@nhsuk/frontend-lib/components.mjs'
  * @import { FileOptions } from '@nhsuk/frontend-lib/files.mjs'
- * @import { MacroExample, MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
+ * @import { MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
  */

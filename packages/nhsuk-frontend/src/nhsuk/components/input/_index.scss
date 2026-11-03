@@ -1,10 +1,12 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "settings" as *;
 @forward "../../core/objects/input-wrapper";
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
+@forward "settings";
 
 ////
 /// Input component
@@ -17,7 +19,7 @@
     box-sizing: border-box;
 
     width: 100%;
-    height: nhsuk-px-to-rem(40px);
+    height: $nhsuk-input-height;
     margin-top: 0;
     padding: nhsuk-spacing(1, $unit: "rem");
     // Setting any background-color makes text invisible when changing colours
@@ -61,6 +63,10 @@
     // Hide input clear button (IE)
     &::-ms-clear {
       display: none;
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      height: $nhsuk-input-height-tablet;
     }
   }
 
@@ -130,7 +136,7 @@
   // Large inputs
 
   .nhsuk-input--large {
-    height: nhsuk-px-to-rem(48px);
+    height: $nhsuk-input-height-large;
     padding-right: nhsuk-spacing(2, $unit: "rem");
     padding-left: nhsuk-spacing(2, $unit: "rem");
     @include nhsuk-font($size: 22);
@@ -146,7 +152,7 @@
     }
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      height: nhsuk-px-to-rem(60px);
+      height: $nhsuk-input-height-large-tablet;
     }
   }
 
@@ -204,15 +210,11 @@
   .nhsuk-input-wrapper__suffix {
     box-sizing: border-box;
 
-    // Use flexbox to align text within the prefix and suffix
-    display: flex;
+    // Split prefix/suffix onto separate lines on narrow screens
+    display: block;
 
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
 
-    min-width: nhsuk-px-to-rem(40px);
-    height: nhsuk-px-to-rem(40px);
     padding: nhsuk-spacing(1, $unit: "rem") nhsuk-spacing(2, $unit: "rem");
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
@@ -220,31 +222,38 @@
     background-color: nhsuk-colour("grey-4");
 
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
     // Emphasise non-editable status of prefixes and suffixes
     cursor: default;
 
     @include nhsuk-font($size: 19);
 
-    // Split prefix/suffix onto separate lines on narrow screens
-    @media #{nhsuk-until-breakpoint(mobile)} {
-      display: block;
-      height: 100%;
-      white-space: normal;
+    // Use flexbox to align text within the prefix and suffix
+    @media #{nhsuk-from-breakpoint(mobile)} {
+      display: flex;
+
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+
+      min-width: $nhsuk-input-height;
+      height: $nhsuk-input-height;
+
+      white-space: nowrap;
     }
   }
 
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__prefix,
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix {
     @media #{nhsuk-from-breakpoint(mobile)} {
-      height: nhsuk-px-to-rem(52px);
+      height: $nhsuk-input-height-large;
       padding-right: nhsuk-spacing(3, $unit: "rem");
       padding-left: nhsuk-spacing(3, $unit: "rem");
       @include nhsuk-font($size: 22);
     }
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      height: $nhsuk-input-height-large-tablet;
     }
   }
 
