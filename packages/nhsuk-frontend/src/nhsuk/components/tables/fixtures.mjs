@@ -362,6 +362,98 @@ const fixtures = {
       ]
     }
   },
+  "with 0 rows": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: []
+    },
+    variants: [
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ]
+  },
+  "with 1 row": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ]
+  },
+  "with 2 rows": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ]
+  },
   "with tags": {
     context: {
       caption: "Tags",
@@ -510,6 +602,10 @@ const fixtures = {
         {
           text: "Vaccine"
         },
+        {
+          text: "",
+          visuallyHiddenText: "Action"
+        },
         false
       ],
       rows: [
@@ -520,9 +616,29 @@ const fixtures = {
           {
             text: "RSV"
           },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: false
+          },
           false
         ],
         false
+      ]
+    }
+  },
+  "with array items": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Skin symptoms", "Possible cause"],
+      rows: [
+        ["Blisters on lips or around the mouth", "Cold sores"],
+        [["Itchy", "dry", "cracked", "sore"], "Eczema"],
+        ["Itchy blisters", ["Shingles", "chickenpox"]]
       ]
     }
   },
@@ -549,7 +665,22 @@ const fixtures = {
       },
       firstCellIsHeader: true,
       head: ["Date", "Vaccine", false],
-      rows: [["10 July 2024", "RSV", false], false]
+      rows: [["10 July 2024", "RSV", false], true]
+    }
+  },
+  "with number items": {
+    context: {
+      caption: {
+        text: "Vaccination count",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Date", "Vaccine", "Count"],
+      rows: [
+        ["10 July 2024", "RSV", 0],
+        ["6 September 2023", "Flu", 89],
+        ["15 October 2023", "MMR", 44]
+      ]
     }
   },
   "with missing data": {
@@ -1025,8 +1156,7 @@ const fixtures = {
   "without border": {
     context: {
       caption: {
-        text: "Cases per manager",
-        classes: "nhsuk-u-visually-hidden"
+        visuallyHiddenText: "Cases per manager"
       },
       border: false,
       head: [
@@ -1070,8 +1200,7 @@ const fixtures = {
   "without last row border": {
     context: {
       caption: {
-        text: "Cases per manager",
-        classes: "nhsuk-u-visually-hidden"
+        visuallyHiddenText: "Cases per manager"
       },
       lastRowBorder: false,
       head: [

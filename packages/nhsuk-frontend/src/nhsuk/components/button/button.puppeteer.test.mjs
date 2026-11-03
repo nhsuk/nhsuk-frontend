@@ -9,9 +9,20 @@ describe('Button', () => {
 
   const clickTimeoutTime = 1000 // ms
 
-  // The longest possible time a button will ignore unintentional clicks for
-  // until it can be clicked again (+ 100ms to stay outside the total wait time)
-  const debouncedWaitTime = clickTimeoutTime + 100
+  /**
+   * Waits for the button debounce timer to expire
+   *
+   * Clicks are ignored while the debounce timer is running. A page timer
+   * registered with the same timeout after a click is always due later than
+   * the debounce timer, so awaiting it means the button can be clicked again.
+   */
+  async function waitForDebounce() {
+    await page.evaluate(
+      (debounceTime) =>
+        new Promise((resolve) => setTimeout(resolve, debounceTime)),
+      clickTimeoutTime
+    )
+  }
 
   /**
    * @template {object} HandlerContext
@@ -155,10 +166,9 @@ describe('Button', () => {
           }
         })
 
-        await $component.click({
-          count: 2,
-          delay: debouncedWaitTime
-        })
+        await $component.click()
+        await waitForDebounce()
+        await $component.click()
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -239,10 +249,9 @@ describe('Button', () => {
       it('configures `preventDoubleClick: true` but allows multiple intentional clicks', async () => {
         await initExample('with double click prevented')
 
-        await $component.click({
-          count: 2,
-          delay: debouncedWaitTime
-        })
+        await $component.click()
+        await waitForDebounce()
+        await $component.click()
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,

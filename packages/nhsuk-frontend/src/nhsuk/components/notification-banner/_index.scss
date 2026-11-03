@@ -79,10 +79,10 @@
   }
 
   .nhsuk-notification-banner--success {
-    border-color: $nhsuk-success-colour;
+    border-color: $nhsuk-success-text-colour;
 
     .nhsuk-notification-banner__header {
-      background-color: $nhsuk-success-colour;
+      background-color: $nhsuk-success-text-colour;
     }
 
     .nhsuk-notification-banner__link {

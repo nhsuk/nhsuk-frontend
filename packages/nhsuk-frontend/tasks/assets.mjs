@@ -4,7 +4,7 @@ import * as config from '@nhsuk/frontend-config'
 import { files, icons } from '@nhsuk/frontend-lib'
 import { assets, task } from '@nhsuk/frontend-tasks'
 
-import { nunjucks } from '#lib'
+import { macros } from '#lib'
 
 /**
  * Copy NHS.UK frontend images and other assets
@@ -21,7 +21,7 @@ export const copy = task.name('assets:copy', () =>
  */
 export const render = task.name('assets:render', async () => {
   for (const icon of icons.getNames()) {
-    const svg = nunjucks.renderMacro('nhsukIcon', 'nhsuk/macros/icon.njk', {
+    const svg = macros.render('icon', {
       context: [icon, { attributes: { fill: '#212b32' } }]
     })
 

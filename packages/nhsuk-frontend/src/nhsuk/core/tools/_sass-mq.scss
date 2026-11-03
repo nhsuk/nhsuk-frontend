@@ -3,7 +3,8 @@
 @use "sass:math";
 @use "sass:meta";
 @use "sass:string";
-@use "../settings" as *;
+@use "../settings/breakpoints" as *;
+@use "../settings/warnings" as *;
 @use "functions" as *;
 
 ////

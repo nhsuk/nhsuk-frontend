@@ -275,7 +275,7 @@ describe('Header class', () => {
       initExample('with organisation name (split with descriptor), search')
 
       expect($serviceLogo).toHaveAccessibleName(
-        'NHS Anytown Anyplace Anywhere homepage'
+        'NHS Anytown Anyplace Anywhere NHS Foundation Trust homepage'
       )
     })
 

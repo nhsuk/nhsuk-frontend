@@ -1,8 +1,8 @@
 {% extends "layouts/layout.njk" %}
 
 {% block header %}
+  {% include "partials/environment.njk" %}
   {% include "partials/banner-small.njk" %}
-  {% include "partials/deployment.njk" %}
 {% endblock %}
 
 {# Turn the footer off #}

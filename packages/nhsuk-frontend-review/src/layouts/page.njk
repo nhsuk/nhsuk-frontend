@@ -1,10 +1,10 @@
 {% extends "layouts/layout.njk" %}
 
 {% block header %}
+  {% include "partials/environment.njk" %}
   {{ header({
     logo: {
       href: baseUrl
     }
   }) }}
-  {% include "partials/banner-header.njk" %}
 {% endblock %}
