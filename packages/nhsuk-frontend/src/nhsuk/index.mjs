@@ -101,7 +101,7 @@ export function initAll(scopeOrConfig) {
  *
  * Any component errors will be caught and logged to the console.
  *
- * @template {CompatibleClass | CompatibleClass<typeof ConfigurableComponent>} ComponentClass
+ * @template {CompatibleClass} ComponentClass
  * @overload
  * @param {ComponentClass} Component - Component class to initialise
  * @param {ComponentConfig<ComponentClass>} [config] - Config supplied to component
@@ -110,7 +110,7 @@ export function initAll(scopeOrConfig) {
  */
 
 /**
- * @template {CompatibleClass | CompatibleClass<typeof ConfigurableComponent>} ComponentClass
+ * @template {CompatibleClass} ComponentClass
  * @overload
  * @param {ComponentClass} Component - Component class to initialise
  * @param {ComponentConfig<ComponentClass>} [config] - Config supplied to component
@@ -119,7 +119,7 @@ export function initAll(scopeOrConfig) {
  */
 
 /**
- * @template {CompatibleClass | CompatibleClass<typeof ConfigurableComponent>} ComponentClass
+ * @template {CompatibleClass} ComponentClass
  * @overload
  * @param {ComponentClass} Component - Component class to initialise
  * @param {ComponentConfig<ComponentClass>} [config] - Config supplied to component
@@ -128,7 +128,7 @@ export function initAll(scopeOrConfig) {
  */
 
 /**
- * @template {CompatibleClass | CompatibleClass<typeof ConfigurableComponent>} ComponentClass
+ * @template {CompatibleClass} ComponentClass
  * @param {ComponentClass} Component - Component class to initialise
  * @param {ComponentConfig<ComponentClass>} [config] - Config supplied to component
  * @param {CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions] - Scope of the document to search within, initialisation options or error callback function
@@ -208,7 +208,7 @@ export * from './errors/index.mjs'
  *
  * @typedef {object} Config
  * @property {Element | Document | null} [scope] - Scope of the document to search within
- * @property {OnErrorCallback<CompatibleClass>} [onError] - Initialisation error callback
+ * @property {OnErrorCallback} [onError] - Initialisation error callback
  * @property {ComponentConfig<typeof Button>} [button] - Button config
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
  * @property {ComponentConfig<typeof Checkboxes>} [checkboxes] - Checkboxes config
@@ -239,30 +239,39 @@ export * from './errors/index.mjs'
  */
 
 /**
- * Initialisation or create all error context
+ * Initialisation error context
+ *
+ * @typedef {object} InitErrorContext
+ * @property {undefined} [element] - Element used for component module initialisation
+ * @property {undefined} [component] - Class of component
+ * @property {Config} [config] - Config supplied to components
+ */
+
+/**
+ * Create all error context
  *
  * Contains the element, component class and configuration
  *
- * @template {CompatibleClass} ComponentClass
+ * @template {CompatibleClass} [ComponentClass=CompatibleClass]
  * @typedef {object} ErrorContext
  * @property {Element} [element] - Element used for component module initialisation
  * @property {ComponentClass} [component] - Class of component
- * @property {Config | ComponentConfig<ComponentClass>} config - Config supplied to components
+ * @property {ComponentConfig<ComponentClass>} [config] - Config supplied to component
  */
 
 /**
  * Initialisation or create all error callback
  *
- * @template {CompatibleClass} ComponentClass
+ * @template {CompatibleClass | undefined} [ComponentClass=CompatibleClass | undefined]
  * @callback OnErrorCallback
  * @param {unknown} error - Thrown error
- * @param {ErrorContext<ComponentClass>} context - Object containing the element, component class and configuration
+ * @param {[ComponentClass] extends [CompatibleClass] ? ErrorContext<ComponentClass> : InitErrorContext | ErrorContext} context - Object containing the element, component class and configuration
  */
 
 /**
  * Create all options
  *
- * @template {CompatibleClass} ComponentClass
+ * @template {CompatibleClass | undefined} [ComponentClass=CompatibleClass | undefined]
  * @typedef {object} CreateAllOptions
  * @property {Element | Document | null} [scope] - Scope of the document to search within
  * @property {OnErrorCallback<ComponentClass>} [onError] - Initialisation error callback
@@ -270,5 +279,4 @@ export * from './errors/index.mjs'
 
 /**
  * @import { CompatibleClass } from './component.mjs'
- * @import { ConfigurableComponent } from './configurable-component.mjs'
  */
