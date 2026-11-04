@@ -593,7 +593,7 @@ If you're not using Nunjucks macros, you can remove these attributes from your H
 + <footer class="nhsuk-footer">
 ```
 
-This change was introduced in [pull request #XXXX: Remove redundant landmark roles from HTML5 elements](https://github.com/nhsuk/nhsuk-frontend/pull/XXXX).
+This change was introduced in [pull request #2185: Remove redundant landmark roles from HTML5 elements](https://github.com/nhsuk/nhsuk-frontend/pull/2185).
 
 ## 10.7.0 - 27 October 2026
 
