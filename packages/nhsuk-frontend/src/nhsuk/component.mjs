@@ -84,7 +84,7 @@ export class Component {
   /**
    * Validate whether component is supported
    *
-   * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
+   * @template {SchemaConfig<ConfigurationType>} [ConfigurationType=ObjectNested]
    * @template {HTMLElement} [RootElementType=HTMLElement]
    * @param {RootElementType} [_$root] - HTML element to use for component
    * @param {ConfigurationType} [_config] - Config specified by configurable components only
@@ -129,6 +129,6 @@ export class Component {
  */
 
 /**
- * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema, SchemaConfig } from './common/configuration/index.mjs'
  * @import { ConfigurableComponent } from './configurable-component.mjs'
  */

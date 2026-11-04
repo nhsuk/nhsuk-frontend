@@ -11,7 +11,7 @@ import { ConfigError } from './errors/index.mjs'
  * Configurable base component class
  *
  * @abstract
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
+ * @template {SchemaConfig<ConfigurationType>} [ConfigurationType=ObjectNested]
  * @template {HTMLElement} [RootElementType=HTMLElement]
  * @augments {Component<RootElementType>}
  */
@@ -102,6 +102,6 @@ export class ConfigurableComponent extends Component {
 }
 
 /**
- * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema, SchemaConfig } from './common/configuration/index.mjs'
  * @import { ComponentConstructor } from './component.mjs'
  */

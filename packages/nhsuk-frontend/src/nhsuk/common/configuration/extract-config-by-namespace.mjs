@@ -6,7 +6,7 @@ import { normaliseString } from './normalise-string.mjs'
  * Extracts keys starting with a particular namespace from dataset ('data-*')
  * object, removing the namespace in the process, normalising all values
  *
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
+ * @template {SchemaConfig<ConfigurationType>} ConfigurationType
  * @param {Schema<ConfigurationType>} schema - The schema of a component
  * @param {DOMStringMap} dataset - The object to extract key-value pairs from
  * @param {keyof ConfigurationType} namespace - The namespace to filter keys with
@@ -63,11 +63,18 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
 /**
  * Schema for component config
  *
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
+ * @template {SchemaConfig<ConfigurationType>} ConfigurationType
  * @typedef {object} Schema
  * @property {Record<keyof ConfigurationType, SchemaProperty | undefined>} properties - Schema properties
  * @property {SchemaCondition<ConfigurationType>[]} [allOf] - List of schema conditions, all must pass
  * @property {SchemaCondition<ConfigurationType>[]} [anyOf] - List of schema conditions, any must pass
+ */
+
+/**
+ * Schema for component config
+ *
+ * @template ConfigurationType
+ * @typedef {Partial<Record<keyof ConfigurationType, unknown>>} SchemaConfig
  */
 
 /**
@@ -80,7 +87,7 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
 /**
  * Schema condition for component config
  *
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
+ * @template {SchemaConfig<ConfigurationType>} ConfigurationType
  * @typedef {object} SchemaCondition
  * @property {(keyof ConfigurationType)[]} required - List of required config fields
  * @property {string} errorMessage - Error message when required config fields not provided
