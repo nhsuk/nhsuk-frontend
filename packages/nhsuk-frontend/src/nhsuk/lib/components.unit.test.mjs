@@ -39,6 +39,45 @@ describe('Node.js API: Components', () => {
       `)
     })
 
+    it('returns nested component HTML', () => {
+      const html = render('card/action', {
+        context: [
+          {
+            href: '#/delete',
+            text: 'Delete'
+          }
+        ]
+      })
+
+      expect(html).toMatchInlineSnapshot(`
+        "<a class="nhsuk-link" href="#/delete">Delete</a>
+        "
+      `)
+    })
+
+    it('returns nested component HTML with parent context', () => {
+      const parent = {
+        params: {
+          heading: 'Regional Manager'
+        }
+      }
+
+      const html = render('card/action', {
+        context: [
+          {
+            href: '#/delete',
+            text: 'Delete'
+          },
+          parent
+        ]
+      })
+
+      expect(html).toMatchInlineSnapshot(`
+        "<a class="nhsuk-link" href="#/delete">Delete<span class="nhsuk-u-visually-hidden"> (Regional Manager)</span></a>
+        "
+      `)
+    })
+
     it('returns custom component HTML (custom env)', () => {
       const viewsPath = join(import.meta.dirname, 'fixtures/components')
 
