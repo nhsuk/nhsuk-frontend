@@ -6,9 +6,9 @@
  * {@link https://ajv.js.org/json-schema.html#compound-keywords}
  * {@link https://ajv.js.org/packages/ajv-errors.html#single-message}
  *
- * @template {SchemaConfig<ConfigurationType>} ConfigurationType
- * @param {Schema<ConfigurationType>} schema - The schema of a component
- * @param {ConfigurationType} config - Component config
+ * @template {SchemaConfig<ConfigType>} ConfigType
+ * @param {Schema<ConfigType>} schema - The schema of a component
+ * @param {ConfigType} config - Component config
  * @returns {string[]} List of validation errors
  */
 export function validateConfig(schema, config) {

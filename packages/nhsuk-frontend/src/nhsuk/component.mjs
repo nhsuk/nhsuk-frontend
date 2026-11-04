@@ -84,10 +84,10 @@ export class Component {
   /**
    * Validate whether component is supported
    *
-   * @template {SchemaConfig<ConfigurationType>} [ConfigurationType=ObjectNested]
+   * @template {SchemaConfig<ConfigType>} [ConfigType=ObjectNested]
    * @template {HTMLElement} [RootElementType=HTMLElement]
    * @param {RootElementType} [_$root] - HTML element to use for component
-   * @param {ConfigurationType} [_config] - Config specified by configurable components only
+   * @param {ConfigType} [_config] - Config specified by configurable components only
    * @throws {SupportError} when component is not supported
    */
   static checkSupport(_$root, _config) {
