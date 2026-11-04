@@ -84,14 +84,12 @@ export class Component {
   /**
    * Validate whether component is supported
    *
-   * @template {CompatibleClass} ComponentClass
+   * @abstract
    * @template {HTMLElement} [RootElementType=HTMLElement]
-   * @this {ComponentClass}
    * @param {RootElementType} [_$root] - HTML element to use for component
-   * @param {ComponentConfig<ComponentClass>} [_config] - Config specified by configurable components only
    * @throws {SupportError} when component is not supported
    */
-  static checkSupport(_$root, _config) {
+  static checkSupport(_$root) {
     if (!isSupported()) {
       throw new SupportError()
     }

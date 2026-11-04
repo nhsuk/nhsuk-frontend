@@ -97,9 +97,25 @@ export class ConfigurableComponent extends Component {
   configOverride(_datasetConfig) {
     return {}
   }
+
+  /**
+   * Validate whether component is supported
+   *
+   * @abstract
+   * @template {CompatibleClass} ComponentClass
+   * @template {HTMLElement} [RootElementType=HTMLElement]
+   * @this {ComponentClass}
+   * @param {RootElementType} [$root] - HTML element to use for component
+   * @param {ComponentConfig<ComponentClass>} [_config] - Component config
+   * @throws {SupportError} when component is not supported
+   */
+  static checkSupport($root, _config) {
+    super.checkSupport($root)
+  }
 }
 
 /**
  * @import { ObjectNested, Schema, SchemaConfig } from './common/configuration/index.mjs'
- * @import { ComponentConstructor } from './component.mjs'
+ * @import { CompatibleClass, ComponentConstructor } from './component.mjs'
+ * @import { ComponentConfig } from './index.mjs'
  */
