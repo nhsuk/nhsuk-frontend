@@ -9,6 +9,7 @@ Note: This release was created from the `support/10.x` branch.
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#2185: Guard against mock iterable values without length in `nhsukContent()`](https://github.com/nhsuk/nhsuk-frontend/pull/2185)
+- [#2186: Fix summary list row when rendered with custom HTML or call block](https://github.com/nhsuk/nhsuk-frontend/pull/2186)
 
 ## 10.7.1 - 29 October 2026
 
