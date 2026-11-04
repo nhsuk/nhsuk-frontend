@@ -92,27 +92,6 @@ export default defineConfig({
         }
       },
 
-      // Allow footer component <footer role="contentinfo">
-      footer: {
-        attributes: {
-          role: { enum: ['contentinfo'] }
-        }
-      },
-
-      // Allow header component <header role="banner">
-      header: {
-        attributes: {
-          role: { enum: ['banner'] }
-        }
-      },
-
-      // Allow contents list and pagination component <nav role="navigation">
-      nav: {
-        attributes: {
-          role: { enum: ['navigation'] }
-        }
-      },
-
       // Allow table component (responsive) <table role="table">
       table: {
         attributes: {
