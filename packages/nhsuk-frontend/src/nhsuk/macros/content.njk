@@ -117,8 +117,10 @@
   Renders array of text, HTML or visually hidden content
 #}
 {%- macro nhsukContentItems(items, index = 0) %}
+  {%- set count = items | length %}
+
   {%- set itemHtml = nhsukContent(items[index]) | trim %}
-  {%- set nextHtml = nhsukContentItems(items, index + 1) | trim if index + 1 < items | length else "" %}
+  {%- set nextHtml = nhsukContentItems(items, index + 1) | trim if index + 1 < count else "" %}
 
   {{- itemHtml -}}
   {{- ", " if itemHtml | length and nextHtml | length -}}
