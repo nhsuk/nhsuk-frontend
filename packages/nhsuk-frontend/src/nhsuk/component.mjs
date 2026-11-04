@@ -122,6 +122,13 @@ export class Component {
  */
 
 /**
+ * Component config
+ *
+ * @template {CompatibleClass} ComponentClass
+ * @typedef {ConstructorParameters<ComponentClass>[1]} ComponentConfig
+ */
+
+/**
  * Component initialisation options
  *
  * @typedef {object} InitOptions

@@ -232,13 +232,6 @@ export * from './errors/index.mjs'
  */
 
 /**
- * Component config
- *
- * @template {CompatibleClass} ComponentClass
- * @typedef {ConstructorParameters<ComponentClass>[1]} ComponentConfig
- */
-
-/**
  * Initialisation error context
  *
  * @typedef {object} InitErrorContext
@@ -278,5 +271,5 @@ export * from './errors/index.mjs'
  */
 
 /**
- * @import { CompatibleClass } from './component.mjs'
+ * @import { CompatibleClass, ComponentConfig } from './component.mjs'
  */
