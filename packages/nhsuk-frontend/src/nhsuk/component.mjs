@@ -84,10 +84,11 @@ export class Component {
   /**
    * Validate whether component is supported
    *
-   * @template {SchemaConfig<ConfigType>} [ConfigType=ObjectNested]
+   * @template {CompatibleClass} ComponentClass
    * @template {HTMLElement} [RootElementType=HTMLElement]
+   * @this {ComponentClass}
    * @param {RootElementType} [_$root] - HTML element to use for component
-   * @param {ConfigType} [_config] - Config specified by configurable components only
+   * @param {ComponentConfig<ComponentClass>} [_config] - Config specified by configurable components only
    * @throws {SupportError} when component is not supported
    */
   static checkSupport(_$root, _config) {
@@ -136,6 +137,6 @@ export class Component {
  */
 
 /**
- * @import { ObjectNested, Schema, SchemaConfig } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
  * @import { ConfigurableComponent } from './configurable-component.mjs'
  */

@@ -129,9 +129,27 @@ new MyComponent3($root, {
   aNumberOption: 12345
 })
 
+Code.checkSupport()
+Code.checkSupport($root)
+// @ts-expect-error - Component config is invalid
+Code.checkSupport($root, { invalid: 'option' })
+Code.checkSupport($root, Code.defaults)
+
 MyComponent1.checkSupport()
+MyComponent1.checkSupport($root)
+// @ts-expect-error - Component is not configurable
+MyComponent1.checkSupport($root, {})
+
 MyComponent2.checkSupport()
+MyComponent2.checkSupport($root)
+// @ts-expect-error - Component is not configurable
+MyComponent2.checkSupport($root, {})
+
 MyComponent3.checkSupport()
+MyComponent3.checkSupport($root)
+// @ts-expect-error - Component config is invalid
+MyComponent3.checkSupport($root, { invalid: 'option' })
+MyComponent3.checkSupport($root, MyComponent3.defaults)
 
 isSupported()
 isSupported($root)
