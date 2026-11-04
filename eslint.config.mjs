@@ -21,7 +21,8 @@ const gitignorePath = join(rootPath, '.gitignore')
 
 export default defineConfig([
   {
-    files: ['**/*.{cjs,js,mjs}'],
+    files: ['**/*.{cjs,js,mjs,mts}'],
+    ignores: ['**/*.d.mts'],
     extends: [
       eslint.configs.recommended,
       pluginJsdoc.configs['flat/recommended-typescript-flavor'],
@@ -87,14 +88,7 @@ export default defineConfig([
       // Prefer rules that are type aware
       'no-redeclare': 'off',
       'no-undef': 'off',
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_'
-        }
-      ]
+      'no-unused-vars': 'off'
     }
   },
   {
@@ -177,6 +171,15 @@ export default defineConfig([
       // Allow examples to contain unused expressions
       '@typescript-eslint/no-unused-expressions': 'off',
 
+      // Allow unused arguments with underscores
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_'
+        }
+      ],
+
       // Check type support for template string implicit `.toString()`
       '@typescript-eslint/restrict-template-expressions': [
         'error',
@@ -238,6 +241,15 @@ export default defineConfig([
       'jsdoc/require-returns-description': 'off',
       'jsdoc/require-returns-type': 'off',
       'jsdoc/require-returns': 'off'
+    }
+  },
+  {
+    // Configure ESLint in TypeScript files
+    files: ['**/*.mts'],
+    ignores: ['**/*.d.mts'],
+    extends: [pluginTypeScript.configs.strictTypeChecked],
+    rules: {
+      '@typescript-eslint/no-unused-expressions': 'off'
     }
   },
   {

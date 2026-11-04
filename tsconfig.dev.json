@@ -21,6 +21,7 @@
     "./packages/*/*.config.mjs",
     "./shared/helpers/jest/**/*.setup.mjs",
     "./tests/backstop/engine_scripts/**/*.js",
+    "./tests/types/*.mts",
     "./.prettierrc.js",
     "./.stylelintrc.js",
     "./*.config.js",
