@@ -12,6 +12,7 @@ import {
   Header,
   I18n,
   NotificationBanner,
+  type OnErrorCallback,
   PasswordInput,
   Radios,
   Scroll,
@@ -161,6 +162,22 @@ isSupported()
 isSupported($root)
 isSupported(null)
 
+const onError: OnErrorCallback = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.moduleName
+  context.config
+}
+
+const onErrorButton: OnErrorCallback<typeof Button> = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Button
+  context.config?.preventDoubleClick
+}
+
 createAll(Button)
 createAll(Button, Button.defaults)
 createAll(Button, Button.defaults, null)
@@ -168,17 +185,32 @@ createAll(Button, Button.defaults, undefined)
 createAll(Button, Button.defaults, document)
 createAll(Button, Button.defaults, $root)
 createAll(Button, Button.defaults, console.error)
+createAll(Button, Button.defaults, onError)
+createAll(Button, Button.defaults, onErrorButton)
 createAll(Button, Button.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === Button
-    context.config?.preventDoubleClick
-  }
+  onError: onErrorButton
 })
+
+const onErrorCharacterCount: OnErrorCallback<typeof CharacterCount> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === CharacterCount
+  context.config?.i18n
+  context.config?.maxlength
+  context.config?.maxwords
+  context.config?.threshold
+  context.config?.countFunction
+  context.config?.countType
+  context.config?.screenReaderCountMessageClass
+  context.config?.textareaDescriptionClass
+  context.config?.visibleCountMessageClass
+}
 
 createAll(CharacterCount)
 createAll(CharacterCount, CharacterCount.defaults)
@@ -187,25 +219,24 @@ createAll(CharacterCount, CharacterCount.defaults, undefined)
 createAll(CharacterCount, CharacterCount.defaults, document)
 createAll(CharacterCount, CharacterCount.defaults, $root)
 createAll(CharacterCount, CharacterCount.defaults, console.error)
+createAll(CharacterCount, CharacterCount.defaults, onError)
+createAll(CharacterCount, CharacterCount.defaults, onErrorCharacterCount)
 createAll(CharacterCount, CharacterCount.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === CharacterCount
-    context.config?.i18n
-    context.config?.maxlength
-    context.config?.maxwords
-    context.config?.threshold
-    context.config?.countFunction
-    context.config?.countType
-    context.config?.screenReaderCountMessageClass
-    context.config?.textareaDescriptionClass
-    context.config?.visibleCountMessageClass
-  }
+  onError: onErrorCharacterCount
 })
+
+const onErrorCheckboxes: OnErrorCallback<typeof Checkboxes> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Checkboxes
+  context.config?.conditionalClass
+}
 
 createAll(Checkboxes)
 createAll(Checkboxes, Checkboxes.defaults)
@@ -214,16 +245,24 @@ createAll(Checkboxes, Checkboxes.defaults, undefined)
 createAll(Checkboxes, Checkboxes.defaults, document)
 createAll(Checkboxes, Checkboxes.defaults, $root)
 createAll(Checkboxes, Checkboxes.defaults, console.error)
+createAll(Checkboxes, Checkboxes.defaults, onError)
+createAll(Checkboxes, Checkboxes.defaults, onErrorCheckboxes)
 createAll(Checkboxes, Checkboxes.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.moduleName
-    context.component === Checkboxes
-    context.config?.conditionalClass
-  }
+  onError: onErrorCheckboxes
 })
+
+const onErrorCode: OnErrorCallback<typeof Code> = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Code
+  context.config?.i18n
+  context.config?.containerClass
+  context.config?.contentClass
+  context.config?.screenReaderStatusMessageClass
+}
 
 createAll(Code)
 createAll(Code, Code.defaults)
@@ -232,19 +271,26 @@ createAll(Code, Code.defaults, undefined)
 createAll(Code, Code.defaults, document)
 createAll(Code, Code.defaults, $root)
 createAll(Code, Code.defaults, console.error)
+createAll(Code, Code.defaults, onError)
+createAll(Code, Code.defaults, onErrorCode)
 createAll(Code, Code.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.moduleName
-    context.component === Code
-    context.config?.i18n
-    context.config?.containerClass
-    context.config?.contentClass
-    context.config?.screenReaderStatusMessageClass
-  }
+  onError: onErrorCode
 })
+
+const onErrorErrorSummary: OnErrorCallback<typeof ErrorSummary> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === ErrorSummary
+  context.config
+  context.config?.disableAutoFocus
+  context.config?.focusOnPageLoad
+}
 
 createAll(ErrorSummary)
 createAll(ErrorSummary, ErrorSummary.defaults)
@@ -253,19 +299,33 @@ createAll(ErrorSummary, ErrorSummary.defaults, undefined)
 createAll(ErrorSummary, ErrorSummary.defaults, document)
 createAll(ErrorSummary, ErrorSummary.defaults, $root)
 createAll(ErrorSummary, ErrorSummary.defaults, console.error)
+createAll(ErrorSummary, ErrorSummary.defaults, onError)
+createAll(ErrorSummary, ErrorSummary.defaults, onErrorErrorSummary)
 createAll(ErrorSummary, undefined, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === ErrorSummary
-    context.config
-    context.config?.disableAutoFocus
-    context.config?.focusOnPageLoad
-  }
+  onError: onErrorErrorSummary
 })
+
+const onErrorFileUpload: OnErrorCallback<typeof FileUpload> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === FileUpload
+  context.config
+  context.config?.i18n
+  context.config?.announcementsClass
+  context.config?.chooseFilesButtonClass
+  context.config?.chooseFilesButtonClassList
+  context.config?.dropButtonClass
+  context.config?.dropButtonGroupClass
+  context.config?.dropInstructionClass
+  context.config?.dropZoneClass
+  context.config?.statusClass
+}
 
 createAll(FileUpload)
 createAll(FileUpload, FileUpload.defaults)
@@ -274,26 +334,26 @@ createAll(FileUpload, FileUpload.defaults, undefined)
 createAll(FileUpload, FileUpload.defaults, document)
 createAll(FileUpload, FileUpload.defaults, $root)
 createAll(FileUpload, FileUpload.defaults, console.error)
+createAll(FileUpload, FileUpload.defaults, onError)
+createAll(FileUpload, FileUpload.defaults, onErrorFileUpload)
 createAll(FileUpload, undefined, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === FileUpload
-    context.config
-    context.config?.i18n
-    context.config?.announcementsClass
-    context.config?.chooseFilesButtonClass
-    context.config?.chooseFilesButtonClassList
-    context.config?.dropButtonClass
-    context.config?.dropButtonGroupClass
-    context.config?.dropInstructionClass
-    context.config?.dropZoneClass
-    context.config?.statusClass
-  }
+  onError: onErrorFileUpload
 })
+
+const onErrorHeader: OnErrorCallback<typeof Header> = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Header
+  context.config?.menuClass
+  context.config?.menuListClass
+  context.config?.menuToggleClass
+  context.config?.navigationClass
+  context.config?.navigationItemClass
+  context.config?.navigationListClass
+}
 
 createAll(Header)
 createAll(Header, Header.defaults)
@@ -302,22 +362,25 @@ createAll(Header, Header.defaults, undefined)
 createAll(Header, Header.defaults, document)
 createAll(Header, Header.defaults, $root)
 createAll(Header, Header.defaults, console.error)
+createAll(Header, Header.defaults, onError)
+createAll(Header, Header.defaults, onErrorHeader)
 createAll(Header, undefined, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === Header
-    context.config?.menuClass
-    context.config?.menuListClass
-    context.config?.menuToggleClass
-    context.config?.navigationClass
-    context.config?.navigationItemClass
-    context.config?.navigationListClass
-  }
+  onError: onErrorHeader
 })
+
+const onErrorNotificationBanner: OnErrorCallback<typeof NotificationBanner> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === NotificationBanner
+  context.config
+  context.config?.disableAutoFocus
+}
 
 createAll(NotificationBanner)
 createAll(NotificationBanner, NotificationBanner.defaults)
@@ -326,18 +389,30 @@ createAll(NotificationBanner, NotificationBanner.defaults, undefined)
 createAll(NotificationBanner, NotificationBanner.defaults, document)
 createAll(NotificationBanner, NotificationBanner.defaults, $root)
 createAll(NotificationBanner, NotificationBanner.defaults, console.error)
+createAll(NotificationBanner, NotificationBanner.defaults, onError)
+createAll(
+  NotificationBanner,
+  NotificationBanner.defaults,
+  onErrorNotificationBanner
+)
 createAll(NotificationBanner, undefined, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === NotificationBanner
-    context.config
-    context.config?.disableAutoFocus
-  }
+  onError: onErrorNotificationBanner
 })
+
+const onErrorPasswordInput: OnErrorCallback<typeof PasswordInput> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === PasswordInput
+  context.config
+  context.config?.i18n
+  context.config?.screenReaderStatusMessageClass
+}
 
 createAll(PasswordInput)
 createAll(PasswordInput, PasswordInput.defaults)
@@ -346,19 +421,21 @@ createAll(PasswordInput, PasswordInput.defaults, undefined)
 createAll(PasswordInput, PasswordInput.defaults, document)
 createAll(PasswordInput, PasswordInput.defaults, $root)
 createAll(PasswordInput, PasswordInput.defaults, console.error)
+createAll(PasswordInput, PasswordInput.defaults, onError)
+createAll(PasswordInput, PasswordInput.defaults, onErrorPasswordInput)
 createAll(PasswordInput, undefined, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.defaults
-    context.component?.moduleName
-    context.component === PasswordInput
-    context.config
-    context.config?.i18n
-    context.config?.screenReaderStatusMessageClass
-  }
+  onError: onErrorPasswordInput
 })
+
+const onErrorRadios: OnErrorCallback<typeof Radios> = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Radios
+  context.config?.conditionalClass
+}
 
 createAll(Radios)
 createAll(Radios, Radios.defaults)
@@ -367,16 +444,21 @@ createAll(Radios, Radios.defaults, undefined)
 createAll(Radios, Radios.defaults, document)
 createAll(Radios, Radios.defaults, $root)
 createAll(Radios, Radios.defaults, console.error)
+createAll(Radios, Radios.defaults, onError)
+createAll(Radios, Radios.defaults, onErrorRadios)
 createAll(Radios, Radios.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.moduleName
-    context.component === Radios
-    context.config?.conditionalClass
-  }
+  onError: onErrorRadios
 })
+
+const onErrorSkipLink: OnErrorCallback<typeof SkipLink> = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === SkipLink
+  context.config?.focusedElementClassList
+}
 
 createAll(SkipLink)
 createAll(SkipLink, SkipLink.defaults)
@@ -385,16 +467,24 @@ createAll(SkipLink, SkipLink.defaults, undefined)
 createAll(SkipLink, SkipLink.defaults, document)
 createAll(SkipLink, SkipLink.defaults, $root)
 createAll(SkipLink, SkipLink.defaults, console.error)
+createAll(SkipLink, SkipLink.defaults, onError)
+createAll(SkipLink, SkipLink.defaults, onErrorSkipLink)
 createAll(SkipLink, SkipLink.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.moduleName
-    context.component === SkipLink
-    context.config?.focusedElementClassList
-  }
+  onError: onErrorSkipLink
 })
+
+const onErrorTabs: OnErrorCallback<typeof Tabs> = (error, context) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Tabs
+  context.config?.listClass
+  context.config?.listItemClass
+  context.config?.panelClass
+  context.config?.tabClass
+}
 
 createAll(Tabs)
 createAll(Tabs, Tabs.defaults)
@@ -403,18 +493,11 @@ createAll(Tabs, Tabs.defaults, undefined)
 createAll(Tabs, Tabs.defaults, document)
 createAll(Tabs, Tabs.defaults, $root)
 createAll(Tabs, Tabs.defaults, console.error)
+createAll(Tabs, Tabs.defaults, onError)
+createAll(Tabs, Tabs.defaults, onErrorTabs)
 createAll(Tabs, Tabs.defaults, {
   scope: $root,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.moduleName
-    context.component === Tabs
-    context.config?.listClass
-    context.config?.listItemClass
-    context.config?.panelClass
-    context.config?.tabClass
-  }
+  onError: onErrorTabs
 })
 
 createAll(MyComponent1)
@@ -422,7 +505,6 @@ createAll(MyComponent1)
 createAll(MyComponent1, {})
 createAll(MyComponent1, undefined)
 createAll(MyComponent1, undefined, null)
-createAll(MyComponent1, undefined, undefined)
 createAll(MyComponent1, undefined, document)
 createAll(MyComponent1, undefined, $root)
 createAll(MyComponent1, undefined, console.error)
@@ -441,7 +523,6 @@ createAll(MyComponent2)
 createAll(MyComponent2, {})
 createAll(MyComponent2, undefined)
 createAll(MyComponent2, undefined, null)
-createAll(MyComponent2, undefined, undefined)
 createAll(MyComponent2, undefined, document)
 createAll(MyComponent2, undefined, $root)
 createAll(MyComponent2, undefined, console.error)
@@ -511,7 +592,7 @@ createAll(MyComponent3, MyComponent3.defaults, {
   }
 })
 
-const config: Config = {
+const config = {
   button: Button.defaults,
   characterCount: CharacterCount.defaults,
   checkboxes: Checkboxes.defaults,
@@ -526,13 +607,8 @@ const config: Config = {
   skipLink: SkipLink.defaults,
   table: Table.defaults,
   tabs: Tabs.defaults,
-  onError(error, context) {
-    error instanceof Error
-    context.element
-    context.component?.moduleName
-    context.config
-  }
-}
+  onError
+} satisfies Config
 
 const buttonConfig: Config[ConfigKey] = config.button
 const characterCountConfig: Config[ConfigKey] = config.characterCount
