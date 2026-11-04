@@ -34,7 +34,8 @@
   {% elif params.text is defined and
     params.text is not none and
     params.text is not mapping and
-    params.text is iterable %}
+    params.text is iterable and
+    params.text | length %}
     {{- nhsukContentItems(params.text) -}}
   {% endif %}
 {%- endset %}
@@ -119,7 +120,7 @@
 {%- macro nhsukContentItems(items, index = 0) %}
   {%- set count = items | length %}
 
-  {%- set itemHtml = nhsukContent(items[index]) | trim %}
+  {%- set itemHtml = nhsukContent(items[index]) | trim if index < count else "" %}
   {%- set nextHtml = nhsukContentItems(items, index + 1) | trim if index + 1 < count else "" %}
 
   {{- itemHtml -}}
