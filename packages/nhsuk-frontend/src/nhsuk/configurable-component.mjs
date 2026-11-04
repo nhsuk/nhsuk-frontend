@@ -91,10 +91,10 @@ export class ConfigurableComponent extends Component {
    * overridden based on the root element's dataset
    *
    * @abstract
-   * @param {Partial<ConfigType>} _datasetConfig - Config specified by dataset
+   * @param {Partial<ConfigType>} datasetConfig - Config specified by dataset
    * @returns {Partial<ConfigType>} Config to override by dataset
    */
-  configOverride(_datasetConfig) {
+  configOverride(datasetConfig) {
     return {}
   }
 
@@ -106,10 +106,10 @@ export class ConfigurableComponent extends Component {
    * @template {HTMLElement} [RootElementType=HTMLElement]
    * @this {ComponentClass}
    * @param {RootElementType} [$root] - HTML element to use for component
-   * @param {ComponentConfig<ComponentClass>} [_config] - Component config
+   * @param {ComponentConfig<ComponentClass>} [config] - Component config
    * @throws {SupportError} when component is not supported
    */
-  static checkSupport($root, _config) {
+  static checkSupport($root, config) {
     super.checkSupport($root)
   }
 }

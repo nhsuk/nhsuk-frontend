@@ -171,12 +171,11 @@ export default defineConfig([
       // Allow examples to contain unused expressions
       '@typescript-eslint/no-unused-expressions': 'off',
 
-      // Allow unused arguments with underscores
+      // Allow unused vars with expected names only
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_'
+          argsIgnorePattern: '\\$root|config|datasetConfig'
         }
       ],
 

@@ -86,10 +86,10 @@ export class Component {
    *
    * @abstract
    * @template {HTMLElement} [RootElementType=HTMLElement]
-   * @param {RootElementType} [_$root] - HTML element to use for component
+   * @param {RootElementType} [$root] - HTML element to use for component
    * @throws {SupportError} when component is not supported
    */
-  static checkSupport(_$root) {
+  static checkSupport($root) {
     if (!isSupported()) {
       throw new SupportError()
     }
