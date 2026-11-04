@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2185: Guard against mock iterable values without length in `nhsukContent()`](https://github.com/nhsuk/nhsuk-frontend/pull/2185)
+
 ## 10.7.1 - 29 October 2026
 
 Note: This release was created from the `support/10.x` branch.
