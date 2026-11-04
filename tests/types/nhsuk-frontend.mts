@@ -121,7 +121,13 @@ interface MyComponentConfig {
 }
 
 new MyComponent1($root)
+// @ts-expect-error - Component is not configurable
+new MyComponent1($root, {})
+
 new MyComponent2($root)
+// @ts-expect-error - Component is not configurable
+new MyComponent2($root, {})
+
 new MyComponent3($root)
 new MyComponent3($root, MyComponent3.defaults)
 new MyComponent3($root, {
@@ -412,6 +418,8 @@ createAll(Tabs, Tabs.defaults, {
 })
 
 createAll(MyComponent1)
+// @ts-expect-error - Component is not configurable
+createAll(MyComponent1, {})
 createAll(MyComponent1, undefined)
 createAll(MyComponent1, undefined, null)
 createAll(MyComponent1, undefined, undefined)
@@ -429,6 +437,8 @@ createAll(MyComponent1, undefined, {
 })
 
 createAll(MyComponent2)
+// @ts-expect-error - Component is not configurable
+createAll(MyComponent2, {})
 createAll(MyComponent2, undefined)
 createAll(MyComponent2, undefined, null)
 createAll(MyComponent2, undefined, undefined)
@@ -446,6 +456,8 @@ createAll(MyComponent2, undefined, {
 })
 
 createAll(MyComponent3)
+// @ts-expect-error - Component config is invalid
+createAll(MyComponent3, { invalid: 'option' })
 createAll(MyComponent3, { anOption: 'overridden' })
 createAll(MyComponent3, { anOption: 'overridden' }, null)
 createAll(MyComponent3, { anOption: 'overridden' }, undefined)
@@ -577,3 +589,6 @@ initAll({
 })
 
 initAll(config)
+
+// @ts-expect-error - Config is invalid
+initAll({ invalid: 'option' })
