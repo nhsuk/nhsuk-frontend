@@ -50,45 +50,43 @@ gulp.task('release', gulp.series(release.copy, release.zip))
 /**
  * Development tasks
  */
-gulp.task('watch', () =>
-  Promise.all([
-    /**
-     * Watch and copy template files and READMEs, then
-     * compile component fixtures and macro options
-     */
-    gulp.watch(
-      [
-        join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}'),
-        join(config.paths.pkg, 'src/nhsuk/**/fixtures.mjs'),
-        join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
-      ],
-      gulp.series('templates', npm.script('fixtures'))
-    ),
+gulp.task('watch', () => {
+  /**
+   * Watch and copy template files and READMEs, then
+   * compile component fixtures and macro options
+   */
+  gulp.watch(
+    [
+      join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}'),
+      join(config.paths.pkg, 'src/nhsuk/**/fixtures.mjs'),
+      join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
+    ],
+    gulp.series('templates', npm.script('fixtures'))
+  )
 
-    /**
-     * Watch and compile type declarations
-     */
-    gulp.watch(
-      types.include.map((pattern) => join(config.paths.pkg, pattern)),
-      { ignored: types.exclude },
-      gulp.series('types')
-    ),
+  /**
+   * Watch and compile type declarations
+   */
+  gulp.watch(
+    types.include.map((pattern) => join(config.paths.pkg, pattern)),
+    { ignored: types.exclude },
+    gulp.series('types')
+  )
 
-    /**
-     * Watch and compile styles
-     */
-    gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
-      gulp.series('styles')
-    ),
+  /**
+   * Watch and compile styles
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
+    gulp.series('styles')
+  )
 
-    /**
-     * Watch and compile scripts
-     */
-    gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
-      { ignored: ['**/*.test.*'] },
-      gulp.series('scripts')
-    )
-  ])
-)
+  /**
+   * Watch and compile scripts
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
+    { ignored: ['**/*.test.*'] },
+    gulp.series('scripts')
+  )
+})
