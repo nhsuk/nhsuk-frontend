@@ -30,10 +30,10 @@ export class ErrorSummary extends ConfigurableComponent {
   /**
    * Error summary config override
    *
-   * @param {Partial<ErrorSummaryConfig>} _datasetConfig - Config specified by dataset
+   * @param {Partial<ErrorSummaryConfig>} datasetConfig - Config specified by dataset
    * @returns {Partial<ErrorSummaryConfig>} Config to override by dataset
    */
-  configOverride(_datasetConfig) {
+  configOverride(datasetConfig) {
     let configOverrides = /** @type {Partial<ErrorSummaryConfig>} */ ({})
 
     if ('focusOnPageLoad' in this.config) {

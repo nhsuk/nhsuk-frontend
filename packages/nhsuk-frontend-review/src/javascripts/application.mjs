@@ -3,7 +3,7 @@ import { initAll } from 'nhsuk-frontend'
 /**
  * Review app errors
  *
- * @type {{ error: unknown, context: ErrorContext<CompatibleClass> }[]}
+ * @type {{ error: unknown, context: Parameters<OnErrorCallback>[1] }[]}
  */
 const errors = []
 
@@ -36,5 +36,5 @@ if (errors.length > 0) {
 }
 
 /**
- * @import { CompatibleClass, ErrorContext } from 'nhsuk-frontend'
+ * @import { OnErrorCallback } from 'nhsuk-frontend'
  */
