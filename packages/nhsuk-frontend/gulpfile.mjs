@@ -19,8 +19,17 @@ import types from './tsconfig.json' with { type: 'json' }
  */
 gulp.task('assets', gulp.series(assets.copy, assets.render))
 gulp.task('fixtures', fixtures.compile)
-gulp.task('scripts', gulp.series(scripts.compile, scripts.version))
-gulp.task('styles', gulp.series(styles.compile, styles.version))
+
+gulp.task(
+  'scripts',
+  gulp.series(scripts.transform, scripts.compile, scripts.version)
+)
+
+gulp.task(
+  'styles',
+  gulp.series(styles.transform, styles.compile, styles.version)
+)
+
 gulp.task('templates', templates.copy)
 
 /**

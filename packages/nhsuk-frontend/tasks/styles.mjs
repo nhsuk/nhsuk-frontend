@@ -8,25 +8,25 @@ import gulp from 'gulp'
 // Prefer release version if available
 const { NPM_PACKAGE_VERSION = config.version } = process.env
 
+/**
+ * Transform NHS.UK frontend styles
+ */
+export const transform = task.name('styles:transform', async () => {
+  const modulePaths = getListing('nhsuk/**/*.scss', {
+    cwd: join(config.paths.pkg, 'src')
+  })
+
+  // Apply PostCSS transforms (e.g. vendor prefixes)
+  for (const modulePath of modulePaths) {
+    await styles.compile(modulePath, {
+      srcPath: join(config.paths.pkg, 'src'),
+      destPath: join(config.paths.pkg, 'dist'),
+      output: { file: modulePath }
+    })()
+  }
+})
+
 export const compile = gulp.series(
-  /**
-   * Transform NHS.UK frontend styles
-   */
-  task.name('styles:transform', async () => {
-    const modulePaths = getListing('nhsuk/**/*.scss', {
-      cwd: join(config.paths.pkg, 'src')
-    })
-
-    // Apply PostCSS transforms (e.g. vendor prefixes)
-    for (const modulePath of modulePaths) {
-      await styles.compile(modulePath, {
-        srcPath: join(config.paths.pkg, 'src'),
-        destPath: join(config.paths.pkg, 'dist'),
-        output: { file: modulePath }
-      })()
-    }
-  }),
-
   /**
    * Compile NHS.UK frontend styles bundle
    */

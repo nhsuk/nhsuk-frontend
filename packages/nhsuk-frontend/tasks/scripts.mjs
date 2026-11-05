@@ -17,80 +17,81 @@ const cache = {
   modules: []
 }
 
-export const compile = gulp.series(
-  task.name('scripts:transform', async () => {
-    const modulePaths = getListing(
-      [
-        'nhsuk/components/*/fixtures.mjs',
-        'nhsuk/components/*/macro-options.mjs',
-        'nhsuk/lib/**/*.mjs',
-        'nhsuk/index.mjs'
+export const transform = task.name('scripts:transform', async () => {
+  const modulePaths = getListing(
+    [
+      'nhsuk/components/*/fixtures.mjs',
+      'nhsuk/components/*/macro-options.mjs',
+      'nhsuk/lib/**/*.mjs',
+      'nhsuk/nhsuk.mjs',
+      'nhsuk/index.mjs'
+    ],
+    {
+      cwd: join(config.paths.pkg, 'src'),
+      ignore: ['**/*.test.*']
+    }
+  )
+
+  /**
+   * Transform NHS.UK frontend modules into:
+   *
+   * - ECMAScript (ES) modules for Node.js or bundler `import`
+   *   (External dependencies resolved via `node_modules`)
+   */
+  await scripts.compile(modulePaths, {
+    srcPath: join(config.paths.pkg, 'src'),
+    destPath: join(config.paths.pkg, 'dist'),
+
+    // Customise input
+    input: {
+      cache,
+      external: [
+        '#lib',
+        '@prettier/sync',
+        /highlight\.js(\/(es|lib)\/languages\/)?/,
+        'nunjucks',
+        'outdent',
+        'slug'
       ],
-      {
-        cwd: join(config.paths.pkg, 'src'),
-        ignore: ['**/*.test.*']
-      }
-    )
+      treeshake: false
+    },
 
-    /**
-     * Transform NHS.UK frontend modules into:
-     *
-     * - ECMAScript (ES) modules for Node.js or bundler `import`
-     *   (External dependencies resolved via `node_modules`)
-     */
-    await scripts.compile(modulePaths, {
-      srcPath: join(config.paths.pkg, 'src'),
-      destPath: join(config.paths.pkg, 'dist'),
+    // Customise output
+    output: {
+      entryFileNames: '[name].mjs',
+      format: 'esm',
+      preserveModules: true,
+      preserveModulesRoot: 'src'
+    }
+  })()
 
-      // Customise input
-      input: {
-        cache,
-        external: [
-          '#lib',
-          '@prettier/sync',
-          /highlight\.js(\/(es|lib)\/languages\/)?/,
-          'nunjucks',
-          'outdent',
-          'slug'
-        ],
-        treeshake: false
-      },
+  /**
+   * Transform NHS.UK frontend modules into:
+   *
+   * - CommonJS (CJS) modules for Node.js or bundler `require()`
+   *   (External dependencies resolved via `node_modules`)
+   */
+  await scripts.compile(modulePaths, {
+    srcPath: join(config.paths.pkg, 'src'),
+    destPath: join(config.paths.pkg, 'dist'),
 
-      // Customise output
-      output: {
-        entryFileNames: '[name].mjs',
-        format: 'esm',
-        preserveModules: true,
-        preserveModulesRoot: 'src'
-      }
-    })()
+    // Customise input
+    input: {
+      cache,
+      treeshake: false
+    },
 
-    /**
-     * Transform NHS.UK frontend modules into:
-     *
-     * - CommonJS (CJS) modules for Node.js or bundler `require()`
-     *   (External dependencies resolved via `node_modules`)
-     */
-    await scripts.compile(modulePaths, {
-      srcPath: join(config.paths.pkg, 'src'),
-      destPath: join(config.paths.pkg, 'dist'),
+    // Customise output
+    output: {
+      entryFileNames: '[name].js',
+      format: 'cjs',
+      preserveModules: true,
+      preserveModulesRoot: 'src'
+    }
+  })()
+})
 
-      // Customise input
-      input: {
-        cache,
-        treeshake: false
-      },
-
-      // Customise output
-      output: {
-        entryFileNames: '[name].js',
-        format: 'cjs',
-        preserveModules: true,
-        preserveModulesRoot: 'src'
-      }
-    })()
-  }),
-
+export const compile = gulp.series(
   /**
    * Compile NHS.UK frontend scripts bundle
    */
