@@ -95,7 +95,16 @@ gulp.task('watch', () => {
    */
   gulp.watch(
     [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
+    { ignored: ['**/*.test.*', '**/fixtures.mjs', '**/macro-options.mjs'] },
+    gulp.series(scripts.compile, scripts.version)
+  )
+
+  /**
+   * Watch and transform scripts
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
     { ignored: ['**/*.test.*'] },
-    gulp.series('scripts')
+    scripts.transform
   )
 })
