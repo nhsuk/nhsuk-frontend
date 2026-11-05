@@ -59,7 +59,7 @@ gulp.task('watch', () => {
    */
   gulp.watch(
     [
-      join(config.paths.pkg, 'dist/nhsuk/*.{css,css.map}'),
+      join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}'),
       join(config.paths.app, 'src/stylesheets/**/*.scss')
     ],
     gulp.series('styles')
@@ -70,10 +70,10 @@ gulp.task('watch', () => {
    */
   gulp.watch(
     [
-      join(config.paths.pkg, 'dist/nhsuk/*.{js,js.map}'),
+      join(config.paths.pkg, 'dist/nhsuk/*.min.{js,js.map}'),
       join(config.paths.app, 'src/javascripts/**/*.mjs')
     ],
-    { ignored: ['**/fixtures.mjs', '**/macro-options.mjs', '**/*.test.*'] },
+    { ignored: ['**/*.test.*'] },
     gulp.series('scripts')
   )
 
