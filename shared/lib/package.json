@@ -9,7 +9,7 @@
   },
   "main": "index.mjs",
   "dependencies": {
-    "glob": "^14.0.2",
+    "glob": "^14.0.3",
     "lodash": "^4.18.1"
   },
   "engines": {
