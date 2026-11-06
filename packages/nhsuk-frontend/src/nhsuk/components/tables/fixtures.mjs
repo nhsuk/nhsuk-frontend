@@ -276,6 +276,28 @@ const fixtures = {
         ],
         [
           {
+            text: "border"
+          },
+          {
+            text: "boolean"
+          },
+          {
+            html: "If set to <code>false</code>, remove separating borders from all rows."
+          }
+        ],
+        [
+          {
+            text: "lastRowBorder"
+          },
+          {
+            text: "boolean"
+          },
+          {
+            html: "If set to <code>false</code>, remove separating border from the last row."
+          }
+        ],
+        [
+          {
             text: "rows"
           },
           {
@@ -283,7 +305,7 @@ const fixtures = {
           },
           {
             html: outdent`
-              <strong>Required.</strong> The rows within the table component.
+              <strong>Required.</strong> Array of table rows and cells.
               <a href="#/macro-options">See macro options for rows</a>.
             `
           }
@@ -297,7 +319,7 @@ const fixtures = {
           },
           {
             html: outdent`
-              Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
+              Array of table head cells.
               <a href="#/macro-options">See macro options for head</a>.
             `
           }
@@ -307,21 +329,13 @@ const fixtures = {
             text: "caption"
           },
           {
-            text: "string"
+            text: "object"
           },
           {
-            text: "Caption text."
-          }
-        ],
-        [
-          {
-            text: "captionClasses"
-          },
-          {
-            text: "string"
-          },
-          {
-            text: "Classes for caption text size. Classes should correspond to the available typography heading classes."
+            html: outdent`
+              Table caption.
+              <a href="#/macro-options">See macro options for caption</a> using heading component macro.
+            `
           }
         ],
         [
@@ -329,34 +343,32 @@ const fixtures = {
             text: "firstCellIsHeader"
           },
           {
-            text: "string"
+            text: "boolean"
           },
           {
-            html: outdent`
-              If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
-            `
+            html: "If set to <code>true</code>, first cell in table row will be a <code>th</code> instead of a <code>td</code>."
           }
         ],
         [
           {
-            text: "classes"
+            text: "compact"
           },
           {
-            text: "string"
+            text: "boolean"
           },
           {
-            text: "Classes to add to the table container."
+            html: "If set to <code>true</code>, vertical padding will be reduced for table cells."
           }
         ],
         [
           {
-            text: "attributes"
+            text: "responsive"
           },
           {
-            text: "object"
+            text: "boolean"
           },
           {
-            text: "	HTML attributes (for example data attributes) to add to the table container."
+            html: "If set to <code>true</code>, responsive table classes will be applied."
           }
         ]
       ]

@@ -246,28 +246,6 @@ const options = {
           'The `name` attribute for the search input. Defaults to `"q"`.',
         released: '10.0.0'
       },
-      placeholder: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by the `search.input.placeholder` option.',
-        released: '10.0.0',
-        deprecated: '10.6.0'
-      },
-      visuallyHiddenLabel: {
-        type: 'string',
-        required: false,
-        description:
-          'Replaced by the `search.label.visuallyHiddenText` option.',
-        released: '10.0.0',
-        deprecated: '10.6.0'
-      },
-      visuallyHiddenButton: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by the `search.button.ariaLabel` option.',
-        released: '10.0.0',
-        deprecated: '10.6.0'
-      },
       label: {
         type: 'object',
         required: false,

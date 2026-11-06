@@ -14,12 +14,10 @@
 {%- set classNames = "nhsuk-table" %}
 {%- set classNamesCaption = "nhsuk-table__caption" %}
 
-{#- Support caption as string (with deprecated options) #}
+{#- Support caption as string #}
 {%- set caption = params.caption if params.caption is mapping and params.caption is not escaped else {
   text: params.caption if params.caption is string else undefined,
-  html: params.caption if params.caption is escaped else undefined,
-  size: params.captionSize,
-  classes: params.captionClasses
+  html: params.caption if params.caption is escaped else undefined
 } %}
 
 {#- Support heading caption as string #}
@@ -182,10 +180,10 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
-{% if isResponsive and not isHeader and (parent.header or item.header) %}
+{% if isResponsive and not isHeader and parent.header %}
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- nhsukContent({
-      text: parent.header.text | default(item.header),
+      text: parent.header.text,
       html: parent.header.html,
       slots: { end: " " }
     }) | indent(2) -}}
@@ -358,9 +356,8 @@
 
 {%- if params.card %}
   {%- set cardHeading = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
-    text: params.card.heading if params.card.heading is string else params.heading,
-    html: params.card.heading if params.card.heading is escaped else undefined,
-    level: params.headingLevel
+    text: params.card.heading if params.card.heading is string else undefined,
+    html: params.card.heading if params.card.heading is escaped else undefined
   } %}
 
   {%- call nhsukCard({

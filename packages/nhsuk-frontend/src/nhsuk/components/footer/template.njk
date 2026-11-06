@@ -63,10 +63,10 @@
     <div class="nhsuk-footer__navigation nhsuk-grid-row">
     {% for navigation in row %}
       <div class="nhsuk-grid-column-{{ navigation.width | default(width, true) }}">
-      {% if navigation.heading or navigation.title %}
-        {#- Support navigation heading as string (with deprecated options) #}
+      {% if navigation.heading %}
+        {#- Support navigation heading as string #}
         {%- set heading = navigation.heading if navigation.heading is mapping and navigation.heading is not escaped else {
-          text: navigation.heading if navigation.heading is string else navigation.title,
+          text: navigation.heading if navigation.heading is string else undefined,
           html: navigation.heading if navigation.heading is escaped else undefined
         } %}
 
@@ -105,7 +105,7 @@
 {% if caller or meta.items | length or meta.text or meta.html %}
     {% if meta.items %}
       {{ nhsukVisuallyHidden({
-        text: meta.visuallyHiddenText | default(meta.visuallyHiddenTitle) | default("Support links"),
+        text: meta.visuallyHiddenText | default("Support links"),
         element: "h2"
       }) | trim | indent(6) }}
       {{ _footerList(meta.items) | trim | indent(6) }}

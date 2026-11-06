@@ -51,14 +51,6 @@ const options = {
         description: 'A visually hidden suffix added to the table cell.',
         released: '10.6.0'
       },
-      header: {
-        type: 'string',
-        required: false,
-        description:
-          'Set automatically by table head cells in the `head` option.',
-        released: '4.0.0',
-        deprecated: '10.6.0'
-      },
       href: {
         type: 'string',
         required: false,
@@ -294,20 +286,6 @@ const options = {
       }
     }
   },
-  captionClasses: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `caption.classes` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
-  captionSize: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `caption.size` option.',
-    released: '10.2.0',
-    deprecated: '10.6.0'
-  },
   firstCellIsHeader: {
     type: 'boolean',
     required: false,
@@ -356,20 +334,6 @@ const options = {
       'Can be used to wrap a card around the table component. If any of these options are present, a card will wrap around the table.',
     released: '10.3.0',
     isComponent: true
-  },
-  heading: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `card.heading.text` option.',
-    released: '1.0.0',
-    deprecated: '10.3.0'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `card.heading.level` option.',
-    released: '1.0.0',
-    deprecated: '10.3.0'
   },
   classes: {
     type: 'string',

@@ -15,20 +15,20 @@
   {%- set classNames = classNames ~ " " ~ params.classes %}
 {%- endif %}
 
-{#- Support previous label as string (with deprecated options) #}
+{#- Support previous label as string #}
 {%- set previousLabel = params.previous.label if params.previous.label is mapping and params.previous.label is not escaped else {
-  text: params.previous.label if params.previous.label is string else params.previous.labelText,
+  text: params.previous.label if params.previous.label is string else undefined,
   html: params.previous.label if params.previous.label is escaped else undefined
 } %}
 
-{#- Support next label as string (with deprecated options) #}
+{#- Support next label as string #}
 {%- set nextLabel = params.next.label if params.next.label is mapping and params.next.label is not escaped else {
-  text: params.next.label if params.next.label is string else params.next.labelText,
+  text: params.next.label if params.next.label is string else undefined,
   html: params.next.label if params.next.label is escaped else undefined
 } %}
 
 {%- set items = params.items | select("mapping") | list if params.items else [] %}
-{%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pagination", true) %}
+{%- set ariaLabel = params.ariaLabel | default("Pagination", true) %}
 
 {#- Numbered page - included as a link within a list item #}
 {%- macro _pageItem(item) -%}
@@ -36,7 +36,7 @@
   {% if item.ellipsis %}
     &ctdot;
   {% else %}
-    {%- set itemAriaLabel = item.ariaLabel | default(item.visuallyHiddenText) | default("Page " ~ item.number) %}
+    {%- set itemAriaLabel = item.ariaLabel | default("Page " ~ item.number) %}
     {{ nhsukLink({
       href: item.href,
       text: item.number,

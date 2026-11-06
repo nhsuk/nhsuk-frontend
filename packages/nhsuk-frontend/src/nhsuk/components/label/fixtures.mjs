@@ -170,23 +170,6 @@ const fixtures = {
       text: "What is your full name?"
     }
   },
-  "with deprecated page heading": {
-    context: {
-      text: "What is your full name?",
-      size: "m",
-      isPageHeading: true
-    }
-  },
-  "with deprecated page heading overriding heading": {
-    context: {
-      heading: {
-        text: "What is your full name?",
-        level: 3,
-        size: "s"
-      },
-      isPageHeading: false
-    }
-  },
   "with id attribute": {
     context: {
       id: "custom-id",

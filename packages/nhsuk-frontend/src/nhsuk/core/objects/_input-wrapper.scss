@@ -1,5 +1,6 @@
 @use "../settings" as *;
 @use "../tools" as *;
+@use "../helpers" as *;
 
 @include nhsuk-exports("nhsuk/core/objects/input-wrapper") {
   .nhsuk-input-wrapper {

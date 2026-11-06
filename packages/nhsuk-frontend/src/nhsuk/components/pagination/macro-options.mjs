@@ -25,14 +25,6 @@ const options = {
           'The pagination item text – usually a page number.  Required unless the item is an ellipsis.',
         released: '10.1.0'
       },
-      visuallyHiddenText: {
-        type: 'string',
-        required: false,
-        description:
-          'The visually hidden label for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1". Replaced by the `item.ariaLabel` option.',
-        released: '10.1.0',
-        deprecated: '10.6.0'
-      },
       ariaLabel: {
         type: 'string',
         required: false,
@@ -89,13 +81,6 @@ const options = {
         description:
           'The HTML content of the link to the previous page. Defaults to `"Previous page"`, with \'page\' being visually hidden. If `html` is provided, the `text` option will be ignored.',
         released: '10.1.0'
-      },
-      labelText: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by the `previous.label.text` option.',
-        released: '10.1.0',
-        deprecated: '10.6.0'
       },
       label: {
         type: 'object',
@@ -155,13 +140,6 @@ const options = {
           'The HTML content of the link to the next page. Defaults to `"Next page"`, with \'page\' being visually hidden. If `html` is provided, the `text` option will be ignored.',
         released: '10.1.0'
       },
-      labelText: {
-        type: 'string',
-        required: false,
-        description: 'Replaced by the `next.label.text` option.',
-        released: '10.1.0',
-        deprecated: '10.6.0'
-      },
       label: {
         type: 'object',
         required: false,
@@ -199,13 +177,6 @@ const options = {
         released: '10.1.0'
       }
     }
-  },
-  landmarkLabel: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `ariaLabel` option.',
-    released: '10.1.0',
-    deprecated: '10.6.0'
   },
   ariaLabel: {
     type: 'string',

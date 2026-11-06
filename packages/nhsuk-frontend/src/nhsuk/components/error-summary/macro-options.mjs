@@ -54,20 +54,6 @@ const options = {
       }
     }
   },
-  titleText: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `heading.text` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
-  titleHtml: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `heading.html` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
   description: {
     type: 'object',
     required: false,
@@ -102,20 +88,6 @@ const options = {
         released: '10.6.0'
       }
     }
-  },
-  descriptionText: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `description.text` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
-  descriptionHtml: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `description.html` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
   },
   caller: {
     type: 'nunjucks-block',
