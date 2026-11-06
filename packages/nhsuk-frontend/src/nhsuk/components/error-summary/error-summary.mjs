@@ -1,6 +1,7 @@
 import { normaliseOptions } from '../../common/configuration/index.mjs'
-import { formatErrorMessage, setFocus } from '../../common/index.mjs'
+import { formatErrorMessage, setFocus, setScroll } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Error summary component
@@ -17,11 +18,30 @@ export class ErrorSummary extends ConfigurableComponent {
   constructor($root, config = {}) {
     super($root, config)
 
+    const { disableAutoFocus, titleClass } = this.config
+
+    const $title = this.$root.querySelector(`.${titleClass}`)
+    if (!($title instanceof HTMLElement)) {
+      throw new ElementError({
+        component: ErrorSummary,
+        element: $title,
+        identifier: `Error summary title (\`${titleClass}\`)`
+      })
+    }
+
+    this.$title = $title
+
     /**
      * Focus the error summary
      */
-    if (!this.config.disableAutoFocus) {
-      setFocus(this.$root)
+    if (!disableAutoFocus) {
+      setScroll(this.$title, {
+        scrollTo: this.$root
+      })
+
+      setFocus(this.$root, {
+        preventScroll: true
+      })
     }
 
     this.$root.addEventListener('click', (event) => this.handleClick(event))
@@ -55,9 +75,7 @@ export class ErrorSummary extends ConfigurableComponent {
    *
    * Returns the first element that exists from this list:
    *
-   * - The `<legend>` associated with the closest `<fieldset>` ancestor, as long
-   *   as the top of it is no more than half a viewport height away from the
-   *   bottom of the input
+   * - The `<legend>` associated with the closest `<fieldset>` ancestor
    * - The first `<label>` that is associated with the input using for="inputId"
    * - The closest parent `<label>`
    *
@@ -66,44 +84,23 @@ export class ErrorSummary extends ConfigurableComponent {
    *   associated legend or label can be found
    */
   getAssociatedLegendOrLabel($input) {
-    const $fieldset = $input.closest('fieldset')
+    const $legend = $input.closest('fieldset')?.querySelector('legend')
+    return $legend ?? this.getAssociatedLabel($input)
+  }
 
-    if ($fieldset) {
-      const $legends = $fieldset.getElementsByTagName('legend')
-
-      if ($legends.length) {
-        const $candidateLegend = $legends[0]
-
-        // If the input type is radio or checkbox, always use the legend if
-        // there is one.
-        if (
-          $input instanceof HTMLInputElement &&
-          ($input.type === 'checkbox' || $input.type === 'radio')
-        ) {
-          return $candidateLegend
-        }
-
-        // For other input types, only scroll to the fieldset’s legend (instead
-        // of the label associated with the input) if the input would end up in
-        // the top half of the screen.
-        //
-        // This should avoid situations where the input either ends up off the
-        // screen, or obscured by a software keyboard.
-        const legendTop = $candidateLegend.getBoundingClientRect().top
-        const inputRect = $input.getBoundingClientRect()
-
-        // If the browser doesn't support Element.getBoundingClientRect().height
-        // or window.innerHeight (like IE8), bail and just link to the label.
-        if (inputRect.height && window.innerHeight) {
-          const inputBottom = inputRect.top + inputRect.height
-
-          if (inputBottom - legendTop < window.innerHeight / 2) {
-            return $candidateLegend
-          }
-        }
-      }
-    }
-
+  /**
+   * Get associated label
+   *
+   * Returns the first element that exists from this list:
+   *
+   * - The first `<label>` that is associated with the input using for="inputId"
+   * - The closest parent `<label>`
+   *
+   * @param {Element} $input - The input
+   * @returns {Element | null} Associated label, or null if no associated label
+   *   can be found
+   */
+  getAssociatedLabel($input) {
     return (
       document.querySelector(`label[for='${$input.getAttribute('id')}']`) ??
       $input.closest('label')
@@ -145,15 +142,14 @@ export class ErrorSummary extends ConfigurableComponent {
     }
 
     const $legendOrLabel = this.getAssociatedLegendOrLabel($input)
-    if (!$legendOrLabel) {
+    const $label = this.getAssociatedLabel($input)
+    if (!$legendOrLabel && !$label) {
       return false
     }
 
-    // Scroll the legend or label into view *before* calling focus on the input
-    // to avoid extra scrolling in browsers that don't support `preventScroll`
-    // (which at time of writing is most of them...)
-    $legendOrLabel.scrollIntoView()
-    $input.focus({ preventScroll: true })
+    setFocus($input, {
+      scrollTo: [$legendOrLabel, $label]
+    })
 
     return true
   }
@@ -183,6 +179,7 @@ export class ErrorSummary extends ConfigurableComponent {
    * @type {ErrorSummaryConfig}
    */
   static defaults = Object.freeze({
+    titleClass: 'nhsuk-error-summary__title',
     disableAutoFocus: false
   })
 
@@ -194,6 +191,7 @@ export class ErrorSummary extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      titleClass: { type: 'string' },
       focusOnPageLoad: { type: 'boolean' }, // Deprecated
       disableAutoFocus: { type: 'boolean' }
     }
@@ -225,6 +223,7 @@ export function initErrorSummary(options) {
  *
  * @see {@link ErrorSummary.defaults}
  * @typedef {object} ErrorSummaryConfig
+ * @property {string} titleClass - Title class
  * @property {boolean} [focusOnPageLoad=true] - Deprecated. Use `disableAutoFocus` instead.
  * @property {boolean} [disableAutoFocus=false] - If set to `true` the error
  *   summary will not be focussed when the page loads.

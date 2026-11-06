@@ -186,10 +186,11 @@ describe('Error summary', () => {
         $links[0].click()
 
         expect($input).toHaveFocus()
-        expect($label?.scrollIntoView).toHaveBeenCalled()
-        expect($input.focus).toHaveBeenCalledWith({
-          preventScroll: true
-        })
+        expect($input.focus).toHaveBeenCalled()
+
+        // Not scrolled into view when already visible
+        // TODO: Add tests for scrolling to legend or label
+        expect($label?.scrollIntoView).not.toHaveBeenCalled()
       })
     })
   })
@@ -200,6 +201,7 @@ describe('Error summary', () => {
 
       const errorSummary = new ErrorSummary($root)
       expect(errorSummary.config).toEqual({
+        ...ErrorSummary.defaults,
         disableAutoFocus: false
       })
     })
@@ -209,6 +211,7 @@ describe('Error summary', () => {
 
       const errorSummary = new ErrorSummary($root)
       expect(errorSummary.config).toEqual({
+        ...ErrorSummary.defaults,
         disableAutoFocus: true
       })
     })
@@ -230,6 +233,7 @@ describe('Error summary', () => {
       )
 
       expect(errorSummary.config).toEqual({
+        ...ErrorSummary.defaults,
         disableAutoFocus: false
       })
     })
