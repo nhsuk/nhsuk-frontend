@@ -39,6 +39,11 @@
     @include nhsuk-font-weight-bold;
   }
 
+  .nhsuk-label--reverse,
+  .nhsuk-label--reverse [class^="nhsuk-caption"] {
+    color: $nhsuk-reverse-text-colour;
+  }
+
   p,
   .nhsuk-body-m,
   .nhsuk-body-s,

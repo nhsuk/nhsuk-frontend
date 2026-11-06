@@ -212,12 +212,16 @@
       @include nhsuk-responsive-margin(6, "top");
     }
 
+    &,
+    .nhsuk-details__summary {
+      background-color: $nhsuk-card-background-colour;
+    }
+
     .nhsuk-details__summary {
       display: block;
       width: auto;
       border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
-      border-bottom: $nhsuk-expander-border-bottom-width solid $nhsuk-expander-border-colour;
-      background-color: $nhsuk-card-background-colour;
+      border-bottom-width: $nhsuk-expander-border-bottom-width;
 
       @include nhsuk-responsive-padding(5);
     }
@@ -382,6 +386,30 @@
           background-color: ButtonText;
         }
       }
+    }
+  }
+
+  .nhsuk-expander.nhsuk-details--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    &,
+    .nhsuk-details__summary {
+      background-color: $nhsuk-reverse-card-background-colour;
+    }
+
+    .nhsuk-details__summary {
+      border-color: $nhsuk-expander-reverse-border-colour;
+    }
+
+    .nhsuk-details__summary:hover,
+    .nhsuk-details__summary:hover + .nhsuk-details__text,
+    &:has(.nhsuk-details__summary:hover) .nhsuk-details__summary,
+    &:has(.nhsuk-details__summary:hover) .nhsuk-details__text {
+      border-color: $nhsuk-expander-reverse-border-hover-colour;
+    }
+
+    .nhsuk-details__text {
+      border-color: $nhsuk-expander-reverse-border-colour;
     }
   }
 
