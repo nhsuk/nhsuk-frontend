@@ -576,6 +576,25 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+#### Remove redundant landmark roles from header, footer, contents list and pagination
+
+We've removed explicit `role` attributes that repeat the role an HTML element already has:
+
+- `role="banner"` from the header component `<header>` element
+- `role="contentinfo"` from the footer component `<footer>` element
+- `role="navigation"` from the contents list and pagination component `<nav>` elements
+
+These were added for older browsers, such as Internet Explorer, that did not map these elements to their landmark roles. All browsers we support now do this without the extra attribute.
+
+If you're not using Nunjucks macros, you can remove these attributes from your HTML. For example:
+
+```patch
+- <footer class="nhsuk-footer" role="contentinfo">
++ <footer class="nhsuk-footer">
+```
+
+This change was introduced in [pull request #2185: Remove redundant landmark roles from HTML5 elements](https://github.com/nhsuk/nhsuk-frontend/pull/2185).
+
 ## 10.7.0 - 27 October 2026
 
 Note: This release was created from the `support/10.x` branch.
