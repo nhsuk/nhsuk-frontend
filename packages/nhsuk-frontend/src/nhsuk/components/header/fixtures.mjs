@@ -92,6 +92,65 @@ const fixtures = {
     },
     variants
   },
+  "with content slots": {
+    context: {
+      logo: {
+        href: "#"
+      },
+      service: {
+        text: "Digital service manual",
+        href: "#"
+      },
+      search: {
+        input: {
+          placeholder: "Search"
+        },
+        label: {
+          visuallyHiddenText: "Search the NHS digital service manual"
+        }
+      },
+      navigation: {
+        colour: "white",
+        items: [
+          {
+            text: "NHS service standard",
+            href: "#"
+          },
+          {
+            text: "Design system",
+            href: "#"
+          },
+          {
+            text: "Content guide",
+            href: "#"
+          },
+          {
+            text: "Accessibility",
+            href: "#",
+            slots: {
+              start: {
+                html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+              },
+              end: {
+                html: '<samp class="app-annotate app-annotate--end">End</samp>'
+              }
+            }
+          }
+        ]
+      },
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    },
+    options: {
+      width: false
+    }
+  },
   "with account (logged in)": {
     context: {
       account: {
