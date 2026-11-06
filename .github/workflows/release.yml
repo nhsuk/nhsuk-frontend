@@ -1,24 +1,23 @@
-name: Create release
+name: Publish release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    # Run when GitHub release is published
+    # Tick "Set as a pre-release" for versions like v1.0.0-internal.0
+    # to publish with npm tag "next" instead of "latest".
+    types: [published]
 
 concurrency:
   group: release
 
 jobs:
   build:
-    name: Create release
+    name: Publish release
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
       id-token: write
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout
@@ -29,6 +28,18 @@ jobs:
         with:
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org/
+
+      - name: Get package version
+        id: get_version
+        run: |
+          VERSION=$(node -p "require('./packages/nhsuk-frontend/package.json').version")
+          if [ "$TAG_NAME" != "v$VERSION" ]; then
+            echo "::error::Release tag ($TAG_NAME) does not match package.json version (v$VERSION)"
+            exit 1
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
 
       - name: Install dependencies
         run: npm install
@@ -44,37 +55,38 @@ jobs:
       - name: Run tests
         run: npm test --ignore-scripts
 
-      - name: Get package version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
-
       - name: Create release artifact
         run: npm run release --workspace nhsuk-frontend
         env:
           NPM_PACKAGE_VERSION: ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: false
-          prerelease: ${{ contains(steps.get_version.outputs.VERSION, '-') }}
-
       - name: Upload release asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
-          asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
-          asset_content_type: application/zip
+        run: gh release upload "v${VERSION}" "./dist/nhsuk-frontend-${VERSION}.zip"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
+
+      # Pre-releases use "next", older major versions use "latest-v<major>"
+      # so "latest" isn't moved backwards, everything else uses "latest"
+      - name: Get npm tag
+        id: get_npm_tag
+        run: |
+          if [ "$PRERELEASE" = "true" ]; then
+            NPM_TAG="next"
+          else
+            LATEST=$(npm view nhsuk-frontend dist-tags.latest)
+            if [ "${VERSION%%.*}" -lt "${LATEST%%.*}" ]; then
+              NPM_TAG="latest-v${VERSION%%.*}"
+            else
+              NPM_TAG="latest"
+            fi
+          fi
+          echo "NPM_TAG=$NPM_TAG" >> "$GITHUB_OUTPUT"
+        env:
+          PRERELEASE: ${{ github.event.release.prerelease }}
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
 
       - name: Publish npm package
-        if: ${{ !contains(steps.get_version.outputs.VERSION, '-') }}
-        run: npm publish --workspace nhsuk-frontend --tag latest
-
-      - name: Publish npm package (pre-release)
-        if: ${{ contains(steps.get_version.outputs.VERSION, '-') }}
-        run: npm publish --workspace nhsuk-frontend --tag next
+        run: npm publish --workspace nhsuk-frontend --tag "$NPM_TAG"
+        env:
+          NPM_TAG: ${{ steps.get_npm_tag.outputs.NPM_TAG }}
