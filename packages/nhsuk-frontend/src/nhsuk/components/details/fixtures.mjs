@@ -5,6 +5,26 @@ import { components } from "#lib"
 import { examples as tablesExamples } from "../tables/fixtures.mjs"
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -16,7 +36,8 @@ const fixtures = {
         text: "How to find your NHS number"
       },
       text: "You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you."
-    }
+    },
+    variants
   },
   "open": {
     context: {
@@ -53,6 +74,7 @@ const fixtures = {
         <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
       `
     },
+    variants,
     screenshot: {
       states: ["click"],
       selector: ".nhsuk-details__summary"
@@ -74,7 +96,8 @@ const fixtures = {
         <li>appointment letters</li>
       </ul>
       <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
-    `
+    `,
+    variants
   },
   "with summary HTML": {
     context: {
@@ -82,7 +105,8 @@ const fixtures = {
         html: "How to find your <span>NHS number</span>"
       },
       text: "An NHS number is a 10 digit number, like 999 123 4567"
-    }
+    },
+    variants
   },
   "with summary as string": {
     context: {
@@ -97,7 +121,8 @@ const fixtures = {
       },
       text: "We are open 9am to 6pm, Monday to Saturday.",
       classes: "nhsuk-expander"
-    }
+    },
+    variants
   },
   "expander open": {
     context: {
@@ -124,12 +149,10 @@ const fixtures = {
       summary: {
         text: "Opening times"
       },
-      html: components.render(
-        "tables",
-        tablesExamples["with first cell as header"]
-      ),
+      html: getContent(),
       classes: "nhsuk-expander"
     },
+    variants: variants.map(customVariant()),
     screenshot: {
       states: ["click"],
       selector: ".nhsuk-details__summary"
@@ -142,10 +165,43 @@ const fixtures = {
       },
       classes: "nhsuk-expander"
     },
-    callBlock: components.render(
-      "tables",
-      tablesExamples["with first cell as header"]
-    )
+    callBlock: getContent(),
+    variants: variants.map(customVariant())
+  }
+}
+
+/**
+ * Get example call block by variant
+ *
+ * @param {{ variant?: unknown }} [options]
+ */
+function getContent(options = {}) {
+  const table = structuredClone(tablesExamples["with first cell as header"])
+
+  if (options.variant === "reverse") {
+    table.context ??= {}
+    table.context.variant = "reverse"
+  }
+
+  return outdent`
+    ${components.render("tables", table)}
+  `
+}
+
+/**
+ * Replace call block for each variant
+ *
+ * @returns {(variant: MacroExample) => MacroExample}
+ */
+function customVariant() {
+  return (example) => {
+    example = structuredClone(example)
+    example.context ??= {}
+
+    const { variant } = example.context
+    example.callBlock = getContent({ variant })
+
+    return example
   }
 }
 
