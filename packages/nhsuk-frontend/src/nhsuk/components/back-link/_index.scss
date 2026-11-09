@@ -20,7 +20,7 @@
     position: relative;
 
     padding: 0;
-    padding-left: nhsuk-em($_font-size, $_font-size);
+    padding-left: nhsuk-em($_font-size * 1.5);
 
     border: 0;
 
@@ -42,16 +42,27 @@
 
       position: absolute;
       top: 0;
-      bottom: 0;
       left: 0;
+
+      width: 1.3em;
+      height: 1.8em;
 
       margin: auto;
 
-      @include nhsuk-shape-chevron(left, $colour: currentcolor, $font-size: 19);
-    }
-  }
+      background-color: currentcolor;
 
-  .nhsuk-back-link--reverse {
-    @include nhsuk-link-style-reverse;
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-left.svg");
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        height: 1.5em;
+      }
+    }
+
+    .nhsuk-back-link--reverse {
+      @include nhsuk-link-style-reverse;
+    }
   }
 }
