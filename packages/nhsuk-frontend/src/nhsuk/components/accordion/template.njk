@@ -1,0 +1,65 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+
+{%- macro _accordionItem(params, item, index) %}
+  {%- set headingLevel = params.headingLevel if params.headingLevel else 2 %}
+  <div class="nhsuk-accordion__section {%- if item.expanded %} nhsuk-accordion__section--expanded{% endif %}">
+    <div class="nhsuk-accordion__section-header">
+      <h{{ headingLevel }} class="nhsuk-accordion__section-heading">
+        <span class="nhsuk-accordion__section-button" id="{{ params.id }}-heading-{{ index }}">
+          {{ item.heading.html | safe | trim | indent(8) if item.heading.html else item.heading.text }}
+        </span>
+      </h{{ headingLevel }}>
+      {% if item.summary.html or item.summary.text %}
+      <div class="nhsuk-accordion__section-summary nhsuk-body" id="{{ params.id }}-summary-{{ index }}">
+        {{ item.summary.html | safe | trim | indent(8) if item.summary.html else item.summary.text }}
+      </div>
+      {% endif %}
+    </div>
+    <div id="{{ params.id }}-content-{{ index }}" class="nhsuk-accordion__section-content">
+    {% if item.content.html %}
+      {{ item.content.html | safe | trim | indent(6) }}
+    {% elif item.content.text %}
+      <p>{{ item.content.text | trim | indent(8) }}</p>
+    {% endif %}
+    </div>
+  </div>
+{% endmacro -%}
+
+<div class="nhsuk-accordion {%- if params.classes %} {{ params.classes }}{% endif %}" data-module="nhsuk-accordion" id="{{ params.id }}"
+  {{- nhsukI18nAttributes({
+    key: "hide-all-sections",
+    message: params.hideAllSectionsText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "hide-section",
+    message: params.hideSectionText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "hide-section-aria-label",
+    message: params.hideSectionAriaLabelText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "show-all-sections",
+    message: params.showAllSectionsText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "show-section",
+    message: params.showSectionText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "show-section-aria-label",
+    message: params.showSectionAriaLabelText
+  }) -}}
+
+  {%- if params.rememberExpanded !== undefined %} data-remember-expanded="{{ params.rememberExpanded | escape }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {% for item in params.items %}
+    {% if item %}{{ _accordionItem(params, item, loop.index) }}{% endif %}
+  {% endfor %}
+</div>
