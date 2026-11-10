@@ -56,6 +56,88 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with HTML": {
+    context: {
+      html: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        }
+      ]
+        .map((context) => components.render("summary-list/row", { context }))
+        .join("")
+    }
+  },
+  "with HTML via call block": {
+    callBlock: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: "Karen Francis"
+        },
+        actions: {
+          items: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Date of birth"
+        },
+        value: {
+          text: "15 March 1984"
+        },
+        actions: {
+          items: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+            }
+          ]
+        }
+      }
+    ]
+      .map((context) => components.render("summary-list/row", { context }))
+      .join("")
+  },
   "with actions": {
     context: {
       rows: [

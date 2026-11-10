@@ -114,7 +114,7 @@ export class InitError extends NHSUKFrontendError {
  * @property {Element | Document | null} [element] - The element in error (optional)
  * @property {CompatibleClass} [component] - Component throwing the error (optional)
  * @property {string} identifier - An identifier that'll let the user understand which element has an error. This is whatever makes the most sense
- * @property {string} [expectedType] - The type that was expected for the identifier
+ * @property {string} [expectedType] - The type that was expected for the identifier (optional)
  */
 
 /**

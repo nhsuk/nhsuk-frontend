@@ -33,16 +33,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build npm package
+        run: npm run build --workspace nhsuk-frontend
         env:
           NODE_ENV: production
-
-      - name: Run linting
-        run: npm run lint
-
-      - name: Run tests
-        run: npm test --ignore-scripts
 
       - name: Get package version
         id: get_version

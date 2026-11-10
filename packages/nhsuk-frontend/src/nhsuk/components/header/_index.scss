@@ -459,7 +459,7 @@
     }
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-      border: 0;
+      border-color: Canvas; // Override white border color so menu items can be seen
     }
   }
 
