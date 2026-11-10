@@ -35,6 +35,17 @@ const fixtures = {
       selector: ".nhsuk-back-link"
     }
   },
+  "direction forward": {
+    context: {
+      text: "Skip to next section",
+      direction: "forward",
+      href: "#"
+    },
+    screenshot: {
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-back-link"
+    }
+  },
   "with text escaping": {
     context: {
       text: "What to expect at A&E"
