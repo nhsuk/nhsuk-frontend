@@ -16,8 +16,8 @@
     "browser-sync": "^3.0.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.6.1",
-    "cssnano": "^9.3.2",
+    "autoprefixer": "^10.6.2",
+    "cssnano": "^9.9.0",
     "del-cli": "^8.0.1",
     "html-validate": "^11.18.0",
     "plugin-error": "^2.0.1",
