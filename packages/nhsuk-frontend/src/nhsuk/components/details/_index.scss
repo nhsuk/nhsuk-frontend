@@ -77,7 +77,7 @@
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-spacing(4, $unit: "rem");
+      padding-left: nhsuk-em(nhsuk-spacing(3));
       text-decoration: none;
       cursor: pointer;
 
@@ -92,17 +92,17 @@
         content: "";
 
         position: absolute;
-        top: 0;
+        top: nhsuk-px-to-rem(3px);
         bottom: 0;
         left: 0;
 
         margin: auto;
 
-        @include nhsuk-shape-arrow($direction: right, $base: 14px);
+        @include nhsuk-shape-chevron(down, currentColor, $font-size: 21px);
       }
 
       .nhsuk-details[open] > &::before {
-        @include nhsuk-shape-arrow($direction: down, $base: 14px);
+        @include nhsuk-shape-chevron(up, null, $font-size: 21px);
       }
     }
 
