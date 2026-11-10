@@ -59,6 +59,10 @@
       @media #{nhsuk-from-breakpoint(tablet)} {
         height: 1.5em;
       }
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: LinkText;
+      }
     }
 
     .nhsuk-back-link--reverse {
