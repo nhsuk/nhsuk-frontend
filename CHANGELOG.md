@@ -576,6 +576,28 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+## 10.7.2 - 9 November 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2183: Fix overlapping header menu in high contrast mode](https://github.com/nhsuk/nhsuk-frontend/pull/2183)
+- [#2186: Guard against mock iterable values without length in `nhsukContent()`](https://github.com/nhsuk/nhsuk-frontend/pull/2186)
+- [#2187: Fix summary list row when rendered with custom HTML or call block](https://github.com/nhsuk/nhsuk-frontend/pull/2187)
+
+## 10.7.1 - 29 October 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2173: Update template theme colours to match updated colour palette](https://github.com/nhsuk/nhsuk-frontend/pull/2173)
+
 ## 10.7.0 - 27 October 2026
 
 Note: This release was created from the `support/10.x` branch.

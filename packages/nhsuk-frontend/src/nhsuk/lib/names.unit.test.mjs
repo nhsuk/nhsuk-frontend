@@ -20,6 +20,18 @@ describe('Node.js API: Names', () => {
       moduleName: 'nhsuk-character-count'
     },
     {
+      className: 'CardAction',
+      component: 'card/action',
+      macroName: 'cardAction',
+      moduleName: 'nhsuk-card-action'
+    },
+    {
+      className: 'SummaryListRow',
+      component: 'summary-list/row',
+      macroName: 'summaryListRow',
+      moduleName: 'nhsuk-summary-list-row'
+    },
+    {
       aliases: ['expander'],
       className: 'Details',
       component: 'details',
@@ -56,6 +68,13 @@ describe('Node.js API: Names', () => {
       component: 'custom-component',
       macroName: 'appCustomComponent',
       moduleName: 'app-custom-component',
+      prefix: 'app'
+    },
+    {
+      className: 'CustomComponentItem',
+      component: 'custom-component/item',
+      macroName: 'appCustomComponentItem',
+      moduleName: 'app-custom-component-item',
       prefix: 'app'
     }
   ]

@@ -8,7 +8,7 @@
     "types": ["node", "typed-query-selector"]
   },
   "include": ["src/javascripts/**/*.mjs"],
-  "exclude": ["**/node_modules", "**/dist", "src/**/*.test.mjs"],
+  "exclude": ["**/node_modules", "**/dist", "**/*.test.mjs"],
   "references": [
     {
       "path": "../nhsuk-frontend/tsconfig.json"
