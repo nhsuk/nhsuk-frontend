@@ -95,6 +95,7 @@
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       {{ card({
         href: "#",
+        primary: true,
         clickable: true,
         heading: {
           text: "Introduction to care and support",
@@ -222,12 +223,24 @@
 
       {{ card({
         href: "#",
+        primary: true,
         clickable: true,
         heading: {
           text: "Introduction to care and support",
           size: "m"
         },
         description: "A quick guide for people who have care and support needs and their carers."
+      }) }}
+
+      {{ card({
+        href: "#",
+        secondary: true,
+        clickable: true,
+        heading: {
+          text: "Urgent and emergency care services",
+          size: "m"
+        },
+        description: "Services the NHS provides if you need urgent or emergency medical help"
       }) }}
 
       {{ card({

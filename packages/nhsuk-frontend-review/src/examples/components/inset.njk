@@ -1,7 +1,8 @@
 {% extends "layouts/blank.njk" %}
 
 {% set pageHeading = "Components with inset spacing" %}
-{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set bodyAttributes = { id: "show-guide" } %}
+{% set mainClasses = "nhsuk-main-wrapper--s app-wrapper--guide" %}
 
 {% set tab1Html %}
 <h2>Tab 1 content</h2>
@@ -42,6 +43,19 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      {{ contentsList({
+        items: [
+          {
+            href: "#show-guide",
+            text: "Show inset space"
+          },
+          {
+            href: "#hide-guide",
+            text: "Hide inset space"
+          }
+        ]
+      }) }}
+
       {{ errorSummary({
         heading: {
           text: "There is a problem"
@@ -64,30 +78,18 @@
         </p>
       {% endcall %}
 
-      {{ contentsList({
-        items: [
-          {
-            href: "#",
-            text: "What is AMD?",
-            current: true
-          },
-          {
-            href: "#",
-            text: "Symptoms"
-          },
-          {
-            href: "#",
-            text: "Getting diagnosed"
-          },
-          {
-            href: "#",
-            text: "Treatments"
-          },
-          {
-            href: "#",
-            text: "Living with AMD"
-          }
-        ]
+      {{ fileUpload({
+        label: {
+          text: "Upload a file",
+          size: "l",
+          isPageHeading: true
+        },
+        name: "file-hint"
+      }) }}
+
+      {{ actionLink({
+        text: "Find your nearest A&E",
+        href: "#"
       }) }}
 
       {% call details({
@@ -265,12 +267,24 @@
 
       {{ card({
         href: "#",
+        primary: true,
         clickable: true,
         heading: {
           text: "Introduction to care and support",
           size: "m"
         },
         description: "A quick guide for people who have care and support needs and their carers."
+      }) }}
+
+      {{ card({
+        href: "#",
+        secondary: true,
+        clickable: true,
+        heading: {
+          text: "Urgent and emergency care services",
+          size: "m"
+        },
+        description: "Services the NHS provides if you need urgent or emergency medical help"
       }) }}
 
       {{ card({
@@ -425,6 +439,11 @@
             }
           ]
         ]
+      }) }}
+
+      {{ panel({
+        titleText: "Application complete",
+        text: "We have sent you a confirmation email"
       }) }}
 
       {{ warningCallout({
