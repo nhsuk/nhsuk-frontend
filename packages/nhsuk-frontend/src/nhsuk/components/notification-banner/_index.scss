@@ -31,7 +31,7 @@
     border-bottom: 1px solid transparent;
     background-color: $nhsuk-brand-colour;
 
-    @include nhsuk-responsive-padding(4, ("left", "right"), $unit: "rem");
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $nhsuk-border-width, $unit: "rem");
   }
 
   .nhsuk-notification-banner__title {
@@ -48,7 +48,7 @@
     @include nhsuk-text-colour;
 
     @include nhsuk-responsive-padding(4, ("top", "bottom"));
-    @include nhsuk-responsive-padding(4, ("left", "right"), $unit: "rem");
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $nhsuk-border-width, $unit: "rem");
 
     // Wrap content at the same place that a 2/3 grid column ends, to maintain
     // shorter line-lengths when the notification banner is full width

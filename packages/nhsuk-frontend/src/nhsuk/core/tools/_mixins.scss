@@ -193,8 +193,8 @@
   @include nhsuk-top-and-bottom;
 
   @if $variant == "feature" {
-    @include nhsuk-responsive-padding(5, "bottom");
-    @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
+    @include nhsuk-responsive-padding(5, "bottom", $adjustment: -1px);
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: -1px, $unit: "rem");
   }
 
   @media print {

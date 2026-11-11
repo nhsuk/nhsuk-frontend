@@ -50,8 +50,9 @@
     .nhsuk-details {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid $nhsuk-secondary-border-colour;
+
+      @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
     }
 
     .nhsuk-details--reverse {
@@ -77,12 +78,12 @@
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-spacing(4, $unit: "rem");
       text-decoration: none;
       cursor: pointer;
 
       @include nhsuk-link-style-focus;
       @include nhsuk-top-and-bottom;
+      @include nhsuk-responsive-padding(5, "left", $unit: "rem");
 
       &::-webkit-details-marker {
         display: none; // [4]
@@ -170,8 +171,9 @@
     .nhsuk-details__text {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid $nhsuk-secondary-border-colour;
+
+      @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
 
       .nhsuk-details--reverse & {
         border-left-color: $nhsuk-reverse-border-colour;

@@ -65,4 +65,9 @@
 
     @include nhsuk-responsive-spacing(5, "width", $unit: "rem");
   }
+
+  &.nhsuk-main-wrapper--s::before {
+    top: nhsuk-spacing(3);
+    bottom: nhsuk-spacing(3);
+  }
 }
