@@ -68,7 +68,7 @@
     text: visuallyHiddenText,
     html: visuallyHiddenHtml,
     placement: "start",
-    slots: { end: ": " }
+    slots: { end: ": " if caller or params.html or params.text else undefined }
   },
   slots: params.slots
 } %}
