@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e
 
 CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
