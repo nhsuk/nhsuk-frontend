@@ -5,7 +5,7 @@ CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 CURRENT_VERSION=$(npm run version --silent --workspace nhsuk-frontend)
 
 BRANCH_NAME="preview-$CURRENT_BRANCH_NAME"
-VERSION="$CURRENT_VERSION-$BRANCH_NAME"
+VERSION="$CURRENT_VERSION-${BRANCH_NAME//[^[:alnum:]-]/-}"
 
 # Build the package as normal
 echo "✨ Install and build branch preview"
@@ -20,9 +20,9 @@ if [[ -n $(git status --porcelain) ]]; then
 fi
 
 # Remove local branch if it already exists
-if [ $(git branch --list $BRANCH_NAME) ]; then
+if git show-ref --branches --quiet "$BRANCH_NAME"; then
   echo "⚠️ Cleaning up branch $BRANCH_NAME that already exists."
-  git branch -D $BRANCH_NAME
+  git branch -D "$BRANCH_NAME"
 fi
 
 # Work on the new branch
@@ -39,7 +39,7 @@ echo "✍️ Update package version"
 echo
 
 # Append branch name to npm package version if not already added
-npm version $VERSION --allow-same-version --no-git-tag-version --silent --workspace nhsuk-frontend
+npm version "$VERSION" --allow-same-version --no-git-tag-version --silent --workspace nhsuk-frontend
 git add packages/nhsuk-frontend/package.json
 git add package-lock.json
 
@@ -55,14 +55,14 @@ echo "✨ Filter the branch to only the packages/nhsuk-frontend/ directory..."
 git filter-branch --force --subdirectory-filter packages/nhsuk-frontend
 
 # Force the push of the branch to the remote Github origin
-git push origin $BRANCH_NAME:$BRANCH_NAME --force --quiet
+git push origin "$BRANCH_NAME:$BRANCH_NAME" --force --quiet
 
 echo
 echo "⚠️ Branch pushed to '$BRANCH_NAME', do not edit this by hand."
 
 git checkout -
 
-BRANCH_COMMIT_SHA=$(git rev-parse --short $BRANCH_NAME)
+BRANCH_COMMIT_SHA=$(git rev-parse --short "$BRANCH_NAME")
 
 echo
 echo "✅ Success! To install the branch preview, run:"
