@@ -39,8 +39,7 @@ export class Checkboxes extends ConfigurableComponent {
     this.$inputs = $inputs
 
     this.$inputs.forEach(($input) => {
-      const targetId =
-        $input.dataset.ariaControls ?? $input.getAttribute('aria-controls')
+      const targetId = $input.dataset.ariaControls
 
       // Skip checkboxes without data-aria-controls attributes
       if (!targetId) {
