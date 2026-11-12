@@ -31,7 +31,6 @@ git checkout -b $BRANCH_NAME
 # npm will try to install dev, optional and peer dependencies
 # when installing from a Git repository, which will error when
 # looking for our local only `@nhsuk/*` workspace packages
-echo
 echo "✍️ Remove dev dependencies"
 npm pkg delete devDependencies --workspace nhsuk-frontend
 
@@ -40,11 +39,12 @@ echo
 
 # Append branch name to npm package version if not already added
 npm version "$VERSION" --allow-same-version --no-git-tag-version --silent --workspace nhsuk-frontend
-git add packages/nhsuk-frontend/package.json
-git add package-lock.json
 
 echo
-echo "✍️ Force commit package"
+echo "✍️ Commit package files"
+git add packages/nhsuk-frontend/package.json
+git add package-lock.json
+# Some files are gitignored so we need to force adding them.
 git add --force packages/nhsuk-frontend/dist/
 git commit --allow-empty -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
 
