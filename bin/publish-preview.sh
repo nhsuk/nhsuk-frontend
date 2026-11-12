@@ -43,7 +43,8 @@ npm version "$VERSION" --allow-same-version --no-git-tag-version --silent --work
 echo
 echo "✍️ Commit package files"
 git add packages/nhsuk-frontend/package.json
-git add package-lock.json
+git add packages/nhsuk-frontend/README.md
+git add packages/nhsuk-frontend/src/
 # Some files are gitignored so we need to force adding them.
 git add --force packages/nhsuk-frontend/dist/
 git commit --allow-empty -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
