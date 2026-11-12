@@ -2,7 +2,7 @@
 set -e
 
 CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-CURRENT_VERSION=$(npm run version --silent --workspace nhsuk-frontend)
+CURRENT_VERSION=$(node -p "require('./packages/nhsuk-frontend/package.json').version")
 
 BRANCH_NAME="preview-$CURRENT_BRANCH_NAME"
 VERSION="$CURRENT_VERSION-${BRANCH_NAME//[^[:alnum:]-]/-}"
