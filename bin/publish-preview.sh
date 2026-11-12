@@ -7,12 +7,6 @@ CURRENT_VERSION=$(npm run version --silent --workspace nhsuk-frontend)
 BRANCH_NAME="preview-$CURRENT_BRANCH_NAME"
 VERSION="$CURRENT_VERSION-${BRANCH_NAME//[^[:alnum:]-]/-}"
 
-# Build the package as normal
-echo "✨ Install and build branch preview"
-npm install --no-save --silent
-npm run build --workspace nhsuk-frontend
-echo
-
 # Check if there are files that need to be commited
 if [[ -n $(git status --porcelain) ]]; then
   echo "⚠️ You have unstaged files, please commit these and then try again."
@@ -32,6 +26,12 @@ git reset
 
 # Return to the original branch on exit
 trap 'git checkout --force --quiet "$CURRENT_BRANCH_NAME"' EXIT
+
+# Build the package as normal
+echo "✨ Install and build branch preview"
+npm install --no-save --silent
+npm run build --workspace nhsuk-frontend
+echo
 
 # npm will try to install dev, optional and peer dependencies
 # when installing from a Git repository, which will error when
