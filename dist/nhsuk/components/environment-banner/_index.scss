@@ -1,0 +1,212 @@
+// stylelint-disable selector-no-qualifying-type
+
+@use "sass:color";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Environment banner component
+///
+/// @group components/environment-banner
+////
+
+@include nhsuk-exports("nhsuk/components/environment-banner") {
+  .nhsuk-environment-banner {
+    box-sizing: border-box;
+    @include nhsuk-font(16);
+
+    .nhsuk-tag {
+      margin-right: nhsuk-spacing(2, $unit: "rem");
+    }
+  }
+
+  .nhsuk-environment-banner--white {
+    color: $nhsuk-text-colour;
+    background-color: nhsuk-colour("white");
+  }
+
+  .nhsuk-environment-banner--grey {
+    $text-colour: $nhsuk-text-colour;
+    $background-color: nhsuk-colour("grey-4");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--green {
+    $text-colour: nhsuk-colour("dark-green");
+    $background-color: nhsuk-colour("pale-green");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--aqua-green {
+    $text-colour: nhsuk-colour("dark-aqua-green");
+    $background-color: nhsuk-colour("pale-aqua-green");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--blue {
+    $text-colour: nhsuk-colour("dark-blue");
+    $background-color: nhsuk-colour("pale-blue");
+
+    border-color: $text-colour;
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--purple {
+    $text-colour: nhsuk-colour("dark-purple");
+    $background-color: nhsuk-colour("pale-purple");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--pink {
+    $text-colour: nhsuk-colour("dark-pink");
+    $background-color: nhsuk-colour("pale-pink");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--red {
+    $text-colour: nhsuk-colour("dark-red");
+    $background-color: nhsuk-colour("pale-red");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--orange {
+    $text-colour: nhsuk-colour("dark-orange");
+    $background-color: nhsuk-colour("pale-orange");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--warm-yellow {
+    $text-colour: nhsuk-colour("dark-warm-yellow");
+    $background-color: nhsuk-colour("pale-warm-yellow");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--yellow {
+    $text-colour: nhsuk-colour("dark-yellow");
+    $background-color: nhsuk-colour("pale-yellow");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner__container {
+    position: relative;
+    z-index: 1;
+    border: solid $nhsuk-reverse-border-colour;
+    border-width: 0;
+
+    @include nhsuk-top-and-bottom;
+    @include nhsuk-responsive-padding(2, ("top", "bottom"));
+  }
+
+  // Default background (without colour class)
+  .nhsuk-environment-banner:not([class*="nhsuk-environment-banner--"]) {
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-brand-colour;
+
+    // Use darker background when following the header or hero
+    .nhsuk-header ~ &,
+    .nhsuk-hero ~ & {
+      background-color: nhsuk-shade($nhsuk-brand-colour, 20%);
+    }
+
+    @media print {
+      color: $nhsuk-print-text-colour;
+    }
+
+    .nhsuk-environment-banner__container {
+      margin-bottom: -1px;
+      border-width: 0 0 1px;
+
+      // Remove container border when following the header or hero
+      .nhsuk-header ~ &,
+      .nhsuk-hero ~ & {
+        margin-bottom: 0;
+        border-width: 0;
+      }
+    }
+
+    .nhsuk-code--inline {
+      color: nhsuk-colour("pale-blue");
+      background-color: nhsuk-colour("dark-blue");
+    }
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-reverse;
+
+      &:focus .nhsuk-code--inline {
+        color: currentcolor;
+        background-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,214 @@
+import { outdent } from 'outdent'
+import { compileStringAsync, sassNull } from 'sass-embedded'
+
+describe('Core', () => {
+  /** @type {Logger} */
+  let logger = {}
+
+  beforeEach(() => {
+    // Create a mock warn function that we can use to override the native @warn
+    // function, that we can make assertions about post-render.
+    logger.warn = jest.fn().mockReturnValue(sassNull)
+  })
+
+  describe('importing using index file', () => {
+    const properties = outdent`
+      :root {
+        --nhsuk-frontend-version: "development";
+        --nhsuk-breakpoint-mobile: 20rem;
+        --nhsuk-breakpoint-tablet: 40.0625rem;
+        --nhsuk-breakpoint-desktop: 48.0625rem;
+        --nhsuk-breakpoint-large-desktop: 61.875rem;
+        --nhsuk-dark-blue-colour: #003087;
+        --nhsuk-blue-colour: #005eb8;
+        --nhsuk-pale-blue-colour: #ccdff1;
+        --nhsuk-black-colour: #212b32;
+        --nhsuk-grey-1-colour: #4c6272;
+        --nhsuk-grey-2-colour: #768692;
+        --nhsuk-grey-3-colour: #aeb7bd;
+        --nhsuk-grey-4-colour: #d8dde0;
+        --nhsuk-grey-5-colour: #f0f4f5;
+        --nhsuk-white-colour: white;
+        --nhsuk-dark-green-colour: #004c23;
+        --nhsuk-green-colour: #007f3b;
+        --nhsuk-pale-green-colour: #cce5d8;
+        --nhsuk-pale-aqua-green-colour: #bae6e3;
+        --nhsuk-aqua-green-colour: #00a499;
+        --nhsuk-dark-aqua-green-colour: #004a45;
+        --nhsuk-dark-purple-colour: #330072;
+        --nhsuk-purple-colour: #5c338e;
+        --nhsuk-pale-purple-colour: #ded6e8;
+        --nhsuk-dark-pink-colour: #6e234b;
+        --nhsuk-pink-colour: #ae2573;
+        --nhsuk-pale-pink-colour: #efd3e3;
+        --nhsuk-dark-red-colour: #801810;
+        --nhsuk-red-colour: #d5281b;
+        --nhsuk-pale-red-colour: #f7d4d1;
+        --nhsuk-dark-orange-colour: #5f3800;
+        --nhsuk-orange-colour: #ed8b00;
+        --nhsuk-pale-orange-colour: #fbe8cc;
+        --nhsuk-dark-warm-yellow-colour: #664a0b;
+        --nhsuk-warm-yellow-colour: #ffb81c;
+        --nhsuk-pale-warm-yellow-colour: #fff1d2;
+        --nhsuk-dark-yellow-colour: #595215;
+        --nhsuk-yellow-colour: #ffeb3b;
+        --nhsuk-pale-yellow-colour: #fff9c4;
+        --nhsuk-brand-colour: #005eb8;
+        --nhsuk-text-colour: #212b32;
+        --nhsuk-reverse-text-colour: white;
+        --nhsuk-template-background-colour: #d8dde0;
+        --nhsuk-body-background-colour: #f0f4f5;
+        --nhsuk-card-background-colour: white;
+        --nhsuk-print-text-colour: black;
+        --nhsuk-secondary-text-colour: #4c6272;
+        --nhsuk-reverse-secondary-text-colour: #c7dcef;
+        --nhsuk-focus-colour: #ffeb3b;
+        --nhsuk-focus-text-colour: #212b32;
+        --nhsuk-error-colour: #d5281b;
+        --nhsuk-error-text-colour: #d5281b;
+        --nhsuk-success-colour: #007f3b;
+        --nhsuk-success-text-colour: #007f3b;
+        --nhsuk-border-colour: #d8dde0;
+        --nhsuk-secondary-border-colour: #aeb7bd;
+        --nhsuk-reverse-border-colour: #337ec6;
+        --nhsuk-input-border-colour: #4c6272;
+        --nhsuk-hover-colour: #aeb7bd;
+        --nhsuk-reverse-hover-colour: #004b93;
+        --nhsuk-target-hover-colour: #e0e4e6;
+        --nhsuk-reverse-target-hover-colour: #0055a6;
+        --nhsuk-input-background-colour: white;
+        --nhsuk-code-colour: #d5281b;
+        --nhsuk-link-colour: #005eb8;
+        --nhsuk-link-visited-colour: #330072;
+        --nhsuk-link-hover-colour: #003087;
+        --nhsuk-link-active-colour: #212b32;
+        --nhsuk-button-colour: #007f3b;
+        --nhsuk-button-text-colour: white;
+        --nhsuk-button-hover-colour: #00662f;
+        --nhsuk-button-active-colour: #00401e;
+        --nhsuk-button-shadow-colour: #00401e;
+        --nhsuk-secondary-button-colour: rgba(0, 0, 0, 0);
+        --nhsuk-secondary-button-solid-background-colour: white;
+        --nhsuk-secondary-button-border-colour: #005eb8;
+        --nhsuk-secondary-button-text-colour: #005eb8;
+        --nhsuk-secondary-button-hover-colour: #d9e7f4;
+        --nhsuk-secondary-button-active-colour: #c7dcef;
+        --nhsuk-secondary-button-shadow-colour: #005eb8;
+        --nhsuk-reverse-button-colour: white;
+        --nhsuk-reverse-button-text-colour: #212b32;
+        --nhsuk-reverse-button-hover-colour: #d9d9d9;
+        --nhsuk-reverse-button-active-colour: #b3b3b3;
+        --nhsuk-reverse-button-shadow-colour: #b3b3b3;
+        --nhsuk-warning-button-colour: #d5281b;
+        --nhsuk-warning-button-hover-colour: #aa2016;
+        --nhsuk-warning-button-active-colour: #6b140e;
+        --nhsuk-warning-button-shadow-colour: #6b140e;
+        --nhsuk-login-button-colour: #005eb8;
+        --nhsuk-login-button-hover-colour: #004b93;
+        --nhsuk-login-button-active-colour: #002f5c;
+        --nhsuk-login-button-shadow-colour: #002f5c;
+      }
+    `
+
+    it('forwards core styles', async () => {
+      const sass = outdent`
+        @forward "core";
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(properties)
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          .nhsuk-width-container {
+            max-width: 960px;
+            margin-right: 16px;
+            margin-left: 16px;
+          }
+        `)
+      })
+    })
+
+    it('forwards core styles (with custom breakpoints)', async () => {
+      const sass = outdent`
+        @forward "core" with (
+          $nhsuk-breakpoints: (
+            mobile: 110px,
+            tablet: 220px,
+            desktop: 330px,
+            large-desktop: 440px
+          )
+        );
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          :root {
+            --nhsuk-frontend-version: "development";
+            --nhsuk-breakpoint-mobile: 6.875rem;
+            --nhsuk-breakpoint-tablet: 13.75rem;
+            --nhsuk-breakpoint-desktop: 20.625rem;
+            --nhsuk-breakpoint-large-desktop: 27.5rem;
+        `)
+      })
+    })
+
+    it('forwards core styles (with custom page width)', async () => {
+      const sass = outdent`
+        @forward "core" with (
+          $nhsuk-page-width: 1100px
+        );
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          .nhsuk-width-container {
+            max-width: 1100px;
+            margin-right: 16px;
+            margin-left: 16px;
+          }
+        `)
+      })
+    })
+
+    it('forwards core styles (with dynamic type enabled)', async () => {
+      const sass = outdent`
+        @forward "core" with (
+          $nhsuk-include-dynamic-type: true
+        );
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          :root {
+            --nhsuk-frontend-version: "development";
+            --nhsuk-breakpoint-mobile: 18.8235294118rem;
+            --nhsuk-breakpoint-tablet: 37.7058823529rem;
+            --nhsuk-breakpoint-desktop: 45.2352941176rem;
+            --nhsuk-breakpoint-large-desktop: 58.2352941176rem;
+        `)
+      })
+    })
+  })
+})
+
+/**
+ * @import { Logger } from 'sass-embedded'
+ */

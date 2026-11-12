@@ -1,0 +1,52 @@
+@use "sass:math";
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Icons
+///
+/// @group styles
+////
+
+// Default icon styles
+
+.nhsuk-icon {
+  display: inline-block;
+
+  width: nhsuk-px-to-rem($nhsuk-icon-size);
+  height: nhsuk-px-to-rem($nhsuk-icon-size);
+
+  fill: currentcolor;
+
+  vertical-align: middle;
+
+  // Work around SVGs not inheriting color from parent in forced color mode
+  // (https://github.com/w3c/csswg-drafts/issues/6310)
+  forced-color-adjust: auto;
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+  }
+}
+
+/// Icon size adjustments
+///
+/// @access private
+
+$_icon-sizes: (25%, 50%, 75%, 100%);
+
+@each $size in $_icon-sizes {
+  $ratio: math.div(100% + $size, 100%); // 25% adjustment = 1.25
+  $name: "size-#{math.div($size, 1%)}"; // 25% adjustment = "size-25"
+
+  .nhsuk-icon--#{$name} {
+    width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+    height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+    }
+  }
+}

@@ -1,0 +1,304 @@
+import { userEvent } from '@testing-library/user-event'
+
+import { components } from '#lib'
+
+import { createAll } from '../../index.mjs'
+import { Button } from '../button/button.mjs'
+import { examples } from './fixtures.mjs'
+import { PasswordInput } from './password-input.mjs'
+
+const user = userEvent.setup()
+
+describe('Password input', () => {
+  /** @type {HTMLElement} */
+  let $root
+
+  /** @type {HTMLInputElement} */
+  let $input
+
+  /** @type {HTMLElement} */
+  let $button
+
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
+    document.body.innerHTML = components.render(
+      'password-input',
+      examples[example]
+    )
+
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${PasswordInput.moduleName}"]`)
+    )
+
+    $input = /** @type {HTMLInputElement} */ (
+      $root.querySelector('.nhsuk-js-password-input-input')
+    )
+
+    $button = /** @type {HTMLButtonElement} */ (
+      $root.querySelector('.nhsuk-js-password-input-toggle')
+    )
+
+    jest.spyOn($button, 'addEventListener')
+    jest.spyOn($button, 'click')
+    jest.spyOn(window, 'addEventListener')
+  }
+
+  beforeEach(() => {
+    initExample('default')
+  })
+
+  describe('Initialisation via class', () => {
+    it('should add event listeners', () => {
+      new PasswordInput($root)
+
+      // Adds listener for window pageshow
+      expect(window.addEventListener).toHaveBeenNthCalledWith(
+        1,
+        'pageshow',
+        expect.any(Function)
+      )
+
+      // Adds listener for show/hide button click
+      expect($button.addEventListener).toHaveBeenNthCalledWith(
+        1,
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('should not throw with $root element', () => {
+      expect(() => new PasswordInput($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new PasswordInput($root)).toThrow(
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
+      expect(() => new PasswordInput()).toThrow(
+        `${PasswordInput.moduleName}: Root element (\`$root\`) not found`
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new PasswordInput($svg)).toThrow(
+        `${PasswordInput.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw with missing $input element', () => {
+      $input.remove()
+
+      expect(() => new PasswordInput($root)).toThrow(
+        `${PasswordInput.moduleName}: Form field (\`.nhsuk-js-password-input-input\`) not found`
+      )
+    })
+
+    it('should throw with wrong $input element type', () => {
+      $input.setAttribute('type', 'email')
+
+      expect(() => new PasswordInput($root)).toThrow(
+        `${PasswordInput.moduleName}: Form field (\`.nhsuk-js-password-input-input\`) is not of type HTMLInputElement with attribute (\`type="password"\`)`
+      )
+    })
+
+    it('should throw with missing password input', () => {
+      $input.remove()
+
+      expect(() => new PasswordInput($root)).toThrow(
+        `${PasswordInput.moduleName}: Form field (\`.nhsuk-js-password-input-input\`) not found`
+      )
+    })
+
+    it('should throw with missing show/hide button', () => {
+      $button.remove()
+
+      expect(() => new PasswordInput($root)).toThrow(
+        `${PasswordInput.moduleName}: Button (\`.nhsuk-js-password-input-toggle\`) not found`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new PasswordInput($root)
+        new PasswordInput($root)
+      }).toThrow(
+        `${PasswordInput.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      new PasswordInput($root)
+    })
+
+    it('should have accessible name and role', async () => {
+      expect($button).toHaveRole('button')
+      expect($button).toHaveAccessibleName('Show password')
+
+      // Click to show password
+      await user.click($button)
+
+      expect($button).toHaveRole('button')
+      expect($button).toHaveAccessibleName('Hide password')
+    })
+  })
+
+  describe('Nunjucks configuration', () => {
+    it('configures prevent double click enabled', async () => {
+      initExample('with button double click prevented')
+      createAll(Button)
+
+      const component = new PasswordInput($root)
+      expect($button.dataset).toHaveProperty('preventDoubleClick', 'true')
+
+      jest.spyOn(component, 'show')
+      jest.spyOn(component, 'hide')
+
+      // Click to show password multiple times
+      await user.dblClick($button)
+
+      expect(component.show).toHaveBeenCalledTimes(1)
+      expect(component.hide).not.toHaveBeenCalled()
+
+      expect($button).toHaveAccessibleName('Hide password')
+    })
+
+    it('configures prevent double click disabled', async () => {
+      initExample('with button double click not prevented')
+      createAll(Button)
+
+      const component = new PasswordInput($root)
+      expect($button.dataset).toHaveProperty('preventDoubleClick', 'false')
+
+      jest.spyOn(component, 'show')
+      jest.spyOn(component, 'hide')
+
+      // Click to show password multiple times
+      await user.dblClick($button)
+
+      expect(component.show).toHaveBeenCalledTimes(1)
+      expect(component.hide).toHaveBeenCalledTimes(1)
+
+      expect($button).toHaveAccessibleName('Show password')
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('password-input', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const component = new PasswordInput(
+        document.querySelector(`[data-module="${PasswordInput.moduleName}"]`)
+      )
+
+      expect(component.config).toEqual(PasswordInput.defaults)
+    })
+
+    it('configures default text', () => {
+      initExample('default')
+
+      const component = new PasswordInput(
+        document.querySelector(`[data-module="${PasswordInput.moduleName}"]`)
+      )
+
+      expect(component.config).toEqual(PasswordInput.defaults)
+    })
+
+    it('configures translated text', () => {
+      initExample('with translations')
+
+      const component = new PasswordInput(
+        document.querySelector(`[data-module="${PasswordInput.moduleName}"]`)
+      )
+
+      expect(component.config).toEqual({
+        ...PasswordInput.defaults,
+        i18n: {
+          hidePassword: 'Cuddio',
+          hidePasswordAriaLabel: 'Cuddio cyfrinair',
+          passwordHiddenAnnouncement: "Mae eich cyfrinair wedi'i guddio.",
+          passwordShownAnnouncement: 'Mae eich cyfrinair yn weladwy.',
+          showPassword: 'Dangos',
+          showPasswordAriaLabel: 'Dangos cyfrinair'
+        }
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    beforeEach(() => {
+      initExample('default')
+    })
+
+    describe('during initialisation', () => {
+      it('overrides the default translation keys', () => {
+        const component = new PasswordInput($root, {
+          i18n: {
+            hidePassword: 'Custom text'
+          }
+        })
+
+        expect(component.config).toEqual({
+          ...PasswordInput.defaults,
+          i18n: {
+            ...PasswordInput.defaults.i18n,
+            hidePassword: 'Custom text'
+          }
+        })
+      })
+
+      it('reverts the input back to password type via back/forward navigation', async () => {
+        new PasswordInput($root)
+
+        // Click to show password
+        await user.click($button)
+
+        expect($input).toHaveProperty('type', 'text')
+        expect($button).toHaveAccessibleName('Hide password')
+
+        // Trigger back/forward navigation
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
+
+        expect($input).toHaveProperty('type', 'password')
+        expect($button).toHaveAccessibleName('Show password')
+      })
+    })
+
+    describe('with HTML data attributes', () => {
+      it('overrides the default translation keys', () => {
+        $root.setAttribute('data-i18n.hide-password', 'Custom text')
+
+        const component = new PasswordInput($root)
+
+        expect(component.config).toEqual({
+          ...PasswordInput.defaults,
+          i18n: {
+            ...PasswordInput.defaults.i18n,
+            hidePassword: 'Custom text'
+          }
+        })
+      })
+    })
+  })
+})

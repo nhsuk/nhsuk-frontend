@@ -1,0 +1,1227 @@
+{
+  "name": "Button",
+  "component": "button",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Save and continue"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<button class=\"nhsuk-button\" data-module=\"nhsuk-button\" type=\"submit\">\n  Save and continue\n</button>\n"
+    },
+    {
+      "name": "default, small",
+      "context": {
+        "text": "Save and continue",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Save and continue\n</button>\n"
+    },
+    {
+      "name": "disabled",
+      "context": {
+        "text": "Disabled button",
+        "disabled": true
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<button class=\"nhsuk-button\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Disabled button\n</button>\n"
+    },
+    {
+      "name": "disabled, small",
+      "context": {
+        "text": "Disabled button",
+        "disabled": true,
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Disabled button\n</button>\n"
+    },
+    {
+      "name": "example reverse save button, small",
+      "context": {
+        "text": "Save",
+        "variant": "reverse",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Save\n</button>\n"
+    },
+    {
+      "name": "example reverse search button, small",
+      "context": {
+        "text": "Search",
+        "variant": "reverse",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Search\n</button>\n"
+    },
+    {
+      "name": "example secondary save button, small",
+      "context": {
+        "text": "Save",
+        "variant": "secondary",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Save\n</button>\n"
+    },
+    {
+      "name": "example secondary search button, small",
+      "context": {
+        "text": "Search",
+        "variant": "secondary",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Search\n</button>\n"
+    },
+    {
+      "name": "login",
+      "context": {
+        "text": "Continue",
+        "variant": "login"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login\" data-module=\"nhsuk-button\" type=\"submit\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "login as a link",
+      "context": {
+        "text": "Continue",
+        "variant": "login",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--login\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Continue\n</a>\n"
+    },
+    {
+      "name": "login as a link, small",
+      "context": {
+        "text": "Continue",
+        "variant": "login",
+        "small": true,
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--login nhsuk-button--small\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Continue\n</a>\n"
+    },
+    {
+      "name": "login disabled",
+      "context": {
+        "text": "Continue",
+        "variant": "login",
+        "disabled": true
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "login disabled, small",
+      "context": {
+        "text": "Continue",
+        "variant": "login",
+        "disabled": true,
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "login class overriding variant option",
+      "context": {
+        "text": "Continue",
+        "variant": "brand",
+        "classes": "nhsuk-button--login"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login\" data-module=\"nhsuk-button\" type=\"submit\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "login, small",
+      "context": {
+        "text": "Continue",
+        "variant": "login",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "login with icon at end",
+      "context": {
+        "text": "Next",
+        "variant": "login",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "login with icon at end, small",
+      "context": {
+        "text": "Next",
+        "variant": "login",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "login with icon at start",
+      "context": {
+        "text": "Previous",
+        "variant": "login",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "login with icon at start, small",
+      "context": {
+        "text": "Previous",
+        "variant": "login",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--login nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "reverse",
+      "context": {
+        "text": "Log out",
+        "variant": "reverse"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" type=\"submit\">\n  Log out\n</button>\n"
+    },
+    {
+      "name": "reverse as a link",
+      "context": {
+        "text": "Log out",
+        "variant": "reverse",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Log out\n</a>\n"
+    },
+    {
+      "name": "reverse as a link, small",
+      "context": {
+        "text": "Log out",
+        "variant": "reverse",
+        "small": true,
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--small\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Log out\n</a>\n"
+    },
+    {
+      "name": "reverse disabled",
+      "context": {
+        "text": "Log out",
+        "variant": "reverse",
+        "disabled": true
+      },
+      "screenshot": true,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Log out\n</button>\n"
+    },
+    {
+      "name": "reverse disabled, small",
+      "context": {
+        "text": "Log out",
+        "variant": "reverse",
+        "disabled": true,
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Log out\n</button>\n"
+    },
+    {
+      "name": "reverse class overriding variant option",
+      "context": {
+        "text": "Continue",
+        "variant": "brand",
+        "classes": "nhsuk-button--reverse"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" type=\"submit\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "reverse, small",
+      "context": {
+        "text": "Log out",
+        "variant": "reverse",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Log out\n</button>\n"
+    },
+    {
+      "name": "reverse with icon at end",
+      "context": {
+        "text": "Next",
+        "variant": "reverse",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "reverse with icon at end, small",
+      "context": {
+        "text": "Next",
+        "variant": "reverse",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "reverse with icon at start",
+      "context": {
+        "text": "Previous",
+        "variant": "reverse",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "reverse with icon at start, small",
+      "context": {
+        "text": "Previous",
+        "variant": "reverse",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "secondary",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary\" data-module=\"nhsuk-button\" type=\"submit\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary as a link",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--secondary\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Find my location\n</a>\n"
+    },
+    {
+      "name": "secondary as a link, small",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary",
+        "small": true,
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Find my location\n</a>\n"
+    },
+    {
+      "name": "secondary disabled",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary",
+        "disabled": true
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary disabled, small",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary",
+        "disabled": true,
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary class overriding variant option",
+      "context": {
+        "text": "Continue",
+        "variant": "brand",
+        "classes": "nhsuk-button--secondary"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary\" data-module=\"nhsuk-button\" type=\"submit\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "secondary, small",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary-solid"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid\" data-module=\"nhsuk-button\" type=\"submit\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background as a link",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary-solid",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--secondary-solid\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Find my location\n</a>\n"
+    },
+    {
+      "name": "secondary, solid background as a link, small",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary-solid",
+        "small": true,
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--small\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Find my location\n</a>\n"
+    },
+    {
+      "name": "secondary, solid background disabled",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary-solid",
+        "disabled": true
+      },
+      "screenshot": true,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background disabled, small",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary-solid",
+        "disabled": true,
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background class overriding variant option",
+      "context": {
+        "text": "Continue",
+        "variant": "brand",
+        "classes": "nhsuk-button--secondary-solid"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid\" data-module=\"nhsuk-button\" type=\"submit\">\n  Continue\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background, small",
+      "context": {
+        "text": "Find my location",
+        "variant": "secondary-solid",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Find my location\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background with icon at end",
+      "context": {
+        "text": "Next",
+        "variant": "secondary-solid",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background with icon at end, small",
+      "context": {
+        "text": "Next",
+        "variant": "secondary-solid",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background with icon at start",
+      "context": {
+        "text": "Previous",
+        "variant": "secondary-solid",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "secondary, solid background with icon at start, small",
+      "context": {
+        "text": "Previous",
+        "variant": "secondary-solid",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "secondary with icon at end",
+      "context": {
+        "text": "Next",
+        "variant": "secondary",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "secondary with icon at end, small",
+      "context": {
+        "text": "Next",
+        "variant": "secondary",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "secondary with icon at start",
+      "context": {
+        "text": "Previous",
+        "variant": "secondary",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "secondary with icon at start, small",
+      "context": {
+        "text": "Previous",
+        "variant": "secondary",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "warning",
+      "context": {
+        "text": "Yes, delete this vaccine",
+        "variant": "warning"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Yes, delete this vaccine\n</button>\n"
+    },
+    {
+      "name": "warning as a link",
+      "context": {
+        "text": "Yes, delete this vaccine",
+        "variant": "warning",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--warning\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Yes, delete this vaccine\n</a>\n"
+    },
+    {
+      "name": "warning as a link, small",
+      "context": {
+        "text": "Yes, delete this vaccine",
+        "small": true,
+        "variant": "warning",
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--warning nhsuk-button--small\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Yes, delete this vaccine\n</a>\n"
+    },
+    {
+      "name": "warning disabled",
+      "context": {
+        "text": "Yes, delete this vaccine",
+        "variant": "warning",
+        "disabled": true
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Yes, delete this vaccine\n</button>\n"
+    },
+    {
+      "name": "warning disabled, small",
+      "context": {
+        "text": "Yes, delete this vaccine",
+        "variant": "warning",
+        "small": true,
+        "disabled": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" disabled aria-disabled=\"true\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Yes, delete this vaccine\n</button>\n"
+    },
+    {
+      "name": "warning class overriding variant option",
+      "context": {
+        "text": "Continue",
+        "variant": "brand",
+        "classes": "nhsuk-button--warning"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Continue\n</button>\n"
+    },
+    {
+      "name": "warning, small",
+      "context": {
+        "text": "Yes, delete this vaccine",
+        "small": true,
+        "variant": "warning"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-u-visually-hidden\">Warning: </span>Yes, delete this vaccine\n</button>\n"
+    },
+    {
+      "name": "warning with icon at end",
+      "context": {
+        "text": "Next",
+        "variant": "warning",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\"><span class=\"nhsuk-u-visually-hidden\">Warning: </span>Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "warning with icon at end, small",
+      "context": {
+        "text": "Next",
+        "variant": "warning",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\"><span class=\"nhsuk-u-visually-hidden\">Warning: </span>Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "warning with icon at start",
+      "context": {
+        "text": "Previous",
+        "variant": "warning",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\"><span class=\"nhsuk-u-visually-hidden\">Warning: </span>Previous</span>\n</button>\n"
+    },
+    {
+      "name": "warning with icon at start, small",
+      "context": {
+        "text": "Previous",
+        "variant": "warning",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\"><span class=\"nhsuk-u-visually-hidden\">Warning: </span>Previous</span>\n</button>\n"
+    },
+    {
+      "name": "with custom class",
+      "context": {
+        "text": "Link as a button",
+        "className": "nhsuk-link"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-link\" data-module=\"nhsuk-button\" type=\"submit\">\n  Link as a button\n</button>\n"
+    },
+    {
+      "name": "with double click not prevented",
+      "context": {
+        "text": "Save and continue",
+        "preventDoubleClick": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button\" data-module=\"nhsuk-button\" data-prevent-double-click=\"false\" type=\"submit\">\n  Save and continue\n</button>\n"
+    },
+    {
+      "name": "with double click prevented",
+      "context": {
+        "text": "Save and continue",
+        "preventDoubleClick": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button\" data-module=\"nhsuk-button\" data-prevent-double-click=\"true\" type=\"submit\">\n  Save and continue\n</button>\n"
+    },
+    {
+      "name": "with icon",
+      "context": {
+        "text": "Increase",
+        "icon": "plus"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Increase</span>\n</button>\n"
+    },
+    {
+      "name": "with icon at end",
+      "context": {
+        "text": "Next",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "with icon at end, small",
+      "context": {
+        "text": "Next",
+        "icon": {
+          "name": "arrow-right",
+          "placement": "end"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-button__content\">Next</span>\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "with icon at start",
+      "context": {
+        "text": "Previous",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "with icon at start and visually hidden text",
+      "context": {
+        "text": "Previous",
+        "visuallyHiddenText": "Important",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\"><span class=\"nhsuk-u-visually-hidden\">Important: </span>Previous</span>\n</button>\n"
+    },
+    {
+      "name": "with icon at start and visually hidden text, small",
+      "context": {
+        "text": "Previous",
+        "visuallyHiddenText": "Important",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\"><span class=\"nhsuk-u-visually-hidden\">Important: </span>Previous</span>\n</button>\n"
+    },
+    {
+      "name": "with icon at start, small",
+      "context": {
+        "text": "Previous",
+        "icon": {
+          "name": "arrow-left",
+          "placement": "start"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Previous</span>\n</button>\n"
+    },
+    {
+      "name": "with icon HTML",
+      "context": {
+        "text": "Increase",
+        "icon": {
+          "html": "<svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n  <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n</svg>\n"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Increase</span>\n</button>\n"
+    },
+    {
+      "name": "with icon HTML only",
+      "context": {
+        "ariaLabel": "Increase",
+        "icon": {
+          "html": "<svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n  <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n</svg>\n"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\" aria-label=\"Increase\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "with icon HTML only, small",
+      "context": {
+        "ariaLabel": "Increase",
+        "icon": {
+          "html": "<svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n  <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n</svg>\n"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" aria-label=\"Increase\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "with icon HTML, small",
+      "context": {
+        "text": "Increase",
+        "icon": {
+          "html": "<svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n  <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n</svg>\n"
+        },
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Increase</span>\n</button>\n"
+    },
+    {
+      "name": "with icon only",
+      "context": {
+        "ariaLabel": "Increase",
+        "icon": "plus"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon\" data-module=\"nhsuk-button\" type=\"submit\" aria-label=\"Increase\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "with icon only, small",
+      "context": {
+        "ariaLabel": "Increase",
+        "icon": "plus",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\" aria-label=\"Increase\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n</button>\n"
+    },
+    {
+      "name": "with icon, small",
+      "context": {
+        "text": "Increase",
+        "icon": "plus",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  <svg class=\"nhsuk-icon nhsuk-icon--plus\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n    <path d=\"M13.5 5.5a1.5 1.5 0 0 0-3 0v5h-5a1.5 1.5 0 0 0 0 3h5v5a1.5 1.5 0 0 0 3 0v-5h5a1.5 1.5 0 0 0 0-3h-5v-5Z\"/>\n  </svg>\n  <span class=\"nhsuk-button__content\">Increase</span>\n</button>\n"
+    },
+    {
+      "name": "without class",
+      "context": {
+        "text": "Default button",
+        "className": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button data-module=\"nhsuk-button\" type=\"submit\">\n  Default button\n</button>\n"
+    },
+    {
+      "name": "with small class",
+      "context": {
+        "text": "Save and continue",
+        "classes": "nhsuk-button--small"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Save and continue\n</button>\n"
+    },
+    {
+      "name": "with small class overriding small option",
+      "context": {
+        "text": "Save and continue",
+        "classes": "nhsuk-button--small",
+        "small": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button nhsuk-button--small\" data-module=\"nhsuk-button\" type=\"submit\">\n  Save and continue\n</button>\n"
+    },
+    {
+      "name": "with visually hidden text",
+      "context": {
+        "text": "Update",
+        "visuallyHiddenText": "Important"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<button class=\"nhsuk-button\" data-module=\"nhsuk-button\" type=\"submit\">\n  <span class=\"nhsuk-u-visually-hidden\">Important: </span>Update\n</button>\n"
+    },
+    {
+      "name": "as a link",
+      "context": {
+        "text": "Link button",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-button"
+      },
+      "options": {},
+      "html": "<a class=\"nhsuk-button\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Link button\n</a>\n"
+    },
+    {
+      "name": "as a link opens in a new tab",
+      "context": {
+        "text": "Link button",
+        "href": "#",
+        "openInNewTab": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button\" data-module=\"nhsuk-button\" href=\"#\" rel=\"noopener noreferrer\" target=\"_blank\" role=\"button\" draggable=\"false\">\n  Link button\n</a>\n"
+    },
+    {
+      "name": "as a link opens in a new tab (with \"rel\" attribute)",
+      "context": {
+        "text": "Link button",
+        "href": "#",
+        "openInNewTab": true,
+        "attributes": {
+          "rel": "noopener"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button\" data-module=\"nhsuk-button\" href=\"#\" target=\"_blank\" role=\"button\" draggable=\"false\" rel=\"noopener\">\n  Link button\n</a>\n"
+    },
+    {
+      "name": "as a link opens in a new tab (with \"target\" and \"rel\" attributes)",
+      "context": {
+        "text": "Link button",
+        "href": "#",
+        "openInNewTab": true,
+        "attributes": {
+          "target": "_blank",
+          "rel": "noopener"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\" target=\"_blank\" rel=\"noopener\">\n  Link button\n</a>\n"
+    },
+    {
+      "name": "as a link opens in a new tab (with \"target\" attribute)",
+      "context": {
+        "text": "Link button",
+        "href": "#",
+        "openInNewTab": true,
+        "attributes": {
+          "target": "_blank"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button\" data-module=\"nhsuk-button\" href=\"#\" rel=\"noopener noreferrer\" role=\"button\" draggable=\"false\" target=\"_blank\">\n  Link button\n</a>\n"
+    },
+    {
+      "name": "as a link, small",
+      "context": {
+        "text": "Link button",
+        "small": true,
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-button nhsuk-button--small\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Link button\n</a>\n"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
+
+{#- Support heading as string #}
+{%- set heading = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
+  text: parent.params.heading if parent.params.heading is string else undefined,
+  html: parent.params.heading if parent.params.heading is escaped else undefined
+} -%}
+
+{{ nhsukLink({
+  id: params.id,
+  text: params.text,
+  html: params.html,
+  visuallyHidden: params.visuallyHiddenText if not (heading.text or heading.html) else {
+    text: (params.visuallyHiddenText | default("") ~ " (" ~ heading.text ~ ")") | trim if heading.text,
+    html: (params.visuallyHiddenText | default("") ~ " (" ~ heading.html | safe ~ ")") | trim if heading.html
+  },
+  href: params.href,
+  name: params.name,
+  value: params.value,
+  type: params.type,
+  openInNewTab: params.openInNewTab,
+  classes: params.classes,
+  attributes: params.attributes
+}) | trim }}

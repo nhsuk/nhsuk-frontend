@@ -1,0 +1,311 @@
+import { outdent } from 'outdent'
+import { compileStringAsync, sassNull } from 'sass-embedded'
+
+describe('Colour helpers', () => {
+  const sassModules = outdent`
+    @use "core/helpers" as *;
+  `
+
+  /** @type {Logger} */
+  let logger = {}
+
+  beforeEach(() => {
+    // Create a mock warn function that we can use to override the native @warn
+    // function, that we can make assertions about post-render.
+    logger.warn = jest.fn().mockReturnValue(sassNull)
+  })
+
+  describe('@function nhsuk-colour', () => {
+    let sassBootstrap = ''
+
+    beforeEach(() => {
+      sassBootstrap = outdent`
+        @use "core/settings/colours-palette" as * with (
+          $nhsuk-colours: (
+            "red": #ff0000,
+            "green": #00ff00,
+            "blue": #0000ff
+          ),
+
+          $nhsuk-colours-aliases: (
+            "rouge": "red"
+          ),
+
+          $nhsuk-colours-deprecated: (
+            "bleu": "blue"
+          )
+        );
+
+        ${sassModules}
+      `
+    })
+
+    it('returns a colour from the colour palette', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour('red');
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #ff0000;
+          }
+        `
+      })
+    })
+
+    it('returns a colour from the colour palette via alias', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour('rouge');
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #ff0000;
+          }
+        `
+      })
+    })
+
+    it('works with unquoted strings', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour(red);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #ff0000;
+          }
+        `
+      })
+    })
+
+    it('throws an error if a non-existent colour is requested', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour('hooloovoo');
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).rejects.toThrow('Unknown colour `hooloovoo`')
+    })
+
+    it('outputs a warning if a deprecated colour is requested', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour('bleu');
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #0000ff;
+          }
+        `
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `nhsuk-colour("bleu") is deprecated. Use nhsuk-colour("blue") instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "nhsuk-colour-deprecated"`,
+        expect.anything()
+      )
+    })
+  })
+
+  describe('@function nhsuk-colour-compatible', () => {
+    it.each([
+      {
+        input: '"green"',
+        output: '#007f3b'
+      },
+      {
+        input: 'rgb(0, 150, 57)',
+        output: '#009639'
+      },
+      {
+        input: 'rgba(0, 150, 57, 1)',
+        output: '#009639'
+      },
+      {
+        input: 'rgba(0, 150, 57, 0.99)',
+        output: 'rgba(0, 150, 57, 0.99)'
+      },
+      {
+        input: 'rgb(0.1, 150.2, 57.3)',
+        output: '#009639'
+      },
+      {
+        input: 'rgba(0.1, 150.2, 57.3, 1)',
+        output: '#009639'
+      },
+      {
+        input: 'rgba(0.1, 150.2, 57.3, 0.99)',
+        output: 'rgba(0, 150, 57, 0.99)'
+      }
+    ])("outputs '$input' as value '$output'", async ({ input, output }) => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-colour-compatible(${input});
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: ${output};
+          }
+        `
+      })
+    })
+  })
+
+  describe('@function nhsuk-shade', () => {
+    it('outputs hexadecimal values by default', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-shade(rgb(171, 205, 239), 17%);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #8eaac6;
+          }
+        `
+      })
+    })
+
+    it('outputs rgba() values (with alpha channel)', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-shade(rgba(171, 205, 239, 0.2), 17%);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: rgba(60, 72, 84, 0.336);
+          }
+        `
+      })
+    })
+  })
+
+  describe('@function nhsuk-tint', () => {
+    it('outputs hexadecimal values by default', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-tint(rgb(18, 52, 86), 17%);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #3a5773;
+          }
+        `
+      })
+    })
+
+    it('outputs rgba() values (with alpha channel)', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-tint(rgba(18, 52, 86, 0.2), 17%);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: rgba(172, 184, 196, 0.336);
+          }
+        `
+      })
+    })
+  })
+})
+
+/**
+ * @import { Logger } from 'sass-embedded'
+ */

@@ -1,0 +1,44 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+
+{#- Set classes for this component #}
+{%- set className = "nhsuk-caption" %}
+{%- set classPrefix = className ~ "-" %}
+{%- set classNames = className %}
+
+{%- if params.size and
+  params.size in ["m", "l", "xl", "xxl"] and (
+    not params.classes or (
+      not classPrefix ~ "m" in params.classes and
+      not classPrefix ~ "l" in params.classes and
+      not classPrefix ~ "xl" in params.classes and
+      not classPrefix ~ "xxl" in params.classes
+    )
+  )
+%}
+  {%- set classNames = classPrefix ~ params.size %}
+{%- endif %}
+
+{%- if params.placement and params.placement in ["after", "end"] %}
+  {%- set classNames = classNames ~ " " ~ className ~ "--bottom" %}
+{%- endif %}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes %}
+{%- endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- set element = (params.element | default("span")) | lower %}
+
+{%- set content = {
+  text: params.text,
+  html: caller() if caller else params.html
+} %}
+
+{%- if content.html or content.text %}
+<{{ element }} class="{{ classNames }}"
+  {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {{ nhsukContent(content) | trim | indent(2) }}
+</{{ element }}>
+{% endif %}

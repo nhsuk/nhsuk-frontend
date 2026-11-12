@@ -1,0 +1,119 @@
+import { components } from '#lib'
+
+import { examples } from './fixtures.mjs'
+import { NotificationBanner } from './notification-banner.mjs'
+
+describe('Notification banner', () => {
+  /** @type {HTMLElement} */
+  let $root
+
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
+    document.body.innerHTML = components.render(
+      'notification-banner',
+      examples[example]
+    )
+
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${NotificationBanner.moduleName}"]`)
+    )
+  }
+
+  beforeEach(() => {
+    initExample('with success variant')
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new NotificationBanner($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new NotificationBanner($root)).toThrow(
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
+      expect(() => new NotificationBanner()).toThrow(
+        `${NotificationBanner.moduleName}: Root element (\`$root\`) not found`
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new NotificationBanner($svg)).toThrow(
+        `${NotificationBanner.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new NotificationBanner($root)
+        new NotificationBanner($root)
+      }).toThrow(
+        `${NotificationBanner.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('should add accessible name and role', () => {
+      expect($root).toHaveAccessibleName('Success')
+      expect($root).toHaveRole('alert')
+    })
+  })
+
+  describe('Nunjucks configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      initExample('auto-focus explicitly enabled, with success variant')
+
+      const notificationBanner = new NotificationBanner($root)
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: false
+      })
+
+      expect($root).toHaveFocus()
+    })
+
+    it('configures auto-focus disabled', () => {
+      initExample('auto-focus disabled, with success variant')
+
+      const notificationBanner = new NotificationBanner($root)
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: true
+      })
+
+      expect($root).not.toHaveFocus()
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('notification-banner', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const notificationBanner = new NotificationBanner(
+        document.querySelector(
+          `[data-module="${NotificationBanner.moduleName}"]`
+        )
+      )
+
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+  })
+})

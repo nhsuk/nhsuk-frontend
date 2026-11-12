@@ -1,0 +1,532 @@
+import { outdent } from 'outdent'
+
+import { names } from '#lib'
+import {
+  MockComponent,
+  MockComponentError,
+  MockConfigurableComponent
+} from '#lib/fixtures/configuration/mock-component.mjs'
+
+import * as NHSUKFrontend from './index.mjs'
+import {
+  Button,
+  CharacterCount,
+  Checkboxes,
+  Code,
+  ErrorSummary,
+  Header,
+  NotificationBanner,
+  PasswordInput,
+  Radios,
+  Scroll,
+  SkipLink,
+  Table,
+  Tabs,
+  createAll,
+  initAll
+} from './index.mjs'
+
+jest.mock('./components/button/button.mjs')
+jest.mock('./components/character-count/character-count.mjs')
+jest.mock('./components/checkboxes/checkboxes.mjs')
+jest.mock('./components/code/code.mjs')
+jest.mock('./components/error-summary/error-summary.mjs')
+jest.mock('./components/file-upload/file-upload.mjs')
+jest.mock('./components/header/header.mjs')
+jest.mock('./components/notification-banner/notification-banner.mjs')
+jest.mock('./components/password-input/password-input.mjs')
+jest.mock('./components/radios/radios.mjs')
+jest.mock('./components/scroll/scroll.mjs')
+jest.mock('./components/skip-link/skip-link.mjs')
+jest.mock('./components/tables/table.mjs')
+jest.mock('./components/tabs/tabs.mjs')
+
+describe('NHS.UK frontend', () => {
+  const components = [
+    'Button',
+    'CharacterCount',
+    'Checkboxes',
+    'Code',
+    'ErrorSummary',
+    'FileUpload',
+    'Header',
+    'Radios',
+    'Scroll',
+    'SkipLink',
+    'Table',
+    'Tabs',
+    'NotificationBanner',
+    'PasswordInput'
+  ]
+
+  const componentsWithConfig = components.filter(
+    (name) => 'defaults' in NHSUKFrontend[name]
+  )
+
+  describe('Exports', () => {
+    it("should export 'initAll' function", () => {
+      expect(NHSUKFrontend).toHaveProperty('initAll')
+    })
+
+    it("should export 'createAll' function", () => {
+      expect(NHSUKFrontend).toHaveProperty('createAll')
+    })
+
+    it('should export error classes', () => {
+      expect(NHSUKFrontend).toHaveProperty('NHSUKFrontendError')
+      expect(NHSUKFrontend).toHaveProperty('SupportError')
+      expect(NHSUKFrontend).toHaveProperty('ConfigError')
+      expect(NHSUKFrontend).toHaveProperty('ElementError')
+      expect(NHSUKFrontend).toHaveProperty('InitError')
+    })
+
+    it('should export component classes', () => {
+      expect(NHSUKFrontend).toHaveProperty('Button')
+      expect(NHSUKFrontend).toHaveProperty('CharacterCount')
+      expect(NHSUKFrontend).toHaveProperty('Checkboxes')
+      expect(NHSUKFrontend).toHaveProperty('Code')
+      expect(NHSUKFrontend).toHaveProperty('ErrorSummary')
+      expect(NHSUKFrontend).toHaveProperty('Header')
+      expect(NHSUKFrontend).toHaveProperty('NotificationBanner')
+      expect(NHSUKFrontend).toHaveProperty('PasswordInput')
+      expect(NHSUKFrontend).toHaveProperty('Radios')
+      expect(NHSUKFrontend).toHaveProperty('Scroll')
+      expect(NHSUKFrontend).toHaveProperty('SkipLink')
+      expect(NHSUKFrontend).toHaveProperty('Table')
+      expect(NHSUKFrontend).toHaveProperty('Tabs')
+    })
+
+    it('should export component base classes', () => {
+      expect(NHSUKFrontend).toHaveProperty('Component')
+      expect(NHSUKFrontend).toHaveProperty('ConfigurableComponent')
+    })
+  })
+
+  describe('initAll', () => {
+    beforeEach(() => {
+      jest.spyOn(console, 'log').mockImplementation()
+
+      document.body.innerHTML = outdent`
+        <div data-module="${Button.moduleName}"></div>
+        <div data-module="${CharacterCount.moduleName}"></div>
+        <div data-module="${Checkboxes.moduleName}"></div>
+        <div data-module="${Code.moduleName}"></div>
+        <div data-module="${ErrorSummary.moduleName}"></div>
+        <div data-module="${Header.moduleName}"></div>
+        <div data-module="${NotificationBanner.moduleName}"></div>
+        <div data-module="${PasswordInput.moduleName}"></div>
+        <div data-module="${Radios.moduleName}"></div>
+        <div data-module="${Scroll.moduleName}"></div>
+        <div data-module="${SkipLink.moduleName}"></div>
+        <div data-module="${Table.moduleName}"></div>
+        <div data-module="${Tabs.moduleName}"></div>
+      `
+    })
+
+    describe('Configurable components', () => {
+      it.each(componentsWithConfig)("should init '%s'", (name) => {
+        const NamespaceComponent = /** @type {CompatibleClass} */ (
+          NHSUKFrontend[name]
+        )
+
+        document.body.innerHTML = outdent`
+          <div data-module="${NamespaceComponent.moduleName}"></div>
+        `
+
+        const $root = document.querySelector(
+          `[data-module="${NamespaceComponent.moduleName}"]`
+        )
+
+        // Determine `nhsuk-character-count` → `characterCount` config key
+        const configName = names.componentNameToMacroName(
+          NamespaceComponent.moduleName
+        )
+
+        initAll({
+          [configName]: {
+            example: true
+          }
+        })
+
+        expect(NamespaceComponent).toHaveBeenCalledWith($root, {
+          example: true
+        })
+      })
+    })
+
+    describe('Configurable components (with scope)', () => {
+      it.each(componentsWithConfig)("should init scoped '%s'", (name) => {
+        const NamespaceComponent = /** @type {CompatibleClass} */ (
+          NHSUKFrontend[name]
+        )
+
+        document.body.innerHTML = outdent`
+          <div class="app-scope-1">
+            <!-- No components -->
+          </div>
+          <div class="app-scope-2">
+            <div data-module="${NamespaceComponent.moduleName}"></div>
+          </div>
+        `
+
+        const $scope1 = document.querySelector('.app-scope-1')
+        const $scope2 = document.querySelector('.app-scope-2')
+
+        const $root1 = $scope1?.querySelector(
+          `[data-module="${NamespaceComponent.moduleName}"]`
+        )
+
+        const $root2 = $scope2?.querySelector(
+          `[data-module="${NamespaceComponent.moduleName}"]`
+        )
+
+        // Determine `nhsuk-character-count` → `characterCount` config key
+        const configName = names.componentNameToMacroName(
+          NamespaceComponent.moduleName
+        )
+
+        initAll({
+          scope: $scope1,
+          [configName]: {
+            example: true
+          }
+        })
+
+        expect(NamespaceComponent).not.toHaveBeenCalled()
+
+        initAll({
+          scope: $scope2,
+          [configName]: {
+            example: true
+          }
+        })
+
+        expect(NamespaceComponent).not.toHaveBeenCalledWith($root1, {
+          example: true
+        })
+
+        expect(NamespaceComponent).toHaveBeenCalledWith($root2, {
+          example: true
+        })
+      })
+    })
+
+    it('should skip initialisation with null scope parameter (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      initAll($scope)
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: 'NHS.UK frontend scope element (`$scope`) not found'
+        })
+      )
+
+      expect(Button).not.toHaveBeenCalled()
+      expect(CharacterCount).not.toHaveBeenCalled()
+      expect(Checkboxes).not.toHaveBeenCalled()
+      expect(Code).not.toHaveBeenCalled()
+      expect(ErrorSummary).not.toHaveBeenCalled()
+      expect(Header).not.toHaveBeenCalled()
+      expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(PasswordInput).not.toHaveBeenCalled()
+      expect(Radios).not.toHaveBeenCalled()
+      expect(Scroll).not.toHaveBeenCalled()
+      expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
+      expect(Tabs).not.toHaveBeenCalled()
+    })
+
+    it('should skip initialisation with null scope option (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      initAll({ scope: $scope })
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: 'NHS.UK frontend scope element (`$scope`) not found'
+        })
+      )
+
+      expect(Button).not.toHaveBeenCalled()
+      expect(CharacterCount).not.toHaveBeenCalled()
+      expect(Checkboxes).not.toHaveBeenCalled()
+      expect(Code).not.toHaveBeenCalled()
+      expect(ErrorSummary).not.toHaveBeenCalled()
+      expect(Header).not.toHaveBeenCalled()
+      expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(PasswordInput).not.toHaveBeenCalled()
+      expect(Radios).not.toHaveBeenCalled()
+      expect(Scroll).not.toHaveBeenCalled()
+      expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
+      expect(Tabs).not.toHaveBeenCalled()
+    })
+
+    it('should ignore unsupported browsers (and log errors)', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      initAll()
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        })
+      )
+
+      expect(Button).not.toHaveBeenCalled()
+      expect(CharacterCount).not.toHaveBeenCalled()
+      expect(Checkboxes).not.toHaveBeenCalled()
+      expect(Code).not.toHaveBeenCalled()
+      expect(ErrorSummary).not.toHaveBeenCalled()
+      expect(Header).not.toHaveBeenCalled()
+      expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(PasswordInput).not.toHaveBeenCalled()
+      expect(Radios).not.toHaveBeenCalled()
+      expect(Scroll).not.toHaveBeenCalled()
+      expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
+      expect(Tabs).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('createAll', () => {
+    beforeEach(() => {
+      document.body.innerHTML = ''
+    })
+
+    it('should return initialised components', () => {
+      document.body.innerHTML = outdent`
+        <div data-module="${MockComponent.moduleName}" id="a"></div>
+        <div data-module="${MockComponent.moduleName}" id="b"></div>
+      `
+
+      const $root1 = document.getElementById('a')
+      const $root2 = document.getElementById('b')
+
+      const result = createAll(MockComponent)
+
+      expect(result).toStrictEqual([
+        expect.any(MockComponent),
+        expect.any(MockComponent)
+      ])
+
+      expect(result[0].$root).toBe($root1)
+      expect(result[1].$root).toBe($root2)
+    })
+
+    it('should return initialised components (with failed components omitted)', () => {
+      document.body.innerHTML = outdent`
+        <div data-module="${MockComponentError.moduleName}" id="a"></div>
+        <div data-module="${MockComponentError.moduleName}" id="b" data-boom></div>
+        <div data-module="${MockComponentError.moduleName}" id="c"></div>
+      `
+
+      const $root1 = document.getElementById('a')
+      const $root2 = document.getElementById('b')
+      const $root3 = document.getElementById('c')
+
+      const result = createAll(MockComponentError)
+
+      expect(result).toStrictEqual([
+        expect.any(MockComponentError),
+        expect.any(MockComponentError)
+      ])
+
+      expect(result[0].$root).toBe($root1)
+      expect(result[1].$root).not.toBe($root2)
+      expect(result[1].$root).toBe($root3)
+    })
+
+    it('should return empty array without components', () => {
+      const result = createAll(MockComponent)
+
+      expect(result).toStrictEqual([])
+    })
+
+    it('should return empty array without matching components', () => {
+      document.body.innerHTML = outdent`
+        <div data-module="this-is-not-the-component-you-are-looking-for"></div>
+      `
+
+      const result = createAll(MockComponent)
+
+      expect(result).toStrictEqual([])
+    })
+
+    it('should return empty array with null scope parameter (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      const result = createAll(MockComponent, undefined, $scope)
+
+      expect(result).toStrictEqual([])
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: `${MockComponent.moduleName}: Scope element (\`$scope\`) not found`
+        })
+      )
+    })
+
+    it('should return empty array with null scope option (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      const result = createAll(MockComponent, undefined, {
+        scope: $scope
+      })
+
+      expect(result).toStrictEqual([])
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: `${MockComponent.moduleName}: Scope element (\`$scope\`) not found`
+        })
+      )
+    })
+
+    it('should return empty array with unsupported browsers (and log errors)', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      const result = createAll(MockComponent)
+
+      expect(result).toStrictEqual([])
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        })
+      )
+    })
+
+    it('should return empty array with failed component (and log errors)', () => {
+      document.body.innerHTML = outdent`
+        <div data-module="${MockComponentError.moduleName}" data-boom></div>
+      `
+
+      const result = createAll(MockComponentError)
+
+      expect(result).toStrictEqual([])
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: 'Error thrown from constructor'
+        })
+      )
+    })
+
+    describe('Non-configurable components', () => {
+      it('initialises component', () => {
+        document.body.innerHTML = outdent`
+          <div data-module="${MockComponent.moduleName}"></div>
+        `
+
+        const $root = document.querySelector(
+          `[data-module="${MockComponent.moduleName}"]`
+        )
+
+        const result = createAll(MockComponent)
+
+        expect(result).toStrictEqual([expect.any(MockComponent)])
+        expect(result[0].$root).toBe($root)
+      })
+    })
+
+    describe('Non-configurable components (with scope)', () => {
+      it('initialises scoped component', () => {
+        document.body.innerHTML = outdent`
+          <div class="app-scope-1">
+            <!-- No components -->
+          </div>
+          <div class="app-scope-2">
+            <div data-module="${MockComponent.moduleName}"></div>
+          </div>
+        `
+
+        const $scope1 = document.querySelector('.app-scope-1')
+        const $scope2 = document.querySelector('.app-scope-2')
+
+        const $root2 = $scope2?.querySelector(
+          `[data-module="${MockComponent.moduleName}"]`
+        )
+
+        const result1 = createAll(MockComponent, undefined, $scope1)
+        expect(result1).toStrictEqual([])
+
+        const result2 = createAll(MockComponent, undefined, $scope2)
+        expect(result2).toStrictEqual([expect.any(MockComponent)])
+        expect(result2[0].$root).toBe($root2)
+      })
+    })
+
+    describe('Configurable components', () => {
+      it('initialises component', () => {
+        document.body.innerHTML = outdent`
+          <div data-module="${MockConfigurableComponent.moduleName}"></div>
+        `
+
+        const $root = document.querySelector(
+          `[data-module="${MockConfigurableComponent.moduleName}"]`
+        )
+
+        const result = createAll(MockConfigurableComponent, {
+          aBoolean: true
+        })
+
+        expect(result).toStrictEqual([expect.any(MockConfigurableComponent)])
+        expect(result[0].$root).toBe($root)
+        expect(result[0].config).toMatchObject({ aBoolean: true })
+      })
+    })
+
+    describe('Configurable components (with scope)', () => {
+      it('initialises scoped component', () => {
+        document.body.innerHTML = outdent`
+          <div class="app-scope-1">
+            <!-- No components -->
+          </div>
+          <div class="app-scope-2">
+            <div data-module="${MockConfigurableComponent.moduleName}"></div>
+          </div>
+        `
+
+        const $scope1 = document.querySelector('.app-scope-1')
+        const $scope2 = document.querySelector('.app-scope-2')
+
+        const $root2 = $scope2?.querySelector(
+          `[data-module="${MockConfigurableComponent.moduleName}"]`
+        )
+
+        const result1 = createAll(
+          MockConfigurableComponent,
+          { aBoolean: true },
+          $scope1
+        )
+
+        expect(result1).toStrictEqual([])
+
+        const result2 = createAll(
+          MockConfigurableComponent,
+          { aBoolean: true },
+          $scope2
+        )
+
+        expect(result2).toStrictEqual([expect.any(MockConfigurableComponent)])
+        expect(result2[0].$root).toBe($root2)
+        expect(result2[0].config).toMatchObject({ aBoolean: true })
+      })
+    })
+  })
+})
+
+/**
+ * @import { CompatibleClass } from './component.mjs'
+ */

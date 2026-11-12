@@ -1,0 +1,81 @@
+import { join } from 'node:path'
+
+import { render } from './components.mjs'
+import { configure } from './nunjucks/index.mjs'
+
+describe('Node.js API: Components', () => {
+  const context = {
+    label: {
+      text: 'Mobile phone number'
+    },
+    name: 'mobile',
+    type: 'tel'
+  }
+
+  describe('render', () => {
+    it('returns component HTML', () => {
+      const html = render('input', { context })
+      expect(html).toMatchInlineSnapshot(`
+        "<div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile">
+            Mobile phone number
+          </label>
+          <input class="nhsuk-input" id="mobile" name="mobile" type="tel">
+        </div>
+        "
+      `)
+    })
+
+    it('returns component HTML (custom env)', () => {
+      const html = render('input', { context, env: configure() })
+      expect(html).toMatchInlineSnapshot(`
+        "<div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile">
+            Mobile phone number
+          </label>
+          <input class="nhsuk-input" id="mobile" name="mobile" type="tel">
+        </div>
+        "
+      `)
+    })
+
+    it('returns custom component HTML (custom env)', () => {
+      const viewsPath = join(import.meta.dirname, 'fixtures/components')
+
+      const html = render('example1', {
+        context: { text: 'Custom example' },
+        env: configure(viewsPath)
+      })
+
+      expect(html).toMatchInlineSnapshot(`
+        "<p class="app-example">Custom example</p>
+        "
+      `)
+    })
+
+    it("returns custom component HTML with 'app' prefix (custom env)", () => {
+      const viewsPath = join(import.meta.dirname, 'fixtures/components')
+
+      const html = render('example2', {
+        context: { text: 'Custom example' },
+        env: configure(viewsPath),
+        prefix: 'app'
+      })
+
+      expect(html).toMatchInlineSnapshot(`
+        "<p class="app-example">Custom example</p>
+        "
+      `)
+    })
+
+    it('throws with missing component macro', () => {
+      const renderHtml = () => render('example', { context })
+
+      expect(() => renderHtml()).toThrowErrorMatchingInlineSnapshot(`
+        "(unknown path)
+          Template render error: (unknown path)
+          Error: template not found: example/macro.njk"
+      `)
+    })
+  })
+})
