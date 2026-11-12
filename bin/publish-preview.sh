@@ -28,6 +28,9 @@ fi
 # Work on the new branch
 git checkout -b $BRANCH_NAME
 
+# Return to the original branch on exit
+trap 'git checkout --force --quiet "$CURRENT_BRANCH_NAME"' EXIT
+
 # npm will try to install dev, optional and peer dependencies
 # when installing from a Git repository, which will error when
 # looking for our local only `@nhsuk/*` workspace packages
@@ -58,8 +61,6 @@ git push origin "$BRANCH_NAME:$BRANCH_NAME" --force --quiet
 
 echo
 echo "⚠️ Branch pushed to '$BRANCH_NAME', do not edit this by hand."
-
-git checkout -
 
 BRANCH_COMMIT_SHA=$(git rev-parse --short "$BRANCH_NAME")
 
