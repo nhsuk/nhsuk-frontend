@@ -26,7 +26,9 @@ if git show-ref --branches --quiet "$BRANCH_NAME"; then
 fi
 
 # Work on the new branch
-git checkout -b $BRANCH_NAME
+git checkout --orphan $BRANCH_NAME
+# An orphaned branch stages all new files so reset them
+git reset
 
 # Return to the original branch on exit
 trap 'git checkout --force --quiet "$CURRENT_BRANCH_NAME"' EXIT
@@ -50,10 +52,12 @@ git add packages/nhsuk-frontend/README.md
 git add packages/nhsuk-frontend/src/
 # Some files are gitignored so we need to force adding them.
 git add --force packages/nhsuk-frontend/dist/
-git commit --allow-empty -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
+git commit -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
 
 echo
 echo "✨ Filter the branch to only the packages/nhsuk-frontend/ directory..."
+# Remove any untracked files
+git clean -d --force --quiet
 FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --subdirectory-filter packages/nhsuk-frontend
 
 # Force the push of the branch to the remote Github origin
