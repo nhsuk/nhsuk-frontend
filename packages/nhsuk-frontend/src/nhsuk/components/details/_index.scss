@@ -77,7 +77,7 @@
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-spacing(4, $unit: "rem");
+      padding-left: nhsuk-em(nhsuk-spacing(3));
       text-decoration: none;
       cursor: pointer;
 
@@ -92,17 +92,17 @@
         content: "";
 
         position: absolute;
-        top: 0;
+        top: nhsuk-px-to-rem(3px);
         bottom: 0;
         left: 0;
 
         margin: auto;
 
-        @include nhsuk-shape-arrow($direction: right, $base: 14px);
+        @include nhsuk-shape-chevron(down, currentColor, $font-size: 21px);
       }
 
       .nhsuk-details[open] > &::before {
-        @include nhsuk-shape-arrow($direction: down, $base: 14px);
+        @include nhsuk-shape-chevron(up, null, $font-size: 21px);
       }
     }
 
@@ -288,7 +288,7 @@
         display: inline-block;
         position: relative;
         padding: nhsuk-spacing(1);
-        padding-left: nhsuk-spacing(2, $adjustment: $nhsuk-expander-icon-size);
+        padding-left: 1em;
         cursor: pointer;
       }
 
@@ -300,19 +300,11 @@
       // ::before pseudo element to users of that browser
       .nhsuk-details__summary-text::before {
         content: "";
-
         position: absolute;
-        top: calc(50% - math.div($nhsuk-expander-icon-size, 2));
+        top: calc(50% - 0.1em);
         left: 0;
 
-        width: $nhsuk-expander-icon-size;
-        height: $nhsuk-expander-icon-size;
-
-        clip-path: path(
-          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
-        ); // Plus icon
-
-        background-color: ButtonText;
+        @include nhsuk-shape-chevron(down, currentColor, $font-size: 21px);
       }
 
       &[open] {
@@ -320,77 +312,7 @@
       }
 
       &[open] .nhsuk-details__summary-text::before {
-        clip-path: path(
-          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm5 11h-10a1.5 1.5 0 0 0 0 3h10a1.5 1.5 0 0 0 0-3Z"
-        ); // Minus icon
-      }
-
-      // Use a feature query to check for scalable clip-path support,
-      // replacing fixed pixel sizes with rems for text-only zooming
-      @supports (clip-path: shape(from 0% 0%, line to 100% 100%)) {
-        .nhsuk-details__summary-text {
-          padding-left: nhsuk-spacing(2, $adjustment: $nhsuk-expander-icon-size, $unit: "rem");
-        }
-
-        .nhsuk-details__summary-text::before {
-          top: calc(50% - nhsuk-px-to-rem(math.div($nhsuk-expander-icon-size, 2)));
-
-          width: nhsuk-px-to-rem($nhsuk-expander-icon-size);
-          height: nhsuk-px-to-rem($nhsuk-expander-icon-size);
-
-          clip-path: shape(
-            from 50% 3.7%,
-            arc by 0% 92.6% of 46.3% 46.3% large cw,
-            arc by 0% -92.6% of 46.3% 46.3% small cw,
-            close,
-            move by 0% 22.22%,
-            curve by -5.56% 5.56% with -2.96% 0% / -5.56% 2.59%,
-            vline to 44.44%,
-            hline to 31.48%,
-            curve by -5.56% 5.19% with -2.96% 0% / -5.19% 2.22%,
-            vline by 0.37%,
-            curve by 5.56% 5.56% with 0% 2.96% / 2.59% 5.56%,
-            hline to 44.44%,
-            vline by 12.96%,
-            curve by 5.19% 5.56% with 0% 2.96% / 2.22% 5.19%,
-            hline by 0.37%,
-            curve by 5.56% -5.56% with 2.96% 0% / 5.56% -2.59%,
-            vline to 55.56%,
-            hline by 12.96%,
-            curve by 5.56% -5.19% with 2.96% 0% / 5.19% -2.22%,
-            vline by -0.37%,
-            curve by -5.56% -5.56% with 0% -2.96% / -2.59% -5.56%,
-            hline to 55.56%,
-            vline to 31.48%,
-            curve by -5.19% -5.56% with 0% -2.96% / -2.22% -5.19%,
-            close
-          ); // Plus icon, scalable
-
-          background-color: currentcolor;
-
-          forced-color-adjust: none;
-        }
-
-        &[open] .nhsuk-details__summary-text::before {
-          clip-path: shape(
-            from 50% 3.7%,
-            arc by 0% 92.6% of 46.3% 46.3% large cw,
-            arc by 0% -92.6% of 46.3% 46.3% small cw,
-            close,
-            move by 18.52% 40.74%,
-            hline by -37.04%,
-            arc by 0% 11.11% of 5.56% 5.56% small ccw,
-            hline by 37.04%,
-            arc by 0% -11.11% of 5.56% 5.56% small ccw,
-            close
-          ); // Minus icon, scalable
-        }
-      }
-
-      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        .nhsuk-details__summary:not(:focus):not(:hover):not(:active) .nhsuk-details__summary-text::before {
-          background-color: ButtonText;
-        }
+        @include nhsuk-shape-chevron(up, currentColor, $font-size: 21px);
       }
     }
   }
