@@ -461,12 +461,15 @@ const fixtures = {
       head: ["Name", "Colour", "Tag"],
       rows: [
         [
-          "Default",
-          "None",
+          "White",
+          {
+            html: '<var class="nhsuk-body-s">white</var>'
+          },
           {
             html: components.render("tag", {
               context: {
-                text: "Default"
+                text: "In progress",
+                colour: "white"
               }
             })
           }

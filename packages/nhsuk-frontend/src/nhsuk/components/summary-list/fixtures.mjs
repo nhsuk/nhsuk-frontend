@@ -1427,7 +1427,8 @@ const fixtures = {
                 ${components.render("tag", {
                   context: {
                     text: "Recall for assessment",
-                    colour: "red"
+                    colour: "red",
+                    compact: true
                   },
                   indent: 2
                 })}
@@ -1459,7 +1460,8 @@ const fixtures = {
                     ${components.render("tag", {
                       context: {
                         text: "Abnormal",
-                        colour: "red"
+                        colour: "red",
+                        compact: true
                       },
                       indent: 6
                     })}
