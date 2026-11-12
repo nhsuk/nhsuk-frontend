@@ -48,11 +48,9 @@ git add package-lock.json
 git add --force packages/nhsuk-frontend/dist/
 git commit --allow-empty -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
 
-# Create a local branch containing the packages/nhsuk-frontend directory
-export FILTER_BRANCH_SQUELCH_WARNING=1
 echo
 echo "✨ Filter the branch to only the packages/nhsuk-frontend/ directory..."
-git filter-branch --force --subdirectory-filter packages/nhsuk-frontend
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --subdirectory-filter packages/nhsuk-frontend
 
 # Force the push of the branch to the remote Github origin
 git push origin "$BRANCH_NAME:$BRANCH_NAME" --force --quiet
