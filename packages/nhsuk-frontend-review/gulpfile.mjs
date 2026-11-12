@@ -42,51 +42,49 @@ gulp.task(
 /**
  * Development tasks
  */
-gulp.task('watch', () =>
-  Promise.all([
-    /**
-     * Watch and render Nunjucks
-     */
-    gulp.watch(
-      [
-        join(config.paths.app, 'src/**/*.njk'),
-        join(config.paths.pkg, 'dist/nhsuk/**/fixtures.json')
-      ],
-      gulp.series('html')
-    ),
+gulp.task('watch', () => {
+  /**
+   * Watch and render Nunjucks
+   */
+  gulp.watch(
+    [
+      join(config.paths.app, 'src/**/*.njk'),
+      join(config.paths.pkg, 'dist/nhsuk/**/fixtures.json')
+    ],
+    gulp.series('html')
+  )
 
-    /**
-     * Watch and copy styles
-     */
-    gulp.watch(
-      [
-        join(config.paths.pkg, 'dist/nhsuk/*.{css,css.map}'),
-        join(config.paths.app, 'src/stylesheets/**/*.scss')
-      ],
-      gulp.series('styles')
-    ),
+  /**
+   * Watch and copy styles
+   */
+  gulp.watch(
+    [
+      join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}'),
+      join(config.paths.app, 'src/stylesheets/**/*.scss')
+    ],
+    gulp.series('styles')
+  )
 
-    /**
-     * Watch and copy scripts
-     */
-    gulp.watch(
-      [
-        join(config.paths.pkg, 'dist/nhsuk/*.{js,js.map}'),
-        join(config.paths.app, 'src/javascripts/**/*.mjs')
-      ],
-      { ignored: ['**/fixtures.mjs', '**/macro-options.mjs', '**/*.test.*'] },
-      gulp.series('scripts')
-    ),
+  /**
+   * Watch and copy scripts
+   */
+  gulp.watch(
+    [
+      join(config.paths.pkg, 'dist/nhsuk/*.min.{js,js.map}'),
+      join(config.paths.app, 'src/javascripts/**/*.mjs')
+    ],
+    { ignored: ['**/*.test.*'] },
+    gulp.series('scripts')
+  )
 
-    /**
-     * Watch and copy assets
-     */
-    gulp.watch(
-      [join(config.paths.pkg, 'dist/nhsuk/assets/**')],
-      gulp.series('assets')
-    )
-  ])
-)
+  /**
+   * Watch and copy assets
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'dist/nhsuk/assets/**')],
+    gulp.series('assets')
+  )
+})
 
 gulp.task('serve', (done) => {
   browserSync(browserSyncConfig, done)

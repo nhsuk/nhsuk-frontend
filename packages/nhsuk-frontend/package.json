@@ -49,7 +49,7 @@
     "!**/*.test.*"
   ],
   "scripts": {
-    "clean": "del-cli dist/nhsuk/*",
+    "clean": "del-cli dist/nhsuk/* *.tsbuildinfo",
     "postclean": "tsc --build --clean",
     "build": "gulp build --color",
     "watch": "gulp watch --color",

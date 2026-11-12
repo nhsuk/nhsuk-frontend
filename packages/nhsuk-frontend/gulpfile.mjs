@@ -19,8 +19,17 @@ import types from './tsconfig.json' with { type: 'json' }
  */
 gulp.task('assets', gulp.series(assets.copy, assets.render))
 gulp.task('fixtures', fixtures.compile)
-gulp.task('scripts', gulp.series(scripts.compile, scripts.version))
-gulp.task('styles', gulp.series(styles.compile, styles.version))
+
+gulp.task(
+  'scripts',
+  gulp.series(scripts.transform, scripts.compile, scripts.version)
+)
+
+gulp.task(
+  'styles',
+  gulp.series(styles.transform, styles.compile, styles.version)
+)
+
 gulp.task('templates', templates.copy)
 
 /**
@@ -50,45 +59,52 @@ gulp.task('release', gulp.series(release.copy, release.zip))
 /**
  * Development tasks
  */
-gulp.task('watch', () =>
-  Promise.all([
-    /**
-     * Watch and copy template files and READMEs, then
-     * compile component fixtures and macro options
-     */
-    gulp.watch(
-      [
-        join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}'),
-        join(config.paths.pkg, 'src/nhsuk/**/fixtures.mjs'),
-        join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
-      ],
-      gulp.series('templates', npm.script('fixtures'))
-    ),
+gulp.task('watch', () => {
+  /**
+   * Watch and copy template files and READMEs, then
+   * compile component fixtures and macro options
+   */
+  gulp.watch(
+    [
+      join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}'),
+      join(config.paths.pkg, 'src/nhsuk/**/fixtures.mjs'),
+      join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
+    ],
+    gulp.series('templates', npm.script('fixtures'))
+  )
 
-    /**
-     * Watch and compile type declarations
-     */
-    gulp.watch(
-      types.include.map((pattern) => join(config.paths.pkg, pattern)),
-      { ignored: types.exclude },
-      gulp.series('types')
-    ),
+  /**
+   * Watch and compile type declarations
+   */
+  gulp.watch(
+    types.include.map((pattern) => join(config.paths.pkg, pattern)),
+    { ignored: types.exclude },
+    gulp.series('types')
+  )
 
-    /**
-     * Watch and compile styles
-     */
-    gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
-      gulp.series('styles')
-    ),
+  /**
+   * Watch and compile styles
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
+    gulp.series('styles')
+  )
 
-    /**
-     * Watch and compile scripts
-     */
-    gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
-      { ignored: ['**/*.test.*'] },
-      gulp.series('scripts')
-    )
-  ])
-)
+  /**
+   * Watch and compile scripts
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
+    { ignored: ['**/*.test.*', '**/fixtures.mjs', '**/macro-options.mjs'] },
+    gulp.series(scripts.compile, scripts.version)
+  )
+
+  /**
+   * Watch and transform scripts
+   */
+  gulp.watch(
+    [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
+    { ignored: ['**/*.test.*'] },
+    scripts.transform
+  )
+})
