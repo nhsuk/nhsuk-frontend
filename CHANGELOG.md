@@ -335,6 +335,8 @@ For example, you can make a column three-quarters on tablet but reduce to two-th
   </div>
 ```
 
+This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
+
 ### :boom: **Breaking changes** to components
 
 #### Card component changes
