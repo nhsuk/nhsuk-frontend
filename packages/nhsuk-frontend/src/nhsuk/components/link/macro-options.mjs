@@ -222,13 +222,6 @@ const options = {
         }
       }
     }
-  },
-  element: {
-    type: 'string',
-    required: false,
-    description: 'Configured automatically if `href` is provided.',
-    released: '10.7.0',
-    deprecated: '10.7.0'
   }
 }
 

@@ -6,8 +6,8 @@
 @use "sass:math";
 @use "sass:meta";
 @use "../settings/spacing" as *;
+@use "../helpers/media-queries" as *;
 @use "functions" as *;
-@use "sass-mq" as *;
 
 ////
 /// Spacing

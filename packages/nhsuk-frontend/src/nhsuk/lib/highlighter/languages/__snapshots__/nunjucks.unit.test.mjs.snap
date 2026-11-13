@@ -26,7 +26,7 @@ exports[`Highlight.js Nunjucks language should output HTML for fixtures 1`] = `
 </span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endif</span> %}</span><span class="language-xml">
 
 </span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">for</span> <span class="nhsuk-code__variable">item</span> <span class="nhsuk-code__variable">in</span> <span class="nhsuk-code__variable">items</span> %}</span><span class="language-xml">
-  <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">li</span>&gt;</span></span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">item</span>.<span class="nhsuk-code__name">title</span> }}</span><span class="language-xml"><span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">li</span>&gt;</span>
+  <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">li</span>&gt;</span></span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">item</span>.<span class="nhsuk-code__name">heading</span> }}</span><span class="language-xml"><span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">li</span>&gt;</span>
 </span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">else</span> %}</span><span class="language-xml">
   <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">li</span>&gt;</span>This would display if the &#x27;item&#x27; collection were empty<span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">li</span>&gt;</span>
 </span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endfor</span> %}</span><span class="language-xml">

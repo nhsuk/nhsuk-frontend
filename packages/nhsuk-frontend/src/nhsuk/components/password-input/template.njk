@@ -35,12 +35,12 @@
 
   {{- nhsukI18nAttributes({
     key: "show-password-aria-label",
-    message: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel)
+    message: params.showPasswordAriaLabel | default(params.button.ariaLabel)
   }) -}}
 
   {{- nhsukI18nAttributes({
     key: "hide-password-aria-label",
-    message: params.hidePasswordAriaLabel | default(params.hidePasswordAriaLabelText)
+    message: params.hidePasswordAriaLabel
   }) -}}
 
   {{- nhsukI18nAttributes({
@@ -59,7 +59,7 @@
 {%- set afterInputHtml %}
   {{- nhsukButton({
     text: params.showPasswordText | default(params.button.text) | default("Show"),
-    ariaLabel: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel) | default("Show password"),
+    ariaLabel: params.showPasswordAriaLabel | default(params.button.ariaLabel) | default("Show password"),
     id: params.button.id,
     href: params.button.href,
     name: params.button.name,

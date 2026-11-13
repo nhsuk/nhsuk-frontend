@@ -138,10 +138,10 @@ describe('Checkboxes', () => {
       )
     })
 
-    it('should not throw with missing checkbox `aria-controls` attribute', () => {
-      $input1.removeAttribute('aria-controls')
-      $input2.removeAttribute('aria-controls')
-      $input3.removeAttribute('aria-controls')
+    it('should not throw with missing checkbox `data-aria-controls` attribute', () => {
+      $input1.removeAttribute('data-aria-controls')
+      $input2.removeAttribute('data-aria-controls')
+      $input3.removeAttribute('data-aria-controls')
 
       expect(() => new Checkboxes($root)).not.toThrow()
     })

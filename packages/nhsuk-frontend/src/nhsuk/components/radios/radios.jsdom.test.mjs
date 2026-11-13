@@ -104,9 +104,9 @@ describe('Radios', () => {
       )
     })
 
-    it('should not throw with missing radio `aria-controls` attribute', () => {
+    it('should not throw with missing radio `data-aria-controls` attribute', () => {
       for (const $input of $inputs) {
-        $input.removeAttribute('aria-controls')
+        $input.removeAttribute('data-aria-controls')
       }
 
       expect(() => new Radios($root)).not.toThrow()
