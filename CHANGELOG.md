@@ -46,11 +46,11 @@ Grid column classes ending `-from-mobile` are applied at mobile width (320px) an
 
 If you're using the following mobile width utility classes, you must:
 
-- Replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
-- Replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
-- Replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
-- Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
-- Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
+- replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
+- replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
+- replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
+- replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
+- replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`
 
 #### Tablet width override classes
 
@@ -58,11 +58,11 @@ Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at 
 
 If you're using the following tablet width utility classes, you must:
 
-- Replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
-- Replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
-- Replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
-- Replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
-- Replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
+- replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
+- replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
+- replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
+- replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
+- replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
 
 This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
 
@@ -155,7 +155,7 @@ This change was introduced in pull requests [#1553: Remove deprecated features m
 
 #### Sass deprecated variables for customising fonts removed
 
-We've removed Sass variables for customising fonts that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0) and [10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
+We've removed Sass variables for customising fonts that were deprecated in versions [10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0) and [10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
 
 If you use Sass and you've customised fonts or font sizes that NHS.UK frontend uses, you must:
 
@@ -404,13 +404,13 @@ If you're using the `card` Nunjucks macro with heading or description options, y
 
 If you are not using Nunjucks macros, you must change the card classes as follows:
 
-- Add the missing `nhsuk-card--primary` modifier class to primary cards.
-- Remove the unnecessary `nhsuk-card__heading--feature` modifier class from feature card headings.
-- Remove the unnecessary `nhsuk-card__content--feature` modifier class from feature card content.
-- Remove the unnecessary `nhsuk-card__content--primary` modifier class from primary card content.
-- Remove the unnecessary `nhsuk-card__content--secondary` modifier class from secondary card content.
-- Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
-- Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
+- add the missing `nhsuk-card--primary` modifier class to primary cards
+- remove the unnecessary `nhsuk-card__heading--feature` modifier class from feature card headings
+- remove the unnecessary `nhsuk-card__content--feature` modifier class from feature card content
+- remove the unnecessary `nhsuk-card__content--primary` modifier class from primary card content
+- remove the unnecessary `nhsuk-card__content--secondary` modifier class from secondary card content
+- rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`
+- rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`
 
 These changes were introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553), [#2053: Port released v10.6.0 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/2053) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
@@ -454,8 +454,8 @@ If you are not using Nunjucks macros, you must change the do and don't list clas
 - add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
 - rename the list `<div class="nhsuk-do-dont-list"` class attribute to match `<div class="nhsuk-card__content"`
 - rename the heading `<h3 class="nhsuk-do-dont-list__label"` class attribute to match `<h3 class="nhsuk-card__heading"`
-- Rename `nhsuk-icon__tick` to `nhsuk-icon--tick`
-- Rename `nhsuk-icon__cross` to `nhsuk-icon--cross`
+- rename `nhsuk-icon__tick` to `nhsuk-icon--tick`
+- rename `nhsuk-icon__cross` to `nhsuk-icon--cross`
 
 ```patch
 + <div class="nhsuk-card nhsuk-card--feature">
@@ -511,10 +511,10 @@ If you're using the `errorSummary` Nunjucks macro, you must:
 
 If you are not using Nunjucks macros, you must also improve the experience for screen reader users by making these changes to the error summary markup:
 
-- Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
-- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
-- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
-- Rename `nhsuk-error-summary__title` to `nhsuk-error-summary__heading`
+- remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
+- add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
+- remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+- rename `nhsuk-error-summary__title` to `nhsuk-error-summary__heading`
 
 This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
 
@@ -605,9 +605,9 @@ We've removed HTML classes for inputs that were deprecated in versions [10.2.0](
 
 If you are not using Nunjucks macros, you must change the input classes as follows:
 
-- Rename the `<div class="nhsuk-input__wrapper"` class attribute to match `<div class="nhsuk-input-wrapper"`
-- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`
-- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`
+- rename the `<div class="nhsuk-input__wrapper"` class attribute to match `<div class="nhsuk-input-wrapper"`
+- rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`
+- rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
