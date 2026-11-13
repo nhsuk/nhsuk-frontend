@@ -19,6 +19,25 @@ We've also introduced new mixins and modifier classes for:
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass grid column `$at` parameter to `$from`
+
+We've renamed the `$at` parameter of the `nhsuk-grid-column` Sass mixin to `$from`, matching grid column classes ending `-from-mobile` and `-from-desktop`.
+
+If you're using the `nhsuk-grid-column` Sass mixin to create custom grid classes, you should rename `$at` to `$from`:
+
+```patch
+  .app-grid-column-one-quarter-from-desktop {
+-   @include nhsuk-grid-column(one-quarter, $at: desktop);
++   @include nhsuk-grid-column(one-quarter, $from: desktop);
+  }
+```
+
+You can still use the `$at` parameter but we'll remove it in a future breaking release.
+
+This change was introduced in [pull request #2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
+
 ### :boom: **Breaking changes** to stylesheets
 
 #### Mobile width override classes
