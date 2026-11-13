@@ -191,167 +191,60 @@ If you need to reference a colour within your application you should use the `nh
   }
 ```
 
-The following Sass `$color_nhsuk-*` variables have been removed:
+For example, the following variables have been renamed to replace `-color` with `-colour`:
 
-| Sass variable removed      | Suggested replacement         |
-| -------------------------- | ----------------------------- |
-| `$color_nhsuk-blue`        | `nhsuk-colour("blue")`        |
-| `$color_nhsuk-white`       | `nhsuk-colour("white")`       |
-| `$color_nhsuk-black`       | `nhsuk-colour("black")`       |
-| `$color_nhsuk-green`       | `nhsuk-colour("green")`       |
-| `$color_nhsuk-purple`      | `nhsuk-colour("purple")`      |
-| `$color_nhsuk-dark-pink`   | `nhsuk-colour("dark-pink")`   |
-| `$color_nhsuk-red`         | `nhsuk-colour("red")`         |
-| `$color_nhsuk-yellow`      | `nhsuk-colour("yellow")`      |
-| `$color_nhsuk-dark-blue`   | `nhsuk-colour("dark-blue")`   |
-| `$color_nhsuk-pale-yellow` | `nhsuk-colour("pale-yellow")` |
-| `$color_nhsuk-warm-yellow` | `nhsuk-colour("warm-yellow")` |
-| `$color_nhsuk-orange`      | `nhsuk-colour("orange")`      |
-| `$color_nhsuk-aqua-green`  | `nhsuk-colour("aqua-green")`  |
-| `$color_nhsuk-pink`        | `nhsuk-colour("pink")`        |
-| `$color_nhsuk-grey-1`      | `nhsuk-colour("grey-1")`      |
-| `$color_nhsuk-grey-2`      | `nhsuk-colour("grey-2")`      |
-| `$color_nhsuk-grey-3`      | `nhsuk-colour("grey-3")`      |
-| `$color_nhsuk-grey-4`      | `nhsuk-colour("grey-4")`      |
-| `$color_nhsuk-grey-5`      | `nhsuk-colour("grey-5")`      |
+- `$nhsuk-link-color` replaced by `$nhsuk-link-colour`
+- `$nhsuk-link-hover-color` replaced by `$nhsuk-link-hover-colour`
+- `$nhsuk-link-active-color` replaced by `$nhsuk-link-active-colour`
+- `$nhsuk-link-visited-color` replaced by `$nhsuk-link-visited-colour`
 
-The following Sass variables using the "color" spelling (instead of "colour") have been removed:
+With the following variables renamed to align with GOV.UK Frontend:
 
-| Sass variable removed                            | Suggested replacement                             |
-| ------------------------------------------------ | ------------------------------------------------- |
-| `$nhsuk-text-color`                              | `$nhsuk-text-colour`                              |
-| `$nhsuk-reverse-text-color`                      | `$nhsuk-reverse-text-colour`                      |
-| `$nhsuk-print-text-color`                        | `$nhsuk-print-text-colour`                        |
-| `$nhsuk-secondary-text-color`                    | `$nhsuk-secondary-text-colour`                    |
-| `$nhsuk-focus-color`                             | `$nhsuk-focus-colour`                             |
-| `$nhsuk-focus-text-color`                        | `$nhsuk-focus-text-colour`                        |
-| `$nhsuk-error-color`                             | `$nhsuk-error-colour`                             |
-| `$nhsuk-success-color`                           | `$nhsuk-success-colour`                           |
-| `$nhsuk-border-color`                            | `$nhsuk-border-colour`                            |
-| `$nhsuk-secondary-border-color`                  | `$nhsuk-secondary-border-colour`                  |
-| `$nhsuk-form-border-color`                       | `$nhsuk-form-border-colour`                       |
-| `$nhsuk-form-element-background-color`           | `$nhsuk-form-element-background-colour`           |
-| `$nhsuk-link-color`                              | `$nhsuk-link-colour`                              |
-| `$nhsuk-link-visited-color`                      | `$nhsuk-link-visited-colour`                      |
-| `$nhsuk-link-hover-color`                        | `$nhsuk-link-hover-colour`                        |
-| `$nhsuk-link-active-color`                       | `$nhsuk-link-active-colour`                       |
-| `$nhsuk-button-color`                            | `$nhsuk-button-colour`                            |
-| `$nhsuk-button-text-color`                       | `$nhsuk-button-text-colour`                       |
-| `$nhsuk-button-hover-color`                      | `$nhsuk-button-hover-colour`                      |
-| `$nhsuk-button-active-color`                     | `$nhsuk-button-active-colour`                     |
-| `$nhsuk-button-shadow-color`                     | `$nhsuk-button-shadow-colour`                     |
-| `$nhsuk-secondary-button-color`                  | `$nhsuk-secondary-button-colour`                  |
-| `$nhsuk-secondary-button-solid-background-color` | `$nhsuk-secondary-button-solid-background-colour` |
-| `$nhsuk-secondary-button-border-color`           | `$nhsuk-secondary-button-border-colour`           |
-| `$nhsuk-secondary-button-text-color`             | `$nhsuk-secondary-button-text-colour`             |
-| `$nhsuk-secondary-button-hover-color`            | `$nhsuk-secondary-button-hover-colour`            |
-| `$nhsuk-secondary-button-active-color`           | `$nhsuk-secondary-button-active-colour`           |
-| `$nhsuk-secondary-button-shadow-color`           | `$nhsuk-secondary-button-shadow-colour`           |
-| `$nhsuk-reverse-button-color`                    | `$nhsuk-reverse-button-colour`                    |
-| `$nhsuk-reverse-button-text-color`               | `$nhsuk-reverse-button-text-colour`               |
-| `$nhsuk-reverse-button-hover-color`              | `$nhsuk-reverse-button-hover-colour`              |
-| `$nhsuk-reverse-button-active-color`             | `$nhsuk-reverse-button-active-colour`             |
-| `$nhsuk-reverse-button-shadow-color`             | `$nhsuk-reverse-button-shadow-colour`             |
-| `$nhsuk-warning-button-color`                    | `$nhsuk-warning-button-colour`                    |
-| `$nhsuk-warning-button-hover-color`              | `$nhsuk-warning-button-hover-colour`              |
-| `$nhsuk-warning-button-active-color`             | `$nhsuk-warning-button-active-colour`             |
-| `$nhsuk-warning-button-shadow-color`             | `$nhsuk-warning-button-shadow-colour`             |
-| `$nhsuk-login-button-color`                      | `$nhsuk-login-button-colour`                      |
-| `$nhsuk-login-button-hover-color`                | `$nhsuk-login-button-hover-colour`                |
-| `$nhsuk-login-button-active-color`               | `$nhsuk-login-button-active-colour`               |
-| `$nhsuk-login-button-shadow-color`               | `$nhsuk-login-button-shadow-colour`               |
+- `$nhsuk-form-border-color` replaced by `$nhsuk-input-border-colour`
+- `$nhsuk-form-element-background-color` replaced by `$nhsuk-input-background-colour`
 
-The following Sass mixins have been removed:
+See [pull request #1526](https://github.com/nhsuk/nhsuk-frontend/pull/1526) for the full list.
 
-| Sass mixin removed  | Suggested replacement |
-| ------------------- | --------------------- |
-| `nhsuk-print-color` | `nhsuk-print-colour`  |
-| `nhsuk-text-color`  | `nhsuk-text-colour`   |
+The following CSS classes have been renamed:
 
-The following CSS classes have been removed:
-
-| CSS class removed              | Suggested replacement           |
-| ------------------------------ | ------------------------------- |
-| `nhsuk-u-secondary-text-color` | `nhsuk-u-secondary-text-colour` |
+- `nhsuk-u-secondary-text-color` replaced by `nhsuk-u-secondary-text-colour`
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
-#### Sass deprecated mixins and functions without "nhsuk" namespace removed
+#### Sass deprecated mixins removed
 
-We've removed deprecated Sass mixins and functions without the `nhsuk` namespace, deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [version 9.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0).
+We've removed Sass mixins that were deprecated in versions [9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0), [9.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0), [10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0), [10.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.5.0), [10.5.2](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.5.2), [10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0) and [10.7.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.7.0).
 
-The following Sass mixins have been removed:
+The following Sass mixins have been renamed:
 
-| Sass mixin removed          | Suggested replacement             |
-| --------------------------- | --------------------------------- |
-| `care-card`                 | `nhsuk-care-card`                 |
-| `clearfix`                  | `nhsuk-clearfix`                  |
-| `flex`                      | `nhsuk-flex`                      |
-| `flex-item`                 | `nhsuk-flex-item`                 |
-| `heading-label`             | `nhsuk-heading-label`             |
-| `panel`                     | `nhsuk-panel`                     |
-| `panel-with-label`          | `nhsuk-panel-with-label`          |
-| `print-color`               | Removed, see example              |
-| `print-hide`                | Removed, see example              |
-| `reading-width`             | `nhsuk-reading-width`             |
-| `remove-margin-mobile`      | `nhsuk-remove-margin-mobile`      |
-| `top-and-bottom`            | `nhsuk-top-and-bottom`            |
-| `visually-hidden`           | `nhsuk-visually-hidden`           |
-| `visually-hidden-focusable` | `nhsuk-visually-hidden-focusable` |
-| `visually-shown`            | Removed, see example              |
+- `clearfix` replaced by `nhsuk-clearfix`
+- `flex` replaced by `nhsuk-flex`
+- `flex-item` replaced by `nhsuk-flex-item`
+- `govuk-media-query` replaced by `nhsuk-media-query`
+- `nhsuk-link-style-white` replaced by `nhsuk-link-style-reverse`
+- `nhsuk-text-color` replaced by `nhsuk-text-colour`
+- `nhsuk-typography-responsive` replaced by `nhsuk-font-size`
+- `nhsuk-typography-weight-bold` replaced by `nhsuk-font-weight-bold`
+- `nhsuk-typography-weight-normal` replaced by `nhsuk-font-weight-normal`
+- `panel` and `nhsuk-panel` replaced by `nhsuk-card`
+- `panel-with-label` and `nhsuk-panel-with-label` replaced by `nhsuk-card` with `$variant: "feature"`
+- `reading-width` replaced by `nhsuk-reading-width`
+- `remove-margin-mobile` replaced by `nhsuk-remove-margin-mobile`
+- `top-and-bottom` replaced by `nhsuk-top-and-bottom`
+- `visually-hidden` replaced by `nhsuk-visually-hidden`
+- `visually-hidden-focusable` replaced by `nhsuk-visually-hidden-focusable`
 
-You must replace the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide` with `@media print` queries:
+Except for the following Sass mixins which have been removed entirely:
 
-```patch
-- @include nhsuk-print-colour;
-+ @media print {
-+   color: $nhsuk-print-text-colour;
-+ }
-```
+- `care-card` and `nhsuk-care-card` replaced by the card component
+- `heading-label` and `nhsuk-heading-label` replaced by the card component
+- `print-color`, `nhsuk-print-color` and `nhsuk-print-colour` replaced by `@media print` queries
+- `print-hide` and `nhsuk-print-hide` replaced by `@media print` queries
+- `visually-shown` replaced by selectively applying `nhsuk-visually-hidden`
 
-```patch
-- @include nhsuk-print-hide;
-+ @media print {
-+   display: none;
-+ }
-```
+For more details, see [how `@media print` can be used](https://github.com/nhsuk/nhsuk-frontend/pull/1961) or [how to apply `nhsuk-visually-hidden` using media queries](https://github.com/nhsuk/nhsuk-frontend/issues/1168).
 
-The Sass mixin `visually-shown` has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
-
-Before:
-
-```scss
-// Hide by default
-@include visually-hidden;
-
-// Show from desktop
-@include nhsuk-media-query($from: desktop) {
-  @include visually-shown;
-}
-```
-
-After:
-
-```scss
-// Hide until desktop only
-@include nhsuk-media-query($until: desktop) {
-  @include nhsuk-visually-hidden;
-}
-```
-
-The following deprecated Sass mixin with the `govuk` namespace have also been removed:
-
-| Sass mixin removed  | Suggested replacement |
-| ------------------- | --------------------- |
-| `govuk-media-query` | `nhsuk-media-query`   |
-
-The following deprecated Sass mixin has also been removed:
-
-| Sass mixin removed            | Suggested replacement |
-| ----------------------------- | --------------------- |
-| `nhsuk-typography-responsive` | `nhsuk-font-size`     |
-
-This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+These changes were introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553), [#2053: Port released v10.6.0 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/2053), [#2167: Port released v10.7.0 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/2167) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
 ### :boom: **Breaking changes** to JavaScript
 
