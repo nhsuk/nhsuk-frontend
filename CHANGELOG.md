@@ -341,7 +341,7 @@ This change was introduced in [pull request #1296: Apply grid classes from table
 
 #### Card component changes
 
-We've removed HTML classes for the card component that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
+We've removed HTML classes for cards that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
 
 If you are not using Nunjucks macros, you must change the card classes as follows:
 
@@ -357,7 +357,7 @@ This change was introduced in [pull request #1553: Remove deprecated features ma
 
 #### Do and Don't list component changes
 
-We've removed Nunjucks options for the do and don't list component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+We've removed Nunjucks options for do and don't lists that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
 If you're using the `list` Nunjucks macro in your service, you must update the nested `items` option, using `text` or `html` instead of `item`.
 
@@ -395,7 +395,7 @@ This change was introduced in [pull request #1553: Remove deprecated features ma
 
 We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
 
-If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
+If you are not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
 
 ```patch
 - <span class="nhsuk-error-message">
@@ -456,14 +456,14 @@ This change was introduced in [pull request #1696: Use search input component in
 
 #### Input component changes
 
-We've removed HTML classes for the input component that were deprecated in [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
+We've removed HTML classes for inputs that were deprecated in [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
 
 If you are not using Nunjucks macros, you must change the input classes as follows:
 
 - Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
 - Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
 
-We've also removed Nunjucks options for the input component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+We've also removed Nunjucks options for inputs that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
 If you're using the `input` Nunjucks macro in your service, you must update the `prefix` and `suffix` options to use the nested `text`, `html` options:
 
@@ -489,9 +489,9 @@ This change was introduced in [pull request #1553: Remove deprecated features ma
 
 #### Pagination component changes
 
-We've removed Nunjucks options for the pagination component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+We've removed Nunjucks options for pagination that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
-If you're using the `pagination` Nunjucks macro in your service, you must:
+If you're using the `pagination` Nunjucks macro, you must:
 
 - replace the `previousUrl` option with the nested `previous.href` option
 - replace the `previousPage` option with the nested `previous.label` option
