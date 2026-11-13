@@ -609,28 +609,6 @@ If you are not using Nunjucks macros, you must change the input classes as follo
 - Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`
 - Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`
 
-We've also removed Nunjucks options for inputs that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
-
-If you're using the `input` Nunjucks macro in your service, you must update the `prefix` and `suffix` options to use the nested `text`, `html` options:
-
-```patch
-  {{ input({
-    label: {
-      text: "Cost per item, in pounds"
-    },
-    name: "example",
--   prefix: "£",
-+   prefix: {
-+     text: "£"
-+   },
--   suffix: "per item",
-+   suffix: {
-+     text: "per item"
-+   },
-    classes: "nhsuk-input--width-5"
-  }) }}
-```
-
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Pagination component changes
