@@ -116,7 +116,19 @@ If you're importing the `nhsuk/nhsuk` Sass entry point, you must import `nhsuk` 
 + @import "nhsuk-frontend/dist/nhsuk";
 ```
 
-This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+If you're importing individual component Sass partials, then you must remove the duplicate component name from each path:
+
+```patch
+// Example: NHS.UK frontend individual components
+- @import "nhsuk-frontend/dist/nhsuk/components/action-link/action-link";
+- @import "nhsuk-frontend/dist/nhsuk/components/back-link/back-link";
+- @import "nhsuk-frontend/dist/nhsuk/components/button/button";
++ @import "nhsuk-frontend/dist/nhsuk/components/action-link";
++ @import "nhsuk-frontend/dist/nhsuk/components/back-link";
++ @import "nhsuk-frontend/dist/nhsuk/components/button";
+```
+
+This change was introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
 #### Sass variable for secondary border colour updated
 
@@ -341,7 +353,54 @@ This change was introduced in [pull request #1296: Apply grid classes from table
 
 #### Card component changes
 
-We've removed HTML classes for cards that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
+We've removed Nunjucks options and HTML classes for cards that were deprecated in versions [10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0), [10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0), [10.4.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.4.0) and [10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0).
+
+If you're using the `card` Nunjucks macro, you must:
+
+- replace the `imgURL` option with the nested `image.src` option
+- replace the `imgALT` option with the nested `image.alt` option
+
+```patch
+  {{ card({
+-   imgURL: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png",
+-   imgALT: "Illustration showing icons, design system components and a terminal app. Each one follows a dotted line into a laptop to become a prototype.",
++   image: {
++     src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png",
++     alt: "Illustration showing icons, design system components and a terminal app. Each one follows a dotted line into a laptop to become a prototype."
++   },
+    heading: "Why we are reinvesting in the NHS prototype kit"
+  }) }}
+```
+
+If you're using the `card` Nunjucks macro with variants or types, you must:
+
+- replace the `feature: true` option with `variant: "feature"`
+- replace the `primary: true` option with `variant: "primary"`
+- replace the `secondary: true` option with `variant: "secondary"`
+- replace the `warning: true` option with `variant: "warning"`
+- replace the `type: "non-urgent"` option with `variant: "non-urgent"`
+- replace the `type: "urgent"` option with `variant: "urgent"`
+- replace the `type: "emergency"` option with `variant: "emergency"`
+
+If you're using the `card` Nunjucks macro with heading or description options, you must update them to use nested options:
+
+- card `headingHtml` has changed to `heading.html`
+- card `headingClasses` and `headingId` have changed to `heading.classes` and `heading.id`
+- card `headingSize` and `headingLevel` have changed to `heading.size` and `heading.level`
+- card `headingVisuallyHiddenText` has changed to `heading.visuallyHiddenText`
+- card `descriptionHtml` has changed to `description.html`
+
+```patch
+  {{ card({
+-   heading: "Introduction to care and support",
+-   headingSize: "m"
++   heading: {
++     text: "Introduction to care and support",
++     size: "m"
++   },
+    description: "A quick guide for people who have care and support needs and their carers"
+  }) }}
+```
 
 If you are not using Nunjucks macros, you must change the card classes as follows:
 
@@ -353,18 +412,26 @@ If you are not using Nunjucks macros, you must change the card classes as follow
 - Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
 - Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
 
-This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+These changes were introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553), [#2053: Port released v10.6.0 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/2053) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
 #### Do and Don't list component changes
 
-We've removed Nunjucks options for do and don't lists that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+We've removed Nunjucks options and HTML classes for do and don't lists that were deprecated in versions [10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0), [10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0), [10.4.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.4.0) and [10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0).
 
-If you're using the `list` Nunjucks macro in your service, you must update the nested `items` option, using `text` or `html` instead of `item`.
+If you're using the `list` Nunjucks macro, you must:
+
+- replace the `title` option with the nested `heading.text` option
+- replace the `headingLevel` option with the nested `heading.level` option
+- replace the `type: "tick"` option with `icon: "tick"`
+- replace the `type: "cross"` option with `icon: "cross"`
+- update the nested `items` option, using `text` or `html` instead of `item`
 
 ```patch
   {{ list({
-    title: "Do",
-    type: "tick",
+-   title: "Do",
+-   type: "tick",
++   heading: "Do",
++   icon: "tick",
     items: [
       {
 -       item: "cover blisters with a soft plaster or padded dressing"
@@ -382,14 +449,28 @@ If you're using the `list` Nunjucks macro in your service, you must update the n
   }) }}
 ```
 
-We've also removed the `nhsuk-icon__tick` and `nhsuk-icon__cross` CSS classes used by the do and don't list component, deprecated in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
-
 If you are not using Nunjucks macros, you must change the do and don't list classes as follows:
 
+- add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
+- rename the list `<div class="nhsuk-do-dont-list"` class attribute to match `<div class="nhsuk-card__content"`
+- rename the heading `<h3 class="nhsuk-do-dont-list__label"` class attribute to match `<h3 class="nhsuk-card__heading"`
 - Rename `nhsuk-icon__tick` to `nhsuk-icon--tick`
 - Rename `nhsuk-icon__cross` to `nhsuk-icon--cross`
 
-This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+```patch
++ <div class="nhsuk-card nhsuk-card--feature">
+-   <div class="nhsuk-do-dont-list">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-do-dont-list__label">
++     <h3 class="nhsuk-card__heading">
+        Do
+      </h3>
+      <!-- // ... -->
+    </div>
++ </div>
+```
+
+These changes were introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553), [#1859: Port released v10.4.0 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/1859), [#2053: Port released v10.6.0 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/2053) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
 #### Error message component changes
 
@@ -409,26 +490,87 @@ This change was introduced in [pull request #1030: Update error messages to use 
 
 #### Error summary component changes
 
-If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
+We've removed Nunjucks options and HTML classes for the error summary that were deprecated in versions [10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0) and [10.6.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.1).
+
+If you're using the `errorSummary` Nunjucks macro, you must:
+
+- replace the `titleText` option with the nested `heading.text` option
+- replace the `titleHtml` option with the nested `heading.html` option
+- replace the `descriptionText` option with the nested `description.text` option
+- replace the `descriptionHtml` option with the nested `description.html` option
+
+```patch
+  {{ errorSummary({
+-   titleText: "There is a problem",
++   heading: {
++     text: "There is a problem"
++   },
+    errorList: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, you must also improve the experience for screen reader users by making these changes to the error summary markup:
 
 - Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
 - Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
 - Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+- Rename `nhsuk-error-summary__title` to `nhsuk-error-summary__heading`
 
 This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
 
-This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+These changes were introduced in pull requests [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172) and [#1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
 #### Header component changes
 
 We've updated the HTML for the header to use the search input component.
 
-If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header) as follows:
+We've also removed Nunjucks options for the header that were deprecated in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0).
+
+If you're using the `header` Nunjucks macro, you must:
+
+- replace the nested `search.placeholder` option with the nested `search.input.placeholder` option
+- replace the nested `search.visuallyHiddenLabel` option with the nested `search.label.visuallyHiddenText` option
+- replace the nested `search.visuallyHiddenButton` option with the nested `search.button.ariaLabel` option
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
+
+If not done already, apply the changes from [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0):
+
+- add the `novalidate` boolean attribute to search form element
+- add the `novalidate` boolean attribute to account item forms
+
+```patch
+  <search class="nhsuk-header__search">
+-   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get">
++   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
+```
+
+```patch
+- <form class="nhsuk-header__account-form" action="/log-out" method="post">
++ <form class="nhsuk-header__account-form" action="/log-out" method="post" novalidate>
+    <button class="nhsuk-header__account-button">
+```
+
+- add the `<div class="nhsuk-form-group"> </div>` wrapper around the search label, input and button
+- add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
+- add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
+- remove the `nhsuk-header__search-submit` class from the search button
+- remove the `nhsuk-header__search-input` class from the search input
+
+If not done already, apply the changes from [version 10.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.5.0):
+
+- add the `aria-label="Search"` attribute to the search button
+- remove the `aria-label="Search"` and `role="img"` attributes from the search icon SVG
+- remove the `<title>Search</title>` child element from the search icon SVG
+- add the `aria-hidden="true"` attribute to the search icon SVG
+- update the search icon SVG path (if not done already)
+
+Finally, apply the changes to use the search input component:
 
 - add the `nhsuk-search-input` class to the `nhsuk-form-group` element
 - add the `nhsuk-search-input__wrapper` class to the `nhsuk-input-wrapper` element
-- add the `nhsuk-search-input__input` class to the text input
-- add the `nhsuk-search-input__button` class to the button
+- add the `nhsuk-search-input__input` class to the search input
+- add the `nhsuk-search-input__button` class to the search button
 
 Then to set the correct button colour:
 
@@ -439,29 +581,33 @@ Then to set the correct button colour:
 - <div class="nhsuk-form-group">
 + <div class="nhsuk-form-group nhsuk-search-input">
     <label class="nhsuk-label nhsuk-u-visually-hidden" for="search-field">
-      Search the NHS digital service manual
+      Search the NHS website
     </label>
 -   <div class="nhsuk-input-wrapper">
 -     <input class="nhsuk-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
 -     <button class="nhsuk-button nhsuk-button--icon nhsuk-button--small" data-module="nhsuk-button" type="submit" aria-label="Search">
+-       <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" role="img" aria-label="Search">
+-         <title>Search</title>
+-         <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
 +   <div class="nhsuk-input-wrapper nhsuk-search-input__wrapper">
 +     <input class="nhsuk-input nhsuk-search-input__input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
 +     <button class="nhsuk-button nhsuk-button--brand-reverse nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button" data-module="nhsuk-button" type="submit" aria-label="Search">
-        <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-          <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"></path>
++       <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++         <path d="m20.7 18.9-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 10.6a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
         </svg>
 ```
 
-This change was introduced in [pull request #1696: Use search input component in header](https://github.com/nhsuk/nhsuk-frontend/pull/1696).
+These changes were introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553), [#1696: Use search input component in header](https://github.com/nhsuk/nhsuk-frontend/pull/1696) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
 #### Input component changes
 
-We've removed HTML classes for inputs that were deprecated in [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
+We've removed HTML classes for inputs that were deprecated in versions [10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0) and [10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
 
 If you are not using Nunjucks macros, you must change the input classes as follows:
 
-- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
-- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
+- Rename the `<div class="nhsuk-input__wrapper"` class attribute to match `<div class="nhsuk-input-wrapper"`
+- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`
+- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`
 
 We've also removed Nunjucks options for inputs that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
@@ -489,7 +635,7 @@ This change was introduced in [pull request #1553: Remove deprecated features ma
 
 #### Pagination component changes
 
-We've removed Nunjucks options for pagination that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+We've removed Nunjucks options for pagination that were deprecated in versions [10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0) and [10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0).
 
 If you're using the `pagination` Nunjucks macro, you must:
 
@@ -497,6 +643,9 @@ If you're using the `pagination` Nunjucks macro, you must:
 - replace the `previousPage` option with the nested `previous.label` option
 - replace the `nextUrl` option with the nested `next.href` option
 - replace the `nextPage` option with the nested `next.label` option
+- replace the `previous.labelText` and `next.labelText` options with the nested `previous.label` and `next.label` options
+- replace the `landmarkLabel` option with the `ariaLabel` option
+- replace the `visuallyHiddenText` option for `items` with the nested `item.ariaLabel` option
 
 ```patch
   {{ pagination({
@@ -515,7 +664,7 @@ If you're using the `pagination` Nunjucks macro, you must:
   }) }}
 ```
 
-This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+These changes were introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553) and [#2172: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/2172).
 
 ### :recycle: **Changes**
 
