@@ -3,6 +3,7 @@
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-footer" -%}
@@ -47,13 +48,16 @@
       href: item.href,
       openInNewTab: item.openInNewTab,
       className: "nhsuk-footer__list-item-link",
-      attributes: item.attributes
+      attributes: item.attributes,
+      slots: item.slots
     }) | trim | indent(4) }}
   </li>
   {% endif %}
 {% endfor %}
 </ul>
-{%- endmacro -%}
+{%- endmacro %}
+
+{{- nhsukSlot("before", params) -}}
 
 <footer class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
@@ -83,7 +87,8 @@
           className: "nhsuk-footer__heading",
           classPrefix: "nhsuk-heading-",
           classes: heading.classes,
-          attributes: heading.attributes
+          attributes: heading.attributes,
+          slots: heading.slots
         }) | trim | indent(8, true) }}
       {% endif %}
       {% if navigation.html %}
@@ -130,3 +135,6 @@
     </div>
   </div>
 </footer>
+
+{{- nhsukSlot("after", params) -}}
+{{- "\n" | safe -}}
