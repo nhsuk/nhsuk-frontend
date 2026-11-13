@@ -3021,7 +3021,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
     <button class="nhsuk-header__account-button">
 ```
 
-- add the `<div class="form-group"> </div>` wrapper around the search label, input and button
+- add the `<div class="nhsuk-form-group"> </div>` wrapper around the search label, input and button
 - add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
 - add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
 - remove the `nhsuk-header__search-submit` class from the search button
