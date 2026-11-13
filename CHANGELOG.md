@@ -1665,7 +1665,7 @@ If you're using the `checkboxes` Nunjucks macro, you should:
     ]
 ```
 
-If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) as follows:
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
 
 - replace the `data-checkbox-exclusive` attribute with `data-behaviour="exclusive"`
 - rename the `data-checkbox-exclusive-group` attribute to `data-behaviour-group`
