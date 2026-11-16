@@ -77,7 +77,7 @@
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-em(nhsuk-spacing(3));
+      padding-left: 1em;
       text-decoration: none;
       cursor: pointer;
 
@@ -90,19 +90,16 @@
 
       &::before {
         content: "";
-
         position: absolute;
-        top: nhsuk-px-to-rem(3px);
-        bottom: 0;
+        top: 0.4em;
         left: 0;
-
         margin: auto;
 
-        @include nhsuk-shape-chevron(down, currentColor, $font-size: 21px);
+        @include nhsuk-shape-chevron(down, currentColor);
       }
 
       .nhsuk-details[open] > &::before {
-        @include nhsuk-shape-chevron(up, null, $font-size: 21px);
+        @include nhsuk-shape-chevron(up, null);
       }
     }
 
@@ -301,10 +298,10 @@
       .nhsuk-details__summary-text::before {
         content: "";
         position: absolute;
-        top: calc(50% - 0.1em);
+        top: calc(50% - 0.25em);
         left: 0;
 
-        @include nhsuk-shape-chevron(down, currentColor, $font-size: 21px);
+        @include nhsuk-shape-chevron(down, currentColor);
       }
 
       &[open] {
@@ -312,7 +309,7 @@
       }
 
       &[open] .nhsuk-details__summary-text::before {
-        @include nhsuk-shape-chevron(up, currentColor, $font-size: 21px);
+        @include nhsuk-shape-chevron(up, currentColor);
       }
     }
   }
