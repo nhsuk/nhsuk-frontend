@@ -6,6 +6,7 @@ import eslint from '@eslint/js'
 import pluginMarkdown from '@eslint/markdown'
 import configPrettier from 'eslint-config-prettier/flat'
 import pluginESx from 'eslint-plugin-es-x'
+import pluginImportX from 'eslint-plugin-import-x'
 import pluginJest from 'eslint-plugin-jest'
 import pluginJsdoc from 'eslint-plugin-jsdoc'
 import pluginNode from 'eslint-plugin-n'
@@ -25,6 +26,7 @@ export default defineConfig([
     ignores: ['**/*.d.mts'],
     extends: [
       eslint.configs.recommended,
+      pluginImportX.configs['flat/recommended'],
       pluginJsdoc.configs['flat/recommended-typescript-flavor'],
       pluginPromise.configs['flat/recommended'],
       configPrettier
@@ -37,6 +39,43 @@ export default defineConfig([
       }
     },
     rules: {
+      // Turn off rules that are handled by TypeScript
+      // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
+      'import-x/default': 'off',
+      'import-x/named': 'off',
+      'import-x/namespace': 'off',
+      'import-x/no-cycle': 'off',
+      'import-x/no-deprecated': 'off',
+      'import-x/no-named-as-default': 'off',
+      'import-x/no-named-as-default-member': 'off',
+      'import-x/no-unresolved': 'off',
+      'import-x/no-unused-modules': 'off',
+
+      // Check import or require statements are A-Z ordered
+      'import-x/order': [
+        'error',
+        {
+          'alphabetize': {
+            order: 'asc'
+          },
+          'groups': [
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling'],
+            'index'
+          ],
+          'named': true,
+          'newlines-between': 'always',
+          'pathGroups': [
+            {
+              pattern: '@nhsuk/**',
+              group: 'external'
+            }
+          ]
+        }
+      ],
+
       // Check for valid formatting
       'jsdoc/check-line-alignment': [
         'warn',
@@ -89,6 +128,9 @@ export default defineConfig([
       'no-redeclare': 'off',
       'no-undef': 'off',
       'no-unused-vars': 'off'
+    },
+    settings: {
+      'import-x/internal-regex': '^#lib(/|$)'
     }
   },
   {
