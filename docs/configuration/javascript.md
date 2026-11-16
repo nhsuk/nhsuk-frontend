@@ -59,7 +59,7 @@ We encourage the use of ECMAScript (ES) modules, but you should check your bundl
 To improve how quickly your service's pages load in browsers, import only the JavaScript components you need. You can also [configure each component](./README.md#passing-javascript-configuration) when instantiating them.
 
 ```mjs
-import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+import { Button, Checkboxes, createAll } from 'nhsuk-frontend'
 
 // Initialise all button components
 createAll(Button, {
@@ -105,7 +105,7 @@ The context object will contain the following properties:
 Handling errors from `createAll`:
 
 ```mjs
-import { createAll, Button } from 'nhsuk-frontend'
+import { Button, createAll } from 'nhsuk-frontend'
 
 createAll(Button, { preventDoubleClick: true }, (error, context) => {
   const { Component, element, config } = context
@@ -164,7 +164,7 @@ If you update a page with new markup, for example a modal dialogue box, you can 
 Pass the scope into `createAll`'s third argument to initialise individual components:
 
 ```mjs
-import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+import { Button, Checkboxes, createAll } from 'nhsuk-frontend'
 
 const $element = document.querySelector('.app-modal')
 

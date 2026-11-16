@@ -4,8 +4,7 @@ import {
   MockConfigurableComponentNoSchema
 } from '#lib/fixtures/configuration/mock-component.mjs'
 
-import { SupportError } from './errors/index.mjs'
-import { ConfigError } from './errors/index.mjs'
+import { ConfigError, SupportError } from './errors/index.mjs'
 
 describe('ConfigurableComponent', () => {
   let /** @type {HTMLElement} */ $root
