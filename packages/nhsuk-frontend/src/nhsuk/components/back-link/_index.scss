@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
@@ -6,6 +8,7 @@
 ///
 /// 1. Allow space for the chevron.
 /// 2. Hide back link on print stylesheets.
+/// 3. Adjust chevron position to make it flush left.
 ///
 /// @group components/back-link
 ////
@@ -20,7 +23,7 @@
     position: relative;
 
     padding: 0;
-    padding-left: nhsuk-em($_font-size * 1.5);
+    padding-left: nhsuk-px-to-rem($_font-size + 2);
 
     border: 0;
 
@@ -33,40 +36,58 @@
     @include nhsuk-link-style-no-visited-state;
     @include nhsuk-responsive-margin(4, "top");
 
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      padding-left: nhsuk-px-to-rem($_font-size + 6);
+    }
+
     @media print {
       display: none; // [2]
     }
+  }
 
-    &::before {
-      content: "";
+  .nhsuk-back-link::before {
+    content: "";
 
-      position: absolute;
-      top: 0;
-      left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-      width: 1.3em;
-      height: 1.8em;
+    width: nhsuk-px-to-rem($_font-size + 4);
+    height: nhsuk-px-to-rem($_font-size + 8);
 
-      margin: auto;
+    margin: auto;
+    margin-left: nhsuk-px-to-rem(-3); // [3]
 
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    // Where possible use the arrow as a mask instead. This lets us use
+    // currentcolor, increasing the contrast of the image and matching the
+    // user's preferred foreground colour in forced colors mode.
+    // We test for `mask-position` rather than `mask-image` because of a false
+    // positive in Edge 17.
+    @supports (mask-position: initial) {
       background-color: currentcolor;
+      background-image: none;
 
       mask-image: nhsuk-image-url("nhsuk-icon-arrow-left.svg");
       mask-repeat: no-repeat;
       mask-position: center;
       mask-size: contain;
 
-      @media #{nhsuk-from-breakpoint(tablet)} {
-        height: 1.5em;
-      }
-
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         background-color: LinkText;
       }
     }
 
-    .nhsuk-back-link--reverse {
-      @include nhsuk-link-style-reverse;
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      width: nhsuk-px-to-rem($_font-size + 6);
     }
+  }
+
+  .nhsuk-back-link--reverse {
+    @include nhsuk-link-style-reverse;
   }
 }
