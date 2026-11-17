@@ -137,9 +137,7 @@
     className: "nhsuk-card__link"
   }) | trim }}
 {% elif params.visuallyHiddenText %}
-<span role="text">
   {{ innerHtml | safe | indent(2) }}
-</span>
 {% else %}
   {{- innerHtml | safe }}
 {% endif %}
