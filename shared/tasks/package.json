@@ -16,8 +16,8 @@
     "gulp-changed": "^5.0.4",
     "gulp-rename": "^2.1.0",
     "plugin-error": "^2.0.1",
-    "rollup": "^4.67.4",
-    "sass-embedded": "^1.107.1"
+    "rollup": "^4.68.2",
+    "sass-embedded": "^1.108.2"
   },
   "engines": {
     "node": "^26.13.0",
