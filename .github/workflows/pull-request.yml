@@ -87,7 +87,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
-          key: npm-install-${{ hashFiles('package-lock.json') }}
+          key: npm-install-${{ hashFiles('package-lock.json') }}-${{ runner.os }}
           path: |
             node_modules
             packages/*/node_modules
@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
-          key: npm-install-${{ hashFiles('package-lock.json') }}
+          key: npm-install-${{ hashFiles('package-lock.json') }}-${{ runner.os }}
           path: |
             node_modules
             packages/*/node_modules
@@ -217,7 +217,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
-          key: npm-install-${{ hashFiles('package-lock.json') }}
+          key: npm-install-${{ hashFiles('package-lock.json') }}-${{ runner.os }}
           path: |
             node_modules
             packages/*/node_modules

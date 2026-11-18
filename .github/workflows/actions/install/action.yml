@@ -9,7 +9,9 @@ runs:
       uses: actions/cache@v6
       id: npm-install-cache
       with:
-        key: npm-install-${{ hashFiles('package-lock.json') }}
+        key: npm-install-${{ hashFiles('package-lock.json') }}-${{ runner.os }}
+        restore-keys: |
+          npm-install-${{ hashFiles('package-lock.json') }}-
         path: |
           node_modules
           packages/*/node_modules

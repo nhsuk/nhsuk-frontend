@@ -1,17 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e
 
 CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-CURRENT_VERSION=$(npm run version --silent --workspace nhsuk-frontend)
+CURRENT_VERSION=$(node -p "require('./packages/nhsuk-frontend/package.json').version")
 
 BRANCH_NAME="preview-$CURRENT_BRANCH_NAME"
-VERSION="$CURRENT_VERSION-$BRANCH_NAME"
-
-# Build the package as normal
-echo "✨ Install and build branch preview"
-npm install --no-save --silent
-npm run build --workspace nhsuk-frontend
-echo
+VERSION="$CURRENT_VERSION-${BRANCH_NAME//[^[:alnum:]-]/-}"
 
 # Check if there are files that need to be commited
 if [[ -n $(git status --porcelain) ]]; then
@@ -20,18 +14,28 @@ if [[ -n $(git status --porcelain) ]]; then
 fi
 
 # Remove local branch if it already exists
-if [ $(git branch --list $BRANCH_NAME) ]; then
+if git show-ref --branches --quiet "$BRANCH_NAME"; then
   echo "⚠️ Cleaning up branch $BRANCH_NAME that already exists."
-  git branch -D $BRANCH_NAME
+  git branch -D "$BRANCH_NAME"
 fi
 
 # Work on the new branch
-git checkout -b $BRANCH_NAME
+git checkout --orphan $BRANCH_NAME
+# An orphaned branch stages all new files so reset them
+git reset
+
+# Return to the original branch on exit
+trap 'git checkout --force --quiet "$CURRENT_BRANCH_NAME"' EXIT
+
+# Build the package as normal
+echo "✨ Install and build branch preview"
+npm install --no-save --silent
+npm run build --workspace nhsuk-frontend
+echo
 
 # npm will try to install dev, optional and peer dependencies
 # when installing from a Git repository, which will error when
 # looking for our local only `@nhsuk/*` workspace packages
-echo
 echo "✍️ Remove dev dependencies"
 npm pkg delete devDependencies --workspace nhsuk-frontend
 
@@ -39,30 +43,30 @@ echo "✍️ Update package version"
 echo
 
 # Append branch name to npm package version if not already added
-npm version $VERSION --allow-same-version --no-git-tag-version --silent --workspace nhsuk-frontend
-git add packages/nhsuk-frontend/package.json
-git add package-lock.json
+npm version "$VERSION" --allow-same-version --no-git-tag-version --silent --workspace nhsuk-frontend
 
 echo
-echo "✍️ Force commit package"
+echo "✍️ Commit package files"
+git add packages/nhsuk-frontend/package.json
+git add packages/nhsuk-frontend/README.md
+git add packages/nhsuk-frontend/src/
+# Some files are gitignored so we need to force adding them.
 git add --force packages/nhsuk-frontend/dist/
-git commit --allow-empty -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
+git commit -m "Preview NHS.UK frontend 'v$VERSION' to '$BRANCH_NAME' for testing"
 
-# Create a local branch containing the packages/nhsuk-frontend directory
-export FILTER_BRANCH_SQUELCH_WARNING=1
 echo
 echo "✨ Filter the branch to only the packages/nhsuk-frontend/ directory..."
-git filter-branch --force --subdirectory-filter packages/nhsuk-frontend
+# Remove any untracked files
+git clean -d --force --quiet
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --subdirectory-filter packages/nhsuk-frontend
 
 # Force the push of the branch to the remote Github origin
-git push origin $BRANCH_NAME:$BRANCH_NAME --force --quiet
+git push origin "$BRANCH_NAME:$BRANCH_NAME" --force --quiet
 
 echo
 echo "⚠️ Branch pushed to '$BRANCH_NAME', do not edit this by hand."
 
-git checkout -
-
-BRANCH_COMMIT_SHA=$(git rev-parse --short $BRANCH_NAME)
+BRANCH_COMMIT_SHA=$(git rev-parse --short "$BRANCH_NAME")
 
 echo
 echo "✅ Success! To install the branch preview, run:"
