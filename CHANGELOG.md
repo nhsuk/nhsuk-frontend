@@ -1013,7 +1013,7 @@ If you're using the `checkboxes` Nunjucks macro, you should:
     ]
 ```
 
-If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) as follows:
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
 
 - replace the `data-checkbox-exclusive` attribute with `data-behaviour="exclusive"`
 - rename the `data-checkbox-exclusive-group` attribute to `data-behaviour-group`
@@ -2369,7 +2369,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
     <button class="nhsuk-header__account-button">
 ```
 
-- add the `<div class="form-group"> </div>` wrapper around the search label, input and button
+- add the `<div class="nhsuk-form-group"> </div>` wrapper around the search label, input and button
 - add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
 - add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
 - remove the `nhsuk-header__search-submit` class from the search button
