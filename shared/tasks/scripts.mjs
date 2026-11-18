@@ -3,8 +3,6 @@ import { join } from 'node:path'
 import { version } from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
 import { babel } from '@rollup/plugin-babel'
-import commonjs from '@rollup/plugin-commonjs'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import terser from '@rollup/plugin-terser'
 import * as NHSUKFrontend from 'nhsuk-frontend/src/nhsuk/index.mjs'
@@ -41,10 +39,6 @@ export function compile(
        * Input plugins
        */
       plugins: [
-        nodeResolve({
-          preferBuiltins: true
-        }),
-        commonjs(),
         replace({
           include: '**/common/nhsuk-frontend-version.mjs',
           preventAssignment: true,
