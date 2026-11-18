@@ -49,6 +49,7 @@ export const transform = task.name('scripts:transform', async () => {
         '#lib',
         '@prettier/sync',
         /^highlight\.js(\/|$)/,
+        /^node:/,
         'nunjucks',
         'outdent',
         'slug'
