@@ -1,5 +1,4 @@
-import { createEvent, fireEvent } from '@testing-library/dom'
-import { within } from '@testing-library/dom'
+import { createEvent, fireEvent, within } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { components } from '#lib'

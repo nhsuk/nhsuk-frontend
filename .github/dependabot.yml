@@ -32,7 +32,6 @@ updates:
         patterns:
           - '@eslint/*'
           - '@prettier/*'
-          - '@trivago/prettier-plugin-*'
           - '@types/*'
           - 'eslint'
           - 'eslint-*'

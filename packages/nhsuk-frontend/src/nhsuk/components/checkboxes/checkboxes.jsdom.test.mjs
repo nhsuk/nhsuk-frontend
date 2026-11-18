@@ -1,5 +1,4 @@
-import { fireEvent } from '@testing-library/dom'
-import { within } from '@testing-library/dom'
+import { fireEvent, within } from '@testing-library/dom'
 
 import { components } from '#lib'
 
