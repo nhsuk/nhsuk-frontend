@@ -8,9 +8,8 @@ import { normaliseArray, normaliseString } from './normalise-string.mjs'
  * Loop over an object and normalise each value using {@link normaliseString},
  * optionally expanding `data-i18n.property` nested values
  *
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
- * @template {[keyof ConfigurationType, SchemaProperty | undefined][]} SchemaEntryType
- * @param {CompatibleClass & { schema?: Schema<ConfigurationType> }} Component - Component class
+ * @template {SchemaConfig<ConfigType>} ConfigType
+ * @param {CompatibleClass & { schema?: Schema<ConfigType> }} Component - Component class
  * @param {DOMStringMap} dataset - HTML element dataset
  * @returns {ObjectNested} Normalised dataset
  */
@@ -20,9 +19,10 @@ export function normaliseDataset(Component, dataset) {
     return out
   }
 
-  const entries = /** @type {SchemaEntryType} */ (
-    Object.entries(Component.schema.properties)
-  )
+  const entries =
+    /** @type {[keyof ConfigType, SchemaProperty | undefined][]} */ (
+      Object.entries(Component.schema.properties)
+    )
 
   // Normalise top-level dataset ('data-*') values using schema types
   for (const entry of entries) {
@@ -56,5 +56,5 @@ export function normaliseDataset(Component, dataset) {
 
 /**
  * @import { CompatibleClass } from '../../component.mjs'
- * @import { ObjectNested, Schema, SchemaProperty } from './index.mjs'
+ * @import { ObjectNested, Schema, SchemaConfig, SchemaProperty } from './index.mjs'
  */

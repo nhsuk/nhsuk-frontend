@@ -83,6 +83,25 @@ describe('Macro: Content', () => {
       expect(output).toBe(expected)
     })
 
+    it('renders array mocks with zero length as empty string', () => {
+      // For example, Python MagicMock() has no length but has indexed values
+      const input = Object.setPrototypeOf([], ['abc', '123'])
+      const expected = ''
+
+      // Render directly otherwise nunjucks `renderMacro()` will spread
+      // array values for use as separate macro arguments
+      const output = nunjucks.renderString(
+        outdent`
+          {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+          {{- nhsukContent(input) -}}
+          {{- nhsukContent({ text: input }) -}}
+        `,
+        { context: { input } }
+      )
+
+      expect(output).toBe(expected)
+    })
+
     it('renders text option with escaping', () => {
       const input = {
         text: 'A&E waiting times'

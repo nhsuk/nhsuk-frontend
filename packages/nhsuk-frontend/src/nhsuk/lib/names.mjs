@@ -117,5 +117,5 @@ export function moduleNameToComponentName(moduleName, prefix = 'nhsuk') {
     componentName = renamed.get(componentName) ?? componentName
   }
 
-  return componentName
+  return componentName.replaceAll('/', '-')
 }

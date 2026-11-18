@@ -14,12 +14,12 @@
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
-    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-terser": "^1.0.2",
     "gulp-changed": "^5.0.4",
     "gulp-rename": "^2.1.0",
     "plugin-error": "^2.0.1",
-    "rollup": "^4.64.2",
-    "sass-embedded": "^1.105.1"
+    "rollup": "^4.67.4",
+    "sass-embedded": "^1.107.1"
   },
   "engines": {
     "node": "^26.13.0",

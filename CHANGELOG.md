@@ -505,6 +505,41 @@ This will enable screen reader users to have a better, more coherent experience 
 
 This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
+#### Header component changes
+
+We've updated the HTML for the header to use the search input component.
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header) as follows:
+
+- add the `nhsuk-search-input` class to the `nhsuk-form-group` element
+- add the `nhsuk-search-input__wrapper` class to the `nhsuk-input-wrapper` element
+- add the `nhsuk-search-input__input` class to the text input
+- add the `nhsuk-search-input__button` class to the button
+
+Then to set the correct button colour:
+
+- for the blue header, add the `nhsuk-button--brand-reverse` class to the button
+- for the white header, add the `nhsuk-button--brand` class to the button
+
+```patch
+- <div class="nhsuk-form-group">
++ <div class="nhsuk-form-group nhsuk-search-input">
+    <label class="nhsuk-label nhsuk-u-visually-hidden" for="search-field">
+      Search the NHS digital service manual
+    </label>
+-   <div class="nhsuk-input-wrapper">
+-     <input class="nhsuk-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
+-     <button class="nhsuk-button nhsuk-button--icon nhsuk-button--small" data-module="nhsuk-button" type="submit" aria-label="Search">
++   <div class="nhsuk-input-wrapper nhsuk-search-input__wrapper">
++     <input class="nhsuk-input nhsuk-search-input__input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
++     <button class="nhsuk-button nhsuk-button--brand-reverse nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button" data-module="nhsuk-button" type="submit" aria-label="Search">
+        <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+          <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"></path>
+        </svg>
+```
+
+This change was introduced in [pull request #1696: Use search input component in header](https://github.com/nhsuk/nhsuk-frontend/pull/1696).
+
 #### Input component changes
 
 We've removed HTML classes for the input component that were deprecated in [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
@@ -594,6 +629,28 @@ If you're not using Nunjucks macros, you can remove these attributes from your H
 ```
 
 This change was introduced in [pull request #2185: Remove redundant landmark roles from HTML5 elements](https://github.com/nhsuk/nhsuk-frontend/pull/2185).
+
+## 10.7.2 - 9 November 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2183: Fix overlapping header menu in high contrast mode](https://github.com/nhsuk/nhsuk-frontend/pull/2183)
+- [#2186: Guard against mock iterable values without length in `nhsukContent()`](https://github.com/nhsuk/nhsuk-frontend/pull/2186)
+- [#2187: Fix summary list row when rendered with custom HTML or call block](https://github.com/nhsuk/nhsuk-frontend/pull/2187)
+
+## 10.7.1 - 29 October 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2173: Update template theme colours to match updated colour palette](https://github.com/nhsuk/nhsuk-frontend/pull/2173)
 
 ## 10.7.0 - 27 October 2026
 

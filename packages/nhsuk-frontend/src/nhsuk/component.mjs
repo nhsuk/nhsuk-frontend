@@ -32,9 +32,8 @@ export class Component {
    * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
-    const childConstructor = /** @type {ComponentConstructor} */ (
-      this.constructor
-    )
+    const childConstructor =
+      /** @type {ComponentConstructor<typeof Component>} */ (this.constructor)
 
     if (!$root || !($root instanceof childConstructor.elementType)) {
       throw new ElementError({
@@ -85,13 +84,12 @@ export class Component {
   /**
    * Validate whether component is supported
    *
-   * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
+   * @abstract
    * @template {HTMLElement} [RootElementType=HTMLElement]
-   * @param {RootElementType} [_$root] - HTML element to use for component
-   * @param {ConfigurationType} [_config] - Config specified by configurable components only
+   * @param {RootElementType} [$root] - HTML element to use for component
    * @throws {SupportError} when component is not supported
    */
-  static checkSupport(_$root, _config) {
+  static checkSupport($root) {
     if (!isSupported()) {
       throw new SupportError()
     }
@@ -106,20 +104,27 @@ export class Component {
 /**
  * Component compatible class
  *
- * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component]
- * @typedef {{
+ * @template {new (...args: never[]) => Component} [ComponentType=typeof Component | typeof ConfigurableComponent<ObjectNested>]
+ * @typedef {ComponentType extends unknown ? {
  *   new(...args: ConstructorParameters<ComponentType>): InstanceType<ComponentType>,
- *   defaults?: ObjectNested,
+ *   defaults?: object,
  *   schema?: Schema<ObjectNested>,
  *   moduleName: string
- * }} CompatibleClass
+ * } : never} CompatibleClass
  */
 
 /**
  * Component constructor
  *
- * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component]
- * @typedef {CompatibleClass & ComponentType} ComponentConstructor
+ * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component | typeof ConfigurableComponent]
+ * @typedef {ComponentType extends unknown ? CompatibleClass<ComponentType> & ComponentType : never} ComponentConstructor
+ */
+
+/**
+ * Component config
+ *
+ * @template {CompatibleClass} ComponentClass
+ * @typedef {ConstructorParameters<ComponentClass>[1]} ComponentConfig
  */
 
 /**

@@ -213,7 +213,7 @@ export class Code extends ConfigurableComponent {
    * @param {Partial<CodeConfig>} [config] - Code config
    */
   static checkSupport($root, config) {
-    ConfigurableComponent.checkSupport($root, config)
+    super.checkSupport($root, config)
 
     // Check for copy button support
     if (!$root?.classList.contains(`${Code.moduleName}--button`)) {

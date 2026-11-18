@@ -10,9 +10,10 @@
 {%- set classNames = className if params.className not in ["", none, false] else "" %}
 
 {%- if variant and
-  variant in ["brand", "login", "reverse", "secondary", "secondary-solid", "warning"] and (
+  variant in ["brand", "brand-reverse", "login", "reverse", "secondary", "secondary-solid", "warning"] and (
     not params.classes or (
       not className ~ "--brand" in params.classes and
+      not className ~ "--brand-reverse" in params.classes and
       not className ~ "--login" in params.classes and
       not className ~ "--reverse" in params.classes and
       not className ~ "--secondary" in params.classes and

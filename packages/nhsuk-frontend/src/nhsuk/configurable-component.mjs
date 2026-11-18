@@ -11,13 +11,13 @@ import { ConfigError } from './errors/index.mjs'
  * Configurable base component class
  *
  * @abstract
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
+ * @template {SchemaConfig<ConfigType>} [ConfigType=ObjectNested]
  * @template {HTMLElement} [RootElementType=HTMLElement]
  * @augments {Component<RootElementType>}
  */
 export class ConfigurableComponent extends Component {
   /**
-   * @type {ConfigurationType}
+   * @type {ConfigType}
    */
   config
 
@@ -25,7 +25,7 @@ export class ConfigurableComponent extends Component {
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
    * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<ConfigurationType>} [config] - Component config
+   * @param {Partial<ConfigType>} [config] - Component config
    */
   constructor($root, config) {
     super($root)
@@ -53,21 +53,19 @@ export class ConfigurableComponent extends Component {
       )
     }
 
-    const schema = /** @type {Schema<ConfigurationType>} */ (
-      childConstructor.schema
-    )
+    const schema = /** @type {Schema<ConfigType>} */ (childConstructor.schema)
 
-    const datasetConfig = /** @type {Partial<ConfigurationType>} */ (
+    const datasetConfig = /** @type {Partial<ConfigType>} */ (
       normaliseDataset(childConstructor, this.$root.dataset)
     )
 
     // Override defaults with JavaScript config
-    this.config = /** @type {ConfigurationType} */ (
+    this.config = /** @type {ConfigType} */ (
       mergeConfigs(childConstructor.defaults, config ?? {})
     )
 
     // Override merged config with dataset config
-    this.config = /** @type {ConfigurationType} */ (
+    this.config = /** @type {ConfigType} */ (
       mergeConfigs(
         this.config,
         this.configOverride(datasetConfig),
@@ -93,15 +91,31 @@ export class ConfigurableComponent extends Component {
    * overridden based on the root element's dataset
    *
    * @abstract
-   * @param {Partial<ConfigurationType>} _datasetConfig - Config specified by dataset
-   * @returns {Partial<ConfigurationType>} Config to override by dataset
+   * @param {Partial<ConfigType>} datasetConfig - Config specified by dataset
+   * @returns {Partial<ConfigType>} Config to override by dataset
    */
-  configOverride(_datasetConfig) {
+  configOverride(datasetConfig) {
     return {}
+  }
+
+  /**
+   * Validate whether component is supported
+   *
+   * @abstract
+   * @template {CompatibleClass} ComponentClass
+   * @template {HTMLElement} [RootElementType=HTMLElement]
+   * @this {ComponentClass}
+   * @param {RootElementType} [$root] - HTML element to use for component
+   * @param {ComponentConfig<ComponentClass>} [config] - Component config
+   * @throws {SupportError} when component is not supported
+   */
+  static checkSupport($root, config) {
+    super.checkSupport($root)
   }
 }
 
 /**
- * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
- * @import { ComponentConstructor } from './component.mjs'
+ * @import { ObjectNested, Schema, SchemaConfig } from './common/configuration/index.mjs'
+ * @import { CompatibleClass, ComponentConstructor } from './component.mjs'
+ * @import { ComponentConfig } from './index.mjs'
  */
