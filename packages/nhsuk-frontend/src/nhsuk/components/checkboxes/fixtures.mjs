@@ -999,40 +999,6 @@ const fixtures = {
     },
     variants
   },
-  'with "none" option, deprecated': {
-    context: {
-      fieldset: {
-        legend: {
-          heading: "How do you want to be contacted about this?",
-          size: "l"
-        }
-      },
-      idPrefix: "none",
-      name: "example",
-      items: [
-        {
-          value: "email",
-          text: "Email"
-        },
-        {
-          value: "phone",
-          text: "Phone"
-        },
-        {
-          value: "text",
-          text: "Text message"
-        },
-        {
-          divider: "or"
-        },
-        {
-          value: "none",
-          text: "I do not want to be contacted",
-          exclusive: true
-        }
-      ]
-    }
-  },
   'with "none" option, conditional content': {
     context: {
       fieldset: {
