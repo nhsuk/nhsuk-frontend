@@ -41,10 +41,6 @@
 
     // Hide when no textarea description is provided, during initialisation,
     // or when optionally hidden until the configured threshold is reached
-    &[hidden] {
-      display: none;
-    }
-
     @include nhsuk-frontend-supported {
       display: none;
     }

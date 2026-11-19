@@ -28,11 +28,6 @@
   }
 
   .nhsuk-password-input__toggle {
-    // Hide the button by default, JS removes this attribute
-    &[hidden] {
-      display: none;
-    }
-
     @media #{nhsuk-from-breakpoint(mobile)} {
       flex-basis: 5em;
     }
