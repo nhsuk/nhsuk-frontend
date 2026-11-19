@@ -14,6 +14,11 @@
     }
   }
 
+  .nhsuk-form-group[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-form-group--error {
     padding-left: nhsuk-spacing(3);
     border-left: $nhsuk-border-width-form-group-error solid $nhsuk-error-colour;
