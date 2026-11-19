@@ -45,6 +45,11 @@
     }
   }
 
+  .nhsuk-tag[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   // Colour variants
 
   .nhsuk-tag--white {

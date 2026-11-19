@@ -40,6 +40,11 @@
     @include nhsuk-card($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
+  .nhsuk-card[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-card__img,
   .nhsuk-card .nhsuk-image {
     display: block;

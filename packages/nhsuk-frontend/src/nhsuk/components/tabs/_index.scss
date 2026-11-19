@@ -23,6 +23,11 @@
     }
   }
 
+  .nhsuk-tabs[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-tabs__heading,
   // Deprecated, to be removed in a future release
   .nhsuk-tabs__title {

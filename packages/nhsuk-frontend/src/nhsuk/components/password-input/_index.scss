@@ -11,6 +11,11 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/password-input") {
+  .nhsuk-password-input[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-password-input__input {
     // IE 11 and Microsoft Edge comes with its own password reveal function. We
     // want to hide it, so that there aren't two controls presented to the user

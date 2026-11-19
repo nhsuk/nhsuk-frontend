@@ -24,6 +24,11 @@
     margin-right: 0;
   }
 
+  .nhsuk-checkboxes[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-checkboxes__item {
     display: flex;
     position: relative;

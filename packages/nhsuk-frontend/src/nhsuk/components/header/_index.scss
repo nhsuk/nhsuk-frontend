@@ -84,6 +84,11 @@
     }
   }
 
+  .nhsuk-header[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-header__container {
     padding: nhsuk-spacing(3) 0;
 

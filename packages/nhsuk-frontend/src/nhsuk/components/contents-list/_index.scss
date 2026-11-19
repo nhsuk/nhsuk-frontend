@@ -9,6 +9,11 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/contents-list") {
+  .nhsuk-contents-list[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-contents-list__list {
     margin: 0;
     padding: 0;

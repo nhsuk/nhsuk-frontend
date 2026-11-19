@@ -22,6 +22,12 @@
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
+  .nhsuk-table[hidden],
+  .nhsuk-table__row[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-table--compact {
     .nhsuk-table__header,
     .nhsuk-table__cell {

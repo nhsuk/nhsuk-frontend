@@ -38,6 +38,11 @@
     }
   }
 
+  .nhsuk-breadcrumb[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-breadcrumb__list {
     margin: 0;
     padding: 0;

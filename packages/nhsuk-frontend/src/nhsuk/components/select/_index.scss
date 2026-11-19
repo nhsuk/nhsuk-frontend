@@ -49,6 +49,11 @@
     }
   }
 
+  .nhsuk-select[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-select option:active,
   .nhsuk-select option:checked,
   .nhsuk-select:focus::-ms-value {

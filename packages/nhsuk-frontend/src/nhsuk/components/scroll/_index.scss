@@ -28,6 +28,11 @@
     }
   }
 
+  .nhsuk-scroll[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-card__content .nhsuk-scroll {
     padding-bottom: 0;
     overflow: visible;

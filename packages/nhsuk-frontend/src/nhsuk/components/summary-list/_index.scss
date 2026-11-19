@@ -26,6 +26,12 @@
     }
   }
 
+  .nhsuk-summary-list[hidden],
+  .nhsuk-summary-list__row[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-summary-list__row {
     border-bottom: 1px solid $nhsuk-border-colour;
 
