@@ -613,32 +613,32 @@ This change was introduced in [pull request #1802: Change action link icon colou
 
 #### Use consistent padding across components
 
-We've adjusted the inset padding across many components to make them more consistent. The following components now share 24px padding on small screens:
+We've adjusted the padding across many components to make them more consistent. The following components now share spacing unit 5 on our responsive spacing scale, making them 24px padding on small screens:
 
-- Cards (including care cards and feature cards)
-- Contents list
-- Details
-- Error message
-- Error summary
-- Expander
-- File upload
-- Inset text
-- Notification banner
-- Panel
-- Tabs
-- Warning callout
+- cards (including care cards and feature cards)
+- contents list
+- details
+- error message
+- error summary
+- expander
+- file upload
+- inset text
+- notification banner
+- panel
+- tabs
+- warning callout
 
-The following components use 32px padding from tablet size:
+The following components use 32px padding from tablet sized screens (641px and up):
 
-- Cards (including care cards and feature cards)
-- Error summary
-- Expander
-- File upload
-- Inset text
-- Notification banner
-- Panel
-- Tabs
-- Warning callout
+- cards (including care cards and feature cards)
+- error summary
+- expander
+- file upload
+- inset text
+- notification banner
+- panel
+- tabs
+- warning callout
 
 This change was introduced in [pull request #1737: use consistent padding across components](https://github.com/nhsuk/nhsuk-frontend/pull/1737).
 
