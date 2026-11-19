@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -16,7 +17,7 @@
 @include nhsuk-exports("nhsuk/components/breadcrumb") {
   $_font-size: 16;
   $_chevron-colour: $nhsuk-secondary-text-colour;
-  $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
+  $_chevron-size: nhsuk-em(math.div($_font-size, 2));
 
   .nhsuk-breadcrumb {
     box-sizing: border-box;
@@ -62,7 +63,7 @@
       content: "";
 
       position: absolute;
-      top: 0;
+      top: 0.0625em;
       bottom: 0;
       left: 0;
 

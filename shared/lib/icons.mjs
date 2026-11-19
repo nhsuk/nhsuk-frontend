@@ -3,6 +3,7 @@
  */
 export function getNames() {
   return [
+    'action-arrow-right',
     'arrow-down-circle',
     'arrow-down',
     'arrow-left-circle',
@@ -12,10 +13,6 @@ export function getNames() {
     'arrow-up-circle',
     'arrow-up',
     'arrow-up-down',
-    'chevron-down-circle',
-    'chevron-left-circle',
-    'chevron-right-circle',
-    'chevron-up-circle',
     'cross',
     'minus',
     'plus',
