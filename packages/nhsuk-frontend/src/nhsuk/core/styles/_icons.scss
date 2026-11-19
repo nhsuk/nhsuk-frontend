@@ -30,6 +30,11 @@
   }
 }
 
+.nhsuk-icon[hidden] {
+  // stylelint-disable-next-line declaration-no-important
+  display: none !important;
+}
+
 /// Icon size adjustments
 ///
 /// @access private
