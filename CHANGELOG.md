@@ -613,22 +613,8 @@ This change was introduced in [pull request #1802: Change action link icon colou
 
 #### Use consistent padding across components
 
-We've adjusted the padding across many components to make them more consistent. The following components now share spacing unit 5 on our responsive spacing scale, making them 24px padding on small screens:
-
-- cards (including care cards and feature cards)
-- contents list
-- details
-- error message
-- error summary
-- expander
-- file upload
-- inset text
-- notification banner
-- panel
-- tabs
-- warning callout
-
-The following components use 32px padding from tablet sized screens (641px and up):
+We've adjusted the padding across many components to make them more consistent.
+The following components now share spacing unit 5 on our responsive spacing scale (32px large screens, 24px small screens):
 
 - cards (including care cards and feature cards)
 - error summary
