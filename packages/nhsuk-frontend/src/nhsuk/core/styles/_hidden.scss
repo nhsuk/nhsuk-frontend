@@ -1,0 +1,7 @@
+@use "../settings/warnings" as *;
+
+@include nhsuk-warning(
+  "import-using-styles-hidden",
+  "Importing using 'core/styles/hidden' is deprecated and will be removed in a future release.",
+  $silence-further-warnings: false
+);
