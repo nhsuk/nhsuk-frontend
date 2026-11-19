@@ -59,6 +59,7 @@
       id: tag.id,
       text: tag.text | default(name.text),
       html: tag.html | default(name.html),
+      compact: true,
       colour: tag.colour | default(params.colour) | default("white"),
       border: tag.border | default(true if params.colour else false),
       classes: tag.classes,

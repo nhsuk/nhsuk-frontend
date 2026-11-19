@@ -944,7 +944,8 @@ const fixtures = {
                 html: components.render("tag", {
                   context: {
                     text: "Follow up requested",
-                    colour: "orange"
+                    colour: "warm-yellow",
+                    compact: true
                   }
                 })
               }
