@@ -29,6 +29,11 @@
     }
   }
 
+  .nhsuk-character-count[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-character-count__message,
   .nhsuk-character-count__status {
     margin-top: nhsuk-spacing(1);

@@ -36,4 +36,9 @@
       border-color: $nhsuk-print-text-colour;
     }
   }
+
+  .nhsuk-inset-text[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
 }

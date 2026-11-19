@@ -12,6 +12,11 @@
 @include nhsuk-exports("nhsuk/components/file-upload") {
   $_button-border-colour: nhsuk-colour("grey-2");
 
+  .nhsuk-file-upload[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-file-upload__input {
     max-width: 100%;
     margin-left: nhsuk-spacing(-1);

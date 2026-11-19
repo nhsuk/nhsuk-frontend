@@ -17,4 +17,9 @@
 
     @include nhsuk-font(19, $weight: bold);
   }
+
+  .nhsuk-error-message[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
 }

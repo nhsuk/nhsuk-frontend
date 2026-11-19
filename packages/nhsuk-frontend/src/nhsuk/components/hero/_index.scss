@@ -52,6 +52,11 @@
     }
   }
 
+  .nhsuk-hero[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-hero .nhsuk-width-container {
     border: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
     border-width: 0;

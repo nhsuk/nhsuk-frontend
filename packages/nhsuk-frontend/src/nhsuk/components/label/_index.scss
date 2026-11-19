@@ -15,6 +15,11 @@
     @include nhsuk-font($size: 19);
   }
 
+  .nhsuk-label[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   // Modifiers that make labels look more like their equivalent headings
   .nhsuk-label--xl,
   .nhsuk-label--l,

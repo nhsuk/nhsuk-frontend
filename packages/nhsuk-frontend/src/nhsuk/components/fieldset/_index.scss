@@ -17,6 +17,11 @@
     @include nhsuk-clearfix;
   }
 
+  .nhsuk-fieldset[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   // Fix for Firefox < 53 (https://bugzil.la/504622)
   // stylelint-disable selector-type-no-unknown -- Ignore 'x:-moz-any-link'
   @supports not (caret-color: auto) {

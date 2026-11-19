@@ -15,6 +15,11 @@
     @include nhsuk-font($size: 19);
   }
 
+  .nhsuk-hint[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   // Reduces margin-bottom of hint when used after the default label (no class)
   // or nhsuk-label--s for better vertical alignment.
 

@@ -15,6 +15,11 @@
     @include nhsuk-clearfix;
   }
 
+  .nhsuk-grid-row[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   @each $width in map.keys($nhsuk-grid-widths) {
     .nhsuk-grid-column-#{$width} {
       @include nhsuk-grid-column($width);

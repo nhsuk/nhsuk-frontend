@@ -70,6 +70,11 @@
     }
   }
 
+  .nhsuk-input[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   // Reset custom appearance
   .nhsuk-input[type="number"],
   .nhsuk-input[type="search"] {
