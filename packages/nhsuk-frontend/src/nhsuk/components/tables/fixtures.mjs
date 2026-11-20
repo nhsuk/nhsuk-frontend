@@ -606,6 +606,7 @@ const fixtures = {
           text: "",
           visuallyHiddenText: "Action"
         },
+        null,
         false
       ],
       rows: [
@@ -621,8 +622,10 @@ const fixtures = {
             text: "Change",
             visuallyHiddenText: false
           },
+          null,
           false
         ],
+        null,
         false
       ]
     }
