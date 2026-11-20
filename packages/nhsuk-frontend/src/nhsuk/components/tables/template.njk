@@ -39,11 +39,18 @@
 
 {%- set isSortableOnServer = false %}
 
-{%- set head = params.head if params.head | length else [] %}
+{#- Support table head as array #}
+{%- set head = params.head if params.head is mapping and params.head is not escaped else {
+  items: params.head if params.head | length else []
+} %}
+
+{#- Support table rows as arrays or mappings #}
 {%- set rows = params.rows
   | reject("undefined")
   | reject("sameas", none)
-  | select("iterable")
+  | reject("sameas", false)
+  | reject("sameas", true)
+  | reject("number")
   | list if params.rows | length else [] %}
 
 {%- if variant == "reverse" and (
@@ -65,7 +72,7 @@
 {%- endif %}
 
 {#- Determine if the table is sortable #}
-{%- for item in head %}
+{%- for item in head.items %}
   {%- set isSortable = true if item.sort else isSortable %}
   {%- set isSortableOnServer = true if isSortable and item.href else isSortableOnServer %}
 {%- endfor %}
@@ -211,20 +218,31 @@
 </{{ element }}>
 {%- endmacro %}
 
-{%- macro _tableRow(items, parent) -%}
+{%- macro _tableRow(row, parent) %}
+{#- Support table row as array #}
+{%- set row = row if row is mapping and row is not escaped else {
+  items: row if row | length else []
+} -%}
+
 <tr
   {{- nhsukAttributes({
-    class: "nhsuk-table__row",
+    class: "nhsuk-table__row" ~ (" " ~ row.classes if row.classes else ""),
+    id: {
+      value: row.id,
+      optional: true
+    },
     role: {
       value: "row" if parent.isResponsive else false,
       optional: true
     }
-  }) }}>
-  {% for item in items %}
+  }) -}}
+
+  {{- nhsukAttributes(row.attributes) }}>
+  {% for item in row.items %}
     {%- if item is defined and item is not none and item is not sameas(false) %}
 
       {#- Set table header default (optional) #}
-      {%- set header = parent.head[loop.index0]
+      {%- set header = parent.head.items[loop.index0]
         if parent.section == "body"
         else undefined %}
 
@@ -341,7 +359,7 @@
     element: "caption"
   }) | trim | indent(2) }}
 {% endif %}
-{% if head | length %}
+{% if head.items | length %}
   <thead class="nhsuk-table__head" {%- if isResponsive %} role="rowgroup" {%- endif %}>
     {{ _tableRow(head, {
       params: params,
