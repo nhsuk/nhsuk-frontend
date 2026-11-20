@@ -255,7 +255,7 @@
 
       {#- Support table header as defined value #}
       {%- set header = item if item is mapping and item is not escaped else {
-        text: item if item is defined and item is not escaped else undefined,
+        text: item if item is not escaped else undefined,
         html: item if item is escaped else undefined
       } %}
 
@@ -322,7 +322,7 @@
 
       {#- Support table data as defined value #}
       {%- set data = item if item is mapping and item is not escaped else {
-        text: item if item is defined and item is not escaped else undefined,
+        text: item if item is not escaped else undefined,
         html: item if item is escaped else undefined
       } %}
 
