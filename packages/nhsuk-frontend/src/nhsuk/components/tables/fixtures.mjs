@@ -1397,6 +1397,94 @@ const fixtures = {
       ]
     }
   },
+  "responsive via class": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      classes: "nhsuk-table--responsive",
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
+  "responsive via class (deprecated)": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      classes: "nhsuk-table-responsive",
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
   "responsive with header text (deprecated)": {
     context: {
       caption: {
@@ -2766,6 +2854,84 @@ const fixtures = {
     variants,
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "sortable via class": {
+    context: {
+      caption: "Appointments",
+      firstCellIsHeader: true,
+      classes: "nhsuk-table--sortable",
+      head: [
+        {
+          text: "Time",
+          sort: "ascending"
+        },
+        {
+          text: "Name",
+          sort: true
+        },
+        {
+          text: "Date of birth",
+          classes: "nhsuk-u-nowrap"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "11:00"
+          },
+          {
+            text: "Laura Stone"
+          },
+          {
+            text: "4 January 1986"
+          }
+        ],
+        [
+          {
+            text: "11:30"
+          },
+          {
+            text: "Emma Katie-Brown"
+          },
+          {
+            text: "7 February 1976"
+          }
+        ],
+        [
+          {
+            text: "13:10"
+          },
+          {
+            text: "David Chen"
+          },
+          {
+            text: "19 March 1981"
+          }
+        ],
+        [
+          {
+            text: "13:40"
+          },
+          {
+            text: "Michael Thompson"
+          },
+          {
+            text: "6 December 1964"
+          }
+        ],
+        [
+          {
+            text: "14:20"
+          },
+          {
+            text: "Juan Martinez"
+          },
+          {
+            text: "18 April 1975"
+          }
+        ]
+      ]
     }
   },
   "sortable server-side": {
