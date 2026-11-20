@@ -259,10 +259,26 @@
         html: item if item is escaped else undefined
       } %}
 
-      {%- set sort = header.sort if header.sort is string else
-        ("none" if header.sort is sameas(true) else undefined) %}
+      {%- set attributesHtml %}
+        {%- if isSortable %}
+          {{- nhsukAttributes({
+            "data-sort": {
+              value: true if header.sort and (header.sort is string or header.sort is sameas(true)) else false,
+              optional: true
+            },
+            "data-sort-next": {
+              value: header.sortNext if header.sortNext and header.sortNext is string and not isSortableOnServer else false,
+              optional: true
+            },
+            "aria-sort": {
+              value: header.sort if header.sort and header.sort is string and header.sort != "none" else false,
+              optional: true
+            }
+          }) -}}
+        {% endif %}
 
-      {%- set sortNext = header.sortNext if header.sortNext is string else undefined %}
+        {{- nhsukAttributes(header.attributes) -}}
+      {% endset %}
 
       {{- _tableCell({
         text: header.text,
@@ -278,20 +294,7 @@
         align: header.align,
         width: header.width,
         classes: header.classes,
-        attributes: nhsukAttributes({
-          "data-sort": {
-            value: true if sort and isSortable else false,
-            optional: true
-          },
-          "data-sort-next": {
-            value: sortNext if sortNext and isSortable and not isSortableOnServer else false,
-            optional: true
-          },
-          "aria-sort": {
-            value: sort if sort and sort != "none" and isSortable else false,
-            optional: true
-          }
-        }) ~ nhsukAttributes(header.attributes)
+        attributes: attributesHtml
       }, {
         params: params,
         loop: loop,
@@ -323,6 +326,17 @@
         html: item if item is escaped else undefined
       } %}
 
+      {%- set attributesHtml %}
+        {{- nhsukAttributes({
+          "data-sort-value": {
+            value: data.sortValue if data.sortValue else false,
+            optional: true
+          }
+        }) -}}
+
+        {{- nhsukAttributes(data.attributes) -}}
+      {% endset %}
+
       {{- _tableCell({
         text: data.text,
         html: data.html,
@@ -338,12 +352,7 @@
         align: data.align | default("right" if data.format == "string" and header.format == "numeric" else header.align),
         width: data.width,
         classes: data.classes,
-        attributes: nhsukAttributes({
-          "data-sort-value": {
-            value: data.sortValue if data.sortValue else false,
-            optional: true
-          }
-        }) ~ nhsukAttributes(data.attributes)
+        attributes: attributesHtml
       }, {
         params: params,
         loop: loop,
