@@ -1397,6 +1397,58 @@ const fixtures = {
       ]
     }
   },
+  "responsive with header text (deprecated)": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      responsive: true,
+      firstCellIsHeader: true,
+      head: [
+        {
+          header: "Not used",
+          text: "Skin symptoms"
+        },
+        {
+          header: "Not used",
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Check for",
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            header: "You might have",
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            header: "Check for",
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            header: "You might have",
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            header: "Check for",
+            text: "Itchy blisters"
+          },
+          {
+            header: "You might have",
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
   "scrolling": {
     context: {
       caption: {

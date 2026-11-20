@@ -182,11 +182,11 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
-{% if isResponsive and not isHeader and (parent.header or item.header) %}
+{% if isResponsive and not isHeader and (parent.header.text or parent.header.html or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- nhsukContent({
-      text: parent.header.text | default(item.header),
-      html: parent.header.html,
+      text: parent.header.text if not item.header else item.header,
+      html: parent.header.html if not item.header else undefined,
       slots: { end: " " }
     }) | indent(2) -}}
   </span>
@@ -316,6 +316,7 @@
       {{- _tableCell({
         text: data.text,
         html: data.html,
+        header: data.header,
         visuallyHiddenText: data.visuallyHiddenText,
         format: data.format | default(header.format),
         href: data.href,
