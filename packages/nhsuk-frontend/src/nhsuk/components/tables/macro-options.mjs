@@ -28,203 +28,254 @@ const options = {
   rows: {
     type: 'array',
     required: true,
-    description: 'Array of table rows and cells.',
+    description:
+      'Array of table rows. Alternatively supports each row as an array of `rows.items` objects.',
     released: '1.0.0',
     params: {
-      text: {
+      id: {
         type: 'string',
+        required: false,
+        description: 'The ID of the table row.',
+        released: '10.8.0'
+      },
+      items: {
+        type: 'array',
         required: true,
-        description:
-          'If `html` is set, this is not required. Text for cells in table rows. If `html` is provided, the `text` option will be ignored.',
-        released: '1.0.0'
-      },
-      html: {
-        type: 'string',
-        required: true,
-        description:
-          'If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` option will be ignored.',
-        released: '1.0.0'
-      },
-      visuallyHiddenText: {
-        type: 'string',
-        required: false,
-        description: 'A visually hidden suffix added to the table cell.',
-        released: '10.6.0'
-      },
-      header: {
-        type: 'string',
-        required: false,
-        description:
-          'Set automatically by table head cells in the `head` option.',
-        released: '4.0.0',
-        deprecated: '10.6.0'
-      },
-      href: {
-        type: 'string',
-        required: false,
-        description: 'If set, the table cell will become a link.',
-        released: '10.6.0'
-      },
-      openInNewTab: {
-        type: 'boolean',
-        required: false,
-        description:
-          'If set to `true`, then the table cell link will open in a new tab.',
-        released: '10.7.0'
-      },
-      format: {
-        type: 'string',
-        required: false,
-        description:
-          'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
-        released: '1.0.0'
-      },
-      sortValue: {
-        type: 'string',
-        required: false,
-        description: 'Sort value text for cells in table rows.',
-        released: '10.6.0'
-      },
-      colspan: {
-        type: 'integer',
-        required: false,
-        description: 'Specify how many columns a cell spans.',
-        released: '1.0.0'
-      },
-      rowspan: {
-        type: 'integer',
-        required: false,
-        description: 'Specify how many rows a cell spans.',
-        released: '1.0.0'
-      },
-      align: {
-        type: 'string',
-        required: false,
-        description:
-          'Specify the table cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
-        released: '10.6.0'
-      },
-      width: {
-        type: 'string',
-        required: false,
-        description:
-          'Specify the table cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
-        released: '10.6.0'
+        description: 'Array of table cells.',
+        released: '10.8.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for cells in table rows. If `html` is provided, the `text` option will be ignored.',
+            released: '1.0.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` option will be ignored.',
+            released: '1.0.0'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description: 'A visually hidden suffix added to the table cell.',
+            released: '10.6.0'
+          },
+          header: {
+            type: 'string',
+            required: false,
+            description:
+              'Set automatically by table head cells in the `head` option.',
+            released: '4.0.0',
+            deprecated: '10.6.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'If set, the table cell will become a link.',
+            released: '10.6.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the table cell link will open in a new tab.',
+            released: '10.7.0'
+          },
+          format: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
+            released: '1.0.0'
+          },
+          sortValue: {
+            type: 'string',
+            required: false,
+            description: 'Sort value text for cells in table rows.',
+            released: '10.6.0'
+          },
+          colspan: {
+            type: 'integer',
+            required: false,
+            description: 'Specify how many columns a cell spans.',
+            released: '1.0.0'
+          },
+          rowspan: {
+            type: 'integer',
+            required: false,
+            description: 'Specify how many rows a cell spans.',
+            released: '1.0.0'
+          },
+          align: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the table cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+            released: '10.6.0'
+          },
+          width: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the table cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+            released: '10.6.0'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the table cell.',
+            released: '9.4.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the table cell.',
+            released: '9.4.0'
+          }
+        }
       },
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the table cell.',
-        released: '9.4.0'
+        description: 'Classes to add to the table row.',
+        released: '10.8.0'
       },
       attributes: {
         type: 'object',
         required: false,
         description:
-          'HTML attributes (for example data attributes) to add to the table cell.',
-        released: '9.4.0'
+          'HTML attributes (for example data attributes) to add to the table row.',
+        released: '10.8.0'
       }
     }
   },
   head: {
-    type: 'array',
+    type: 'object',
     required: false,
-    description: 'Array of table head cells.',
+    description:
+      'The head row of the table. Alternatively supports an array of `head.items` objects.',
     released: '1.0.0',
     params: {
-      text: {
-        type: 'string',
+      items: {
+        type: 'array',
         required: true,
-        description:
-          'If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` option will be ignored.',
-        released: '1.0.0'
-      },
-      html: {
-        type: 'string',
-        required: true,
-        description:
-          'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` option will be ignored.',
-        released: '1.0.0'
-      },
-      visuallyHiddenText: {
-        type: 'string',
-        required: false,
-        description: 'A visually hidden suffix added to the table head cell.',
-        released: '10.6.0'
-      },
-      href: {
-        type: 'string',
-        required: false,
-        description:
-          'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.',
-        released: '10.6.0'
-      },
-      openInNewTab: {
-        type: 'boolean',
-        required: false,
-        description:
-          'If set to `true`, then the table header link will open in a new tab.',
-        released: '10.7.0'
-      },
-      format: {
-        type: 'string',
-        required: false,
-        description:
-          'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
-        released: '1.0.0'
-      },
-      colspan: {
-        type: 'integer',
-        required: false,
-        description: 'Specify how many columns a cell spans.',
-        released: '1.0.0'
-      },
-      rowspan: {
-        type: 'integer',
-        required: false,
-        description: 'Specify how many rows a cell spans.',
-        released: '1.0.0'
-      },
-      align: {
-        type: 'string',
-        required: false,
-        description:
-          'Specify the table head cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
-        released: '10.6.0'
-      },
-      width: {
-        type: 'string',
-        required: false,
-        description:
-          'Specify the table head cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
-        released: '10.6.0'
+        description: 'Array of table head cells.',
+        released: '10.8.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` option will be ignored.',
+            released: '1.0.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` option will be ignored.',
+            released: '1.0.0'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'A visually hidden suffix added to the table head cell.',
+            released: '10.6.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description:
+              'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.',
+            released: '10.6.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the table header link will open in a new tab.',
+            released: '10.7.0'
+          },
+          format: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
+            released: '1.0.0'
+          },
+          colspan: {
+            type: 'integer',
+            required: false,
+            description: 'Specify how many columns a cell spans.',
+            released: '1.0.0'
+          },
+          rowspan: {
+            type: 'integer',
+            required: false,
+            description: 'Specify how many rows a cell spans.',
+            released: '1.0.0'
+          },
+          align: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the table head cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+            released: '10.6.0'
+          },
+          width: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the table head cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+            released: '10.6.0'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the table head cell.',
+            released: '9.4.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the table head cell.',
+            released: '9.4.0'
+          },
+          sort: {
+            type: 'string',
+            required: false,
+            description:
+              'The sort direction applied to the column using `aria-sort` – `"ascending"`, `"descending"`, `"none"` or `true`. To enable sorting without a default direction, set `sort` to `"none"` or `true`.',
+            released: '10.6.0'
+          },
+          sortNext: {
+            type: 'string',
+            required: false,
+            description:
+              'The next sort direction applied to the column using `aria-sort` when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`. If you set `sort` to `"ascending"`, `sortNext` defaults to `"descending"`.',
+            released: '10.6.0'
+          }
+        }
       },
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the table head cell.',
-        released: '9.4.0'
+        description: 'Classes to add to the table head row.',
+        released: '10.8.0'
       },
       attributes: {
         type: 'object',
         required: false,
         description:
-          'HTML attributes (for example data attributes) to add to the table head cell.',
-        released: '9.4.0'
-      },
-      sort: {
-        type: 'string',
-        required: false,
-        description:
-          'The sort direction applied to the column using `aria-sort` – `"ascending"`, `"descending"`, `"none"` or `true`. To enable sorting without a default direction, set `sort` to `"none"` or `true`.',
-        released: '10.6.0'
-      },
-      sortNext: {
-        type: 'string',
-        required: false,
-        description:
-          'The next sort direction applied to the column using `aria-sort` when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`. If you set `sort` to `"ascending"`, `sortNext` defaults to `"descending"`.',
-        released: '10.6.0'
+          'HTML attributes (for example data attributes) to add to the table head row.',
+        released: '10.8.0'
       }
     }
   },

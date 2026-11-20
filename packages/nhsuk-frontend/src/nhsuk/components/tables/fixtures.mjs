@@ -454,6 +454,120 @@ const fixtures = {
       variants[4] // Responsive variant
     ]
   },
+  "with row attributes": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: {
+        id: "head-row-1",
+        items: [
+          {
+            text: "Skin symptoms"
+          },
+          {
+            text: "Possible cause"
+          }
+        ],
+        classes: "app-table__row",
+        attributes: {
+          "data-row": "1"
+        }
+      },
+      rows: [
+        {
+          id: "body-row-1",
+          items: [
+            {
+              text: "Blisters on lips or around the mouth"
+            },
+            {
+              text: "Cold sores"
+            }
+          ],
+          classes: "app-table__row",
+          attributes: {
+            "data-row": "1"
+          }
+        },
+        {
+          id: "body-row-2",
+          items: [
+            {
+              text: "Itchy, dry, cracked, sore"
+            },
+            {
+              text: "Eczema"
+            }
+          ],
+          classes: "app-table__row",
+          attributes: {
+            "data-row": "2"
+          }
+        },
+        {
+          id: "body-row-3",
+          items: [
+            {
+              text: "Itchy blisters"
+            },
+            {
+              text: "Shingles, chickenpox"
+            }
+          ],
+          classes: "app-table__row",
+          attributes: {
+            "data-row": "3"
+          }
+        }
+      ]
+    }
+  },
+  "with row attributes and string items": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: {
+        id: "head-row-1",
+        items: ["Skin symptoms", "Possible cause"],
+        classes: "app-table__row",
+        attributes: {
+          "data-row": "1"
+        }
+      },
+      rows: [
+        {
+          id: "body-row-1",
+          items: ["Blisters on lips or around the mouth", "Cold sores"],
+          classes: "app-table__row",
+          attributes: {
+            "data-row": "1"
+          }
+        },
+        {
+          id: "body-row-2",
+          items: ["Itchy, dry, cracked, sore", "Eczema"],
+          classes: "app-table__row",
+          attributes: {
+            "data-row": "2"
+          }
+        },
+        {
+          id: "body-row-3",
+          items: ["Itchy blisters", "Shingles, chickenpox"],
+          classes: "app-table__row",
+          attributes: {
+            "data-row": "3"
+          }
+        }
+      ]
+    }
+  },
   "with tags": {
     context: {
       caption: "Tags",
