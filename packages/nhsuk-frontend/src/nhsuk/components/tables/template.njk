@@ -342,7 +342,7 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if head | length %}
-  <thead class="nhsuk-table__head" {%- if isResponsive %} role="rowgroup"{%- endif %}>
+  <thead class="nhsuk-table__head" {%- if isResponsive %} role="rowgroup" {%- endif %}>
     {{ _tableRow(head, {
       params: params,
       head: head,
