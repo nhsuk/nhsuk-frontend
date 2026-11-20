@@ -176,7 +176,7 @@ const fixtures = {
       rows: [
         [
           {
-            html: "3 to 5 months (weighing more than 5kg)"
+            text: "3 to 5 months (weighing more than 5kg)"
           },
           {
             text: "2.5ml (50mg)"
