@@ -40,7 +40,11 @@
 {%- set isSortableOnServer = false %}
 
 {%- set head = params.head if params.head | length else [] %}
-{%- set rows = params.rows | select("iterable") | list if params.rows | length else [] %}
+{%- set rows = params.rows
+  | reject("undefined")
+  | reject("sameas", none)
+  | select("iterable")
+  | list if params.rows | length else [] %}
 
 {%- if variant == "reverse" and (
   not params.classes or (
