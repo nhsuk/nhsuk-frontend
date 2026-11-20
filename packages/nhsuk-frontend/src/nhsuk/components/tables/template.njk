@@ -28,6 +28,9 @@
   html: caption.caption if caption.caption is escaped else undefined
 } %}
 
+{%- set isSortable = false %}
+{%- set isSortableOnServer = false %}
+
 {%- set head = params.head if params.head | length else [] %}
 {%- set rows = params.rows | select("iterable") | list if params.rows | length else [] %}
 
@@ -48,15 +51,6 @@
   {%- set classNames = classNames ~ " nhsuk-table--responsive" %}
 {%- endif %}
 
-{%- if params.border is sameas(false) and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-table--no-border" %}
-{% elif params.lastRowBorder is sameas(false) and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
-{%- endif %}
-
-{%- set isSortable = false %}
-{%- set isSortableOnServer = false %}
-
 {#- Determine if the table is sortable #}
 {%- for item in head %}
   {%- set isSortable = true if item.sort else isSortable %}
@@ -69,6 +63,12 @@
 
 {%- if params.striped and (not params.classes or not "nhsuk-table--striped" in params.classes) and rows | length > 1 %}
   {%- set classNames = classNames ~ " nhsuk-table--striped" %}
+{%- endif %}
+
+{%- if params.border is sameas(false) and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-table--no-border" %}
+{% elif params.lastRowBorder is sameas(false) and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
 {%- endif %}
 
 {%- if params.classes or params.tableClasses %}
