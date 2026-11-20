@@ -119,9 +119,9 @@
 {%- macro _tableCell(item, parent) %}
 {%- set isResponsive = true if parent.params.responsive else false %}
 
+{%- set element = "th" if item.scope else "td" %}
 {%- set section = "head" if parent.row is sameas(parent.head) else "body" %}
-{%- set element = item.element | lower if item.element else "td" %}
-{%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" %}
+{%- set classNameCell = "nhsuk-table__header" if item.scope else "nhsuk-table__cell" %}
 {%- set classNamesCell = classNameCell %}
 
 {%- if item.format == "numeric" and (not item.classes or not classNameCell ~ "--" ~ item.format in item.classes) %}
@@ -280,8 +280,7 @@
             value: sort if sort and sort != "none" and isSortable else false,
             optional: true
           }
-        }) ~ nhsukAttributes(header.attributes),
-        element: "th"
+        }) ~ nhsukAttributes(header.attributes)
       }, {
         params: params,
         loop: loop,
@@ -333,8 +332,7 @@
             value: data.sortValue if data.sortValue else false,
             optional: true
           }
-        }) ~ nhsukAttributes(data.attributes),
-        element: "th" if loop.first and params.firstCellIsHeader else "td"
+        }) ~ nhsukAttributes(data.attributes)
       }, {
         params: params,
         loop: loop,
