@@ -145,7 +145,7 @@
   {%- set classNamesCell = classNamesCell ~ " " ~ item.classes %}
 {%- endif %}
 
-{%- set isHeader = parent.items is sameas(head) %}
+{%- set isHeader = parent.row is sameas(parent.head) %}
 {%- set isResponsive = true if parent.params.responsive else false %}
 
 {%- set innerHtml %}
@@ -285,7 +285,8 @@
       }, {
         params: params,
         loop: loop,
-        row: head
+        row: head,
+        head: head
       }) | trim | indent(6, true) }}
     {% endif %}
     {% endfor %}
@@ -337,6 +338,7 @@
         params: params,
         loop: loop,
         row: row,
+        head: head,
         header: header
       }) | trim | indent(6, true) }}
     {% endif %}
