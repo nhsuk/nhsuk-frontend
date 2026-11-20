@@ -117,6 +117,9 @@
 {% endset %}
 
 {%- macro _tableCell(item, parent) %}
+{%- set isResponsive = true if parent.params.responsive else false %}
+
+{%- set section = "head" if parent.row is sameas(parent.head) else "body" %}
 {%- set element = item.element | lower if item.element else "td" %}
 {%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" %}
 {%- set classNamesCell = classNameCell %}
@@ -144,9 +147,6 @@
 {%- if item.classes %}
   {%- set classNamesCell = classNamesCell ~ " " ~ item.classes %}
 {%- endif %}
-
-{%- set isHeader = parent.row is sameas(parent.head) %}
-{%- set isResponsive = true if parent.params.responsive else false %}
 
 {%- set innerHtml %}
 {% if item.href %}
@@ -182,7 +182,7 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
-{% if isResponsive and not isHeader and (parent.header.text or parent.header.html or item.header) %}
+{% if isResponsive and section == "body" and (parent.header.text or parent.header.html or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- nhsukContent({
       text: parent.header.text if not item.header else item.header,
