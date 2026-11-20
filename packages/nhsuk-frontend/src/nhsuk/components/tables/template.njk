@@ -28,8 +28,23 @@
   html: caption.caption if caption.caption is escaped else undefined
 } %}
 
+{%- set isResponsive = true if params.classes and (
+  "nhsuk-table--responsive" in params.classes or
+  "nhsuk-table-responsive" in params.classes
+) else false %}
+
+{%- set isSortable = true if params.classes and (
+  "nhsuk-table--sortable" in params.classes
+) else false %}
+
+{%- set isSortableOnServer = false %}
+
 {%- set head = params.head if params.head | length else [] %}
-{%- set rows = params.rows | select("iterable") | list if params.rows | length else [] %}
+{%- set rows = params.rows
+  | reject("undefined")
+  | reject("sameas", none)
+  | select("iterable")
+  | list if params.rows | length else [] %}
 
 {%- if variant == "reverse" and (
   not params.classes or (
@@ -44,18 +59,10 @@
   {%- set classNames = classNames ~ " nhsuk-table--compact" %}
 {%- endif %}
 
-{%- if params.responsive and (not params.classes or not "nhsuk-table--responsive" in params.classes) %}
+{%- if params.responsive and not isResponsive %}
+  {%- set isResponsive = true %}
   {%- set classNames = classNames ~ " nhsuk-table--responsive" %}
 {%- endif %}
-
-{%- if params.border is sameas(false) and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-table--no-border" %}
-{% elif params.lastRowBorder is sameas(false) and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
-{%- endif %}
-
-{%- set isSortable = false %}
-{%- set isSortableOnServer = false %}
 
 {#- Determine if the table is sortable #}
 {%- for item in head %}
@@ -71,12 +78,18 @@
   {%- set classNames = classNames ~ " nhsuk-table--striped" %}
 {%- endif %}
 
+{%- if params.border is sameas(false) and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-table--no-border" %}
+{% elif params.lastRowBorder is sameas(false) and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
+{%- endif %}
+
 {%- if params.classes or params.tableClasses %}
   {%- set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {%- endif %}
 
 {%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) %}
-{%- set captionVisuallyHiddenText = caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+{%- set captionVisuallyHiddenText = caption.visuallyHiddenText | default("Column headers are sortable" if isSortable else undefined) %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -86,7 +99,7 @@
       optional: true
     },
     "data-module": {
-      value: "nhsuk-table" if "nhsuk-table--sortable" in classNames and not isSortableOnServer else false,
+      value: "nhsuk-table" if isSortable and not isSortableOnServer else false,
       optional: true
     }
   }) -}}
@@ -108,7 +121,7 @@
 
   {{- nhsukAttributes({
     role: {
-      value: "table" if params.responsive else false,
+      value: "table" if isResponsive else false,
       optional: true
     }
   }) -}}
@@ -117,8 +130,9 @@
 {% endset %}
 
 {%- macro _tableCell(item, parent) %}
-{%- set element = item.element | lower if item.element else "td" %}
-{%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" %}
+{%- set element = "th" if item.scope else "td" %}
+{%- set section = "head" if parent.row is sameas(parent.head) else "body" %}
+{%- set classNameCell = "nhsuk-table__header" if item.scope else "nhsuk-table__cell" %}
 {%- set classNamesCell = classNameCell %}
 
 {%- if item.format == "numeric" and (not item.classes or not classNameCell ~ "--" ~ item.format in item.classes) %}
@@ -144,9 +158,6 @@
 {%- if item.classes %}
   {%- set classNamesCell = classNamesCell ~ " " ~ item.classes %}
 {%- endif %}
-
-{%- set isHeader = parent.items is sameas(head) %}
-{%- set isResponsive = true if parent.params.responsive else false %}
 
 {%- set innerHtml %}
 {% if item.href %}
@@ -182,11 +193,11 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
-{% if isResponsive and not isHeader and (parent.header or item.header) %}
+{% if parent.isResponsive and section == "body" and (parent.header.text or parent.header.html or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- nhsukContent({
-      text: parent.header.text | default(item.header),
-      html: parent.header.html,
+      text: parent.header.text if not item.header else item.header,
+      html: parent.header.html if not item.header else undefined,
       slots: { end: " " }
     }) | indent(2) -}}
   </span>
@@ -237,8 +248,8 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if head | length %}
-  <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{%- endif %}>
-    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{%- endif %}>
+  <thead class="nhsuk-table__head" {%- if isResponsive %} role="rowgroup"{%- endif %}>
+    <tr class="nhsuk-table__row" {%- if isResponsive %} role="row"{%- endif %}>
     {% for item in head %}
       {% if item is defined and item is not none and item is not sameas(false) %}
 
@@ -261,8 +272,8 @@
         href: header.href,
         openInNewTab: header.openInNewTab,
         scope: "col",
-        role: "columnheader" if params.responsive else undefined,
-        colspan: header.colspan if not params.responsive else undefined,
+        role: "columnheader" if isResponsive else undefined,
+        colspan: header.colspan if not isResponsive else undefined,
         rowspan: header.rowspan,
         align: header.align,
         width: header.width,
@@ -280,12 +291,12 @@
             value: sort if sort and sort != "none" and isSortable else false,
             optional: true
           }
-        }) ~ nhsukAttributes(header.attributes),
-        element: "th"
+        }) ~ nhsukAttributes(header.attributes)
       }, {
         params: params,
         loop: loop,
-        row: head
+        row: head,
+        head: head
       }) | trim | indent(6, true) }}
     {% endif %}
     {% endfor %}
@@ -295,7 +306,7 @@
 {% if rows | length %}
   <tbody class="nhsuk-table__body">
   {% for row in rows %}
-    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+    <tr class="nhsuk-table__row" {%- if isResponsive %} role="row"{% endif %}>
     {% for item in row %}
       {%- if item is defined and item is not none and item is not sameas(false) %}
       {%- set itemHead = head[loop.index0] %}
@@ -315,13 +326,14 @@
       {{- _tableCell({
         text: data.text,
         html: data.html,
+        header: data.header,
         visuallyHiddenText: data.visuallyHiddenText,
         format: data.format | default(header.format),
         href: data.href,
         openInNewTab: data.openInNewTab,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
-        role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
-        colspan: data.colspan if not params.responsive else undefined,
+        role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if isResponsive else undefined,
+        colspan: data.colspan if not isResponsive else undefined,
         rowspan: data.rowspan,
         align: data.align | default("right" if data.format == "string" and header.format == "numeric" else header.align),
         width: data.width,
@@ -331,13 +343,14 @@
             value: data.sortValue if data.sortValue else false,
             optional: true
           }
-        }) ~ nhsukAttributes(data.attributes),
-        element: "th" if loop.first and params.firstCellIsHeader else "td"
+        }) ~ nhsukAttributes(data.attributes)
       }, {
         params: params,
         loop: loop,
         row: row,
-        header: header
+        head: head,
+        header: header,
+        isResponsive: isResponsive
       }) | trim | indent(6, true) }}
     {% endif %}
     {% endfor %}

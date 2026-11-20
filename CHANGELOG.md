@@ -6,6 +6,13 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :wrench: **Fixes**
 
+In [pull request #2217: Fix responsive table headings and empty rows](https://github.com/nhsuk/nhsuk-frontend/pull/2217) we've fixed various table component issues:
+
+- fix error when rendering table `rows` with `none`, `null` or `undefined` values
+- fix responsive tables with `classes: "nhsuk-table--responsive"` set manually
+- restore deprecated responsive table cell `header` option
+- remove empty table cell headings when `head` is not provided
+
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#2216: Review global `hidden` attribute styling](https://github.com/nhsuk/nhsuk-frontend/pull/2216)
