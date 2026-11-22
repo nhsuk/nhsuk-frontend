@@ -54,17 +54,17 @@ module.exports = {
       displayName: 'JavaScript component tests',
       preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
       testMatch: [
-        '<rootDir>/**/*.puppeteer.test.{js,mjs}',
+        '<rootDir>/**/*.browser.test.{js,mjs}',
 
         // Exclude accessibility tests
-        '!**/accessibility.puppeteer.test.mjs'
+        '!**/accessibility.browser.test.mjs'
       ]
     },
     {
       ...config,
       displayName: 'Accessibility tests',
       preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
-      testMatch: ['<rootDir>/**/accessibility.puppeteer.test.mjs']
+      testMatch: ['<rootDir>/**/accessibility.browser.test.mjs']
     }
   ],
 

@@ -322,8 +322,8 @@ export default defineConfig([
     }
   },
   {
-    // Configure ESLint in test files (Jest Puppeteer environment only)
-    files: ['**/*.puppeteer.test.mjs', '**/jest.puppeteer.setup.*'],
+    // Configure ESLint in test files (Browser environment only)
+    files: ['**/*.browser.test.mjs', '**/jest.puppeteer.setup.*'],
     languageOptions: {
       globals: {
         ...globals.browser,
