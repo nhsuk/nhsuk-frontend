@@ -131,6 +131,9 @@
     "latest-version@^5": {
       "package-json": "^7"
     },
+    "micromark-extension-math@3": {
+      "katex": "^0.19.1"
+    },
     "sass-convert": {
       "semver-regex": "^3"
     },
