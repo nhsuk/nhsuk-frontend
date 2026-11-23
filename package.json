@@ -57,8 +57,8 @@
     "test:visual:cli": "concurrently \"npm start --workspace @nhsuk/frontend-review\" \"wait-on --config wait-on.config.js && backstop --color --config backstop.config.js {@}\" --kill-others --passthrough-arguments --prefix none --success first"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/core": "^7.29.13",
+    "@babel/preset-env": "^7.29.14",
     "@eslint/config-helpers": "^0.7.0",
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.3",
@@ -100,7 +100,7 @@
     "jest": "^30.5.2",
     "nhsuk-frontend": "*",
     "playwright-core": "^1.65.1",
-    "postcss": "^8.5.32",
+    "postcss": "^8.5.33",
     "postcss-load-config": "^6.0.1",
     "postcss-markdown": "^2.0.0",
     "postcss-scss": "^4.0.9",
