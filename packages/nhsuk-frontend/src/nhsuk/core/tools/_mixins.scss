@@ -110,10 +110,12 @@
   // it from any visible text surrounding it.
   &::before {
     content: "\00a0";
+    content: "\00a0" / "";
   }
 
   &::after {
     content: "\00a0";
+    content: "\00a0" / "";
   }
 }
 
