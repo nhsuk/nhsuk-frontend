@@ -5,7 +5,12 @@
     "types": ["node", "typed-query-selector"]
   },
   "include": ["**/*.js", "**/*.mjs"],
-  "exclude": ["**/node_modules", "**/dist", "helpers/jest/**/*.setup.mjs"],
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    "helpers/jest/**/*.mjs",
+    "helpers/playwright/**/*.mjs"
+  ],
   "references": [
     {
       "path": "../packages/nhsuk-frontend/tsconfig.json"

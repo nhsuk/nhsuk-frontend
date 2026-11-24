@@ -6,8 +6,6 @@
       "@nhsuk/frontend-helpers/jest/environment/jsdom",
       "@testing-library/jest-dom",
       "jest",
-      "jest-axe",
-      "jest-puppeteer",
       "node",
       "typed-query-selector"
     ]
@@ -19,7 +17,7 @@
     "./packages/*/.htmlvalidate.mjs",
     "./packages/*/*.config.js",
     "./packages/*/*.config.mjs",
-    "./shared/helpers/jest/**/*.setup.mjs",
+    "./shared/helpers/**/*.mjs",
     "./tests/backstop/engine_scripts/**/*.js",
     "./tests/types/*.mts",
     "./.prettierrc.js",

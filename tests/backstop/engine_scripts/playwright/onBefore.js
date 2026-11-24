@@ -67,5 +67,5 @@ function createLogger({ silenced }) {
 }
 
 /**
- * @import { Page } from 'playwright-core'
+ * @import { Page } from '@playwright/test'
  */

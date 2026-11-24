@@ -53,6 +53,7 @@ updates:
         patterns:
           - '@axe-core/*'
           - '@happy-dom/*'
+          - '@playwright/*'
           - '@testing-library/*'
           - '@types/jest'
           - '@types/jest-*'
@@ -64,7 +65,6 @@ updates:
           - 'playwright'
           - 'playwright-*'
           - 'puppeteer'
-          - 'puppeteer-*'
 
       tools:
         patterns:

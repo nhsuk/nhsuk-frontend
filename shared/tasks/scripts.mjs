@@ -9,8 +9,6 @@ import * as NHSUKFrontend from 'nhsuk-frontend/src/nhsuk/index.mjs'
 import PluginError from 'plugin-error'
 import { rollup } from 'rollup'
 
-const { NODE_ENV } = process.env
-
 /**
  * Compile JavaScript task
  *
@@ -47,11 +45,7 @@ export function compile(
           development: version
         }),
         babel({
-          babelHelpers: 'bundled',
-          plugins:
-            NODE_ENV === 'test'
-              ? ['istanbul'] // Add code coverage instrumentation
-              : undefined
+          babelHelpers: 'bundled'
         }),
         {
           name: 'import-meta-resolve',

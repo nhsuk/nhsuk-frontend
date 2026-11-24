@@ -1,5 +1,3 @@
-const { HEADLESS } = process.env
-
 /**
  * Jest project config defaults
  *
@@ -32,10 +30,6 @@ module.exports = {
     '!<rootDir>/packages/*/src/**/*.test.{js,mjs}'
   ],
 
-  // Reduce CPU usage during project test runs
-  // Use only 1x browser window using `HEADLESS=false`
-  maxWorkers: HEADLESS === 'false' ? 1 : '25%',
-
   projects: [
     {
       ...config,
@@ -48,32 +42,11 @@ module.exports = {
       displayName: 'JavaScript behaviour tests',
       preset: '@nhsuk/frontend-helpers/jest/environment/jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
-    },
-    {
-      ...config,
-      displayName: 'JavaScript component tests',
-      preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
-      testMatch: [
-        '<rootDir>/**/*.puppeteer.test.{js,mjs}',
-
-        // Exclude accessibility tests
-        '!**/accessibility.puppeteer.test.mjs'
-      ]
-    },
-    {
-      ...config,
-      displayName: 'Accessibility tests',
-      preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
-      testMatch: ['<rootDir>/**/accessibility.puppeteer.test.mjs']
     }
   ],
 
   // Enable GitHub Actions reporter UI
-  reporters: [
-    'default',
-    'jest-puppeteer-istanbul/lib/reporter',
-    'github-actions'
-  ],
+  reporters: ['default', 'github-actions'],
 
   // Increase test timeout (5s to 20s)
   testTimeout: 20000

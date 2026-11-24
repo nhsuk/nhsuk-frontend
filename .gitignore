@@ -37,5 +37,5 @@ tests/backstop/html_report/*
 # Compiled files
 dist/
 
-# Puppeteer / chrome
+# Tools cache
 .cache
