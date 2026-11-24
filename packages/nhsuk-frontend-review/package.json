@@ -9,7 +9,6 @@
     "build": "gulp build --color",
     "serve": "gulp serve --color",
     "watch": "gulp serve watch --color",
-    "sassdoc": "sassdoc --config sassdoc.config.yaml ../nhsuk-frontend/src/nhsuk",
     "start": "browser-sync start --config browsersync.config.js --no-snippet --no-ui"
   },
   "dependencies": {
@@ -21,8 +20,7 @@
     "del-cli": "^8.0.1",
     "html-validate": "^11.21.1",
     "plugin-error": "^2.0.1",
-    "postcss-pseudo-classes": "^0.4.0",
-    "sassdoc": "^2.7.4"
+    "postcss-pseudo-classes": "^0.4.0"
   },
   "engines": {
     "node": "^26.13.0",

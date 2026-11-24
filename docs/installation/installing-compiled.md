@@ -8,7 +8,7 @@ In your live application, you should [Install with Node.js package manager (npm)
 
 You'll not be able to:
 
-- change [Sass settings](https://nhsuk.github.io/nhsuk-frontend/docs/sassdoc/), for example override colours or set your own page width
+- change Sass settings, for example override colours or set your own page width
 - use the Nunjucks code from the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system) to add components
 - import an individual component's CSS or JavaScript
 - use NHS.UK frontend's colours or mixins in your custom code
