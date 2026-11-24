@@ -24,10 +24,11 @@
     // where to break off of.
     max-width: $nhsuk-tag-max-width;
 
-    padding: nhsuk-spacing(1, $adjustment: -2px) nhsuk-spacing(2, $adjustment: -1px);
+    margin: nhsuk-px-to-rem(-2px) 0;
+    padding: nhsuk-spacing(1, $adjustment: -2px) nhsuk-spacing(2, $adjustment: -1px, $unit: "rem");
 
     border: 1px solid nhsuk-shade(nhsuk-colour("blue"), 10%);
-    border-radius: 2px;
+    border-radius: nhsuk-px-to-rem($nhsuk-border-width-form-element);
     outline: 2px solid transparent;
     outline-offset: -2px;
 
@@ -45,8 +46,8 @@
   }
 
   .nhsuk-tag--compact {
-    margin: 0;
     padding: nhsuk-spacing(1, $adjustment: -2px) nhsuk-spacing(2, $adjustment: -2px, $unit: "rem");
+    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1.2);
   }
 
   // Colour variants
