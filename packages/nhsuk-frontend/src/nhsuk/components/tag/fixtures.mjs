@@ -113,18 +113,18 @@ const fixtures = {
       classes: "nhsuk-tag--red"
     }
   },
-  "compact": {
+  "small": {
     context: {
-      compact: true
+      small: true
     },
     variants,
     screenshot: {
       viewports: ["mobile"]
     }
   },
-  "compact without border, white background": {
+  "small without border, white background": {
     context: {
-      compact: true,
+      small: true,
       border: false
     },
     variants,
@@ -135,9 +135,9 @@ const fixtures = {
       viewports: ["mobile"]
     }
   },
-  "compact without border": {
+  "small without border": {
     context: {
-      compact: true,
+      small: true,
       border: false
     },
     variants,

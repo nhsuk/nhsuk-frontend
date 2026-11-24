@@ -45,7 +45,7 @@
     }
   }
 
-  .nhsuk-tag--compact {
+  .nhsuk-tag--small {
     padding: nhsuk-spacing(1, $adjustment: -2px) nhsuk-spacing(2, $adjustment: -2px, $unit: "rem");
     @include nhsuk-font($size: 16, $weight: normal, $line-height: 1.2);
   }

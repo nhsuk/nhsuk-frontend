@@ -945,7 +945,7 @@ const fixtures = {
                   context: {
                     text: "Follow up requested",
                     colour: "warm-yellow",
-                    compact: true
+                    small: true
                   }
                 })
               }

@@ -1346,7 +1346,7 @@ const fixtures = {
                   context: {
                     text: "Recall for assessment",
                     colour: "red",
-                    compact: true
+                    small: true
                   },
                   indent: 2
                 })}
@@ -1379,7 +1379,7 @@ const fixtures = {
                       context: {
                         text: "Abnormal",
                         colour: "red",
-                        compact: true
+                        small: true
                       },
                       indent: 6
                     })}
