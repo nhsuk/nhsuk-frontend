@@ -57,3 +57,13 @@
   // stylelint-disable-next-line declaration-no-important
   color: $nhsuk-secondary-text-colour !important;
 }
+
+.nhsuk-u-text-colour {
+  // stylelint-disable-next-line declaration-no-important
+  color: $nhsuk-text-colour !important;
+}
+
+.nhsuk-u-reverse-text-colour {
+  // stylelint-disable-next-line declaration-no-important
+  color: $nhsuk-reverse-text-colour !important;
+}
