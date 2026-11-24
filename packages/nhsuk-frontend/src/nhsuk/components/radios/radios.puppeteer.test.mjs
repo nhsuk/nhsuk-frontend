@@ -324,13 +324,9 @@ describe('Radios', () => {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'SupportError',
-          message:
-            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-        }
-      })
+      ).rejects.toThrow(
+        'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
     })
 
     it('throws when initialised twice', () => {
@@ -341,10 +337,9 @@ describe('Radios', () => {
             new Radios($root)
           }
         })
-      ).rejects.toMatchObject({
-        name: 'InitError',
-        message: 'nhsuk-radios: Root element (`$root`) already initialised'
-      })
+      ).rejects.toThrow(
+        'InitError: nhsuk-radios: Root element (`$root`) already initialised'
+      )
     })
 
     it('throws when $root is not set', () => {
@@ -354,12 +349,9 @@ describe('Radios', () => {
             $root.remove()
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message: 'nhsuk-radios: Root element (`$root`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-radios: Root element (`$root`) not found'
+      )
     })
 
     it('throws when receiving the wrong type for $root', () => {
@@ -370,13 +362,9 @@ describe('Radios', () => {
             $root.outerHTML = `<svg data-module="nhsuk-radios"></svg>`
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-radios: Root element (`$root`) is not of type HTMLElement'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-radios: Root element (`$root`) is not of type HTMLElement'
+      )
     })
 
     it('throws when the input list is empty', () => {
@@ -389,13 +377,9 @@ describe('Radios', () => {
             selector: '.nhsuk-radios__item'
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-radios: Form inputs (`<input type="radio">`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-radios: Form inputs (`<input type="radio">`) not found'
+      )
     })
 
     it('throws when a conditional target element is not found', () => {
@@ -405,13 +389,9 @@ describe('Radios', () => {
             $root.querySelector('.nhsuk-radios__conditional')?.remove()
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-radios: Conditional reveal (`id="conditional-conditional"`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-radios: Conditional reveal (`id="conditional-conditional"`) not found'
+      )
     })
   })
 })

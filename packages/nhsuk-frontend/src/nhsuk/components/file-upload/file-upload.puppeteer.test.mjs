@@ -471,13 +471,9 @@ describe('File upload', () => {
               document.body.classList.remove('nhsuk-frontend-supported')
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'SupportError',
-            message:
-              'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-          }
-        })
+        ).rejects.toThrow(
+          'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        )
       })
 
       it('throws when initialised twice', () => {
@@ -488,11 +484,9 @@ describe('File upload', () => {
               new FileUpload($root)
             }
           })
-        ).rejects.toMatchObject({
-          name: 'InitError',
-          message:
-            'nhsuk-file-upload: Root element (`$root`) already initialised'
-        })
+        ).rejects.toThrow(
+          'InitError: nhsuk-file-upload: Root element (`$root`) already initialised'
+        )
       })
 
       it('throws when $root is not set', () => {
@@ -502,12 +496,9 @@ describe('File upload', () => {
               $root.remove()
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message: 'nhsuk-file-upload: Root element (`$root`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-file-upload: Root element (`$root`) not found'
+        )
       })
 
       it('throws when receiving the wrong type for $root', () => {
@@ -518,13 +509,9 @@ describe('File upload', () => {
               $root.outerHTML = `<svg data-module="nhsuk-file-upload"></svg>`
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-file-upload: Root element (`$root`) is not of type HTMLElement'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-file-upload: Root element (`$root`) is not of type HTMLElement'
+        )
       })
 
       describe('missing or misconfigured elements', () => {
@@ -535,12 +522,9 @@ describe('File upload', () => {
                 document.querySelector('[type="file"]')?.remove()
               }
             })
-          ).rejects.toMatchObject({
-            cause: {
-              name: 'ElementError',
-              message: 'nhsuk-file-upload: Form field (`<input>`) not found'
-            }
-          })
+          ).rejects.toThrow(
+            'ElementError: nhsuk-file-upload: Form field (`<input>`) not found'
+          )
         })
 
         it('throws if the input has no `id` attribute', () => {
@@ -550,13 +534,9 @@ describe('File upload', () => {
                 document.querySelector('[type="file"]')?.removeAttribute('id')
               }
             })
-          ).rejects.toMatchObject({
-            cause: {
-              name: 'ElementError',
-              message:
-                'nhsuk-file-upload: File input (`<input type="file">`) attribute (`id`) not found'
-            }
-          })
+          ).rejects.toThrow(
+            'ElementError: nhsuk-file-upload: File input (`<input type="file">`) attribute (`id`) not found'
+          )
         })
 
         it('throws if the input type is not "file"', () => {
@@ -568,13 +548,9 @@ describe('File upload', () => {
                   ?.setAttribute('type', 'text')
               }
             })
-          ).rejects.toMatchObject({
-            cause: {
-              name: 'ElementError',
-              message:
-                'nhsuk-file-upload: Form field (`<input>`) is not of type HTMLInputElement with attribute (`type="file"`)'
-            }
-          })
+          ).rejects.toThrow(
+            'ElementError: nhsuk-file-upload: Form field (`<input>`) is not of type HTMLInputElement with attribute (`type="file"`)'
+          )
         })
 
         it('throws if no label is present', async () => {
@@ -584,13 +560,9 @@ describe('File upload', () => {
                 document.querySelector('label')?.remove()
               }
             })
-          ).rejects.toMatchObject({
-            cause: {
-              name: 'ElementError',
-              message:
-                'nhsuk-file-upload: Field label (`<label for=file-upload>`) not found'
-            }
-          })
+          ).rejects.toThrow(
+            'ElementError: nhsuk-file-upload: Field label (`<label for=file-upload>`) not found'
+          )
 
           // Expect the input to still be visible
           await page.waitForSelector('input', { visible: true, timeout: 100 })

@@ -229,11 +229,18 @@ export async function render(page, component, renderOptions, browserOptions) {
 
   // Run custom function after component init
   if (browserOptions?.afterInitialisation) {
-    await page.$eval(
-      selector,
-      browserOptions.afterInitialisation,
-      browserOptions.context ?? /** @type {HandlerContext} */ ({ selector })
-    )
+    try {
+      await page.$eval(
+        selector,
+        browserOptions.afterInitialisation,
+        browserOptions.context ?? /** @type {HandlerContext} */ ({ selector })
+      )
+    } catch (error) {
+      const message = `After initialisation for \`new ${exportName}()\` threw:`
+      throw new Error(`${message}\n\t${error.name}: ${error.message}`, {
+        cause: error
+      })
+    }
   }
 
   await page.evaluateHandle('document.fonts.ready')

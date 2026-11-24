@@ -788,13 +788,9 @@ describe('Character count', () => {
               document.body.classList.remove('nhsuk-frontend-supported')
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'SupportError',
-            message:
-              'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-          }
-        })
+        ).rejects.toThrow(
+          'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        )
       })
 
       it('throws when initialised twice', () => {
@@ -805,11 +801,9 @@ describe('Character count', () => {
               new CharacterCount($root)
             }
           })
-        ).rejects.toMatchObject({
-          name: 'InitError',
-          message:
-            'nhsuk-character-count: Root element (`$root`) already initialised'
-        })
+        ).rejects.toThrow(
+          'InitError: nhsuk-character-count: Root element (`$root`) already initialised'
+        )
       })
 
       it('throws when $root is not set', () => {
@@ -819,12 +813,9 @@ describe('Character count', () => {
               $root.remove()
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message: 'nhsuk-character-count: Root element (`$root`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-character-count: Root element (`$root`) not found'
+        )
       })
 
       it('throws when receiving the wrong type for $root', () => {
@@ -835,13 +826,9 @@ describe('Character count', () => {
               $root.outerHTML = `<svg data-module="nhsuk-character-count"></svg>`
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-character-count: Root element (`$root`) is not of type HTMLElement'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-character-count: Root element (`$root`) is not of type HTMLElement'
+        )
       })
 
       it('throws when the textarea is missing', () => {
@@ -854,13 +841,9 @@ describe('Character count', () => {
               selector: '.nhsuk-js-character-count'
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-character-count: Form field (`.nhsuk-js-character-count`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-character-count: Form field (`.nhsuk-js-character-count`) not found'
+        )
       })
 
       it('throws when the textarea is not the right type', () => {
@@ -877,13 +860,9 @@ describe('Character count', () => {
               selector: '.nhsuk-js-character-count'
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-character-count: Form field (`.nhsuk-js-character-count`) is not of type HTMLTextareaElement or HTMLInputElement'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-character-count: Form field (`.nhsuk-js-character-count`) is not of type HTMLTextareaElement or HTMLInputElement'
+        )
       })
 
       it('throws when the textarea description is missing', () => {
@@ -896,24 +875,17 @@ describe('Character count', () => {
               selector: '#example-info'
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-character-count: Count message (`id="example-info"`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-character-count: Count message (`id="example-info"`) not found'
+        )
       })
 
       it('throws when receiving invalid JavaScript configuration', () => {
         return expect(
           initExample('to configure in JavaScript')
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ConfigError',
-            message: 'nhsuk-character-count: "maxlength" must be provided'
-          }
-        })
+        ).rejects.toThrow(
+          'ConfigError: nhsuk-character-count: "maxlength" must be provided'
+        )
       })
     })
   })

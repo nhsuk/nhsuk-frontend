@@ -112,13 +112,9 @@ describe('Skip link', () => {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'SupportError',
-          message:
-            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-        }
-      })
+      ).rejects.toThrow(
+        'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
     })
 
     it('throws when initialised twice', () => {
@@ -129,10 +125,9 @@ describe('Skip link', () => {
             new SkipLink($root)
           }
         })
-      ).rejects.toMatchObject({
-        name: 'InitError',
-        message: 'nhsuk-skip-link: Root element (`$root`) already initialised'
-      })
+      ).rejects.toThrow(
+        'InitError: nhsuk-skip-link: Root element (`$root`) already initialised'
+      )
     })
 
     it('throws when $root is not set', () => {
@@ -142,12 +137,9 @@ describe('Skip link', () => {
             $root.remove()
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message: 'nhsuk-skip-link: Root element (`$root`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-skip-link: Root element (`$root`) not found'
+      )
     })
 
     it('throws when receiving the wrong type for $root', () => {
@@ -158,34 +150,20 @@ describe('Skip link', () => {
             $root.outerHTML = `<svg data-module="nhsuk-skip-link"></svg>`
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-skip-link: Root element (`$root`) is not of type HTMLAnchorElement'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-skip-link: Root element (`$root`) is not of type HTMLAnchorElement'
+      )
     })
 
     it('throws when the linked element is missing', () => {
-      return expect(initExample('without link target')).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-skip-link: Target content (`id="this-element-does-not-exist"`) not found'
-        }
-      })
+      return expect(initExample('without link target')).rejects.toThrow(
+        'ElementError: nhsuk-skip-link: Target content (`id="this-element-does-not-exist"`) not found'
+      )
     })
 
     it('throws when the href does not contain a hash', () => {
-      return expect(initExample('without hash fragment')).rejects.toMatchObject(
-        {
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-skip-link: Target link (`href="/nhsuk-frontend/components/boilerplate/"`) hash fragment not found'
-          }
-        }
+      return expect(initExample('without hash fragment')).rejects.toThrow(
+        'ElementError: nhsuk-skip-link: Target link (`href="/nhsuk-frontend/components/boilerplate/"`) hash fragment not found'
       )
     })
   })

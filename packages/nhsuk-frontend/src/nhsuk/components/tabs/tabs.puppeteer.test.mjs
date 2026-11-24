@@ -267,13 +267,9 @@ describe('Tabs', () => {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'SupportError',
-          message:
-            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-        }
-      })
+      ).rejects.toThrow(
+        'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
     })
 
     it('throws when initialised twice', () => {
@@ -284,10 +280,9 @@ describe('Tabs', () => {
             new Tabs($root)
           }
         })
-      ).rejects.toMatchObject({
-        name: 'InitError',
-        message: 'nhsuk-tabs: Root element (`$root`) already initialised'
-      })
+      ).rejects.toThrow(
+        'InitError: nhsuk-tabs: Root element (`$root`) already initialised'
+      )
     })
 
     it('throws when $root is not set', () => {
@@ -297,12 +292,9 @@ describe('Tabs', () => {
             $root.remove()
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message: 'nhsuk-tabs: Root element (`$root`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-tabs: Root element (`$root`) not found'
+      )
     })
 
     it('throws when there are no tabs', () => {
@@ -315,12 +307,9 @@ describe('Tabs', () => {
             selector: 'a.nhsuk-tabs__tab'
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message: 'nhsuk-tabs: Links (`<a class="nhsuk-tabs__tab">`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-tabs: Links (`<a class="nhsuk-tabs__tab">`) not found'
+      )
     })
 
     it('throws when the tab list is missing', () => {
@@ -335,13 +324,9 @@ describe('Tabs', () => {
             selector: '.nhsuk-tabs__list'
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-tabs: List (`<ul class="nhsuk-tabs__list">`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-tabs: List (`<ul class="nhsuk-tabs__list">`) not found'
+      )
     })
 
     it('throws when there the tab list is empty', () => {
@@ -357,13 +342,9 @@ describe('Tabs', () => {
             className: 'nhsuk-tabs__list-typo'
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-tabs: List items (`<li class="nhsuk-tabs__list-item">`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-tabs: List items (`<li class="nhsuk-tabs__list-item">`) not found'
+      )
     })
   })
 })

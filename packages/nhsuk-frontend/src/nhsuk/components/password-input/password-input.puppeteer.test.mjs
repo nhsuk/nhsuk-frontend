@@ -194,13 +194,9 @@ describe('Password input', () => {
               document.body.classList.remove('nhsuk-frontend-supported')
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'SupportError',
-            message:
-              'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-          }
-        })
+        ).rejects.toThrow(
+          'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        )
       })
 
       it('throws when $root is not set', () => {
@@ -210,12 +206,9 @@ describe('Password input', () => {
               $root.remove()
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message: 'nhsuk-password-input: Root element (`$root`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Root element (`$root`) not found'
+        )
       })
 
       it('throws when receiving the wrong type for $root', () => {
@@ -226,13 +219,9 @@ describe('Password input', () => {
               $root.outerHTML = `<svg data-module="nhsuk-password-input"></svg>`
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Root element (`$root`) is not of type HTMLElement'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Root element (`$root`) is not of type HTMLElement'
+        )
       })
 
       it('throws when the input element is missing', () => {
@@ -245,13 +234,9 @@ describe('Password input', () => {
               selector: inputSelector
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) not found'
+        )
       })
 
       it('throws when the input is not an <input> element', () => {
@@ -268,13 +253,9 @@ describe('Password input', () => {
               selector: inputSelector
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) is not of type HTMLInputElement'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) is not of type HTMLInputElement'
+        )
       })
 
       it('throws when the input is not a `password` type', () => {
@@ -288,13 +269,9 @@ describe('Password input', () => {
               selector: inputSelector
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) is not of type HTMLInputElement with attribute (`type="password"`)'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) is not of type HTMLInputElement with attribute (`type="password"`)'
+        )
       })
 
       it('throws when the button is missing', () => {
@@ -307,13 +284,9 @@ describe('Password input', () => {
               selector: buttonSelector
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) not found'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) not found'
+        )
       })
 
       it('throws when the button is not a <button> element', () => {
@@ -330,13 +303,9 @@ describe('Password input', () => {
               selector: buttonSelector
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) is not of type HTMLButtonElement'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) is not of type HTMLButtonElement'
+        )
       })
 
       it('throws when the button is not a `button` type', () => {
@@ -350,13 +319,9 @@ describe('Password input', () => {
               selector: buttonSelector
             }
           })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) is not of type HTMLButtonElement with type="button"'
-          }
-        })
+        ).rejects.toThrow(
+          'ElementError: nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) is not of type HTMLButtonElement with type="button"'
+        )
       })
     })
   })

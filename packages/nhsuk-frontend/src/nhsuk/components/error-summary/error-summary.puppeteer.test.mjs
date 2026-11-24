@@ -237,13 +237,9 @@ describe('Error summary', () => {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'SupportError',
-          message:
-            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-        }
-      })
+      ).rejects.toThrow(
+        'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
     })
 
     it('throws when initialised twice', () => {
@@ -254,11 +250,9 @@ describe('Error summary', () => {
             new ErrorSummary($root)
           }
         })
-      ).rejects.toMatchObject({
-        name: 'InitError',
-        message:
-          'nhsuk-error-summary: Root element (`$root`) already initialised'
-      })
+      ).rejects.toThrow(
+        'InitError: nhsuk-error-summary: Root element (`$root`) already initialised'
+      )
     })
 
     it('throws when $root is not set', () => {
@@ -268,12 +262,9 @@ describe('Error summary', () => {
             $root.remove()
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message: 'nhsuk-error-summary: Root element (`$root`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-error-summary: Root element (`$root`) not found'
+      )
     })
 
     it('throws when receiving the wrong type for $root', () => {
@@ -284,13 +275,9 @@ describe('Error summary', () => {
             $root.outerHTML = `<svg data-module="nhsuk-error-summary"></svg>`
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-error-summary: Root element (`$root`) is not of type HTMLElement'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-error-summary: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 })

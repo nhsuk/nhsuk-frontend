@@ -277,13 +277,9 @@ describe('Button', () => {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'SupportError',
-          message:
-            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
-        }
-      })
+      ).rejects.toThrow(
+        'SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+      )
     })
 
     it('throws when initialised twice', () => {
@@ -294,10 +290,9 @@ describe('Button', () => {
             new Button($root)
           }
         })
-      ).rejects.toMatchObject({
-        name: 'InitError',
-        message: 'nhsuk-button: Root element (`$root`) already initialised'
-      })
+      ).rejects.toThrow(
+        'InitError: nhsuk-button: Root element (`$root`) already initialised'
+      )
     })
 
     it('throws when $root is not set', () => {
@@ -307,12 +302,9 @@ describe('Button', () => {
             $root.remove()
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message: 'nhsuk-button: Root element (`$root`) not found'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-button: Root element (`$root`) not found'
+      )
     })
 
     it('throws when receiving the wrong type for $root', () => {
@@ -330,13 +322,9 @@ describe('Button', () => {
             $root.replaceWith($svg)
           }
         })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-button: Root element (`$root`) is not of type HTMLElement'
-        }
-      })
+      ).rejects.toThrow(
+        'ElementError: nhsuk-button: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 })
