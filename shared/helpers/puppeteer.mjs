@@ -1,3 +1,5 @@
+import util from 'node:util'
+
 import { AxePuppeteer } from '@axe-core/puppeteer'
 import { mergeExample } from '@nhsuk/frontend-lib/components.mjs'
 import { components, names } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
@@ -68,21 +70,35 @@ export async function axe(page, overrides = {}, options) {
   // Create report
   const report = await reporter.options(axeOptions).analyze()
 
-  /**
-   * Add review app preview URL below link to violation
-   *
-   * @example
-   * ```console
-   * You can find more information on this issue here:
-   * https://dequeuniversity.com/rules/axe/4.10/aria-allowed-attr?application=axe-puppeteer
-   * http://localhost:3000/nhsuk-frontend/components/radios/with-conditional-content/
-   * ```
-   */
-  report.violations.forEach((violation) => {
-    violation.helpUrl += `\n${new URL(page.url())}`
-  })
+  // Log accessibility violations
+  if (report.violations.length) {
+    console.log('')
 
-  return report
+    for (const violation of report.violations) {
+      for (const node of violation.nodes) {
+        let message = ''
+
+        message += `Expected the HTML found at $('${node.target.join(', ')}') to have no violations:\n\n`
+        message += `    ${util.styleText('gray', node.html)}\n\n`
+
+        message += `Received ${violation.impact ?? 'minor'} violation:\n\n`
+        message += `${util.styleText('red', `${violation.help} (${violation.id})`)}\n\n`
+        message += `${util.styleText('yellow', node.failureSummary ?? '')}\n\n`
+
+        message += 'You can find more information on this issue here:\n'
+        message += `${util.styleText('blue', violation.helpUrl)}\n`
+        message += `${util.styleText('blue', page.url())}\n`
+
+        message += `\n${util.styleText('dim', '────────')}\n`
+
+        console.log(message)
+      }
+    }
+
+    throw new Error('Axe issues found')
+  }
+
+  return report.violations
 }
 
 /**

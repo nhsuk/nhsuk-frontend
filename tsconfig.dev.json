@@ -6,7 +6,6 @@
       "@nhsuk/frontend-helpers/jest/environment/jsdom",
       "@testing-library/jest-dom",
       "jest",
-      "jest-axe",
       "jest-puppeteer",
       "node",
       "typed-query-selector"

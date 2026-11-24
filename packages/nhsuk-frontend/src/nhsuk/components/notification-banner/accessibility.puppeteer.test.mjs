@@ -31,7 +31,7 @@ describe('Notification banner', () => {
     axeRules['landmark-unique'] = { enabled: false }
 
     await goToComponent(page, 'notification-banner')
-    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+    await expect(axe(page, axeRules)).resolves.toHaveLength(0)
   })
 
   describe.each(examples)('%s', (name, example) => {
@@ -39,7 +39,7 @@ describe('Notification banner', () => {
 
     it.each(list)('$title passes accessibility tests', async (options) => {
       await goToComponent(page, 'notification-banner', options)
-      return expect(axe(page, axeRules, options)).resolves.toHaveNoViolations()
+      await expect(axe(page, axeRules, options)).resolves.toHaveLength(0)
     })
   })
 })

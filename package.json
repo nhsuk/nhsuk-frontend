@@ -74,7 +74,6 @@
     "@types/gulp-rename": "^2.0.7",
     "@types/gulp-zip": "^4.0.4",
     "@types/jest": "^30.0.0",
-    "@types/jest-axe": "^3.5.9",
     "@types/lodash": "^4.17.27",
     "@types/node": "^26.6.6",
     "@types/nunjucks": "^3.2.6",

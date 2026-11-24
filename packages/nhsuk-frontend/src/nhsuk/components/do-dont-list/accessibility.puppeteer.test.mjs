@@ -13,7 +13,7 @@ describe("Do and Don't list", () => {
 
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'do-dont-list')
-    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+    await expect(axe(page, axeRules)).resolves.toHaveLength(0)
   })
 
   describe.each(examples)('%s', (name, example) => {
@@ -21,7 +21,7 @@ describe("Do and Don't list", () => {
 
     it.each(list)('$title passes accessibility tests', async (options) => {
       await goToComponent(page, 'do-dont-list', options)
-      return expect(axe(page, axeRules, options)).resolves.toHaveNoViolations()
+      await expect(axe(page, axeRules, options)).resolves.toHaveLength(0)
     })
   })
 })
