@@ -2,7 +2,7 @@ import {
   getAttribute,
   isVisible,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { examples } from './fixtures.mjs'
 import { Tabs } from './tabs.mjs'
@@ -350,6 +350,6 @@ describe('Tabs', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

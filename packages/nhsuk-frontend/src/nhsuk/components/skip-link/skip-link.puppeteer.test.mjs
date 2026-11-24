@@ -1,4 +1,4 @@
-import { getAttribute, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getAttribute, render } from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { examples } from './fixtures.mjs'
 
@@ -170,6 +170,6 @@ describe('Skip link', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

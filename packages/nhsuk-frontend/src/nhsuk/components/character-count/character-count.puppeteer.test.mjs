@@ -7,7 +7,7 @@ import {
   getText,
   isVisible,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { CharacterCount } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
@@ -923,6 +923,6 @@ describe('Character count', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

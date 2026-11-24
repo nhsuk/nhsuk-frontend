@@ -4,7 +4,7 @@ import {
   getProperty,
   getText,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { FileUpload } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
@@ -631,6 +631,6 @@ describe('File upload', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle, Point, Protocol } from 'puppeteer'
  */

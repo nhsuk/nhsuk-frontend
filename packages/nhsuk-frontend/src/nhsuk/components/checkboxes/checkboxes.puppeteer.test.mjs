@@ -4,7 +4,7 @@ import {
   goToExample,
   isVisible,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { Checkboxes } from './checkboxes.mjs'
 import { examples } from './fixtures.mjs'
@@ -442,6 +442,6 @@ describe('Checkboxes', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

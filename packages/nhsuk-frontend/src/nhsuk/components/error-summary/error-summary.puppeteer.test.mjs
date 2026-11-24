@@ -2,7 +2,7 @@ import {
   getAttribute,
   goToExample,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { ErrorSummary } from './error-summary.mjs'
 import { examples } from './fixtures.mjs'
@@ -283,6 +283,6 @@ describe('Error summary', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

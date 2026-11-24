@@ -1,4 +1,4 @@
-import { getProperty, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getProperty, render } from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { Button } from './button.mjs'
 import { examples } from './fixtures.mjs'
@@ -330,6 +330,6 @@ describe('Button', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

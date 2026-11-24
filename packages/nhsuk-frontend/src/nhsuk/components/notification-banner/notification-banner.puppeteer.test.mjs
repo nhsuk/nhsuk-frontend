@@ -1,4 +1,4 @@
-import { getAttribute, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getAttribute, render } from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { examples } from './fixtures.mjs'
 import { NotificationBanner } from './notification-banner.mjs'
@@ -223,6 +223,6 @@ describe('Notification banner', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

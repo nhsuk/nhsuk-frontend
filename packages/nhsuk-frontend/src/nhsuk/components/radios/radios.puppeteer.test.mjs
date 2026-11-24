@@ -4,7 +4,7 @@ import {
   goToExample,
   isVisible,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { examples } from './fixtures.mjs'
 import { Radios } from './radios.mjs'
@@ -397,6 +397,6 @@ describe('Radios', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

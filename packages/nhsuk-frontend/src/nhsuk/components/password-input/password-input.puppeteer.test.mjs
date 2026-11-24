@@ -4,7 +4,7 @@ import {
   getText,
   goToExample,
   render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import { examples } from './fixtures.mjs'
 import { PasswordInput } from './password-input.mjs'
@@ -373,6 +373,6 @@ describe('Password input', () => {
 })
 
 /**
- * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

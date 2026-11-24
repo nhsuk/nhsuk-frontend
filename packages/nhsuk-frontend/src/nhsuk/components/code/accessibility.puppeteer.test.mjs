@@ -2,7 +2,7 @@ import {
   axe,
   getOptions,
   goToComponent
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+} from '@nhsuk/frontend-helpers/playwright.mjs'
 
 import * as fixtures from './fixtures.mjs'
 

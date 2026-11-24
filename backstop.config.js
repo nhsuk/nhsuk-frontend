@@ -1,4 +1,4 @@
-const { getComponentURL } = require('@nhsuk/frontend-helpers/puppeteer.mjs')
+const { getComponentURL } = require('@nhsuk/frontend-helpers/playwright.mjs')
 const { components, screenshots } = require('@nhsuk/frontend-lib')
 
 const { HEADLESS } = process.env
