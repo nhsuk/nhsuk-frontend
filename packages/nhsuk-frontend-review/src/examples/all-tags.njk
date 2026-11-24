@@ -1,4 +1,5 @@
 {% extends "layouts/blank-full-width.njk" %}
+{% from "tag/macro.njk" import tag %}
 
 {% set pageHeading = "Tags" %}
 
@@ -78,6 +79,8 @@
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
           <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+          <p>A long sentence with a {{ tag({ text: "tag" }) }} in it to test how it behaves within a paragraph of text.</p>
+          <p class="nhsuk-body-s">A long sentence with small text and a {{ tag({ text: "tag", small: true }) }} in it to test how it behaves within a paragraph of text.</p>
         </div>
       </div>
 

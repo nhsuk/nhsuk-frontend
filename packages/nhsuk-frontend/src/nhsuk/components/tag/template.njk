@@ -24,6 +24,10 @@
   {%- set classNames = classNames ~ " nhsuk-tag--" ~ params.colour %}
 {%- endif %}
 
+{%- if params.small and (not params.classes or not "nhsuk-tag--small" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-tag--small" %}
+{%- endif %}
+
 {%- if params.colour is sameas(false) and (not params.classes or not "nhsuk-tag--no-colour" in params.classes) %}
   {%- set classNames = classNames ~ " nhsuk-tag--no-colour" %}
 {%- endif %}

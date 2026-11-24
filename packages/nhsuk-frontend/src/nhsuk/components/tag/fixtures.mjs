@@ -113,6 +113,41 @@ const fixtures = {
       classes: "nhsuk-tag--red"
     }
   },
+  "small": {
+    context: {
+      small: true
+    },
+    variants,
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
+  "small without border, white background": {
+    context: {
+      small: true,
+      border: false
+    },
+    variants,
+    options: {
+      layout: "background-white"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
+  "small without border": {
+    context: {
+      small: true,
+      border: false
+    },
+    variants,
+    options: {
+      layout: "background-blue"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
   "with text escaping": {
     context: {
       text: "A&E",
@@ -130,6 +165,18 @@ const fixtures = {
       colour: "red"
     },
     callBlock: "A&amp;E"
+  },
+  "without border, white background": {
+    context: {
+      border: false
+    },
+    variants,
+    options: {
+      layout: "background-white"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
   },
   "without border": {
     context: {
