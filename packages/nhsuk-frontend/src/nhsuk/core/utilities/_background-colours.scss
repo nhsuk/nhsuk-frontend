@@ -1,0 +1,20 @@
+@use "../helpers/colour" as *;
+@use "../settings" as *;
+
+////
+/// Background colours
+///
+/// @group utilities
+////
+
+.nhsuk-u-background-white {
+  background-color: nhsuk-colour("white");
+}
+
+.nhsuk-u-background-blue {
+  background-color: nhsuk-colour("blue");
+}
+
+.nhsuk-u-background-grey {
+  background-color: $nhsuk-body-background-colour;
+}
