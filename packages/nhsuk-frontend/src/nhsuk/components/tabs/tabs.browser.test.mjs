@@ -1,240 +1,230 @@
-import {
-  getAttribute,
-  isVisible,
-  render
-} from '@nhsuk/frontend-helpers/playwright.mjs'
+import { render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import { examples } from './fixtures.mjs'
 import { Tabs } from './tabs.mjs'
 
-describe('Tabs', () => {
-  /** @type {ElementHandle<HTMLElement>} */
+test.describe('Tabs', () => {
+  /** @type {Locator} */
   let $component
 
   /**
    * @template {object} HandlerContext
+   * @param {Page} page - Playwright page object
    * @param {keyof typeof examples} example
-   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
    */
-  async function initExample(example, browserOptions) {
+  async function initExample(page, example, browserOptions) {
     await render(page, 'tabs', examples[example], browserOptions)
 
-    $component = /** @type {ElementHandle<HTMLElement>} */ (
-      await page.$(`[data-module="${Tabs.moduleName}"]`)
-    )
+    $component = page.locator(`[data-module="${Tabs.moduleName}"]`)
   }
 
-  describe('when JavaScript is unavailable or fails', () => {
-    beforeAll(async () => {
-      await page.setJavaScriptEnabled(false)
-      await initExample('default')
+  test.describe('when JavaScript is unavailable or fails', () => {
+    test.use({ javaScriptEnabled: false })
+
+    test.beforeEach(async ({ page }) => {
+      await initExample(page, 'default')
     })
 
-    afterAll(async () => {
-      await page.setJavaScriptEnabled(true)
-    })
+    test('falls back to making all tab containers visible', async () => {
+      const $firstPanel = $component.locator('.nhsuk-tabs__panel').first()
 
-    it('falls back to making all tab containers visible', async () => {
-      const $firstPanel = await $component.$('.nhsuk-tabs__panel')
-
-      expect(await isVisible($firstPanel)).toBe(true)
+      await expect($firstPanel).toBeVisible()
     })
   })
 
-  describe('when JavaScript is available', () => {
-    beforeAll(async () => {
-      await initExample('default')
+  test.describe('when JavaScript is available', () => {
+    test.beforeEach(async ({ page }) => {
+      await initExample(page, 'default')
     })
 
-    it('should indicate the open state of the first tab', async () => {
-      const $firstItem = await $component.$(
+    test('should indicate the open state of the first tab', async () => {
+      const $firstItem = $component.locator(
         '.nhsuk-tabs__list-item:first-child'
       )
-      const $firstTab = await $firstItem?.$('.nhsuk-tabs__tab')
+      const $firstTab = $firstItem.locator('.nhsuk-tabs__tab')
 
-      expect(await getAttribute($firstTab, 'aria-selected')).toBe('true')
-      expect(await getAttribute($firstItem, 'class')).toContain(
-        'nhsuk-tabs__list-item--selected'
-      )
+      await expect($firstTab).toHaveAttribute('aria-selected', 'true')
+      await expect($firstItem).toContainClass('nhsuk-tabs__list-item--selected')
     })
 
-    it('should display the first tab panel', async () => {
-      const $firstPanel = await $component.$('.nhsuk-tabs__panel')
+    test('should display the first tab panel', async () => {
+      const $firstPanel = $component.locator('.nhsuk-tabs__panel').first()
 
-      expect(await getAttribute($firstPanel, 'class')).not.toContain(
-        'nhsuk-tabs__panel--hidden'
-      )
+      await expect($firstPanel).not.toContainClass('nhsuk-tabs__panel--hidden')
     })
 
-    it('should hide all the tab panels except for the first one', async () => {
-      const $otherPanels = await $component.$$(
+    test('should hide all the tab panels except for the first one', async () => {
+      const $otherPanels = $component.locator(
         '.nhsuk-tabs__panel ~ .nhsuk-tabs__panel'
       )
 
-      expect($otherPanels).toHaveLength(3)
+      await expect($otherPanels).toHaveCount(3)
 
-      for (const $panel of $otherPanels) {
-        expect(await getAttribute($panel, 'class')).toContain(
-          'nhsuk-tabs__panel--hidden'
-        )
+      for (const $panel of await $otherPanels.all()) {
+        await expect($panel).toContainClass('nhsuk-tabs__panel--hidden')
       }
     })
   })
 
-  describe('when a tab is pressed', () => {
-    beforeEach(async () => {
-      await initExample('default')
+  test.describe('when a tab is pressed', () => {
+    test.beforeEach(async ({ page }) => {
+      await initExample(page, 'default')
     })
 
-    it('should indicate the open state of the pressed tab', async () => {
-      const $secondListItem = await $component.$(
+    test('should indicate the open state of the pressed tab', async () => {
+      const $secondListItem = $component.locator(
         '.nhsuk-tabs__list-item:nth-child(2)'
       )
 
-      const $secondTab = await $secondListItem?.$('.nhsuk-tabs__tab')
+      const $secondTab = $secondListItem.locator('.nhsuk-tabs__tab')
 
       // Click the second tab
-      await $secondTab?.click()
+      await $secondTab.click()
 
-      expect(await getAttribute($secondTab, 'aria-selected')).toBe('true')
-      expect(await getAttribute($secondListItem, 'class')).toContain(
+      await expect($secondTab).toHaveAttribute('aria-selected', 'true')
+      await expect($secondListItem).toContainClass(
         'nhsuk-tabs__list-item--selected'
       )
     })
 
-    it('should display the tab panel associated with the selected tab', async () => {
-      const $secondTab = await $component.$(
+    test('should display the tab panel associated with the selected tab', async () => {
+      const $secondTab = $component.locator(
         '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
       )
 
-      const $secondPanel = await $component.$(
+      const $secondPanel = $component.locator(
         '.nhsuk-tabs__panel:nth-of-type(2)'
       )
 
       // Click the second tab
-      await $secondTab?.click()
+      await $secondTab.click()
 
-      expect(await getAttribute($secondPanel, 'id')).toBe(
-        await getAttribute($secondTab, 'aria-controls')
+      await expect($secondPanel).toHaveAttribute(
+        'id',
+        (await $secondTab.getAttribute('aria-controls')) ?? ''
       )
 
-      expect(await getAttribute($secondPanel, 'class')).not.toContain(
-        'nhsuk-tabs__panel--hidden'
-      )
+      await expect($secondPanel).not.toContainClass('nhsuk-tabs__panel--hidden')
     })
 
-    describe('when the tab contains a DOM element', () => {
-      beforeAll(async () => {
-        await initExample('default')
+    test.describe('when the tab contains a DOM element', () => {
+      test.beforeEach(async ({ page }) => {
+        await initExample(page, 'default')
       })
 
-      it('should display the tab panel associated with the selected tab', async () => {
-        const $secondTab = await $component.$(
+      test('should display the tab panel associated with the selected tab', async () => {
+        const $secondTab = $component.locator(
           '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
         )
 
         // Replace contents of second tab with a DOM element
-        $secondTab?.evaluate(($el) => {
+        await $secondTab.evaluate(($el) => {
           $el.innerHTML = '<span>Past week</span>'
         })
 
-        const secondPanelId = await getAttribute($secondTab, 'aria-controls')
-        const $secondPanel = await $component.$(`#${secondPanelId}`)
+        const secondPanelId = await $secondTab.getAttribute('aria-controls')
+        const $secondPanel = $component.locator(`#${secondPanelId}`)
 
         // Click the DOM element inside the second tab
-        await $secondTab?.$('span').then(($el) => $el?.click())
+        await $secondTab.locator('span').click()
 
-        expect(await getAttribute($secondPanel, 'id')).toBe('example-2')
-        expect(await getAttribute($secondPanel, 'class')).not.toContain(
+        await expect($secondPanel).toHaveAttribute('id', 'example-2')
+        await expect($secondPanel).not.toContainClass(
           'nhsuk-tabs__panel--hidden'
         )
       })
     })
   })
 
-  describe('when first tab is focused and the right arrow key is pressed', () => {
-    beforeEach(async () => {
-      await initExample('default')
+  test.describe('when first tab is focused and the right arrow key is pressed', () => {
+    test.beforeEach(async ({ page }) => {
+      await initExample(page, 'default')
     })
 
-    it('should indicate the open state of the next tab', async () => {
-      const $firstListItem = await $component.$(
+    test('should indicate the open state of the next tab', async ({ page }) => {
+      const $firstListItem = $component.locator(
         '.nhsuk-tabs__list-item:first-child'
       )
 
-      const $secondListItem = await $component.$(
+      const $secondListItem = $component.locator(
         '.nhsuk-tabs__list-item:nth-child(2)'
       )
 
-      const $firstTab = await $firstListItem?.$('.nhsuk-tabs__tab')
-      const $secondTab = await $secondListItem?.$('.nhsuk-tabs__tab')
+      const $firstTab = $firstListItem.locator('.nhsuk-tabs__tab')
+      const $secondTab = $secondListItem.locator('.nhsuk-tabs__tab')
 
       // Press right arrow when focused on the first tab
-      await $firstTab?.focus()
+      await $firstTab.focus()
       await page.keyboard.press('ArrowRight')
 
-      expect(await getAttribute($secondTab, 'aria-selected')).toBe('true')
-      expect(await getAttribute($secondListItem, 'class')).toContain(
+      await expect($secondTab).toHaveAttribute('aria-selected', 'true')
+      await expect($secondListItem).toContainClass(
         'nhsuk-tabs__list-item--selected'
       )
     })
 
-    it('should display the tab panel associated with the selected tab', async () => {
-      const $firstTab = await $component.$(
+    test('should display the tab panel associated with the selected tab', async ({
+      page
+    }) => {
+      const $firstTab = $component.locator(
         '.nhsuk-tabs__list-item:first-child .nhsuk-tabs__tab'
       )
 
-      const $secondTab = await $component.$(
+      const $secondTab = $component.locator(
         '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
       )
 
-      const secondPanelId = await getAttribute($secondTab, 'aria-controls')
-      const $secondPanel = await $component.$(`#${secondPanelId}`)
+      const secondPanelId = await $secondTab.getAttribute('aria-controls')
+      const $secondPanel = $component.locator(`#${secondPanelId}`)
 
       // Press right arrow
-      await $firstTab?.focus()
+      await $firstTab.focus()
       await page.keyboard.down('ArrowRight')
 
-      expect(await getAttribute($secondPanel, 'id')).toBe('example-2')
-      expect(await getAttribute($secondPanel, 'class')).not.toContain(
-        'nhsuk-tabs__panel--hidden'
-      )
+      await expect($secondPanel).toHaveAttribute('id', 'example-2')
+      await expect($secondPanel).not.toContainClass('nhsuk-tabs__panel--hidden')
     })
   })
 
-  describe('when a hash associated with a tab panel is passed in the URL', () => {
-    it('should indicate the open state of the associated tab', async () => {
-      await initExample('default')
+  test.describe('when a hash associated with a tab panel is passed in the URL', () => {
+    test('should indicate the open state of the associated tab', async ({
+      page
+    }) => {
+      await initExample(page, 'default')
 
       await page.evaluate(() => {
         window.location.hash = '#example-2'
       })
 
-      const $currentTab = await $component.$(
+      const $currentTab = $component.locator(
         '.nhsuk-tabs__tab[href="#example-2"]'
       )
-      const $currentItem = await $component.$(
+      const $currentItem = $component.locator(
         '.nhsuk-tabs__list-item:has(.nhsuk-tabs__tab[href="#example-2"])'
       )
 
-      const currentPanelId = await getAttribute($currentTab, 'aria-controls')
-      const $currentPanel = await $component.$(`#${currentPanelId}`)
+      const currentPanelId = await $currentTab.getAttribute('aria-controls')
+      const $currentPanel = $component.locator(`#${currentPanelId}`)
 
-      expect(await getAttribute($currentTab, 'aria-selected')).toBe('true')
-      expect(await getAttribute($currentItem, 'class')).toContain(
+      await expect($currentTab).toHaveAttribute('aria-selected', 'true')
+      await expect($currentItem).toContainClass(
         'nhsuk-tabs__list-item--selected'
       )
 
-      expect(await getAttribute($currentPanel, 'id')).toBe('example-2')
-      expect(await getAttribute($currentPanel, 'class')).not.toContain(
+      await expect($currentPanel).toHaveAttribute('id', 'example-2')
+      await expect($currentPanel).not.toContainClass(
         'nhsuk-tabs__panel--hidden'
       )
     })
 
-    it('should only update based on hashes that are tabs', async () => {
-      await initExample('with anchor in panel')
+    test('should only update based on hashes that are tabs', async ({
+      page
+    }) => {
+      await initExample(page, 'with anchor in panel')
 
-      await page.click('[href="#anchor"]')
+      await page.locator('[href="#anchor"]').click()
 
       const activeElementId = await page.evaluate(
         () => document.activeElement?.id
@@ -244,25 +234,29 @@ describe('Tabs', () => {
     })
   })
 
-  describe('when rendered on a small device', () => {
-    it('falls back to making the all tab containers visible', async () => {
-      await page.setViewport({
+  test.describe('when rendered on a small device', () => {
+    test.use({
+      viewport: {
         width: 320,
         height: 480
-      })
+      }
+    })
 
-      await initExample('default')
+    test('falls back to making the all tab containers visible', async ({
+      page
+    }) => {
+      await initExample(page, 'default')
 
-      const $firstPanel = await $component.$('.nhsuk-tabs__panel')
+      const $firstPanel = $component.locator('.nhsuk-tabs__panel').first()
 
-      expect(await isVisible($firstPanel)).toBe(true)
+      await expect($firstPanel).toBeVisible()
     })
   })
 
-  describe('Error handling', () => {
-    it('can throw a SupportError if appropriate', () => {
-      return expect(
-        initExample('default', {
+  test.describe('Error handling', () => {
+    test('can throw a SupportError if appropriate', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -272,9 +266,9 @@ describe('Tabs', () => {
       )
     })
 
-    it('throws when initialised twice', () => {
-      return expect(
-        initExample('default', {
+    test('throws when initialised twice', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           async afterInitialisation($root) {
             const { Tabs } = await import('nhsuk-frontend')
             new Tabs($root)
@@ -285,9 +279,9 @@ describe('Tabs', () => {
       )
     })
 
-    it('throws when $root is not set', () => {
-      return expect(
-        initExample('default', {
+    test('throws when $root is not set', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -297,9 +291,9 @@ describe('Tabs', () => {
       )
     })
 
-    it('throws when there are no tabs', () => {
-      return expect(
-        initExample('default', {
+    test('throws when there are no tabs', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root, { selector }) {
             $root.querySelectorAll(selector).forEach((item) => item.remove())
           },
@@ -312,9 +306,9 @@ describe('Tabs', () => {
       )
     })
 
-    it('throws when the tab list is missing', () => {
-      return expect(
-        initExample('default', {
+    test('throws when the tab list is missing', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root, { selector }) {
             $root
               .querySelector(selector)
@@ -329,9 +323,9 @@ describe('Tabs', () => {
       )
     })
 
-    it('throws when there the tab list is empty', () => {
-      return expect(
-        initExample('default', {
+    test('throws when there the tab list is empty', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root, { selector, className }) {
             $root
               .querySelectorAll(selector)
@@ -351,5 +345,5 @@ describe('Tabs', () => {
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
- * @import { ElementHandle } from 'puppeteer'
+ * @import { Locator, Page } from '@playwright/test'
  */

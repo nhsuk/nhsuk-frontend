@@ -1,118 +1,99 @@
-import {
-  getAttribute,
-  getProperty,
-  getText,
-  goToExample,
-  render
-} from '@nhsuk/frontend-helpers/playwright.mjs'
+import { goToExample, render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import { examples } from './fixtures.mjs'
 import { PasswordInput } from './password-input.mjs'
 
-describe('Password input', () => {
+test.describe('Password input', () => {
   const inputSelector = '.nhsuk-js-password-input-input'
   const buttonSelector = '.nhsuk-js-password-input-toggle'
   const statusSelector = '.nhsuk-password-input__sr-status'
 
-  /** @type {ElementHandle<HTMLElement>} */
+  /** @type {Locator} */
   let $component
 
-  /** @type {ElementHandle<HTMLInputElement>} */
+  /** @type {Locator} */
   let $input
 
-  /** @type {ElementHandle<HTMLButtonElement>} */
+  /** @type {Locator} */
   let $button
 
-  /** @type {ElementHandle<HTMLElement> | null} */
+  /** @type {Locator} */
   let $status
 
   /**
    * @template {object} HandlerContext
+   * @param {Page} page - Playwright page object
    * @param {keyof typeof examples} example
-   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
    */
-  async function initExample(example, browserOptions) {
+  async function initExample(page, example, browserOptions) {
     await render(page, 'password-input', examples[example], browserOptions)
 
-    $component = /** @type {ElementHandle<HTMLElement>} */ (
-      await page.$(`[data-module="${PasswordInput.moduleName}"]`)
-    )
-
-    $input = /** @type {ElementHandle<HTMLInputElement>} */ (
-      await $component.$(inputSelector)
-    )
-
-    $button = /** @type {ElementHandle<HTMLButtonElement>} */ (
-      await $component.$(buttonSelector)
-    )
-
-    $status = /** @type {ElementHandle<HTMLElement> | null} */ (
-      await $component.$(statusSelector)
-    )
+    $component = page.locator(`[data-module="${PasswordInput.moduleName}"]`)
+    $input = $component.locator(inputSelector)
+    $button = $component.locator(buttonSelector)
+    $status = $component.locator(statusSelector)
   }
 
-  describe('when JavaScript is unavailable or fails', () => {
-    beforeAll(async () => {
-      await page.setJavaScriptEnabled(false)
+  test.describe('when JavaScript is unavailable or fails', () => {
+    test.use({ javaScriptEnabled: false })
+
+    test('still renders an unmodified password input', async ({ page }) => {
+      await initExample(page, 'default')
+
+      await expect($input).toHaveAttribute('type', 'password')
     })
 
-    afterAll(async () => {
-      await page.setJavaScriptEnabled(true)
-    })
+    test('renders the toggle button hidden', async ({ page }) => {
+      await initExample(page, 'default')
 
-    it('still renders an unmodified password input', async () => {
-      await initExample('default')
-
-      expect(await getAttribute($input, 'type')).toBe('password')
-    })
-
-    it('renders the toggle button hidden', async () => {
-      await initExample('default')
-
-      expect(await getProperty($button, 'hidden')).toBe(true)
+      await expect($button).toHaveJSProperty('hidden', true)
     })
   })
 
-  describe('when JavaScript is available', () => {
-    describe('on page load', () => {
-      beforeAll(async () => {
-        await initExample('default')
+  test.describe('when JavaScript is available', () => {
+    test.describe('on page load', () => {
+      test.beforeEach(async ({ page }) => {
+        await initExample(page, 'default')
       })
 
-      it('renders the status element', async () => {
-        expect($status).toBeDefined()
+      test('renders the status element', async () => {
+        await expect($status).toBeAttached()
       })
 
-      it('renders the status element with aria-live', async () => {
-        expect(await getAttribute($status, 'aria-live')).toBe('polite')
+      test('renders the status element with aria-live', async () => {
+        await expect($status).toHaveAttribute('aria-live', 'polite')
       })
 
-      it('renders the status element empty', async () => {
-        expect(await getText($status)).toBe('')
+      test('renders the status element empty', async () => {
+        await expect($status).toHaveText('')
       })
 
-      it('shows the toggle button', async () => {
-        expect(await getProperty($button, 'hidden')).toBe(false)
+      test('shows the toggle button', async () => {
+        await expect($button).toHaveJSProperty('hidden', false)
       })
     })
 
-    describe.each([
+    for (const [clicks, expectation] of /** @type {const} */ ([
       [1, itShowsThePassword],
       [2, itHidesThePassword],
       [3, itShowsThePassword]
-    ])('when clicked %i time(s)', (clicks, expectation) => {
-      beforeAll(async () => {
-        await initExample('default')
-        for (let i = 0; i < clicks; i++) {
-          await $button.click()
-        }
+    ])) {
+      test.describe(`when clicked ${clicks} time(s)`, () => {
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'default')
+          for (let i = 0; i < clicks; i++) {
+            await $button.click()
+          }
+        })
+
+        expectation()
       })
+    }
 
-      expectation()
-    })
-
-    describe('when the form is submitted', () => {
-      it('reverts the input back to password type', async () => {
+    test.describe('when the form is submitted', () => {
+      test('reverts the input back to password type', async ({ page }) => {
         await goToExample(page, 'full-page/update-your-account-details')
 
         // Prevent form submissions so that we don't navigate away during the test
@@ -121,52 +102,54 @@ describe('Password input', () => {
         })
 
         // Type something into the email field
-        await page.type('[type="email"]', 'test@example.com')
+        await page
+          .locator('[type="email"]')
+          .pressSequentially('test@example.com')
 
         // Type something into the password field
-        await page.type('[type="password"]', 'Hunter2')
+        await page
+          .locator('[type="password"]')
+          .first()
+          .pressSequentially('Hunter2')
 
         // Click the "show" button so the password is visible in plain text
-        await page.click(buttonSelector)
+        await page.locator(buttonSelector).first().click()
 
         // Check that the type change has occurred as expected
-        const $formInput = /** @type {ElementHandle<HTMLInputElement>} */ (
-          await page.$(inputSelector)
-        )
+        const $formInput = page.locator(inputSelector).first()
 
-        const beforeSubmitType = await getAttribute($formInput, 'type')
+        await expect($formInput).toHaveAttribute('type', 'text')
 
         // Submit the form
-        await page.click('main [type="submit"]')
+        await page.locator('main [type="submit"]').click()
 
         // Check the input type again
-        const afterSubmitType = await getAttribute($formInput, 'type')
-
-        expect(beforeSubmitType).toBe('text')
-        expect(afterSubmitType).toBe('password')
+        await expect($formInput).toHaveAttribute('type', 'password')
       })
     })
 
-    describe('i18n', () => {
-      it('uses the correct translations when the password is visible', async () => {
-        await initExample('with translations')
+    test.describe('i18n', () => {
+      test('uses the correct translations when the password is visible', async ({
+        page
+      }) => {
+        await initExample(page, 'with translations')
 
         await $button.click()
 
         // Expect: passwordShownAnnouncementText
-        expect(await getText($status)).toBe('Mae eich cyfrinair yn weladwy.')
+        await expect($status).toHaveText('Mae eich cyfrinair yn weladwy.')
 
         // Expect: hidePasswordText
-        expect(await getText($button)).toBe('Cuddio')
+        await expect($button).toHaveText('Cuddio')
 
         // Expect: hidePasswordAriaLabel
-        expect(await getAttribute($button, 'aria-label')).toBe(
-          'Cuddio cyfrinair'
-        )
+        await expect($button).toHaveAttribute('aria-label', 'Cuddio cyfrinair')
       })
 
-      it('uses the correct translations when the password is hidden', async () => {
-        await initExample('with translations')
+      test('uses the correct translations when the password is hidden', async ({
+        page
+      }) => {
+        await initExample(page, 'with translations')
 
         // This test clicks the toggle twice because the status element is not populated when
         // the component is initialised, it only becomes populated after the first toggle.
@@ -174,22 +157,20 @@ describe('Password input', () => {
         await $button.click()
 
         // Expect: passwordHiddenAnnouncementText
-        expect(await getText($status)).toBe("Mae eich cyfrinair wedi'i guddio.")
+        await expect($status).toHaveText("Mae eich cyfrinair wedi'i guddio.")
 
         // Expect: showPasswordText
-        expect(await getText($button)).toBe('Dangos')
+        await expect($button).toHaveText('Dangos')
 
         // Expect: showPasswordAriaLabel
-        expect(await getAttribute($button, 'aria-label')).toBe(
-          'Dangos cyfrinair'
-        )
+        await expect($button).toHaveAttribute('aria-label', 'Dangos cyfrinair')
       })
     })
 
-    describe('Error handling', () => {
-      it('can throw a SupportError if appropriate', () => {
-        return expect(
-          initExample('default', {
+    test.describe('Error handling', () => {
+      test('can throw a SupportError if appropriate', async ({ page }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation() {
               document.body.classList.remove('nhsuk-frontend-supported')
             }
@@ -199,9 +180,9 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when $root is not set', () => {
-        return expect(
-          initExample('default', {
+      test('throws when $root is not set', async ({ page }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root) {
               $root.remove()
             }
@@ -211,9 +192,11 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when receiving the wrong type for $root', () => {
-        return expect(
-          initExample('default', {
+      test('throws when receiving the wrong type for $root', async ({
+        page
+      }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root) {
               // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
               $root.outerHTML = `<svg data-module="nhsuk-password-input"></svg>`
@@ -224,9 +207,9 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when the input element is missing', () => {
-        return expect(
-          initExample('default', {
+      test('throws when the input element is missing', async ({ page }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root, { selector }) {
               $root.querySelector(selector)?.remove()
             },
@@ -239,9 +222,11 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when the input is not an <input> element', () => {
-        return expect(
-          initExample('default', {
+      test('throws when the input is not an <input> element', async ({
+        page
+      }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root, { selector }) {
               const $textarea = document.createElement('textarea')
               $textarea.classList.add('nhsuk-js-password-input-input')
@@ -258,9 +243,11 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when the input is not a `password` type', () => {
-        return expect(
-          initExample('default', {
+      test('throws when the input is not a `password` type', async ({
+        page
+      }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root, { selector }) {
               // Make the input a number input instead
               $root.querySelector(selector)?.setAttribute('type', 'number')
@@ -274,9 +261,9 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when the button is missing', () => {
-        return expect(
-          initExample('default', {
+      test('throws when the button is missing', async ({ page }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root, { selector }) {
               $root.querySelector(selector)?.remove()
             },
@@ -289,9 +276,11 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when the button is not a <button> element', () => {
-        return expect(
-          initExample('default', {
+      test('throws when the button is not a <button> element', async ({
+        page
+      }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root, { selector }) {
               const $div = document.createElement('div')
               $div.classList.add('nhsuk-js-password-input-toggle')
@@ -308,9 +297,11 @@ describe('Password input', () => {
         )
       })
 
-      it('throws when the button is not a `button` type', () => {
-        return expect(
-          initExample('default', {
+      test('throws when the button is not a `button` type', async ({
+        page
+      }) => {
+        await expect(
+          initExample(page, 'default', {
             beforeInitialisation($root, { selector }) {
               // Make the button a submit button
               $root.querySelector(selector)?.setAttribute('type', 'submit')
@@ -329,24 +320,24 @@ describe('Password input', () => {
   // A bundle of tests for when the password has been shown via a user interaction.
   // It's been extracted out as multiple tests check for this state.
   function itShowsThePassword() {
-    it('changes the input to type="text"', async () => {
-      expect(await getAttribute($input, 'type')).toBe('text')
+    test('changes the input to type="text"', async () => {
+      await expect($input).toHaveAttribute('type', 'text')
     })
 
-    it('changes the status to aria-live="polite"', async () => {
-      expect(await getAttribute($status, 'aria-live')).toBe('polite')
+    test('changes the status to aria-live="polite"', async () => {
+      await expect($status).toHaveAttribute('aria-live', 'polite')
     })
 
-    it('changes the status to say the password is visible', async () => {
-      expect(await getText($status)).toBe('Your password is visible')
+    test('changes the status to say the password is visible', async () => {
+      await expect($status).toHaveText('Your password is visible')
     })
 
-    it('changes the button text to "hide"', async () => {
-      expect(await getText($button)).toBe('Hide')
+    test('changes the button text to "hide"', async () => {
+      await expect($button).toHaveText('Hide')
     })
 
-    it('changes the button aria-label to "hide password"', async () => {
-      expect(await getAttribute($button, 'aria-label')).toBe('Hide password')
+    test('changes the button aria-label to "hide password"', async () => {
+      await expect($button).toHaveAttribute('aria-label', 'Hide password')
     })
   }
 
@@ -354,25 +345,25 @@ describe('Password input', () => {
   // (Note: NOT when the component is initially loaded.)
   // It's been extracted out as multiple tests check for this state.
   function itHidesThePassword() {
-    it('changes the input to type="password"', async () => {
-      expect(await getAttribute($input, 'type')).toBe('password')
+    test('changes the input to type="password"', async () => {
+      await expect($input).toHaveAttribute('type', 'password')
     })
 
-    it('changes the status to say the password is hidden', async () => {
-      expect(await getText($status)).toBe('Your password is hidden')
+    test('changes the status to say the password is hidden', async () => {
+      await expect($status).toHaveText('Your password is hidden')
     })
 
-    it('changes the button text to "show"', async () => {
-      expect(await getText($button)).toBe('Show')
+    test('changes the button text to "show"', async () => {
+      await expect($button).toHaveText('Show')
     })
 
-    it('changes the button aria-label to "show password"', async () => {
-      expect(await getAttribute($button, 'aria-label')).toBe('Show password')
+    test('changes the button aria-label to "show password"', async () => {
+      await expect($button).toHaveAttribute('aria-label', 'Show password')
     })
   }
 })
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
- * @import { ElementHandle } from 'puppeteer'
+ * @import { Locator, Page } from '@playwright/test'
  */

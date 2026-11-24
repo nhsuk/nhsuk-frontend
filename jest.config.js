@@ -1,5 +1,3 @@
-const { HEADLESS } = process.env
-
 /**
  * Jest project config defaults
  *
@@ -32,10 +30,6 @@ module.exports = {
     '!<rootDir>/packages/*/src/**/*.test.{js,mjs}'
   ],
 
-  // Reduce CPU usage during project test runs
-  // Use only 1x browser window using `HEADLESS=false`
-  maxWorkers: HEADLESS === 'false' ? 1 : '25%',
-
   projects: [
     {
       ...config,
@@ -48,23 +42,6 @@ module.exports = {
       displayName: 'JavaScript behaviour tests',
       preset: '@nhsuk/frontend-helpers/jest/environment/jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
-    },
-    {
-      ...config,
-      displayName: 'JavaScript component tests',
-      preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
-      testMatch: [
-        '<rootDir>/**/*.browser.test.{js,mjs}',
-
-        // Exclude accessibility tests
-        '!**/accessibility.browser.test.mjs'
-      ]
-    },
-    {
-      ...config,
-      displayName: 'Accessibility tests',
-      preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
-      testMatch: ['<rootDir>/**/accessibility.browser.test.mjs']
     }
   ],
 

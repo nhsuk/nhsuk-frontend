@@ -12,6 +12,7 @@ import pluginJest from 'eslint-plugin-jest'
 import pluginJsdoc from 'eslint-plugin-jsdoc'
 import pluginNode from 'eslint-plugin-n'
 import pluginNodeImport from 'eslint-plugin-node-import'
+import pluginPlaywright from 'eslint-plugin-playwright'
 import pluginPromise from 'eslint-plugin-promise'
 import pluginTestingLibrary from 'eslint-plugin-testing-library'
 import globals from 'globals'
@@ -323,15 +324,10 @@ export default defineConfig([
   },
   {
     // Configure ESLint in test files (Browser environment only)
-    files: ['**/*.browser.test.mjs', '**/jest.puppeteer.setup.*'],
+    files: ['**/*.browser.test.mjs'],
+    extends: [pluginPlaywright.configs['flat/recommended']],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...pluginJest.environments.globals.globals,
-        page: 'readonly',
-        browser: 'readonly',
-        jestPuppeteer: 'readonly'
-      }
+      globals: globals.browser
     }
   },
   {

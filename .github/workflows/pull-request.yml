@@ -116,28 +116,27 @@ jobs:
         task:
           - description: JavaScript unit tests
             name: test-unit
+            runner: jest
             cache: .cache/jest
             coverage: true
 
           - description: JavaScript behaviour tests
             name: test-behaviour
+            runner: jest
             cache: .cache/jest
             coverage: true
 
           - description: JavaScript component tests
             name: test-component
-            run: npm run install:puppeteer
-            cache: |
-              ~/.cache/puppeteer
-              .cache/jest
-            coverage: true
+            runner: playwright
+            run: npm run install:playwright
+            cache: ~/.cache/ms-playwright
 
           - description: Accessibility tests
             name: test-accessibility
-            run: npm run install:puppeteer
-            cache: |
-              ~/.cache/puppeteer
-              .cache/jest
+            runner: playwright
+            run: npm run install:playwright
+            cache: ~/.cache/ms-playwright
 
     steps:
       - name: Checkout
@@ -177,11 +176,15 @@ jobs:
         if: ${{ matrix.task.run }}
         run: ${{ matrix.task.run }}
 
-      - name: Run test project
+      - name: Run test project (Jest)
+        if: ${{ matrix.task.runner == 'jest' }}
+        run: npx jest --color ${{ format('--coverage --coverageDirectory="coverage/{0}" --selectProjects "{1}"', matrix.task.name, matrix.task.description) }}
 
-        # Use 2x CPU cores for hosted GitHub runners
-        # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
-        run: npx jest --color ${{ format('--coverage={0} --coverageDirectory="coverage/{1}" --maxWorkers=2 --selectProjects "{2}"', matrix.task.coverage || false, matrix.task.name, matrix.task.description) }}
+      - name: Run test project (Playwright)
+        if: ${{ matrix.task.runner == 'playwright' }}
+        run: npx playwright test ${{ format('--project "{0}"', matrix.task.description) }}
+        env:
+          FORCE_COLOR: 1
 
       - name: Save test coverage
         if: ${{ matrix.task.coverage }}
@@ -269,11 +272,16 @@ jobs:
         uses: ./.github/workflows/actions/diff
         id: changes
 
+      - name: Cache browsers
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
+        uses: actions/cache@v6
+        with:
+          key: test-regression
+          path: ~/.cache/ms-playwright
+
       - name: Download browsers
         if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
-        run: |
-          npm run install:puppeteer
-          npm run install:playwright
+        run: npm run install:playwright
 
       - name: Run backstop
         if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}

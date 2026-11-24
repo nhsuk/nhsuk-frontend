@@ -1,10 +1,11 @@
-import { getProperty, render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import { Button } from './button.mjs'
 import { examples } from './fixtures.mjs'
 
-describe('Button', () => {
-  /** @type {ElementHandle<HTMLElement>} */
+test.describe('Button', () => {
+  /** @type {Locator} */
   let $component
 
   const clickTimeoutTime = 1000 // ms
@@ -15,15 +16,14 @@ describe('Button', () => {
 
   /**
    * @template {object} HandlerContext
+   * @param {Page} page - Playwright page object
    * @param {keyof typeof examples} example
-   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
    */
-  async function initExample(example, browserOptions) {
+  async function initExample(page, example, browserOptions) {
     await render(page, 'button', examples[example], browserOptions)
 
-    $component = /** @type {ElementHandle<HTMLElement>} */ (
-      await page.$(`[data-module="${Button.moduleName}"]`)
-    )
+    $component = page.locator(`[data-module="${Button.moduleName}"]`)
 
     await setButtonTracking()
   }
@@ -31,8 +31,8 @@ describe('Button', () => {
   /**
    * Sets the number of times a button was clicked
    *
-   * @param {ElementHandle<HTMLElement> | null} [$button] - Puppeteer button element
-   * @returns {Promise<ElementHandle<HTMLElement>>} Puppeteer button element
+   * @param {Locator} [$button] - Playwright button element
+   * @returns {Promise<Locator>} Playwright button element
    */
   async function setButtonTracking($button = $component) {
     if (!$button) {
@@ -69,7 +69,7 @@ describe('Button', () => {
   /**
    * Gets the number of times the button was clicked
    *
-   * @param {ElementHandle<HTMLElement>} [$button] - Puppeteer button element
+   * @param {Locator} [$button] - Playwright button element
    * @returns {Promise<{ clicked: number; prevented: number; }>} Number of times the button was clicked
    */
   function getButtonTracking($button = $component) {
@@ -79,12 +79,12 @@ describe('Button', () => {
     }))
   }
 
-  describe('Button as a link', () => {
-    beforeEach(async () => {
-      await initExample('as a link')
+  test.describe('Button as a link', () => {
+    test.beforeEach(async ({ page }) => {
+      await initExample(page, 'as a link')
     })
 
-    it('does not prevent double clicks by default', async () => {
+    test('does not prevent double clicks by default', async () => {
       await $component.click()
       await $component.click()
 
@@ -94,31 +94,26 @@ describe('Button', () => {
       })
     })
 
-    it('triggers the click event when the space key is pressed', async () => {
-      const $button = await $component.toElement('a')
-      await $button.focus()
+    test('triggers the click event when the space key is pressed', async ({
+      page
+    }) => {
+      const href = await $component.evaluate(
+        ($el) => /** @type {HTMLAnchorElement} */ ($el).href
+      )
 
-      // we need to start the waitForNavigation() before the keyboard action
-      // so we return a promise that is fulfilled when the navigation and the keyboard action are
-      // respectively fulfilled
-      // this is somewhat counter intuitive, as we humans expect to act and then wait for something.
-      await Promise.all([
-        page.waitForNavigation(),
-        page.keyboard.press('Space')
-      ])
+      await $component.focus()
+      await page.keyboard.press('Space')
 
-      const href = await getProperty($button, 'href')
-
-      expect(href).toBe(page.url())
+      expect(page.url()).toBe(href)
     })
   })
 
-  describe('Button as a button', () => {
-    beforeEach(async () => {
-      await initExample('default')
+  test.describe('Button as a button', () => {
+    test.beforeEach(async ({ page }) => {
+      await initExample(page, 'default')
     })
 
-    it('does not prevent double clicks by default', async () => {
+    test('does not prevent double clicks by default', async () => {
       await $component.click()
       await $component.click()
 
@@ -129,17 +124,19 @@ describe('Button', () => {
     })
   })
 
-  describe('JavaScript configuration', () => {
-    describe('during initialisation', () => {
-      it('configures `preventDoubleClick: true` to prevent double clicks', async () => {
-        await initExample('default', {
+  test.describe('JavaScript configuration', () => {
+    test.describe('during initialisation', () => {
+      test('configures `preventDoubleClick: true` to prevent double clicks', async ({
+        page
+      }) => {
+        await initExample(page, 'default', {
           config: {
             preventDoubleClick: true
           }
         })
 
         await $component.click({
-          count: 2
+          clickCount: 2
         })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
@@ -148,15 +145,17 @@ describe('Button', () => {
         })
       })
 
-      it('configures `preventDoubleClick: true` but allows multiple intentional clicks', async () => {
-        await initExample('default', {
+      test('configures `preventDoubleClick: true` but allows multiple intentional clicks', async ({
+        page
+      }) => {
+        await initExample(page, 'default', {
           config: {
             preventDoubleClick: true
           }
         })
 
         await $component.click({
-          count: 2,
+          clickCount: 2,
           delay: debouncedWaitTime
         })
 
@@ -166,28 +165,30 @@ describe('Button', () => {
         })
       })
 
-      it('configures `preventDoubleClick: true` to prevent double clicks (configured button only)', async () => {
-        await initExample('default', {
+      test('configures `preventDoubleClick: true` to prevent double clicks (configured button only)', async ({
+        page
+      }) => {
+        await initExample(page, 'default', {
           config: {
             preventDoubleClick: true
           }
         })
 
-        $component.evaluate(($el) =>
+        await $component.evaluate(($el) =>
           $el.parentNode?.appendChild($el.cloneNode(true))
         )
 
         // Locate original and cloned button
         const $button1 = await setButtonTracking(
-          await page.$('button:nth-child(1)')
+          page.locator('button:nth-child(1)')
         )
 
         const $button2 = await setButtonTracking(
-          await page.$('button:nth-child(2)')
+          page.locator('button:nth-child(2)')
         )
 
         await $button1.click({
-          count: 2
+          clickCount: 2
         })
 
         await $button2.click()
@@ -205,8 +206,10 @@ describe('Button', () => {
         })
       })
 
-      it('configures `preventDoubleClick: false` to explicitly allow double clicks', async () => {
-        await initExample('default', {
+      test('configures `preventDoubleClick: false` to explicitly allow double clicks', async ({
+        page
+      }) => {
+        await initExample(page, 'default', {
           config: {
             preventDoubleClick: false
           }
@@ -222,12 +225,14 @@ describe('Button', () => {
       })
     })
 
-    describe('with HTML data attributes', () => {
-      it('configures `preventDoubleClick: true` to prevent double clicks', async () => {
-        await initExample('with double click prevented')
+    test.describe('with HTML data attributes', () => {
+      test('configures `preventDoubleClick: true` to prevent double clicks', async ({
+        page
+      }) => {
+        await initExample(page, 'with double click prevented')
 
         await $component.click({
-          count: 2
+          clickCount: 2
         })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
@@ -236,11 +241,13 @@ describe('Button', () => {
         })
       })
 
-      it('configures `preventDoubleClick: true` but allows multiple intentional clicks', async () => {
-        await initExample('with double click prevented')
+      test('configures `preventDoubleClick: true` but allows multiple intentional clicks', async ({
+        page
+      }) => {
+        await initExample(page, 'with double click prevented')
 
         await $component.click({
-          count: 2,
+          clickCount: 2,
           delay: debouncedWaitTime
         })
 
@@ -250,15 +257,17 @@ describe('Button', () => {
         })
       })
 
-      it('uses `preventDoubleClick` data attribute instead of JavaScript `preventDoubleClick`', async () => {
-        await initExample('with double click not prevented', {
+      test('uses `preventDoubleClick` data attribute instead of JavaScript `preventDoubleClick`', async ({
+        page
+      }) => {
+        await initExample(page, 'with double click not prevented', {
           config: {
             preventDoubleClick: true
           }
         })
 
         await $component.click({
-          count: 2
+          clickCount: 2
         })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
@@ -269,10 +278,10 @@ describe('Button', () => {
     })
   })
 
-  describe('Error handling', () => {
-    it('can throw a SupportError if appropriate', () => {
-      return expect(
-        initExample('default', {
+  test.describe('Error handling', () => {
+    test('can throw a SupportError if appropriate', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -282,9 +291,9 @@ describe('Button', () => {
       )
     })
 
-    it('throws when initialised twice', () => {
-      return expect(
-        initExample('default', {
+    test('throws when initialised twice', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           async afterInitialisation($root) {
             const { Button } = await import('nhsuk-frontend')
             new Button($root)
@@ -295,9 +304,9 @@ describe('Button', () => {
       )
     })
 
-    it('throws when $root is not set', () => {
-      return expect(
-        initExample('default', {
+    test('throws when $root is not set', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -307,9 +316,9 @@ describe('Button', () => {
       )
     })
 
-    it('throws when receiving the wrong type for $root', () => {
-      return expect(
-        initExample('default', {
+    test('throws when receiving the wrong type for $root', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             const $svg = document.createElementNS(
               'http://www.w3.org/2000/svg',
@@ -331,5 +340,5 @@ describe('Button', () => {
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
- * @import { ElementHandle } from 'puppeteer'
+ * @import { Locator, Page } from '@playwright/test'
  */

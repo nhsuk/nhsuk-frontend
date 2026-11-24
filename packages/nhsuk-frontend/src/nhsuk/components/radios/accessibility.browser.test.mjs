@@ -3,15 +3,16 @@ import {
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import * as fixtures from './fixtures.mjs'
 
-describe('Radios', () => {
+test.describe('Radios', () => {
   const examples = Object.entries(fixtures.examples)
 
   let /** @type {RuleObject} */ axeRules = {}
 
-  beforeEach(() => {
+  test.beforeEach(() => {
     axeRules = {
       /**
        * Ignore 'ARIA attribute is not allowed: aria-expanded="false"'
@@ -28,17 +29,21 @@ describe('Radios', () => {
     }
   })
 
-  it('listing page passes accessibility tests', async () => {
+  test('listing page', async ({ page }) => {
     await goToComponent(page, 'radios')
     await expect(axe(page, axeRules)).resolves.toHaveLength(0)
   })
 
-  describe.each(examples)('%s', (name, example) => {
-    const list = getOptions(name, example)
+  examples.forEach(([name, example]) => {
+    test(name, async ({ page }) => {
+      const list = getOptions(name, example)
 
-    it.each(list)('$title passes accessibility tests', async (options) => {
-      await goToComponent(page, 'radios', options)
-      await expect(axe(page, axeRules, options)).resolves.toHaveLength(0)
+      for (const options of list) {
+        await test.step(options.title, async () => {
+          await goToComponent(page, 'radios', options)
+          await expect(axe(page, axeRules, options)).resolves.toHaveLength(0)
+        })
+      }
     })
   })
 })

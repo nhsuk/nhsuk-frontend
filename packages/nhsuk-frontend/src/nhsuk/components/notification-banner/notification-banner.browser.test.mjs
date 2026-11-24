@@ -1,153 +1,148 @@
-import { getAttribute, render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import { examples } from './fixtures.mjs'
 import { NotificationBanner } from './notification-banner.mjs'
 
-describe('Notification banner', () => {
-  /** @type {ElementHandle<HTMLElement>} */
+test.describe('Notification banner', () => {
+  /** @type {Locator} */
   let $component
 
   /**
    * @template {object} HandlerContext
+   * @param {Page} page - Playwright page object
    * @param {keyof typeof examples} example
-   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
    */
-  async function initExample(example, browserOptions) {
+  async function initExample(page, example, browserOptions) {
     await render(page, 'notification-banner', examples[example], browserOptions)
 
-    $component = /** @type {ElementHandle<HTMLElement>} */ (
-      await page.$(`[data-module="${NotificationBanner.moduleName}"]`)
+    $component = page.locator(
+      `[data-module="${NotificationBanner.moduleName}"]`
     )
   }
 
-  describe('when variant is set to "success"', () => {
-    it('has the correct tabindex attribute to be focused with JavaScript', async () => {
-      await initExample('with success variant')
+  test.describe('when variant is set to "success"', () => {
+    test('has the correct tabindex attribute to be focused with JavaScript', async ({
+      page
+    }) => {
+      await initExample(page, 'with success variant')
 
-      expect(await getAttribute($component, 'tabindex')).toBe('-1')
+      await expect($component).toHaveAttribute('tabindex', '-1')
     })
 
-    it('is automatically focused when the page loads', async () => {
-      await initExample('with success variant')
+    test('is automatically focused when the page loads', async ({ page }) => {
+      await initExample(page, 'with success variant')
 
-      const activeElementModuleName = await page.evaluate(() =>
-        document.activeElement?.getAttribute('data-module')
-      )
-
-      expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
+      await expect($component).toBeFocused()
     })
 
-    it('removes the tabindex attribute on blur', async () => {
-      await initExample('with success variant')
+    test('removes the tabindex attribute on blur', async ({ page }) => {
+      await initExample(page, 'with success variant')
 
-      await $component.evaluate(($el) => $el.blur())
+      await $component.blur()
 
-      expect(await getAttribute($component, 'tabindex')).toBeNull()
+      await expect($component).not.toHaveAttribute('tabindex')
     })
 
-    describe('and role is overridden to "region"', () => {
-      beforeAll(async () => {
+    test.describe('and role is overridden to "region"', () => {
+      test.beforeEach(async ({ page }) => {
         await initExample(
+          page,
           'role=alert overridden to role=region, with success variant'
         )
       })
 
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
+      test('does not have a tabindex attribute', async () => {
+        await expect($component).not.toHaveAttribute('tabindex')
       })
 
-      it('does not focus the notification banner', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
+      test('does not focus the notification banner', async () => {
+        await expect($component).not.toBeFocused()
       })
     })
 
-    describe('and a custom tabindex is set', () => {
-      beforeAll(async () => {
-        await initExample('custom tabindex')
+    test.describe('and a custom tabindex is set', () => {
+      test.beforeEach(async ({ page }) => {
+        await initExample(page, 'custom tabindex')
       })
 
-      it('does not remove the tabindex attribute on blur', async () => {
-        await $component.evaluate(($el) => $el.blur())
+      test('does not remove the tabindex attribute on blur', async () => {
+        await $component.blur()
 
-        expect(await getAttribute($component, 'tabindex')).toBe('2')
+        await expect($component).toHaveAttribute('tabindex', '2')
       })
     })
   })
 
-  describe('JavaScript configuration', () => {
-    describe('during initialisation', () => {
-      it('configures `disableAutoFocus: true` to prevent auto-focus', async () => {
-        await initExample('with success variant', {
+  test.describe('JavaScript configuration', () => {
+    test.describe('during initialisation', () => {
+      test('configures `disableAutoFocus: true` to prevent auto-focus', async ({
+        page
+      }) => {
+        await initExample(page, 'with success variant', {
           config: {
             disableAutoFocus: true
           }
         })
 
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
         // Does not add the tabindex attribute on page load
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
+        await expect($component).not.toHaveAttribute('tabindex')
 
         // Does not automatically focus on page load
-        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
+        await expect($component).not.toBeFocused()
       })
 
-      it('configures `disableAutoFocus: false` to explicitly enable auto-focus', async () => {
-        await initExample('with success variant', {
+      test('configures `disableAutoFocus: false` to explicitly enable auto-focus', async ({
+        page
+      }) => {
+        await initExample(page, 'with success variant', {
           config: {
             disableAutoFocus: false
           }
         })
 
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
         // Adds the tabindex attribute on page load
-        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+        await expect($component).toHaveAttribute('tabindex', '-1')
 
         // Automatically focused on page load
-        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
+        await expect($component).toBeFocused()
       })
     })
 
-    describe('with HTML data attributes', () => {
-      it('configures `disableAutoFocus: true` to prevent auto-focus', async () => {
-        await initExample('auto-focus disabled, with success variant')
-
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
+    test.describe('with HTML data attributes', () => {
+      test('configures `disableAutoFocus: true` to prevent auto-focus', async ({
+        page
+      }) => {
+        await initExample(page, 'auto-focus disabled, with success variant')
 
         // Does not add the tabindex attribute on page load
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
+        await expect($component).not.toHaveAttribute('tabindex')
 
         // Does not automatically focus on page load
-        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
+        await expect($component).not.toBeFocused()
       })
 
-      it('configures `disableAutoFocus: false` to explicitly enable auto-focus', async () => {
-        await initExample('auto-focus explicitly enabled, with success variant')
-
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
+      test('configures `disableAutoFocus: false` to explicitly enable auto-focus', async ({
+        page
+      }) => {
+        await initExample(
+          page,
+          'auto-focus explicitly enabled, with success variant'
         )
 
         // Adds the tabindex attribute on page load
-        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+        await expect($component).toHaveAttribute('tabindex', '-1')
 
         // Automatically focused on page load
-        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
+        await expect($component).toBeFocused()
       })
 
-      it('uses `disableAutoFocus` data attribute instead of JavaScript `disableAutoFocus`', async () => {
+      test('uses `disableAutoFocus` data attribute instead of JavaScript `disableAutoFocus`', async ({
+        page
+      }) => {
         await initExample(
+          page,
           'auto-focus explicitly enabled, with success variant',
           {
             config: {
@@ -156,23 +151,19 @@ describe('Notification banner', () => {
           }
         )
 
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
         // Adds the tabindex attribute on page load
-        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+        await expect($component).toHaveAttribute('tabindex', '-1')
 
         // Automatically focused on page load
-        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
+        await expect($component).toBeFocused()
       })
     })
   })
 
-  describe('Error handling', () => {
-    it('can throw a SupportError if appropriate', () => {
-      return expect(
-        initExample('default', {
+  test.describe('Error handling', () => {
+    test('can throw a SupportError if appropriate', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -182,9 +173,9 @@ describe('Notification banner', () => {
       )
     })
 
-    it('throws when initialised twice', () => {
-      return expect(
-        initExample('default', {
+    test('throws when initialised twice', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           async afterInitialisation($root) {
             const { NotificationBanner } = await import('nhsuk-frontend')
             new NotificationBanner($root)
@@ -195,9 +186,9 @@ describe('Notification banner', () => {
       )
     })
 
-    it('throws when $root is not set', () => {
-      return expect(
-        initExample('default', {
+    test('throws when $root is not set', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -207,9 +198,9 @@ describe('Notification banner', () => {
       )
     })
 
-    it('throws when receiving the wrong type for $root', () => {
-      return expect(
-        initExample('default', {
+    test('throws when receiving the wrong type for $root', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
             $root.outerHTML = `<svg data-module="nhsuk-notification-banner"></svg>`
@@ -224,5 +215,5 @@ describe('Notification banner', () => {
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
- * @import { ElementHandle } from 'puppeteer'
+ * @import { Locator, Page } from '@playwright/test'
  */

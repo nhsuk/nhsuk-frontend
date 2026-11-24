@@ -4,12 +4,12 @@
 
 To run an npm script, run `npm run <script_name>` on the command line.
 
-| command | action                                                     |
-| ------- | ---------------------------------------------------------- |
-| `start` | Runs the _default_ gulp task (runs pre script `build`)     |
-| `test`  | Runs tests using ESLint (runs pre scripts `lint`, `build`) |
-| `lint`  | Runs linting and formatting checks only                    |
-| `build` | Compiles CSS, JS and builds the review app                 |
+| command | action                                                                  |
+| ------- | ----------------------------------------------------------------------- |
+| `start` | Runs Gulp watch tasks (runs pre script `build`)                         |
+| `test`  | Runs tests using Jest and Playwright (runs pre scripts `lint`, `build`) |
+| `lint`  | Runs linting and formatting checks only                                 |
+| `build` | Compiles CSS, JS and builds the review app                              |
 
 You can optionally add `--ignore-scripts` to skip pre and post scripts.
 

@@ -1,42 +1,39 @@
-import {
-  getAttribute,
-  getProperty,
-  goToExample,
-  isVisible,
-  render
-} from '@nhsuk/frontend-helpers/playwright.mjs'
+import { goToExample, render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import { examples } from './fixtures.mjs'
 import { Radios } from './radios.mjs'
 
-describe('Radios', () => {
-  /** @type {ElementHandle<HTMLElement>} */
+test.describe('Radios', () => {
+  /** @type {Locator} */
   let $component
 
   /**
    * @template {object} HandlerContext
+   * @param {Page} page - Playwright page object
    * @param {keyof typeof examples} example
-   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
    */
-  async function initExample(example, browserOptions) {
+  async function initExample(page, example, browserOptions) {
     await render(page, 'radios', examples[example], browserOptions)
 
-    $component = /** @type {ElementHandle<HTMLElement>} */ (
-      await page.$(`[data-module="${Radios.moduleName}"]`)
-    )
+    $component = page.locator(`[data-module="${Radios.moduleName}"]`)
   }
 
-  describe('input position', () => {
+  test.describe('input position', () => {
     // Check that the input sits above the label, enabling its proper detection
     // when exploring by touch or using automation tools like Selenium
-    it('displays the input above the label', async () => {
-      await initExample('default')
+    test('displays the input above the label', async ({ page }) => {
+      await initExample(page, 'default')
 
-      const $firstInput = /** @type {ElementHandle} */ (
-        await page.$('.nhsuk-radios__input')
-      )
+      const $firstInput = page.locator('.nhsuk-radios__input').first()
 
-      const clickPosition = await $firstInput.clickablePoint()
+      const { x, y, width, height } =
+        /** @type {{ x: number, y: number, width: number, height: number }} */ (
+          await $firstInput.boundingBox()
+        )
+
+      const clickPosition = { x: x + width / 2, y: y + height / 2 }
 
       const elementTagNames = await page.evaluate(({ x, y }) => {
         return document.elementsFromPoint(x, y).map(($el) => $el.tagName)
@@ -47,279 +44,275 @@ describe('Radios', () => {
     })
   })
 
-  describe('with conditional content', () => {
-    describe('when JavaScript is unavailable or fails', () => {
-      beforeAll(async () => {
-        await page.setJavaScriptEnabled(false)
-      })
+  test.describe('with conditional content', () => {
+    test.describe('when JavaScript is unavailable or fails', () => {
+      test.use({ javaScriptEnabled: false })
 
-      afterAll(async () => {
-        await page.setJavaScriptEnabled(true)
-      })
-
-      describe('with conditional content', () => {
-        /** @type {ElementHandle<HTMLInputElement>[]} */
+      test.describe('with conditional content', () => {
+        /** @type {Locator} */
         let $inputs
 
-        /** @type {ElementHandle[]} */
+        /** @type {Locator} */
         let $conditionals
 
-        beforeAll(async () => {
-          await initExample('with conditional content')
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'with conditional content')
 
-          $inputs = await $component.$$('input.nhsuk-radios__input')
-          $conditionals = await $component.$$('.nhsuk-radios__conditional')
+          $inputs = $component.locator('.nhsuk-radios__input')
+          $conditionals = $component.locator('.nhsuk-radios__conditional')
         })
 
-        it('includes the expected number of inputs and conditionals', () => {
-          expect($inputs).toHaveLength(3)
-          expect($conditionals).toHaveLength(3)
+        test('includes the expected number of inputs and conditionals', async () => {
+          await expect($inputs).toHaveCount(3)
+          await expect($conditionals).toHaveCount(3)
         })
 
-        it('has no ARIA attributes applied', async () => {
-          const $inputsWithAriaExpanded = await $component.$$(
+        test('has no ARIA attributes applied', async () => {
+          const $inputsWithAriaExpanded = $component.locator(
             '.nhsuk-radios__input[aria-expanded]'
           )
 
-          const $inputsWithAriaControls = await $component.$$(
+          const $inputsWithAriaControls = $component.locator(
             '.nhsuk-radios__input[aria-controls]'
           )
 
-          expect($inputsWithAriaExpanded).toHaveLength(0)
-          expect($inputsWithAriaControls).toHaveLength(0)
+          await expect($inputsWithAriaExpanded).toHaveCount(0)
+          await expect($inputsWithAriaControls).toHaveCount(0)
         })
 
-        it('falls back to making all conditional content visible', () => {
-          return Promise.all(
-            $conditionals.map(async ($conditional) => {
-              return expect(await isVisible($conditional)).toBe(true)
-            })
-          )
+        test('falls back to making all conditional content visible', async () => {
+          for (const $conditional of await $conditionals.all()) {
+            await expect($conditional).toBeVisible()
+          }
         })
       })
     })
 
-    describe('when JavaScript is available', () => {
-      describe('with conditional item checked', () => {
-        /** @type {ElementHandle<HTMLInputElement>[]} */
+    test.describe('when JavaScript is available', () => {
+      test.describe('with conditional item checked', () => {
+        /** @type {Locator} */
         let $inputs
 
-        beforeEach(async () => {
-          await initExample('with pre-checked value')
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'with pre-checked value')
 
-          $inputs = await $component.$$('input.nhsuk-radios__input')
+          $inputs = $component.locator('.nhsuk-radios__input')
         })
 
-        it('has conditional content revealed that is associated with a checked input', async () => {
-          const $input = $inputs[0] // First input, checked
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('has conditional content revealed that is associated with a checked input', async () => {
+          const $input = $inputs.nth(0) // First input, checked
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
         })
 
-        it('has no conditional content revealed that is associated with an unchecked input', async () => {
-          const $input = $inputs[$inputs.length - 1] // Last input, unchecked
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('has no conditional content revealed that is associated with an unchecked input', async () => {
+          const $input = $inputs.last() // Last input, unchecked
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
         })
       })
 
-      describe('with conditional content', () => {
-        /** @type {ElementHandle<HTMLInputElement>[]} */
+      test.describe('with conditional content', () => {
+        /** @type {Locator} */
         let $inputs
 
-        beforeEach(async () => {
-          await initExample('with conditional content')
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'with conditional content')
 
-          $inputs = await $component.$$('input.nhsuk-radios__input')
+          $inputs = $component.locator('.nhsuk-radios__input')
         })
 
-        it('indicates when conditional content is collapsed or revealed', async () => {
-          const $input = $inputs[0] // First input, with conditional content
+        test('indicates when conditional content is collapsed or revealed', async () => {
+          const $input = $inputs.nth(0) // First input, with conditional content
 
           // Initially collapsed
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await getAttribute($input, 'aria-expanded')).toBe('false')
+          await expect($input).not.toBeChecked()
+          await expect($input).toHaveAttribute('aria-expanded', 'false')
 
           // Toggle revealed
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await getAttribute($input, 'aria-expanded')).toBe('true')
+          await expect($input).toBeChecked()
+          await expect($input).toHaveAttribute('aria-expanded', 'true')
 
           // Stays revealed (unlike checkboxes)
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await getAttribute($input, 'aria-expanded')).toBe('true')
+          await expect($input).toBeChecked()
+          await expect($input).toHaveAttribute('aria-expanded', 'true')
         })
 
-        it('toggles the conditional content when clicking an input', async () => {
-          const $input = $inputs[0] // First input, with conditional content
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('toggles the conditional content when clicking an input', async () => {
+          const $input = $inputs.nth(0) // First input, with conditional content
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
           // Initially collapsed
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
 
           // Toggle revealed
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
 
           // Stays revealed (unlike checkboxes)
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
         })
 
-        it('toggles the conditional content when using an input with a keyboard', async () => {
-          const $input = $inputs[0] // First input, with conditional content
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('toggles the conditional content when using an input with a keyboard', async ({
+          page
+        }) => {
+          const $input = $inputs.nth(0) // First input, with conditional content
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
           // Initially collapsed
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
 
           // Toggle revealed
           await $input.focus()
           await page.keyboard.press('Space')
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
 
           // Stays revealed (unlike checkboxes)
           await page.keyboard.press('Space')
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
         })
       })
 
-      describe('with conditional content with special characters', () => {
-        it('does not error when ID of revealed content contains special characters', () => {
-          return expect(
-            initExample('with conditional content, special characters')
+      test.describe('with conditional content with special characters', () => {
+        test('does not error when ID of revealed content contains special characters', async ({
+          page
+        }) => {
+          await expect(
+            initExample(page, 'with conditional content, special characters')
           ).resolves.not.toThrow()
         })
       })
     })
   })
 
-  describe('with multiple groups', () => {
-    describe('when JavaScript is available', () => {
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+  test.describe('with multiple groups', () => {
+    test.describe('when JavaScript is available', () => {
+      /** @type {Locator} */
       let $inputsWarm
 
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+      /** @type {Locator} */
       let $inputsCool
 
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+      /** @type {Locator} */
       let $inputsNotInForm
 
-      beforeEach(async () => {
+      test.beforeEach(async ({ page }) => {
         await goToExample(page, 'multiple-radio-groups')
 
-        $inputsWarm = await page.$$('input.nhsuk-radios__input[id^="warm"]')
-        $inputsCool = await page.$$('input.nhsuk-radios__input[id^="cool"]')
+        $inputsWarm = page.locator('.nhsuk-radios__input[id^="warm"]')
+        $inputsCool = page.locator('.nhsuk-radios__input[id^="cool"]')
 
-        $inputsNotInForm = await page.$$(
-          'input.nhsuk-radios__input[id^="question-not-in-form"]'
+        $inputsNotInForm = page.locator(
+          '.nhsuk-radios__input[id^="question-not-in-form"]'
         )
       })
 
-      it('toggles conditional content in other groups', async () => {
-        const $conditionalWarm = await page.$(
-          `[id="${await getAttribute($inputsWarm[0], 'aria-controls')}"]`
+      test('toggles conditional content in other groups', async ({ page }) => {
+        const $conditionalWarm = page.locator(
+          `[id="${await $inputsWarm.nth(0).getAttribute('aria-controls')}"]`
         )
 
-        const $conditionalCool = await page.$(
-          `[id="${await getAttribute($inputsCool[0], 'aria-controls')}"]`
+        const $conditionalCool = page.locator(
+          `[id="${await $inputsCool.nth(0).getAttribute('aria-controls')}"]`
         )
 
         // Select red in warm colours
-        await $inputsWarm[0].click()
+        await $inputsWarm.nth(0).click()
 
-        expect(await isVisible($conditionalWarm)).toBe(true)
-        expect(await isVisible($conditionalCool)).toBe(false)
+        await expect($conditionalWarm).toBeVisible()
+        await expect($conditionalCool).toBeHidden()
 
         // Select blue in cool colours
-        await $inputsCool[0].click()
+        await $inputsCool.nth(0).click()
 
-        expect(await isVisible($conditionalWarm)).toBe(false)
-        expect(await isVisible($conditionalCool)).toBe(true)
+        await expect($conditionalWarm).toBeHidden()
+        await expect($conditionalCool).toBeVisible()
       })
 
-      it('toggles conditional content when not in a form', async () => {
-        const $conditionalWarm = await page.$(
-          `[id="${await getAttribute($inputsWarm[0], 'aria-controls')}"]`
+      test('toggles conditional content when not in a form', async ({
+        page
+      }) => {
+        const $conditionalWarm = page.locator(
+          `[id="${await $inputsWarm.nth(0).getAttribute('aria-controls')}"]`
         )
 
         // Select first input in radios not in a form
-        await $inputsNotInForm[0].click()
+        await $inputsNotInForm.nth(0).click()
 
-        expect(await isVisible($conditionalWarm)).toBe(false)
+        await expect($conditionalWarm).toBeHidden()
       })
     })
   })
 
-  describe('with multiple groups and conditional content', () => {
-    describe('when JavaScript is available', () => {
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+  test.describe('with multiple groups and conditional content', () => {
+    test.describe('when JavaScript is available', () => {
+      /** @type {Locator} */
       let $inputsPrimary
 
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+      /** @type {Locator} */
       let $inputsOther
 
-      beforeEach(async () => {
+      test.beforeEach(async ({ page }) => {
         await goToExample(page, 'conditional-reveals')
 
-        $inputsPrimary = await page.$$(
-          'input.nhsuk-radios__input[id^="fave-primary"]'
+        $inputsPrimary = page.locator(
+          '.nhsuk-radios__input[id^="fave-primary"]'
         )
 
-        $inputsOther = await page.$$(
-          'input.nhsuk-radios__input[id^="fave-other"]'
-        )
+        $inputsOther = page.locator('.nhsuk-radios__input[id^="fave-other"]')
       })
 
-      it('hides conditional content in other groups', async () => {
-        const $conditionalPrimary = await page.$(
-          `[id="${await getAttribute($inputsPrimary[1], 'aria-controls')}"]`
+      test('hides conditional content in other groups', async ({ page }) => {
+        const $conditionalPrimary = page.locator(
+          `[id="${await $inputsPrimary.nth(1).getAttribute('aria-controls')}"]`
         )
 
         // Choose the second radio in the first group, which reveals additional content
-        await $inputsPrimary[1].click()
+        await $inputsPrimary.nth(1).click()
 
         // Assert that conditional content is revealed
-        expect(await isVisible($conditionalPrimary)).toBe(true)
+        await expect($conditionalPrimary).toBeVisible()
 
         // Choose a different radio with the same name, but in a different group
-        await $inputsOther[1].click()
+        await $inputsOther.nth(1).click()
 
         // Expect conditional content to have been collapsed
-        expect(await isVisible($conditionalPrimary)).toBe(false)
+        await expect($conditionalPrimary).toBeHidden()
       })
     })
   })
 
-  describe('Error handling', () => {
-    it('can throw a SupportError if appropriate', () => {
-      return expect(
-        initExample('default', {
+  test.describe('Error handling', () => {
+    test('can throw a SupportError if appropriate', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -329,9 +322,9 @@ describe('Radios', () => {
       )
     })
 
-    it('throws when initialised twice', () => {
-      return expect(
-        initExample('default', {
+    test('throws when initialised twice', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           async afterInitialisation($root) {
             const { Radios } = await import('nhsuk-frontend')
             new Radios($root)
@@ -342,9 +335,9 @@ describe('Radios', () => {
       )
     })
 
-    it('throws when $root is not set', () => {
-      return expect(
-        initExample('default', {
+    test('throws when $root is not set', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -354,9 +347,9 @@ describe('Radios', () => {
       )
     })
 
-    it('throws when receiving the wrong type for $root', () => {
-      return expect(
-        initExample('default', {
+    test('throws when receiving the wrong type for $root', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root) {
             // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
             $root.outerHTML = `<svg data-module="nhsuk-radios"></svg>`
@@ -367,9 +360,9 @@ describe('Radios', () => {
       )
     })
 
-    it('throws when the input list is empty', () => {
-      return expect(
-        initExample('default', {
+    test('throws when the input list is empty', async ({ page }) => {
+      await expect(
+        initExample(page, 'default', {
           beforeInitialisation($root, { selector }) {
             $root.querySelectorAll(selector).forEach((item) => item.remove())
           },
@@ -382,9 +375,11 @@ describe('Radios', () => {
       )
     })
 
-    it('throws when a conditional target element is not found', () => {
-      return expect(
-        initExample('with conditional content', {
+    test('throws when a conditional target element is not found', async ({
+      page
+    }) => {
+      await expect(
+        initExample(page, 'with conditional content', {
           beforeInitialisation($root) {
             $root.querySelector('.nhsuk-radios__conditional')?.remove()
           }
@@ -398,5 +393,5 @@ describe('Radios', () => {
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
- * @import { ElementHandle } from 'puppeteer'
+ * @import { Locator, Page } from '@playwright/test'
  */

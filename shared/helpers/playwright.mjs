@@ -1,6 +1,6 @@
 import util from 'node:util'
 
-import { AxePuppeteer } from '@axe-core/puppeteer'
+import { AxeBuilder } from '@axe-core/playwright'
 import { mergeExample } from '@nhsuk/frontend-lib/components.mjs'
 import { components, names } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import slug from 'slug'
@@ -12,14 +12,14 @@ const {
 } = process.env
 
 /**
- * Axe Puppeteer reporter
+ * Axe Playwright reporter
  *
- * @param {Page} page - Puppeteer page object
+ * @param {Page} page - Playwright page object
  * @param {RuleObject} [overrides] - Axe rule overrides
  * @param {NavigationOptions} [options] - Navigation options
  */
 export async function axe(page, overrides = {}, options) {
-  const reporter = new AxePuppeteer(page)
+  const reporter = new AxeBuilder({ page })
     .setLegacyMode(true) // Share single page via iframe
     .include('body')
 
@@ -104,7 +104,7 @@ export async function axe(page, overrides = {}, options) {
 /**
  * Throw on page errors
  *
- * @type {Handler<unknown>}
+ * @param {Error} error - Page error
  */
 function onPageError(error) {
   throw error
@@ -113,7 +113,7 @@ function onPageError(error) {
 /**
  * Navigate to path
  *
- * @param {Page} page - Puppeteer page object
+ * @param {Page} page - Playwright page object
  * @param {string | URL} pathOrUrl - Path or URL to navigate to
  * @param {NavigationOptions} [options] - Navigation options
  */
@@ -141,7 +141,6 @@ async function goTo(page, pathOrUrl, options) {
   }
 
   await page.evaluateHandle('document.fonts.ready')
-  await page.bringToFront()
 
   return page
 }
@@ -149,7 +148,7 @@ async function goTo(page, pathOrUrl, options) {
 /**
  * Navigate to example
  *
- * @param {Page} page - Puppeteer page object
+ * @param {Page} page - Playwright page object
  * @param {string} example - Example name
  */
 export async function goToExample(page, example) {
@@ -159,7 +158,7 @@ export async function goToExample(page, example) {
 /**
  * Navigate to component preview page
  *
- * @param {Page} page - Puppeteer page object
+ * @param {Page} page - Playwright page object
  * @param {string} component - Component name
  * @param {NavigationOptions} [options] - Navigation options
  */
@@ -178,10 +177,10 @@ export async function goToComponent(page, component, options) {
  * - `afterInitialisation()`
  *
  * @template {object} HandlerContext
- * @param {Page} page - Puppeteer page object
+ * @param {Page} page - Playwright page object
  * @param {string} component - Component name
  * @param {MacroRenderOptions} [renderOptions] - Nunjucks macro render options
- * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+ * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
  */
 export async function render(page, component, renderOptions, browserOptions) {
   const html = components.render(component, renderOptions)
@@ -190,30 +189,32 @@ export async function render(page, component, renderOptions, browserOptions) {
   await goTo(page, './components/boilerplate/')
 
   // Inject rendered HTML into the page
-  await page.$eval(
-    '.app-placeholder',
-    (placeholder, html) => {
-      placeholder.innerHTML = html
-    },
-    html
-  )
+  await page.locator('.app-placeholder').evaluate(($placeholder, html) => {
+    $placeholder.innerHTML = html
+  }, html)
 
   const selector = `[data-module="nhsuk-${component}"]`
   const exportName = names.componentNameToClassName(component)
 
   // Run custom function before component init
   if (browserOptions?.beforeInitialisation) {
-    await page.$eval(
-      selector,
-      browserOptions.beforeInitialisation,
-      browserOptions.context ?? /** @type {HandlerContext} */ ({ selector })
-    )
+    await page
+      .locator(selector)
+      .first()
+      .evaluate(
+        /** @type {BrowserRenderFunction} */ (
+          browserOptions.beforeInitialisation
+        ),
+        browserOptions.context ?? { selector }
+      )
   }
 
   // Init component using JavaScript class
-  if (page.isJavaScriptEnabled()) {
+  if (
+    await page.evaluate(() => document.body.classList.contains('js-enabled'))
+  ) {
     const error = await page.evaluate(
-      async (selector, exportName, config) => {
+      async ({ selector, exportName, config }) => {
         const namespace = await import('nhsuk-frontend')
 
         // Find all component roots
@@ -229,12 +230,10 @@ export async function render(page, component, renderOptions, browserOptions) {
           return { name, message }
         }
       },
-      selector,
-      exportName,
-      browserOptions?.config
+      { selector, exportName, config: browserOptions?.config }
     )
 
-    // Throw Puppeteer errors back to Jest
+    // Throw Playwright errors back to test runner
     if (error) {
       const message = `Initialising \`new ${exportName}()\` threw:`
       throw new Error(`${message}\n\t${error.name}: ${error.message}`, {
@@ -246,11 +245,15 @@ export async function render(page, component, renderOptions, browserOptions) {
   // Run custom function after component init
   if (browserOptions?.afterInitialisation) {
     try {
-      await page.$eval(
-        selector,
-        browserOptions.afterInitialisation,
-        browserOptions.context ?? /** @type {HandlerContext} */ ({ selector })
-      )
+      await page
+        .locator(selector)
+        .first()
+        .evaluate(
+          /** @type {BrowserRenderFunction} */ (
+            browserOptions.afterInitialisation
+          ),
+          browserOptions.context ?? { selector }
+        )
     } catch (error) {
       const message = `After initialisation for \`new ${exportName}()\` threw:`
       throw new Error(`${message}\n\t${error.name}: ${error.message}`, {
@@ -311,7 +314,7 @@ export function getURL(path) {
  *
  * @param {string} name - Component name
  * @param {MacroExample} example - Nunjucks macro example
- * @returns {NavigationOptions[]} Navigation options list
+ * @returns Navigation options list
  */
 export function getOptions(name, example) {
   const { variants = [] } = example
@@ -331,110 +334,12 @@ export function getOptions(name, example) {
 }
 
 /**
- * Get property value for element
- *
- * @template {Element} ElementType
- * @template {keyof ElementType} PropertyType
- * @param {ElementHandle<ElementType> | null | undefined} $element - Puppeteer element handle
- * @param {PropertyType} propertyName - Property name to return value for
- * @returns {Promise<ElementType[PropertyType]>} Property value
- */
-export async function getProperty($element, propertyName) {
-  if (!$element) {
-    throw new TypeError('Element is not defined')
-  }
-
-  const handle = await $element.getProperty(propertyName)
-  return /** @type {ElementType[PropertyType]} */ (await handle.jsonValue())
-}
-
-/**
- * Get attribute value for element
- *
- * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
- * @param {string} attributeName - Attribute name to return value for
- * @returns {Promise<string | null>} Attribute value
- */
-export function getAttribute($element, attributeName) {
-  if (!$element) {
-    throw new TypeError('Element is not defined')
-  }
-
-  return $element.evaluate(($el, name) => $el.getAttribute(name), attributeName)
-}
-
-/**
- * Gets the accessible name of the given element, if it exists in the accessibility tree
- *
- * @param {Page} page - Puppeteer page object
- * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
- * @returns {Promise<string>} The element's accessible name
- * @throws {TypeError} If the element has no corresponding node in the accessibility tree
- */
-export async function getAccessibleName(page, $element) {
-  if (!$element) {
-    throw new TypeError('Element is not defined')
-  }
-
-  const snapshot = await page.accessibility.snapshot({
-    root: $element,
-    interestingOnly: false
-  })
-
-  // Purposefully doesn't use `?.` to return undefined if there's no node in the
-  // accessibility tree. This lets us distinguish different kinds of failures:
-  // - assertion on the name failing: we need to figure out
-  //   why the name is not set right
-  // - TypeError accessing `name`: we need to figure out
-  //   why there's no node in the accessibility tree
-  if (!snapshot?.name) {
-    throw new TypeError('Accessible name not found')
-  }
-
-  return snapshot.name
-}
-
-/**
- * Get text content for element
- *
- * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
- * @returns {Promise<string>} Text content
- */
-export async function getText($element) {
-  return /** @type {string} */ (await getProperty($element, 'textContent'))
-}
-
-/**
- * Get HTML content for element
- *
- * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
- * @returns {Promise<string>} HTML content
- */
-export async function getHtml($element) {
-  return /** @type {string} */ (await getProperty($element, 'innerHTML'))
-}
-
-/**
- * Check if element is visible
- *
- * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
- * @returns {Promise<boolean>} Element visibility
- */
-export async function isVisible($element) {
-  if (!$element) {
-    throw new TypeError('Element is not defined')
-  }
-
-  return !!(await $element.boundingBox())
-}
-
-/**
  * Navigation options
  *
  * @typedef {object} NavigationOptions
  * @property {string} name - Example name (e.g. 'with hint')
  * @property {string} [description] - Example description (e.g. 'small')
- * @property {string} [title] - Unique test title (optional)
+ * @property {string} [title] - Unique test title
  * @property {NonNullable<MacroExample['options']>} [example] - Nunjucks macro example options
  */
 
@@ -444,14 +349,24 @@ export async function isVisible($element) {
  * @template {object} HandlerContext
  * @typedef {object} BrowserRenderOptions - Component render options
  * @property {Config[ConfigKey]} [config] - Component JavaScript config
- * @property {HandlerContext} [context] - Context options for custom functions
- * @property {EvaluateFuncWith<Element, [HandlerContext]>} [beforeInitialisation] - Custom function to run before initialisation
- * @property {EvaluateFuncWith<Element, [HandlerContext]>} [afterInitialisation] - Custom function to run after initialisation
+ * @property {HandlerContext} [context] - Context options for render function
+ * @property {BrowserRenderFunction<HandlerContext>} [beforeInitialisation] - Custom function to run before initialisation
+ * @property {BrowserRenderFunction<HandlerContext>} [afterInitialisation] - Custom function to run after initialisation
  */
 
 /**
+ * Browser render function
+ *
+ * @template {object} [HandlerContext=unknown]
+ * @callback BrowserRenderFunction
+ * @param {HTMLElement} $root - Component root element
+ * @param {HandlerContext} context - Context options
+ * @returns {void}
+ */
+
+/**
+ * @import { Page } from '@playwright/test'
  * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Config, ConfigKey } from 'nhsuk-frontend/src/nhsuk/index.mjs'
  * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/lib'
- * @import { ElementHandle, EvaluateFuncWith, Handler, Page } from 'puppeteer'
  */

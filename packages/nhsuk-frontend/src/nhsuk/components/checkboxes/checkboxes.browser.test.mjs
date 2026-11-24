@@ -1,42 +1,40 @@
-import {
-  getAttribute,
-  getProperty,
-  goToExample,
-  isVisible,
-  render
-} from '@nhsuk/frontend-helpers/playwright.mjs'
+import { goToExample, render } from '@nhsuk/frontend-helpers/playwright.mjs'
+import { expect, test } from '@playwright/test'
 
 import { Checkboxes } from './checkboxes.mjs'
 import { examples } from './fixtures.mjs'
 
-describe('Checkboxes', () => {
-  /** @type {ElementHandle<HTMLElement>} */
+test.describe('Checkboxes', () => {
+  /** @type {Locator} */
   let $component
 
   /**
    * @template {object} HandlerContext
+   * @param {Page} page - Playwright page object
    * @param {keyof typeof examples} example
-   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Playwright browser render options
    */
-  async function initExample(example, browserOptions) {
+  async function initExample(page, example, browserOptions) {
     await render(page, 'checkboxes', examples[example], browserOptions)
 
-    $component = /** @type {ElementHandle<HTMLElement>} */ (
-      await page.$(`[data-module="${Checkboxes.moduleName}"]`)
-    )
+    $component = page.locator(`[data-module="${Checkboxes.moduleName}"]`)
   }
 
-  describe('input position', () => {
+  test.describe('input position', () => {
     // Check that the input sits above the label, enabling its proper detection
     // when exploring by touch or using automation tools like Selenium
-    it('displays the input above the label', async () => {
-      await initExample('default')
+    test('displays the input above the label', async ({ page }) => {
+      await initExample(page, 'default')
 
-      const $firstInput = /** @type {ElementHandle} */ (
-        await page.$('.nhsuk-checkboxes__input')
-      )
+      const $firstInput = page.locator('.nhsuk-checkboxes__input').first()
 
-      const clickPosition = await $firstInput.clickablePoint()
+      const { x, y, width, height } =
+        /** @type {{ x: number, y: number, width: number, height: number }} */ (
+          await $firstInput.boundingBox()
+        )
+
+      // Find elements at the centre of the input
+      const clickPosition = { x: x + width / 2, y: y + height / 2 }
 
       const elementTagNames = await page.evaluate(({ x, y }) => {
         return document.elementsFromPoint(x, y).map(($el) => $el.tagName)
@@ -47,317 +45,313 @@ describe('Checkboxes', () => {
     })
   })
 
-  describe('with conditional content', () => {
-    describe('when JavaScript is unavailable or fails', () => {
-      beforeAll(async () => {
-        await page.setJavaScriptEnabled(false)
-      })
+  test.describe('with conditional content', () => {
+    test.describe('when JavaScript is unavailable or fails', () => {
+      test.use({ javaScriptEnabled: false })
 
-      afterAll(async () => {
-        await page.setJavaScriptEnabled(true)
-      })
-
-      describe('with conditional content', () => {
-        /** @type {ElementHandle<HTMLInputElement>[]} */
+      test.describe('with conditional content', () => {
+        /** @type {Locator} */
         let $inputs
 
-        /** @type {ElementHandle[]} */
+        /** @type {Locator} */
         let $conditionals
 
-        beforeEach(async () => {
-          await initExample('with conditional content')
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'with conditional content')
 
-          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
-          $conditionals = await $component.$$('.nhsuk-checkboxes__conditional')
+          $inputs = $component.locator('.nhsuk-checkboxes__input')
+          $conditionals = $component.locator('.nhsuk-checkboxes__conditional')
         })
 
-        it('includes the expected number of inputs and conditionals', () => {
-          expect($inputs).toHaveLength(3)
-          expect($conditionals).toHaveLength(3)
+        test('includes the expected number of inputs and conditionals', async () => {
+          await expect($inputs).toHaveCount(3)
+          await expect($conditionals).toHaveCount(3)
         })
 
-        it('has no ARIA attributes applied', async () => {
-          const $inputsWithAriaExpanded = await $component.$$(
+        test('has no ARIA attributes applied', async () => {
+          const $inputsWithAriaExpanded = $component.locator(
             '.nhsuk-checkboxes__input[aria-expanded]'
           )
 
-          const $inputsWithAriaControls = await $component.$$(
+          const $inputsWithAriaControls = $component.locator(
             '.nhsuk-checkboxes__input[aria-controls]'
           )
 
-          expect($inputsWithAriaExpanded).toHaveLength(0)
-          expect($inputsWithAriaControls).toHaveLength(0)
+          await expect($inputsWithAriaExpanded).toHaveCount(0)
+          await expect($inputsWithAriaControls).toHaveCount(0)
         })
 
-        it('falls back to making all conditional content visible', () => {
-          return Promise.all(
-            $conditionals.map(async ($conditional) => {
-              return expect(await isVisible($conditional)).toBe(true)
-            })
-          )
+        test('falls back to making all conditional content visible', async () => {
+          for (const $conditional of await $conditionals.all()) {
+            await expect($conditional).toBeVisible()
+          }
         })
       })
     })
 
-    describe('when JavaScript is available', () => {
-      describe('with conditional item checked', () => {
-        /** @type {ElementHandle<HTMLInputElement>[]} */
+    test.describe('when JavaScript is available', () => {
+      test.describe('with conditional item checked', () => {
+        /** @type {Locator} */
         let $inputs
 
-        beforeAll(async () => {
-          await initExample('with pre-checked values')
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'with pre-checked values')
 
-          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
+          $inputs = $component.locator('.nhsuk-checkboxes__input')
         })
 
-        it('has conditional content revealed that is associated with a checked input', async () => {
-          const $input = $inputs[0] // First input, checked
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('has conditional content revealed that is associated with a checked input', async () => {
+          const $input = $inputs.nth(0) // First input, checked
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
         })
 
-        it('has no conditional content revealed that is associated with an unchecked input', async () => {
-          const $input = $inputs[1] // second input, unchecked
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('has no conditional content revealed that is associated with an unchecked input', async () => {
+          const $input = $inputs.nth(1) // second input, unchecked
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
         })
       })
 
-      describe('with conditional content', () => {
-        /** @type {ElementHandle<HTMLInputElement>[]} */
+      test.describe('with conditional content', () => {
+        /** @type {Locator} */
         let $inputs
 
-        beforeEach(async () => {
-          await initExample('with conditional content')
+        test.beforeEach(async ({ page }) => {
+          await initExample(page, 'with conditional content')
 
-          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
+          $inputs = $component.locator('.nhsuk-checkboxes__input')
         })
 
-        it('indicates when conditional content is collapsed or revealed', async () => {
-          const $input = $inputs[0] // First input, with conditional content
+        test('indicates when conditional content is collapsed or revealed', async () => {
+          const $input = $inputs.nth(0) // First input, with conditional content
 
           // Initially collapsed
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await getAttribute($input, 'aria-expanded')).toBe('false')
+          await expect($input).not.toBeChecked()
+          await expect($input).toHaveAttribute('aria-expanded', 'false')
 
           // Toggle revealed
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await getAttribute($input, 'aria-expanded')).toBe('true')
+          await expect($input).toBeChecked()
+          await expect($input).toHaveAttribute('aria-expanded', 'true')
 
           // Toggle collapsed
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await getAttribute($input, 'aria-expanded')).toBe('false')
+          await expect($input).not.toBeChecked()
+          await expect($input).toHaveAttribute('aria-expanded', 'false')
         })
 
-        it('toggles the conditional content when clicking an input', async () => {
-          const $input = $inputs[0] // First input, with conditional content
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('toggles the conditional content when clicking an input', async () => {
+          const $input = $inputs.nth(0) // First input, with conditional content
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
           // Initially collapsed
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
 
           // Toggle revealed
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
 
           // Toggle collapsed
           await $input.click()
 
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
         })
 
-        it('toggles the conditional content when using an input with a keyboard', async () => {
-          const $input = $inputs[0] // First input, with conditional content
-          const $conditional = await $component.$(
-            `[id="${await getAttribute($input, 'aria-controls')}"]`
+        test('toggles the conditional content when using an input with a keyboard', async ({
+          page
+        }) => {
+          const $input = $inputs.nth(0) // First input, with conditional content
+          const $conditional = $component.locator(
+            `[id="${await $input.getAttribute('aria-controls')}"]`
           )
 
           // Initially collapsed
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
 
           // Toggle revealed
           await $input.focus()
           await page.keyboard.press('Space')
 
-          expect(await getProperty($input, 'checked')).toBe(true)
-          expect(await isVisible($conditional)).toBe(true)
+          await expect($input).toBeChecked()
+          await expect($conditional).toBeVisible()
 
           // Toggle collapsed
           await page.keyboard.press('Space')
 
-          expect(await getProperty($input, 'checked')).toBe(false)
-          expect(await isVisible($conditional)).toBe(false)
+          await expect($input).not.toBeChecked()
+          await expect($conditional).toBeHidden()
         })
       })
 
-      describe('with conditional content, special characters', () => {
-        it('does not error when ID of revealed content contains special characters', () => {
-          return expect(
-            initExample('with conditional content, special characters')
+      test.describe('with conditional content, special characters', () => {
+        test('does not error when ID of revealed content contains special characters', async ({
+          page
+        }) => {
+          await expect(
+            initExample(page, 'with conditional content, special characters')
           ).resolves.not.toThrow()
         })
       })
     })
   })
 
-  describe('with "none" option', () => {
-    describe('when JavaScript is available', () => {
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+  test.describe('with "none" option', () => {
+    test.describe('when JavaScript is available', () => {
+      /** @type {Locator} */
       let $inputs
 
-      beforeEach(async () => {
-        await initExample('with "none" option')
+      test.beforeEach(async ({ page }) => {
+        await initExample(page, 'with "none" option')
 
-        $inputs = await $component.$$('input.nhsuk-checkboxes__input')
+        $inputs = $component.locator('.nhsuk-checkboxes__input')
       })
 
-      it('unchecks other checkboxes when the "none" option is checked', async () => {
+      test('unchecks other checkboxes when the "none" option is checked', async () => {
         // Check the first 3 checkboxes
-        await $inputs[0].click()
-        await $inputs[1].click()
-        await $inputs[2].click()
+        await $inputs.nth(0).click()
+        await $inputs.nth(1).click()
+        await $inputs.nth(2).click()
 
         // Check the "none" option
-        await $inputs[3].click()
+        await $inputs.nth(3).click()
 
         // Expect first 3 checkboxes to have been unchecked
-        expect(await getProperty($inputs[0], 'checked')).toBe(false)
-        expect(await getProperty($inputs[1], 'checked')).toBe(false)
-        expect(await getProperty($inputs[2], 'checked')).toBe(false)
+        await expect($inputs.nth(0)).not.toBeChecked()
+        await expect($inputs.nth(1)).not.toBeChecked()
+        await expect($inputs.nth(2)).not.toBeChecked()
       })
 
-      it('unchecks the "none" option when any other checkbox is checked', async () => {
+      test('unchecks the "none" option when any other checkbox is checked', async () => {
         // Check the "none" option
-        await $inputs[3].click()
+        await $inputs.nth(3).click()
 
         // Check the first checkbox
-        await $inputs[0].click()
+        await $inputs.nth(0).click()
 
         // Expect the "none" option to have been unchecked
-        expect(await getProperty($inputs[3], 'checked')).toBe(false)
+        await expect($inputs.nth(3)).not.toBeChecked()
       })
     })
   })
 
-  describe('with "none" option and conditional content', () => {
-    describe('when JavaScript is available', () => {
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+  test.describe('with "none" option and conditional content', () => {
+    test.describe('when JavaScript is available', () => {
+      /** @type {Locator} */
       let $inputs
 
-      beforeEach(async () => {
-        await initExample('with "none" option, conditional content')
+      test.beforeEach(async ({ page }) => {
+        await initExample(page, 'with "none" option, conditional content')
 
-        $inputs = await $component.$$('input.nhsuk-checkboxes__input')
+        $inputs = $component.locator('.nhsuk-checkboxes__input')
       })
 
-      it('unchecks other checkboxes and hides conditional content when the "none" option is checked', async () => {
-        const $input = $inputs[2]
-        const $conditional = await $component.$(
-          `[id="${await getAttribute($input, 'aria-controls')}"]`
+      test('unchecks other checkboxes and hides conditional content when the "none" option is checked', async () => {
+        const $input = $inputs.nth(2)
+        const $conditional = $component.locator(
+          `[id="${await $input.getAttribute('aria-controls')}"]`
         )
 
         // Check the "Text message" checkbox
-        await $inputs[2].click()
+        await $inputs.nth(2).click()
 
         // Expect conditional content to have been revealed
-        expect(await isVisible($conditional)).toBe(true)
+        await expect($conditional).toBeVisible()
 
         // Check the "none" option
-        await $inputs[3].click()
+        await $inputs.nth(3).click()
 
         // Expect the "Text message" checkbox to have been unchecked
-        expect(await getProperty($inputs[2], 'checked')).toBe(false)
+        await expect($inputs.nth(2)).not.toBeChecked()
 
         // Expect conditional content to have been collapsed
-        expect(await isVisible($conditional)).toBe(false)
+        await expect($conditional).toBeHidden()
       })
     })
   })
 
-  describe('with multiple groups, "none" option and conditional content', () => {
-    describe('when JavaScript is available', () => {
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+  test.describe('with multiple groups, "none" option and conditional content', () => {
+    test.describe('when JavaScript is available', () => {
+      /** @type {Locator} */
       let $inputsPrimary
 
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+      /** @type {Locator} */
       let $inputsSecondary
 
-      /** @type {ElementHandle<HTMLInputElement>[]} */
+      /** @type {Locator} */
       let $inputsOther
 
-      beforeEach(async () => {
+      test.beforeEach(async ({ page }) => {
         await goToExample(page, 'conditional-reveals')
 
-        $inputsPrimary = await page.$$(
-          'input.nhsuk-checkboxes__input[id^="colour-primary"]'
+        $inputsPrimary = page.locator(
+          '.nhsuk-checkboxes__input[id^="colour-primary"]'
         )
 
-        $inputsSecondary = await page.$$(
-          'input.nhsuk-checkboxes__input[id^="colour-secondary"]'
+        $inputsSecondary = page.locator(
+          '.nhsuk-checkboxes__input[id^="colour-secondary"]'
         )
 
-        $inputsOther = await page.$$(
-          'input.nhsuk-checkboxes__input[id^="colour-other"]'
+        $inputsOther = page.locator(
+          '.nhsuk-checkboxes__input[id^="colour-other"]'
         )
       })
 
-      it('none checkbox unchecks other checkboxes in other groups', async () => {
+      test('none checkbox unchecks other checkboxes in other groups', async () => {
         // Check some checkboxes in the first and second groups
-        await $inputsPrimary[2].click()
-        await $inputsSecondary[1].click()
+        await $inputsPrimary.nth(2).click()
+        await $inputsSecondary.nth(1).click()
 
         // Check the "none" option in the third group
-        await $inputsOther[1].click()
+        await $inputsOther.nth(1).click()
 
         // Expect the checkboxes in the first and second groups to be unchecked
-        expect(await getProperty($inputsPrimary[2], 'checked')).toBe(false)
-        expect(await getProperty($inputsSecondary[1], 'checked')).toBe(false)
+        await expect($inputsPrimary.nth(2)).not.toBeChecked()
+        await expect($inputsSecondary.nth(1)).not.toBeChecked()
       })
 
-      it('hides conditional content in other groups', async () => {
-        const $conditionalPrimary = await page.$(
-          `[id="${await getAttribute($inputsPrimary[1], 'aria-controls')}"]`
+      test('hides conditional content in other groups', async ({ page }) => {
+        const $conditionalPrimary = page.locator(
+          `[id="${await $inputsPrimary.nth(1).getAttribute('aria-controls')}"]`
         )
 
         // Check the second checkbox in the first group, which reveals additional content
-        await $inputsPrimary[1].click()
+        await $inputsPrimary.nth(1).click()
 
         // Assert that conditional content is revealed
-        expect(await isVisible($conditionalPrimary)).toBe(true)
+        await expect($conditionalPrimary).toBeVisible()
 
         // Check the "none" option in the third group
-        await $inputsOther[1].click()
+        await $inputsOther.nth(1).click()
 
         // Assert that the second checkbox in the first group is unchecked
-        expect(await getProperty($inputsPrimary[1], 'checked')).toBe(false)
+        await expect($inputsPrimary.nth(1)).not.toBeChecked()
 
         // Expect conditional content to have been collapsed
-        expect(await isVisible($conditionalPrimary)).toBe(false)
+        await expect($conditionalPrimary).toBeHidden()
       })
 
-      describe('Error handling', () => {
-        it('can throw a SupportError if appropriate', () => {
-          return expect(
-            initExample('default', {
+      test.describe('Error handling', () => {
+        test('can throw a SupportError if appropriate', async ({ page }) => {
+          await expect(
+            initExample(page, 'default', {
               beforeInitialisation() {
                 document.body.classList.remove('nhsuk-frontend-supported')
               }
@@ -367,9 +361,9 @@ describe('Checkboxes', () => {
           )
         })
 
-        it('throws when initialised twice', () => {
-          return expect(
-            initExample('default', {
+        test('throws when initialised twice', async ({ page }) => {
+          await expect(
+            initExample(page, 'default', {
               async afterInitialisation($root) {
                 const { Checkboxes } = await import('nhsuk-frontend')
                 new Checkboxes($root)
@@ -380,9 +374,9 @@ describe('Checkboxes', () => {
           )
         })
 
-        it('throws when $root is not set', () => {
-          return expect(
-            initExample('default', {
+        test('throws when $root is not set', async ({ page }) => {
+          await expect(
+            initExample(page, 'default', {
               beforeInitialisation($root) {
                 $root.remove()
               }
@@ -392,9 +386,11 @@ describe('Checkboxes', () => {
           )
         })
 
-        it('throws when receiving the wrong type for $root', () => {
-          return expect(
-            initExample('default', {
+        test('throws when receiving the wrong type for $root', async ({
+          page
+        }) => {
+          await expect(
+            initExample(page, 'default', {
               beforeInitialisation($root) {
                 // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
                 $root.outerHTML = `<svg data-module="nhsuk-checkboxes"></svg>`
@@ -405,9 +401,9 @@ describe('Checkboxes', () => {
           )
         })
 
-        it('throws when the input list is empty', () => {
-          return expect(
-            initExample('default', {
+        test('throws when the input list is empty', async ({ page }) => {
+          await expect(
+            initExample(page, 'default', {
               beforeInitialisation($root, { selector }) {
                 $root
                   .querySelectorAll(selector)
@@ -422,9 +418,11 @@ describe('Checkboxes', () => {
           )
         })
 
-        it('throws when a conditional target element is not found', () => {
-          return expect(
-            initExample('with conditional content', {
+        test('throws when a conditional target element is not found', async ({
+          page
+        }) => {
+          await expect(
+            initExample(page, 'with conditional content', {
               beforeInitialisation($root, { selector }) {
                 $root.querySelector(selector)?.remove()
               },
@@ -443,5 +441,5 @@ describe('Checkboxes', () => {
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/playwright.mjs'
- * @import { ElementHandle } from 'puppeteer'
+ * @import { Locator, Page } from '@playwright/test'
  */
