@@ -69,11 +69,7 @@ module.exports = {
   ],
 
   // Enable GitHub Actions reporter UI
-  reporters: [
-    'default',
-    'jest-puppeteer-istanbul/lib/reporter',
-    'github-actions'
-  ],
+  reporters: ['default', 'github-actions'],
 
   // Increase test timeout (5s to 20s)
   testTimeout: 20000
