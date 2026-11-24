@@ -129,6 +129,26 @@ const fixtures = {
     },
     callBlock: "What is your full name?"
   },
+  "with content slots": {
+    context: {
+      heading: "What is your full name?",
+      size: "l",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with heading level 1": {
     context: {
       text: "What is your full name?",
