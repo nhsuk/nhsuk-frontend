@@ -1,4 +1,8 @@
 /**
+ * Prettier config
+ *
+ * {@link https://prettier.io/docs/en/options.html}
+ *
  * @type {Config}
  */
 module.exports = {

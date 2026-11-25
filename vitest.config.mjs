@@ -1,5 +1,10 @@
 import { defineConfig } from 'vitest/config'
 
+/**
+ * Vitest config
+ *
+ * {@link https://vitest.dev/config/}
+ */
 export default defineConfig({
   cacheDir: '.cache/vitest',
 
