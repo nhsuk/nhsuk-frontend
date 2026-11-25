@@ -24,6 +24,11 @@
     margin-right: 0;
   }
 
+  .nhsuk-radios[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-radios__item {
     display: flex;
     position: relative;

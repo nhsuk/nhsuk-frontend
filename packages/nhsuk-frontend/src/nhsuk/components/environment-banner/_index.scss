@@ -21,6 +21,11 @@
     }
   }
 
+  .nhsuk-environment-banner[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-environment-banner--white {
     color: $nhsuk-text-colour;
     background-color: nhsuk-colour("white");

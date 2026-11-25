@@ -84,6 +84,11 @@
     }
   }
 
+  .nhsuk-header[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-header__container {
     padding: nhsuk-spacing(3) 0;
 
@@ -561,6 +566,10 @@
     align-self: center;
     padding: 0 math.div($nhsuk-gutter-half, 2);
 
+    &[hidden] {
+      display: none;
+    }
+
     @media #{nhsuk-from-breakpoint(tablet)} {
       padding: 0 $nhsuk-gutter-half;
     }
@@ -577,6 +586,10 @@
     &,
     &:hover {
       text-decoration: none;
+    }
+
+    &[hidden] {
+      display: none;
     }
 
     &::after {
@@ -614,6 +627,10 @@
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       margin: 0 $nhsuk-gutter-half;
+    }
+
+    &[hidden] {
+      display: none;
     }
 
     .nhsuk-header__navigation-link,

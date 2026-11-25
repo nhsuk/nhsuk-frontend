@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2216: Review global `hidden` attribute styling](https://github.com/nhsuk/nhsuk-frontend/pull/2216)
+
 ## 10.7.2 - 9 November 2026
 
 Note: This release was created from the `support/10.x` branch.

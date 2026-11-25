@@ -27,6 +27,11 @@
     @include nhsuk-responsive-margin(4, "bottom");
   }
 
+  .nhsuk-details[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-details--reverse {
     color: $nhsuk-reverse-text-colour;
 

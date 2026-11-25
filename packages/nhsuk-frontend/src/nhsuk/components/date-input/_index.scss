@@ -17,6 +17,11 @@
     @include nhsuk-clearfix;
   }
 
+  .nhsuk-date-input[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-date-input__item {
     display: inline-block;
     margin-right: nhsuk-spacing(4);

@@ -14,6 +14,11 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/search-input") {
+  .nhsuk-search-input[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-search-input__wrapper {
     flex-direction: row;
     align-items: flex-start;

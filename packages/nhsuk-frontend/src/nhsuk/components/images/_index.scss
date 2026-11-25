@@ -44,6 +44,11 @@
     }
   }
 
+  .nhsuk-image[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-image--no-border {
     border-bottom: none;
   }

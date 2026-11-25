@@ -88,6 +88,11 @@
     }
   }
 
+  .nhsuk-action-link[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-action-link--reverse {
     @include nhsuk-link-style-reverse;
 

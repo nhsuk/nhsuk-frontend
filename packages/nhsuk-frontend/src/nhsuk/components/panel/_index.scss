@@ -61,6 +61,11 @@
     }
   }
 
+  .nhsuk-panel[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-panel--interruption {
     background-color: $nhsuk-brand-colour;
 

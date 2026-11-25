@@ -22,6 +22,11 @@
     }
   }
 
+  .nhsuk-notification-banner[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important;
+  }
+
   .nhsuk-notification-banner__header {
     padding-top: 2px;
     padding-bottom: nhsuk-spacing(1);

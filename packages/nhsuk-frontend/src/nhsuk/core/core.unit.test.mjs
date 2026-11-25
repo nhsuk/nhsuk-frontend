@@ -262,6 +262,22 @@ describe('Core', () => {
         expect.anything()
       )
     })
+
+    it('outputs a warning when importing the core "styles/hidden" file', async () => {
+      const sass = outdent`
+        @forward "core/styles/hidden";
+      `
+
+      await compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `Importing using 'core/styles/hidden' is deprecated and will be removed in a future release. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-styles-hidden"`,
+        expect.anything()
+      )
+    })
   })
 })
 
