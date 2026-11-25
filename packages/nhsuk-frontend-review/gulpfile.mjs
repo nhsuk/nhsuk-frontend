@@ -33,8 +33,7 @@ gulp.task(
         ...(!HEROKU_BRANCH && NODE_ENV === 'production'
           ? ['html', 'validate']
           : ['html'])
-      ),
-      npm.script('sassdoc')
+      )
     )
   )
 )
