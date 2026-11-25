@@ -16,6 +16,7 @@ export function getNames() {
     'chevron-left-circle',
     'chevron-right-circle',
     'chevron-up-circle',
+    'copy',
     'cross',
     'minus',
     'plus',

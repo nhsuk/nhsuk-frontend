@@ -107,9 +107,14 @@ export class Code extends ConfigurableComponent {
     }
 
     const { screenReaderStatusMessageClass } = this.config
+    const copyButtonText = this.i18n.t('copyButton')
 
     // Set default button text
-    $button.textContent = this.i18n.t('copyButton')
+    if ($button.hasAttribute('aria-label')) {
+      $button.setAttribute('aria-label', copyButtonText)
+    } else {
+      $button.textContent = copyButtonText
+    }
 
     // Set default status text for screen readers
     if ($screenReaderStatusMessage) {
@@ -178,8 +183,16 @@ export class Code extends ConfigurableComponent {
       return
     }
 
-    $button.textContent = this.i18n.t('copiedButton')
-    $screenReaderStatusMessage.textContent = this.i18n.t('copiedAnnouncement')
+    const copiedButtonText = this.i18n.t('copiedButton')
+    const copiedAnnouncementText = this.i18n.t('copiedAnnouncement')
+
+    if ($button.hasAttribute('aria-label')) {
+      $button.setAttribute('aria-label', copiedButtonText)
+    } else {
+      $button.textContent = copiedButtonText
+    }
+
+    $screenReaderStatusMessage.textContent = copiedAnnouncementText
 
     // Reset button after 5 seconds
     this.reset(5000)
