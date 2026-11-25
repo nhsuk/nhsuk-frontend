@@ -229,19 +229,17 @@ describe('I18n', () => {
 
     beforeEach(() => {
       // Silence warnings in test output, and allow us to 'expect' them
-      consoleWarn = jest
-        .spyOn(window.console, 'warn')
-        .mockImplementation(() => {
-          /* noop */
-        })
+      consoleWarn = vi.spyOn(window.console, 'warn').mockImplementation(() => {
+        /* noop */
+      })
     })
 
     afterEach(() => {
-      jest.restoreAllMocks()
+      vi.restoreAllMocks()
     })
 
     it('uses `Intl.PluralRules` when available', () => {
-      const IntlPluralRulesSelect = jest
+      const IntlPluralRulesSelect = vi
         .spyOn(window.Intl.PluralRules.prototype, 'select')
         .mockImplementation(() => 'one')
 
@@ -274,9 +272,9 @@ describe('I18n', () => {
         }
       )
 
-      jest
-        .spyOn(i18n, 'hasIntlPluralRulesSupport')
-        .mockImplementation(() => false)
+      vi.spyOn(i18n, 'hasIntlPluralRulesSupport').mockImplementation(
+        () => false
+      )
 
       expect(i18n.getPluralSuffix('test', 1)).toBe('other')
     })

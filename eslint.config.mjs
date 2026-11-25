@@ -4,11 +4,11 @@ import { fileURLToPath } from 'node:url'
 import { includeIgnoreFile } from '@eslint/config-helpers'
 import eslint from '@eslint/js'
 import pluginMarkdown from '@eslint/markdown'
+import pluginVitest from '@vitest/eslint-plugin'
 import { defineConfig, globalIgnores } from 'eslint/config'
 import configPrettier from 'eslint-config-prettier/flat'
 import pluginESx from 'eslint-plugin-es-x'
 import pluginImportX from 'eslint-plugin-import-x'
-import pluginJest from 'eslint-plugin-jest'
 import pluginJsdoc from 'eslint-plugin-jsdoc'
 import pluginNode from 'eslint-plugin-n'
 import pluginNodeImport from 'eslint-plugin-node-import'
@@ -295,31 +295,21 @@ export default defineConfig([
     }
   },
   {
-    // Configure ESLint in test files
-    files: ['**/*.test.mjs'],
+    // Configure ESLint in test files (Vitest environment only)
+    files: ['**/*.{jsdom,unit}.test.mjs', '**/vitest.jsdom.setup.*'],
     extends: [
-      pluginJest.configs['flat/recommended'],
-      pluginJest.configs['flat/style'],
+      pluginVitest.configs.recommended,
+      pluginVitest.configs.env,
       pluginTestingLibrary.configs['flat/dom']
     ],
     languageOptions: {
-      globals: pluginJest.environments.globals.globals
+      globals: globals.browser
     },
     rules: {
       '@typescript-eslint/no-empty-function': 'off',
       'promise/always-return': 'off',
       'promise/catch-or-return': 'off',
       'testing-library/no-node-access': 'off'
-    }
-  },
-  {
-    // Configure ESLint in test files (Jest JSDOM environment only)
-    files: ['**/*.jsdom.test.mjs', '**/jest.jsdom.setup.*'],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...pluginJest.environments.globals.globals
-      }
     }
   },
   {

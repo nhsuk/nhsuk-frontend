@@ -65,7 +65,7 @@ describe('Typography tools', () => {
   beforeEach(() => {
     // Create a mock warn function that we can use to override the native @warn
     // function, that we can make assertions about post-render.
-    logger.warn = jest.fn().mockReturnValue(sassNull)
+    logger.warn = vi.fn().mockReturnValue(sassNull)
   })
 
   describe('@mixin nhsuk-text-break-word', () => {

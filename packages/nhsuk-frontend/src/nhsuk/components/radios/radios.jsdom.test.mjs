@@ -45,7 +45,7 @@ describe('Radios', () => {
 
     $inputs = [$input1, $input2, $input3]
 
-    jest.spyOn($root, 'addEventListener')
+    vi.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation via class', () => {

@@ -35,9 +35,9 @@ describe('Character count', () => {
     $textarea = within($root).getByRole('textbox')
     $description = document.getElementById(`${$textarea.id}-info`)
 
-    jest.spyOn($textarea, 'addEventListener')
-    jest.spyOn(window, 'addEventListener')
-    jest.spyOn(console, 'warn').mockImplementation()
+    vi.spyOn($textarea, 'addEventListener')
+    vi.spyOn(window, 'addEventListener')
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
   }
 
   beforeEach(() => {
@@ -154,7 +154,7 @@ describe('Character count', () => {
       expect(() => {
         new CharacterCount($root, {
           countType: 'characters',
-          countFunction: jest.fn()
+          countFunction: vi.fn()
         })
       }).not.toThrow()
     })
@@ -363,7 +363,7 @@ describe('Character count', () => {
       it('uses custom `countFunction` for `maxlength` limit when set', async () => {
         const component = new CharacterCount($root, {
           maxlength: 100,
-          countFunction: jest.fn().mockReturnValue(10)
+          countFunction: vi.fn().mockReturnValue(10)
         })
 
         $textarea.focus()
@@ -386,7 +386,7 @@ describe('Character count', () => {
         const component = new CharacterCount($root, {
           maxlength: 100,
           countType: 'words',
-          countFunction: jest.fn().mockReturnValue(10)
+          countFunction: vi.fn().mockReturnValue(10)
         })
 
         $textarea.focus()

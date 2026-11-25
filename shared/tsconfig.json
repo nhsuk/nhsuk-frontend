@@ -8,8 +8,8 @@
   "exclude": [
     "**/node_modules",
     "**/dist",
-    "helpers/jest/**/*.mjs",
-    "helpers/playwright/**/*.mjs"
+    "helpers/playwright/**/*.mjs",
+    "helpers/vitest/**/*.mjs"
   ],
   "references": [
     {

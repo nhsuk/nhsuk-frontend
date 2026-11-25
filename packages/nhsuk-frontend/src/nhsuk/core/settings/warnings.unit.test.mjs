@@ -13,7 +13,7 @@ describe('Warnings settings', () => {
   beforeEach(() => {
     // Create a mock warn function that we can use to override the native @warn
     // function, that we can make assertions about post-render.
-    logger.warn = jest.fn().mockReturnValue(sassNull)
+    logger.warn = vi.fn().mockReturnValue(sassNull)
   })
 
   it('Fires a @warn with the message plus the key suffix text', async () => {
@@ -51,7 +51,7 @@ describe('Warnings settings', () => {
 
     // Expect our mocked @warn function to have been called once with a single
     // argument, which should be the test message
-    expect(jest.mocked(logger.warn)?.mock.calls).toHaveLength(1)
+    expect(vi.mocked(logger.warn)?.mock.calls).toHaveLength(1)
   })
 
   it('fires every @warn if $silence-further-warnings is false', async () => {
@@ -67,7 +67,7 @@ describe('Warnings settings', () => {
       logger
     })
 
-    expect(jest.mocked(logger.warn)?.mock.calls).toHaveLength(2)
+    expect(vi.mocked(logger.warn)?.mock.calls).toHaveLength(2)
   })
 
   it('Does not fire a @warn if the key is already in $nhsuk-suppressed-warnings', async () => {

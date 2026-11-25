@@ -40,9 +40,9 @@ describe('Password input', () => {
       $root.querySelector('.nhsuk-js-password-input-toggle')
     )
 
-    jest.spyOn($button, 'addEventListener')
-    jest.spyOn($button, 'click')
-    jest.spyOn(window, 'addEventListener')
+    vi.spyOn($button, 'addEventListener')
+    vi.spyOn($button, 'click')
+    vi.spyOn(window, 'addEventListener')
   }
 
   beforeEach(() => {
@@ -162,8 +162,8 @@ describe('Password input', () => {
       const component = new PasswordInput($root)
       expect($button.dataset).toHaveProperty('preventDoubleClick', 'true')
 
-      jest.spyOn(component, 'show')
-      jest.spyOn(component, 'hide')
+      vi.spyOn(component, 'show')
+      vi.spyOn(component, 'hide')
 
       // Click to show password multiple times
       await user.dblClick($button)
@@ -181,8 +181,8 @@ describe('Password input', () => {
       const component = new PasswordInput($root)
       expect($button.dataset).toHaveProperty('preventDoubleClick', 'false')
 
-      jest.spyOn(component, 'show')
-      jest.spyOn(component, 'hide')
+      vi.spyOn(component, 'show')
+      vi.spyOn(component, 'hide')
 
       // Click to show password multiple times
       await user.dblClick($button)

@@ -65,6 +65,10 @@ const scenarios = components.getNames().flatMap((component) => {
 })
 
 /**
+ * Backstop config
+ *
+ * {@link https://github.com/garris/BackstopJS#readme}
+ *
  * @type {PlaywrightEngineConfig}
  */
 module.exports = {

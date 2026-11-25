@@ -5,8 +5,6 @@ import html5 from 'html-validate/elements/html5'
  * HTML validation config
  *
  * {@link https://html-validate.org/rules/}
- *
- * @type {ConfigData}
  */
 export default defineConfig({
   extends: ['html-validate:recommended', 'html-validate:document'],
@@ -159,5 +157,5 @@ export default defineConfig({
 })
 
 /**
- * @import { ConfigData, MetaDataTable } from 'html-validate'
+ * @import { MetaDataTable } from 'html-validate'
  */

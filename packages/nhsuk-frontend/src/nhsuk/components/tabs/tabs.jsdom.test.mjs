@@ -46,8 +46,8 @@ describe('Tabs', () => {
       ...document.querySelectorAll('.nhsuk-tabs__panel')
     ])
 
-    $tabs.forEach(($tab) => jest.spyOn($tab, 'addEventListener'))
-    jest.spyOn(window, 'addEventListener')
+    $tabs.forEach(($tab) => vi.spyOn($tab, 'addEventListener'))
+    vi.spyOn(window, 'addEventListener')
   })
 
   describe('Initialisation via class', () => {

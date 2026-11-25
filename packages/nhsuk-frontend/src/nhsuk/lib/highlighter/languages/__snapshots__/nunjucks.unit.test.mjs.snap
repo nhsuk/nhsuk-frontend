@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Highlight.js Nunjucks language should output HTML for fixtures 1`] = `
+exports[`Highlight.js Nunjucks language > should output HTML for fixtures 1`] = `
 "<span class="nhsuk-code__comment">{% comment %}This is a comment{% endcomment %}</span><span class="language-xml">
 </span><span class="nhsuk-code__comment">{# This is a single line comment #}</span><span class="language-xml">
 </span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">variable</span> }}</span><span class="language-xml">

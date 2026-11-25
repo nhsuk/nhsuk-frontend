@@ -45,9 +45,7 @@
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:types": "tsc --build tsconfig.json --pretty --force",
     "pretest": "NODE_ENV=test npm run lint && npm run build",
-    "test": "npm run test:js && npm run test:playwright",
-    "test:js": "jest --color",
-    "test:playwright": "playwright test",
+    "test": "vitest run && playwright test",
     "pretest:visual": "npm run install:playwright && npm run build",
     "test:visual": "npm run test:visual:cli -- -- test",
     "test:visual:ref": "npm run test:visual:cli -- -- reference",
@@ -74,15 +72,14 @@
     "@types/gulp": "^4.0.18",
     "@types/gulp-rename": "^2.0.7",
     "@types/gulp-zip": "^4.0.4",
-    "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.27",
     "@types/node": "^26.6.6",
     "@types/nunjucks": "^3.2.6",
     "@types/slug": "^5.0.9",
     "@types/wait-on": "^5.3.4",
+    "@vitest/coverage-v8": "^5.1.1",
+    "@vitest/eslint-plugin": "^1.6.28",
     "axe-core": "^4.14.0",
-    "babel-jest": "^30.5.2",
-    "babel-plugin-transform-import-meta": "^2.3.3",
     "backstopjs": "^6.3.25",
     "concurrently": "^10.0.7",
     "eslint": "^10.15.0",
@@ -98,7 +95,6 @@
     "eslint-plugin-testing-library": "^7.16.2",
     "globals": "^17.14.0",
     "gulp": "^5.0.1",
-    "jest": "^30.5.2",
     "nhsuk-frontend": "*",
     "postcss": "^8.5.33",
     "postcss-load-config": "^6.0.1",
@@ -113,6 +109,7 @@
     "typed-query-selector": "^2.12.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.1",
     "wait-on": "^9.5.1"
   },
   "engines": {
@@ -131,7 +128,6 @@
     "glob-stream@^6": {
       "glob-parent": "^5"
     },
-    "jest": "$jest",
     "latest-version@^5": {
       "package-json": "^7"
     },

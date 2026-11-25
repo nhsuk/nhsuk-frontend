@@ -31,7 +31,7 @@ describe('Skip link', () => {
       document.querySelector(`[data-module="${SkipLink.moduleName}"]`)
     )
 
-    jest.spyOn($root, 'addEventListener')
+    vi.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation via class', () => {

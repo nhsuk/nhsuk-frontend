@@ -21,7 +21,7 @@ describe('Scroll', () => {
       $root.querySelector(`.${Scroll.defaults.contentClass}`)
     )
 
-    jest.spyOn($content, 'addEventListener')
+    vi.spyOn($content, 'addEventListener')
   })
 
   describe('Initialisation via class', () => {
