@@ -39,7 +39,7 @@ export class Button extends ConfigurableComponent {
    * @param {KeyboardEvent} event - Keydown event
    */
   handleKeyDown(event) {
-    const target = event.target
+    const $target = event.target
 
     // Handle space bar only
     if (event.key !== ' ') {
@@ -48,11 +48,11 @@ export class Button extends ConfigurableComponent {
 
     // Handle elements with [role="button"] only
     if (
-      target instanceof HTMLElement &&
-      target.getAttribute('role') === 'button'
+      $target instanceof HTMLElement &&
+      $target.getAttribute('role') === 'button'
     ) {
       event.preventDefault()
-      target.click()
+      $target.click()
     }
   }
 
