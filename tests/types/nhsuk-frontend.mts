@@ -1,4 +1,5 @@
 import {
+  Accordion,
   Button,
   CharacterCount,
   Checkboxes,
@@ -29,6 +30,9 @@ const $root = document.createElement('div')
 const i18n = new I18n({ age: 'I am %{age} years old' }, { locale: 'en' })
 
 i18n.t('age', { age: 2000 })
+
+new Accordion($root)
+new Accordion($root, Accordion.defaults)
 
 new Button($root)
 new Button($root, Button.defaults)
@@ -168,6 +172,33 @@ const onError: OnErrorCallback = (error, context) => {
   context.component?.moduleName
   context.config
 }
+
+const onErrorAccordion: OnErrorCallback<typeof Accordion> = (
+  error,
+  context
+) => {
+  error instanceof Error
+  context.element
+  context.component?.defaults
+  context.component?.moduleName
+  context.component === Accordion
+  context.config?.i18n
+  context.config?.rememberExpanded
+}
+
+createAll(Accordion)
+createAll(Accordion, Accordion.defaults)
+createAll(Accordion, Accordion.defaults, null)
+createAll(Accordion, Accordion.defaults, undefined)
+createAll(Accordion, Accordion.defaults, document)
+createAll(Accordion, Accordion.defaults, $root)
+createAll(Accordion, Accordion.defaults, console.error)
+createAll(Accordion, Accordion.defaults, onError)
+createAll(Accordion, Accordion.defaults, onErrorAccordion)
+createAll(Accordion, Accordion.defaults, {
+  scope: $root,
+  onError: onErrorAccordion
+})
 
 const onErrorButton: OnErrorCallback<typeof Button> = (error, context) => {
   error instanceof Error
@@ -591,6 +622,7 @@ createAll(MyComponent3, MyComponent3.defaults, {
 })
 
 const config = {
+  accordion: Accordion.defaults,
   button: Button.defaults,
   characterCount: CharacterCount.defaults,
   checkboxes: Checkboxes.defaults,
@@ -608,6 +640,7 @@ const config = {
   onError
 } satisfies Config
 
+const accordionConfig: Config[ConfigKey] = config.accordion
 const buttonConfig: Config[ConfigKey] = config.button
 const characterCountConfig: Config[ConfigKey] = config.characterCount
 const checkboxesConfig: Config[ConfigKey] = config.checkboxes
@@ -640,6 +673,7 @@ initAll({
 })
 
 initAll({
+  accordion: accordionConfig,
   button: buttonConfig,
   characterCount: characterCountConfig,
   checkboxes: checkboxesConfig,

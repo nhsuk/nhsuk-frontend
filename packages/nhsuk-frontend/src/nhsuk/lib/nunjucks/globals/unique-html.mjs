@@ -46,14 +46,19 @@ function uniqueValue(name, value, index) {
   }
 
   // Check for known value suffix
-  const matches = /-((?:item-)+hint|info|label|error)$/.exec(value)
+  const matches = /-(content|(?:item-)+hint|info|label|error)-?([1-9]+)?$/.exec(
+    value
+  )
 
   if (matches) {
     const prefix = value.slice(0, matches.index)
     const suffix = matches[1]
+    const count = matches[2]
 
     // 'example-5-hint'
-    return `${prefix}-${index}-${suffix}`
+    return count
+      ? `${prefix}-${index}-${suffix}-${count}`
+      : `${prefix}-${index}-${suffix}`
   }
 
   // 'example-5'
