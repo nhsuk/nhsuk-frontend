@@ -69,6 +69,11 @@
     @include nhsuk-font-weight-bold;
   }
 
+  .nhsuk-fieldset__legend--reverse,
+  .nhsuk-fieldset__legend--reverse [class^="nhsuk-caption"] {
+    color: $nhsuk-reverse-text-colour;
+  }
+
   p,
   .nhsuk-body-m,
   .nhsuk-body-s,

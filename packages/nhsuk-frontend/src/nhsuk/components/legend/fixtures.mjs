@@ -3,7 +3,7 @@
  *
  * @satisfies {MacroExample[]}
  */
-const variants = [
+export const variants = [
   {
     description: "with size S",
     context: {

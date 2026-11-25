@@ -4,6 +4,9 @@
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant %}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-js-character-count" %}
 {%- set classNamesFormGroup = "nhsuk-character-count" %}
@@ -46,7 +49,8 @@
         value: false if textareaDescriptionTextNoLimit | length else true,
         optional: true
       }
-    }
+    },
+    variant: params.countMessage.variant | default(variant)
   }) | trim }}
 
   {{- nhsukSlot("afterInput", {
@@ -154,5 +158,6 @@
   errorMessage: params.errorMessage,
   disabled: params.disabled,
   autocomplete: params.autocomplete,
-  attributes: params.attributes
+  attributes: params.attributes,
+  variant: variant
 }) | trim }}

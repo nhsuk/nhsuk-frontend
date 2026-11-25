@@ -134,6 +134,13 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the legend.',
     released: '10.6.1'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of legend. You can use only `"reverse"` or empty values with this option.',
+    released: '10.5.0'
   }
 }
 
