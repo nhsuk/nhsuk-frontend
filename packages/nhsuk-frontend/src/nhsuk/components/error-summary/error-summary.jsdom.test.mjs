@@ -47,14 +47,14 @@ describe('Error summary', () => {
 
     $label = $input.labels?.[0]
 
-    jest.spyOn($root, 'addEventListener')
-    jest.spyOn($input, 'focus')
+    vi.spyOn($root, 'addEventListener')
+    vi.spyOn($input, 'focus')
 
     if ($label) {
-      jest.spyOn($label, 'scrollIntoView')
+      vi.spyOn($label, 'scrollIntoView')
     }
 
-    jest.spyOn(console, 'warn').mockImplementation()
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
   }
 
   beforeEach(() => {

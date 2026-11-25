@@ -111,9 +111,9 @@ describe('Node.js API: Components', () => {
       const renderHtml = () => render('example', { context })
 
       expect(() => renderHtml()).toThrowErrorMatchingInlineSnapshot(`
-        "(unknown path)
+        [Template render error: (unknown path)
           Template render error: (unknown path)
-          Error: template not found: example/macro.njk"
+          Error: template not found: example/macro.njk]
       `)
     })
   })

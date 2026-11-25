@@ -3,11 +3,11 @@
   "compilerOptions": {
     "strict": false,
     "types": [
-      "@nhsuk/frontend-helpers/jest/environment/jsdom",
-      "@testing-library/jest-dom",
-      "jest",
+      "@nhsuk/frontend-helpers/vitest",
+      "@testing-library/jest-dom/vitest",
       "node",
-      "typed-query-selector"
+      "typed-query-selector",
+      "vitest/globals"
     ]
   },
   "include": [

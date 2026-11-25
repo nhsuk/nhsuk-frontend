@@ -73,7 +73,7 @@ describe('Header class', () => {
     listWidth = 800
     itemWidth = 100
 
-    jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+    vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
       /** @this {HTMLElement} */
       function () {
         return this instanceof HTMLUListElement
@@ -82,15 +82,15 @@ describe('Header class', () => {
       }
     )
 
-    jest.spyOn(window, 'addEventListener')
-    jest.spyOn(window, 'removeEventListener')
-    jest.spyOn(document, 'addEventListener')
-    jest.spyOn(document, 'removeEventListener')
-    jest.spyOn($root, 'addEventListener')
-    jest.spyOn($root, 'removeEventListener')
+    vi.spyOn(window, 'addEventListener')
+    vi.spyOn(window, 'removeEventListener')
+    vi.spyOn(document, 'addEventListener')
+    vi.spyOn(document, 'removeEventListener')
+    vi.spyOn($root, 'addEventListener')
+    vi.spyOn($root, 'removeEventListener')
 
     if ($menuButton) {
-      jest.spyOn($menuButton, 'addEventListener')
+      vi.spyOn($menuButton, 'addEventListener')
     }
   }
 

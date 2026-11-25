@@ -28,7 +28,7 @@ describe('File upload', () => {
     // File input has no explicit role
     $input = within($root).getByLabelText('Upload a file')
 
-    jest.spyOn($input, 'addEventListener')
+    vi.spyOn($input, 'addEventListener')
   }
 
   beforeEach(() => {
@@ -37,7 +37,7 @@ describe('File upload', () => {
 
   describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      const addEventListenerSpy = jest.spyOn(
+      const addEventListenerSpy = vi.spyOn(
         HTMLButtonElement.prototype,
         'addEventListener'
       )
@@ -65,7 +65,7 @@ describe('File upload', () => {
 
       const event = new Event('dragover')
 
-      jest.spyOn(event, 'preventDefault')
+      vi.spyOn(event, 'preventDefault')
 
       component.$dropButton.dispatchEvent(event)
 
@@ -75,7 +75,7 @@ describe('File upload', () => {
     it('should copy click event from button to input', () => {
       const component = new FileUpload($root)
 
-      const clickSpy = jest.spyOn($input, 'click')
+      const clickSpy = vi.spyOn($input, 'click')
 
       const event = new Event('click')
       component.$dropButton.dispatchEvent(event)

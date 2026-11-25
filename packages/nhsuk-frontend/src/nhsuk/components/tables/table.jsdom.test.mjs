@@ -30,7 +30,7 @@ describe('Table', () => {
     $rows = Array.from($root.querySelectorAll('tbody tr'))
 
     if ($head) {
-      jest.spyOn($head, 'addEventListener')
+      vi.spyOn($head, 'addEventListener')
     }
   }
 

@@ -116,14 +116,14 @@ jobs:
         task:
           - description: JavaScript unit tests
             name: test-unit
-            runner: jest
-            cache: .cache/jest
+            runner: vitest
+            cache: .cache/vitest
             coverage: true
 
           - description: JavaScript behaviour tests
             name: test-behaviour
-            runner: jest
-            cache: .cache/jest
+            runner: vitest
+            cache: .cache/vitest
             coverage: true
 
           - description: JavaScript component tests
@@ -177,8 +177,8 @@ jobs:
         run: ${{ matrix.task.run }}
 
       - name: Run test project (Jest)
-        if: ${{ matrix.task.runner == 'jest' }}
-        run: npx jest --color ${{ format('--coverage --coverageDirectory="coverage/{0}" --selectProjects "{1}"', matrix.task.name, matrix.task.description) }}
+        if: ${{ matrix.task.runner == 'vitest' }}
+        run: npx vitest run ${{ format('--coverage.enabled --coverage.reportsDirectory="coverage/{0}" --project "{1}"', matrix.task.name, matrix.task.description) }}
 
       - name: Run test project (Playwright)
         if: ${{ matrix.task.runner == 'playwright' }}

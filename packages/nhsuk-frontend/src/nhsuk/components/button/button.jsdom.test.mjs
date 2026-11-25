@@ -22,8 +22,8 @@ describe('Button', () => {
       document.querySelector(`[data-module="${Button.moduleName}"]`)
     )
 
-    jest.spyOn($root, 'addEventListener')
-    jest.spyOn($root, 'click')
+    vi.spyOn($root, 'addEventListener')
+    vi.spyOn($root, 'click')
   }
 
   beforeEach(() => {
@@ -133,8 +133,8 @@ describe('Button', () => {
       const clickEvent1 = createEvent.click($root)
       const clickEvent2 = createEvent.click($root)
 
-      jest.spyOn(clickEvent1, 'preventDefault')
-      jest.spyOn(clickEvent2, 'preventDefault')
+      vi.spyOn(clickEvent1, 'preventDefault')
+      vi.spyOn(clickEvent2, 'preventDefault')
 
       // Trigger double click
       fireEvent($root, clickEvent1)
@@ -158,8 +158,8 @@ describe('Button', () => {
       const clickEvent1 = createEvent.click($root)
       const clickEvent2 = createEvent.click($root)
 
-      jest.spyOn(clickEvent1, 'preventDefault')
-      jest.spyOn(clickEvent2, 'preventDefault')
+      vi.spyOn(clickEvent1, 'preventDefault')
+      vi.spyOn(clickEvent2, 'preventDefault')
 
       // Trigger double click
       fireEvent($root, clickEvent1)

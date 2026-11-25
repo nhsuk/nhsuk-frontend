@@ -26,20 +26,20 @@ import {
   initAll
 } from './index.mjs'
 
-jest.mock('./components/button/button.mjs')
-jest.mock('./components/character-count/character-count.mjs')
-jest.mock('./components/checkboxes/checkboxes.mjs')
-jest.mock('./components/code/code.mjs')
-jest.mock('./components/error-summary/error-summary.mjs')
-jest.mock('./components/file-upload/file-upload.mjs')
-jest.mock('./components/header/header.mjs')
-jest.mock('./components/notification-banner/notification-banner.mjs')
-jest.mock('./components/password-input/password-input.mjs')
-jest.mock('./components/radios/radios.mjs')
-jest.mock('./components/scroll/scroll.mjs')
-jest.mock('./components/skip-link/skip-link.mjs')
-jest.mock('./components/tables/table.mjs')
-jest.mock('./components/tabs/tabs.mjs')
+vi.mock('./components/button/button.mjs')
+vi.mock('./components/character-count/character-count.mjs')
+vi.mock('./components/checkboxes/checkboxes.mjs')
+vi.mock('./components/code/code.mjs')
+vi.mock('./components/error-summary/error-summary.mjs')
+vi.mock('./components/file-upload/file-upload.mjs')
+vi.mock('./components/header/header.mjs')
+vi.mock('./components/notification-banner/notification-banner.mjs')
+vi.mock('./components/password-input/password-input.mjs')
+vi.mock('./components/radios/radios.mjs')
+vi.mock('./components/scroll/scroll.mjs')
+vi.mock('./components/skip-link/skip-link.mjs')
+vi.mock('./components/tables/table.mjs')
+vi.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
   const components = [
@@ -104,7 +104,7 @@ describe('NHS.UK frontend', () => {
 
   describe('initAll', () => {
     beforeEach(() => {
-      jest.spyOn(console, 'log').mockImplementation()
+      vi.spyOn(console, 'log').mockImplementation(() => {})
 
       document.body.innerHTML = outdent`
         <div data-module="${Button.moduleName}"></div>

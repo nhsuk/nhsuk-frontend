@@ -74,7 +74,7 @@ describe('Checkboxes', () => {
       name: options.labelBehaviour
     })
 
-    jest.spyOn($root, 'addEventListener')
+    vi.spyOn($root, 'addEventListener')
   }
 
   describe('Initialisation via class', () => {

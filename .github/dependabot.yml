@@ -44,27 +44,21 @@ updates:
           - 'typescript'
           - 'typescript-*'
 
-        # Exclude packages in other groups
-        exclude-patterns:
-          - '@types/jest'
-          - '@types/jest-*'
-
       test:
         patterns:
           - '@axe-core/*'
-          - '@happy-dom/*'
           - '@playwright/*'
           - '@testing-library/*'
-          - '@types/jest'
-          - '@types/jest-*'
+          - '@vitest/*'
           - 'axe-core'
-          - 'babel-jest'
           - 'backstopjs'
           - 'jest'
           - 'jest-*'
+          - 'happy-dom'
           - 'playwright'
           - 'playwright-*'
           - 'puppeteer'
+          - 'vitest'
 
       tools:
         patterns:

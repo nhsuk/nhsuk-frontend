@@ -3,6 +3,11 @@ import { defineConfig } from '@playwright/test'
 
 const { BASE_URL, CI, PORT = '3000' } = process.env
 
+/**
+ * Playwright config
+ *
+ * {@link https://playwright.dev/docs/test-configuration/}
+ */
 export default defineConfig({
   fullyParallel: true,
   testMatch: '**/*.browser.test.mjs',

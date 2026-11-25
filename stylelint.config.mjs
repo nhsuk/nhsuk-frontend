@@ -1,4 +1,6 @@
 /**
+ * Stylelint config
+ *
  * @type {Config}
  */
 export default {

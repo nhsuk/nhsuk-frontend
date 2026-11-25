@@ -50,14 +50,14 @@ describe('Code', () => {
     )
 
     if ($button) {
-      jest.spyOn($button, 'addEventListener')
+      vi.spyOn($button, 'addEventListener')
     }
 
-    jest.spyOn($content, 'clientWidth', 'get').mockReturnValue(1024)
-    jest.spyOn($content, 'clientHeight', 'get').mockReturnValue(768)
+    vi.spyOn($content, 'clientWidth', 'get').mockReturnValue(1024)
+    vi.spyOn($content, 'clientHeight', 'get').mockReturnValue(768)
 
-    jest.spyOn($content, 'scrollWidth', 'get').mockReturnValue(500)
-    jest.spyOn($content, 'scrollHeight', 'get').mockReturnValue(500)
+    vi.spyOn($content, 'scrollWidth', 'get').mockReturnValue(500)
+    vi.spyOn($content, 'scrollHeight', 'get').mockReturnValue(500)
   }
 
   beforeEach(() => {
@@ -178,8 +178,8 @@ describe('Code', () => {
     })
 
     it('should add tabindex when code overflows container', async () => {
-      jest.spyOn($content, 'clientWidth', 'get').mockReturnValue(320)
-      jest.spyOn($content, 'clientHeight', 'get').mockReturnValue(240)
+      vi.spyOn($content, 'clientWidth', 'get').mockReturnValue(320)
+      vi.spyOn($content, 'clientHeight', 'get').mockReturnValue(240)
 
       resizeObserverMock.mockElementSize($content, {
         contentBoxSize: { inlineSize: 500, blockSize: 500 }
@@ -200,7 +200,7 @@ describe('Code', () => {
       const component = new Code($root)
       expect($button.dataset).toHaveProperty('preventDoubleClick', 'true')
 
-      jest.spyOn(component, 'copy')
+      vi.spyOn(component, 'copy')
 
       // Click to copy code multiple times
       await user.dblClick($button)
@@ -215,7 +215,7 @@ describe('Code', () => {
       const component = new Code($root)
       expect($button.dataset).toHaveProperty('preventDoubleClick', 'false')
 
-      jest.spyOn(component, 'copy')
+      vi.spyOn(component, 'copy')
 
       // Click to copy code multiple times
       await user.dblClick($button)
