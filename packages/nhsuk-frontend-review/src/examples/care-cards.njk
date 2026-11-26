@@ -1,0 +1,216 @@
+{% extends "layouts/blank.njk" %}
+
+{% set pageHeading = "Care cards" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-6">With heading nested <code class="nhsuk-code--inline">role="text"</code></h2>
+
+      {% call card({
+        heading: {
+          text: "See a GP if:",
+          level: 3
+        },
+        variant: "non-urgent"
+      }) %}
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>you're breastfeeding and have chickenpox symptoms</li>
+        </ul>
+        <p>Contact the GP surgery before you go in and tell the receptionist you think it might be chickenpox.</p>
+      {% endcall %}
+
+      {% call card({
+        heading: {
+          text: "Ask for an urgent GP appointment or get help from NHS 111 if you have:",
+          level: 3
+        },
+        variant: "urgent"
+      }) %}
+        <ul>
+          <li>pain in your eyes</li>
+          <li>changes to your vision, such as vision loss or blurred vision</li>
+          <li>very red eyes</li>
+        </ul>
+        <p>These can be signs of a more serious eye problem.</p>
+        <p>You can call 111 or <a href="#">get help from 111 online</a>.</p>
+      {% endcall %}
+
+      {% call card({
+        heading: {
+          text: "Call 999 or go to A&E now if:",
+          level: 3
+        },
+        variant: "emergency"
+      }) %}
+        <ul>
+          <li>you get sudden chest pain</li>
+          <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
+          <li>you start coughing up blood</li>
+        </ul>
+
+        {{ actionLink({
+          text: "Find your nearest A&E",
+          href: "#",
+          variant: "reverse"
+        }) }}
+      {% endcall %}
+
+      <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-6">With heading <code class="nhsuk-code--inline">aria-label</code></h2>
+
+      {% call card({
+        heading: heading({
+          text: "See a GP if:",
+          level: 3,
+          className: "nhsuk-card__heading",
+          attributes: {
+            "aria-label": "Non-urgent advice: See a GP if:"
+          }
+        }),
+        variant: "non-urgent"
+      }) %}
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>you're breastfeeding and have chickenpox symptoms</li>
+        </ul>
+        <p>Contact the GP surgery before you go in and tell the receptionist you think it might be chickenpox.</p>
+      {% endcall %}
+
+      {% call card({
+        heading: heading({
+          text: "Ask for an urgent GP appointment or get help from NHS 111 if you have:",
+          level: 3,
+          className: "nhsuk-card__heading",
+          attributes: {
+            "aria-label": "Urgent advice: Ask for an urgent GP appointment or get help from NHS 111 if you have:"
+          }
+        }),
+        variant: "urgent"
+      }) %}
+        <ul>
+          <li>pain in your eyes</li>
+          <li>changes to your vision, such as vision loss or blurred vision</li>
+          <li>very red eyes</li>
+        </ul>
+        <p>These can be signs of a more serious eye problem.</p>
+        <p>You can call 111 or <a href="#">get help from 111 online</a>.</p>
+      {% endcall %}
+
+      {% call card({
+        heading: heading({
+          text: "Call 999 or go to A&E now if:",
+          level: 3,
+          className: "nhsuk-card__heading",
+          attributes: {
+            "aria-label": "Immediate action required: Call 999 or go to A&E now if:"
+          }
+        }),
+        variant: "emergency"
+      }) %}
+        <ul>
+          <li>you get sudden chest pain</li>
+          <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
+          <li>you start coughing up blood</li>
+        </ul>
+
+        {{ actionLink({
+          text: "Find your nearest A&E",
+          href: "#",
+          variant: "reverse"
+        }) }}
+      {% endcall %}
+
+      <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-6">With heading <code class="nhsuk-code--inline">aria-labelledby</code></h2>
+
+      {% call card({
+        heading: heading({
+          html: '<span class="nhsuk-u-visually-hidden" id="card-non-urgent-action">Non-urgent advice: </span>\n'
+            ~ '<span id="card-non-urgent-direction">See a GP if:</span>',
+          level: 3,
+          className: "nhsuk-card__heading",
+          attributes: {
+            "aria-labelledby": "card-non-urgent-action card-non-urgent-direction"
+          }
+        }),
+        variant: "non-urgent"
+      }) %}
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>you're breastfeeding and have chickenpox symptoms</li>
+        </ul>
+        <p>Contact the GP surgery before you go in and tell the receptionist you think it might be chickenpox.</p>
+      {% endcall %}
+
+      {% call card({
+        heading: heading({
+          html: '<span class="nhsuk-u-visually-hidden" id="card-urgent-action">Urgent advice: </span>\n'
+            ~ '<span id="card-urgent-direction">Ask for an urgent GP appointment or get help from NHS 111 if you have:</span>',
+          level: 3,
+          className: "nhsuk-card__heading",
+          attributes: {
+            "aria-labelledby": "card-urgent-action card-urgent-direction"
+          }
+        }),
+        variant: "urgent"
+      }) %}
+        <ul>
+          <li>pain in your eyes</li>
+          <li>changes to your vision, such as vision loss or blurred vision</li>
+          <li>very red eyes</li>
+        </ul>
+        <p>These can be signs of a more serious eye problem.</p>
+        <p>You can call 111 or <a href="#">get help from 111 online</a>.</p>
+      {% endcall %}
+
+      {% call card({
+        heading: heading({
+          html: '<span class="nhsuk-u-visually-hidden" id="card-emergency-action">Immediate action required: </span>\n'
+            ~ '<span id="card-emergency-direction">Call 999 or go to A&amp;E now if:</span>',
+          level: 3,
+          className: "nhsuk-card__heading",
+          attributes: {
+            "aria-labelledby": "card-emergency-action card-emergency-direction"
+          }
+        }),
+        variant: "emergency"
+      }) %}
+        <ul>
+          <li>you get sudden chest pain</li>
+          <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
+          <li>you start coughing up blood</li>
+        </ul>
+
+        {{ actionLink({
+          text: "Find your nearest A&E",
+          href: "#",
+          variant: "reverse"
+        }) }}
+      {% endcall %}
+
+    </div>
+  </div>
+{% endblock %}
