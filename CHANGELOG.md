@@ -611,6 +611,23 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+#### Use consistent padding across components
+
+We've adjusted the padding across many components to make them more consistent.
+The following components now share spacing unit 5 on our responsive spacing scale (32px large screens, 24px small screens):
+
+- cards (including care cards and feature cards)
+- error summary
+- expander
+- file upload
+- inset text
+- notification banner
+- panel
+- tabs
+- warning callout
+
+This change was introduced in [pull request #1737: use consistent padding across components](https://github.com/nhsuk/nhsuk-frontend/pull/1737).
+
 ## 10.7.2 - 9 November 2026
 
 Note: This release was created from the `support/10.x` branch.

@@ -51,11 +51,17 @@
   .nhsuk-card__content {
     box-sizing: border-box;
     @include nhsuk-top-and-bottom;
-    @include nhsuk-responsive-padding(5);
+    @include nhsuk-responsive-padding(5, ("top", "bottom"), $adjustment: - $nhsuk-card-border-width);
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $nhsuk-card-border-width, $unit: "rem");
+  }
+
+  .nhsuk-card__img + .nhsuk-card__content,
+  .nhsuk-card > .nhsuk-image:not(:has(.nhsuk-image__caption)) + .nhsuk-card__content {
+    @include nhsuk-responsive-padding(5, "top");
   }
 
   .nhsuk-card .nhsuk-image__caption {
-    @include nhsuk-responsive-padding(5, ("left", "right"));
+    @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
   }
 
   .nhsuk-card__heading {
@@ -68,7 +74,8 @@
   }
 
   .nhsuk-card__heading-container {
-    @include nhsuk-responsive-padding(5);
+    @include nhsuk-responsive-padding(5, ("top", "bottom"), $adjustment: - $nhsuk-card-border-width);
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $nhsuk-card-border-width, $unit: "rem");
 
     &:last-child {
       @include nhsuk-top-and-bottom;
@@ -371,7 +378,7 @@
   .nhsuk-card--care > .nhsuk-card__heading-container {
     position: relative;
 
-    padding-top: nhsuk-spacing(3);
+    padding-top: nhsuk-spacing(3, $adjustment: - $nhsuk-card-border-width);
     padding-bottom: nhsuk-spacing(3) - $nhsuk-card-border-width;
 
     border-bottom: $nhsuk-card-border-width solid transparent;
@@ -433,7 +440,7 @@
   }
 
   .nhsuk-card--care .nhsuk-card__content {
-    @include nhsuk-responsive-padding(5, "top");
+    @include nhsuk-responsive-padding(5, "top", $adjustment: - $nhsuk-card-border-width);
   }
 
   .nhsuk-card--care--non-urgent > .nhsuk-card__heading-container,
@@ -558,7 +565,8 @@
       pointer-events: none;
 
       fill: $nhsuk-link-colour;
-      @include nhsuk-responsive-spacing(5, "right");
+
+      @include nhsuk-responsive-spacing(5, "right", $unit: "rem");
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         fill: ButtonText;
