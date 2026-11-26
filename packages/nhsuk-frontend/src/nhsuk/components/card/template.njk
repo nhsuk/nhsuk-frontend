@@ -123,7 +123,7 @@
     visuallyHidden: {
       text: params.visuallyHiddenText,
       placement: "start",
-      slots: { end: ": " }
+      slots: { end: ":&nbsp;" | safe }
     }
   }) | trim -}}
 {% endset %}

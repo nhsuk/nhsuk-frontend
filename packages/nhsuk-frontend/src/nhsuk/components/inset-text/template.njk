@@ -21,7 +21,7 @@
   visuallyHidden: {
     text: params.visuallyHiddenText | default("Information", true),
     placement: "before",
-    slots: { end: ": " }
+    slots: { end: ":&nbsp;" | safe }
   }
 } -%}
 

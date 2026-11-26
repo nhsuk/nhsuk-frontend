@@ -351,7 +351,7 @@ describe('File upload', () => {
         await initExample('default')
 
         expect(await getAccessibleName(page, $dropButton)).toBe(
-          'Upload a file  ,   No file chosen  ,   Choose file or drop file'
+          'Upload a file , No file chosen , Choose file or drop file'
         )
       })
 
@@ -366,7 +366,7 @@ describe('File upload', () => {
         await fileChooser.accept(['fakefile.txt'])
 
         expect(await getAccessibleName(page, $dropButton)).toBe(
-          'Upload a file  ,   fakefile.txt  ,   Choose file or drop file'
+          'Upload a file , fakefile.txt , Choose file or drop file'
         )
       })
 
@@ -381,7 +381,7 @@ describe('File upload', () => {
         await fileChooser.accept(['fakefile1.txt', 'fakefile2.txt'])
 
         expect(await getAccessibleName(page, $dropButton)).toBe(
-          'Upload multiple files  ,   2 files chosen  ,   Choose files or drop files'
+          'Upload multiple files , 2 files chosen , Choose files or drop files'
         )
       })
     })

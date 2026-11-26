@@ -345,7 +345,7 @@ describe('Macro: Content', () => {
           visuallyHidden: 'details for Zadie Munroe'
         },
         expected: outdent`
-          Change<span class="nhsuk-u-visually-hidden"> details for Zadie Munroe</span>
+          Change<span class="nhsuk-u-visually-hidden">&nbsp;details for Zadie Munroe</span>
         `
       },
       {
@@ -355,7 +355,7 @@ describe('Macro: Content', () => {
           visuallyHiddenText: 'details for Zadie Munroe'
         },
         expected: outdent`
-          Change<span class="nhsuk-u-visually-hidden"> details for Zadie Munroe</span>
+          Change<span class="nhsuk-u-visually-hidden">&nbsp;details for Zadie Munroe</span>
         `
       },
       {
@@ -463,7 +463,7 @@ describe('Macro: Content', () => {
           }
         },
         expected: outdent`
-          <span class="nhsuk-u-visually-hidden">Error: </span>Enter your date of birth
+          <span class="nhsuk-u-visually-hidden">Error:&nbsp;</span>Enter your date of birth
         `
       },
       {
@@ -483,7 +483,7 @@ describe('Macro: Content', () => {
         },
         expected: outdent`
           [Before]
-          Start–<span class="nhsuk-u-visually-hidden">Error: </span>Enter your date of birth–End
+          Start–<span class="nhsuk-u-visually-hidden">Error:&nbsp;</span>Enter your date of birth–End
           [After]
         `
       },
@@ -529,7 +529,7 @@ describe('Macro: Content', () => {
           }
         },
         expected: outdent`
-          Enter your date of birth<span class="nhsuk-u-visually-hidden"> (Karen Francis)</span>
+          Enter your date of birth<span class="nhsuk-u-visually-hidden">&nbsp;(Karen Francis)</span>
         `
       },
       {
@@ -561,7 +561,7 @@ describe('Macro: Content', () => {
         },
         expected: outdent`
           [Before]
-          Start–Enter your date of birth<span class="nhsuk-u-visually-hidden"> (Karen Francis)</span>–End
+          Start–Enter your date of birth<span class="nhsuk-u-visually-hidden">&nbsp;(Karen Francis)</span>–End
           [After]
         `
       },

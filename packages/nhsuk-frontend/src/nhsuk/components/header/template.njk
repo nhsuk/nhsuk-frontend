@@ -267,7 +267,7 @@
               visuallyHidden: {
                 text: params.navigation.toggleMenuVisuallyHiddenText | default("Browse"),
                 placement: "start",
-                slots: { end: " " }
+                slots: { end: "&nbsp;" | safe }
               }
             }) | trim | indent(12) }}
           </button>

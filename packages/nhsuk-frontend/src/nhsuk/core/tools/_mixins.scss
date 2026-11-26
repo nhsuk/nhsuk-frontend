@@ -103,18 +103,6 @@
 
 @mixin nhsuk-visually-hidden($important: true) {
   @include _nhsuk-visually-hide-content($important: $important);
-
-  // Absolute positioning has the unintended consequence of removing any
-  // whitespace surrounding visually hidden text from the accessibility tree.
-  // Insert a space character before and after visually hidden text to separate
-  // it from any visible text surrounding it.
-  &::before {
-    content: "\00a0";
-  }
-
-  &::after {
-    content: "\00a0";
-  }
 }
 
 /// Hide an element visually, but have it available for screen readers whilst
