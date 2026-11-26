@@ -284,6 +284,153 @@
       <span class="nhsuk-body-m">Span using nhsuk-body</span>
       <span class="nhsuk-body-s">Span using nhsuk-body-s</span>
 
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+
+      <h2 id="visually-hidden-text">Visually hidden text</h2>
+
+      <h3>Headings with visually hidden text at the start</h3>
+
+      <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with </span>A</h4>
+      <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with </span>B</h4>
+      <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with </span>C</h4>
+
+      <p>But without visually hidden text trailing non-breaking space:</p>
+
+      <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with</span>A</h4>
+      <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with</span>B</h4>
+      <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with</span>C</h4>
+
+      <hr>
+
+      <h3>Headings with visually hidden text at the end</h3>
+
+      <h4 class="nhsuk-heading-s">Add<span class="nhsuk-u-visually-hidden"> all content</span></h4>
+      <h4 class="nhsuk-heading-s">Edit<span class="nhsuk-u-visually-hidden"> all content</span></h4>
+      <h4 class="nhsuk-heading-s">Search<span class="nhsuk-u-visually-hidden"> all content</span></h4>
+
+      <p>But without visually hidden text leading non-breaking space:</p>
+
+      <h4 class="nhsuk-heading-s">Add<span class="nhsuk-u-visually-hidden">all content</span></h4>
+      <h4 class="nhsuk-heading-s">Edit<span class="nhsuk-u-visually-hidden">all content</span></h4>
+      <h4 class="nhsuk-heading-s">Search<span class="nhsuk-u-visually-hidden">all content</span></h4>
+
+      <hr>
+
+      <h3>Headings that are visually hidden</h3>
+
+      <h4 class="nhsuk-u-visually-hidden">Header menu</h4>
+      <h4 class="nhsuk-u-visually-hidden">Navigation menu</h4>
+      <h4 class="nhsuk-u-visually-hidden">Footer menu</h4>
+
+      <hr>
+
+      <h3>Paragraphs with visually hidden text at the start</h3>
+
+      <p><span class="nhsuk-u-visually-hidden">Visually hidden text with trailing non-breaking space and&nbsp;</span>Paragraph without leading space</p>
+      <p><span class="nhsuk-u-visually-hidden">Visually hidden text with trailing non-breaking space and&nbsp;</span> Paragraph with leading space</p>
+
+      <p>But without visually hidden text trailing non-breaking space:</p>
+
+      <p><span class="nhsuk-u-visually-hidden">Visually hidden text without trailing non-breaking space and</span>Paragraph without leading space</p>
+      <p><span class="nhsuk-u-visually-hidden">Visually hidden text without trailing non-breaking space and</span> Paragraph with leading space</p>
+
+      <hr>
+
+      <h3>Paragraphs with visually hidden text at the end</h3>
+
+      <p>Paragraph without trailing space<span class="nhsuk-u-visually-hidden">&nbsp;and visually hidden text with leading non-breaking space</span></p>
+      <p>Paragraph with trailing space <span class="nhsuk-u-visually-hidden">&nbsp;and visually hidden text with leading non-breaking space</span></p>
+
+      <p>But without visually hidden text leading non-breaking space:</p>
+
+      <p>Paragraph without trailing space<span class="nhsuk-u-visually-hidden">and visually hidden text without leading non-breaking space</span></p>
+      <p>Paragraph with trailing space <span class="nhsuk-u-visually-hidden">and visually hidden text without leading non-breaking space</span></p>
+
+      <hr>
+
+      <h3>Paragraphs that are visually hidden</h3>
+
+      <p class="nhsuk-u-visually-hidden">Header menu description</p>
+      <p class="nhsuk-u-visually-hidden">Navigation menu description</p>
+      <p class="nhsuk-u-visually-hidden">Footer menu description</p>
+
+      <hr>
+
+      <h3>Table headers with visually hidden text at the start</h3>
+
+      {{ table({
+        caption: "2019",
+        lastRowBorder: false,
+        head: [
+          {
+            html: '<span class="nhsuk-u-visually-hidden">Bank holiday </span>Date'
+          },
+          {
+            html: '<span class="nhsuk-u-visually-hidden">Bank holiday </span>Day'
+          },
+          {
+            html: '<span class="nhsuk-u-visually-hidden">Bank holiday </span>Name'
+          }
+        ],
+        rows: [
+          ["19 April", "Friday", "Good Friday"],
+          ["22 April", "Monday", "Easter Monday"]
+        ]
+      }) }}
+
+      <hr>
+
+      <h3>Table headers with visually hidden text at the end</h3>
+
+      {{ table({
+        caption: "2019",
+        lastRowBorder: false,
+        head: [
+          {
+            html: 'Date<span class="nhsuk-u-visually-hidden"> of bank holiday</span>'
+          },
+          {
+            html: 'Day<span class="nhsuk-u-visually-hidden"> of bank holiday</span>'
+          },
+          {
+            html: 'Name<span class="nhsuk-u-visually-hidden"> of bank holiday</span>'
+          }
+        ],
+        rows: [
+          ["19 April", "Friday", "Good Friday"],
+          ["22 April", "Monday", "Easter Monday"]
+        ]
+      }) }}
+
+      <hr>
+
+      <h3>Table headers that are visually hidden</h3>
+
+      {{ table({
+        caption: "2019",
+        lastRowBorder: false,
+        head: [
+          {
+            text: "Date",
+            classes: "nhsuk-u-visually-hidden"
+          },
+          {
+            text: "Day",
+            classes: "nhsuk-u-visually-hidden"
+          },
+          {
+            text: "Name",
+            classes: "nhsuk-u-visually-hidden"
+          }
+        ],
+        rows: [
+          ["19 April", "Friday", "Good Friday"],
+          ["22 April", "Monday", "Easter Monday"]
+        ]
+      }) }}
+
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+
       <h2>Typography with components</h2>
 
       <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-font-code nhsuk-u-nowrap">999 123 4567</span>, using <code>nhsuk-u-font-code</code> and <code>nhsuk-u-nowrap</code>.</p>
@@ -318,7 +465,7 @@
         <li>Ordered list item using no class</li>
       </ol>
 
-      <hr>
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 
       <h2>Typography with images</h2>
 
@@ -632,6 +779,8 @@
         <li>Unordered list item using no class</li>
         <li>Unordered list item using no class</li>
       </ul>
+
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 
       <h2>Content with images</h2>
 

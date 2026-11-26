@@ -73,7 +73,7 @@ describe('Node.js API: Components', () => {
       })
 
       expect(html).toMatchInlineSnapshot(`
-        "<a class="nhsuk-link" href="#/delete">Delete<span class="nhsuk-u-visually-hidden"> (Regional Manager)</span></a>
+        "<a class="nhsuk-link" href="#/delete">Delete<span class="nhsuk-u-visually-hidden">&nbsp;(Regional Manager)</span></a>
         "
       `)
     })

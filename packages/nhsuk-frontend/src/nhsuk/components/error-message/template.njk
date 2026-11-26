@@ -14,7 +14,7 @@
   visuallyHidden: {
     text: params.visuallyHiddenText | default("Error"),
     placement: "start",
-    slots: { end: ": " }
+    slots: { end: ":&nbsp;" | safe }
   }
 } -%}
 
