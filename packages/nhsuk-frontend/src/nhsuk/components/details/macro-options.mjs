@@ -42,20 +42,6 @@ const options = {
       }
     }
   },
-  summaryText: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `summary.text` option.',
-    released: '10.0.0',
-    deprecated: '10.6.0'
-  },
-  summaryHtml: {
-    type: 'string',
-    required: true,
-    description: 'Replaced by the `summary.html` option.',
-    released: '10.0.0',
-    deprecated: '10.6.0'
-  },
   text: {
     type: 'string',
     required: true,

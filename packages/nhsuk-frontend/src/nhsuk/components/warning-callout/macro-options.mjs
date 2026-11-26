@@ -66,20 +66,6 @@ const options = {
       }
     }
   },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Replaced by the `heading.level` option.',
-    released: '1.0.0',
-    deprecated: '10.6.0'
-  },
-  headingClasses: {
-    type: 'string',
-    required: false,
-    description: 'Replaced by the `heading.classes` option.',
-    released: '10.3.0',
-    deprecated: '10.6.0'
-  },
   text: {
     type: 'string',
     required: true,

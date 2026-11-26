@@ -40,9 +40,9 @@
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
 {%- set searchMethod = params.search.method | default("get") %}
 {%- set searchName = params.search.name | default("q") %}
-{%- set searchInputPlaceholder = params.search.input.placeholder | default(params.search.placeholder) | default("Search") %}
-{%- set searchButtonAriaLabel = params.search.button.ariaLabel | default(params.search.visuallyHiddenButton) | default("Search") %}
-{%- set searchLabelVisuallyHiddenText = params.search.label.visuallyHiddenText | default(params.search.visuallyHiddenLabel) | default("Search the NHS website") %}
+{%- set searchInputPlaceholder = params.search.input.placeholder | default("Search") %}
+{%- set searchButtonAriaLabel = params.search.button.ariaLabel | default("Search") %}
+{%- set searchLabelVisuallyHiddenText = params.search.label.visuallyHiddenText | default("Search the NHS website") %}
 
 {#- The NHS logo and service name are combined into a single link if either
     the logo doesn’t have an `href` set but the service name does, or if both
