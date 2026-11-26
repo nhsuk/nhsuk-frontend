@@ -11,6 +11,15 @@ import html5 from 'html-validate/elements/html5'
 export default defineConfig({
   extends: ['html-validate:recommended', 'html-validate:document'],
   rules: {
+    'aria-label-misuse': [
+      'error',
+      {
+        elements: {
+          exclude: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+        }
+      }
+    ],
+
     // Allow for multiple buttons in the same form to have the same name
     'form-dup-name': ['error', { shared: ['radio', 'checkbox', 'submit'] }],
 
