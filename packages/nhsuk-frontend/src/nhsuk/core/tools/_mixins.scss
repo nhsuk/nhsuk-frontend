@@ -282,7 +282,7 @@
 
   @include nhsuk-font-size(26);
 
-  @include nhsuk-responsive-margin(-5, "left", $adjustment: -1px, $unit: "rem"); // [5]
+  @include nhsuk-responsive-margin(-5, "left", $unit: "rem"); // [5]
   @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
 
   @media print {
