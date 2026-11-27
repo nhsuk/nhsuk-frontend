@@ -72,8 +72,8 @@ describe('Radios', () => {
         })
 
         it('includes the expected number of inputs and conditionals', () => {
-          expect($inputs).toHaveLength(3)
-          expect($conditionals).toHaveLength(3)
+          expect($inputs).toHaveLength(4)
+          expect($conditionals).toHaveLength(4)
         })
 
         it('has no ARIA attributes applied', async () => {
@@ -111,7 +111,7 @@ describe('Radios', () => {
         })
 
         it('has conditional content revealed that is associated with a checked input', async () => {
-          const $input = $inputs[0] // First input, checked
+          const $input = $inputs[$inputs.length - 1] // Last input, checked
           const $conditional = await $component.$(
             `[id="${await getAttribute($input, 'aria-controls')}"]`
           )
@@ -121,7 +121,7 @@ describe('Radios', () => {
         })
 
         it('has no conditional content revealed that is associated with an unchecked input', async () => {
-          const $input = $inputs[$inputs.length - 1] // Last input, unchecked
+          const $input = $inputs[0] // First input, unchecked
           const $conditional = await $component.$(
             `[id="${await getAttribute($input, 'aria-controls')}"]`
           )

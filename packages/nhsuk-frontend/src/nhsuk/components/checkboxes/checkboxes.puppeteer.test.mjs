@@ -72,8 +72,8 @@ describe('Checkboxes', () => {
         })
 
         it('includes the expected number of inputs and conditionals', () => {
-          expect($inputs).toHaveLength(3)
-          expect($conditionals).toHaveLength(3)
+          expect($inputs).toHaveLength(4)
+          expect($conditionals).toHaveLength(4)
         })
 
         it('has no ARIA attributes applied', async () => {
@@ -235,25 +235,27 @@ describe('Checkboxes', () => {
         await $inputs[0].click()
         await $inputs[1].click()
         await $inputs[2].click()
+        await $inputs[3].click()
 
         // Check the "none" option
-        await $inputs[3].click()
+        await $inputs[4].click()
 
         // Expect first 3 checkboxes to have been unchecked
         expect(await getProperty($inputs[0], 'checked')).toBe(false)
         expect(await getProperty($inputs[1], 'checked')).toBe(false)
         expect(await getProperty($inputs[2], 'checked')).toBe(false)
+        expect(await getProperty($inputs[3], 'checked')).toBe(false)
       })
 
       it('unchecks the "none" option when any other checkbox is checked', async () => {
         // Check the "none" option
-        await $inputs[3].click()
+        await $inputs[4].click()
 
         // Check the first checkbox
         await $inputs[0].click()
 
         // Expect the "none" option to have been unchecked
-        expect(await getProperty($inputs[3], 'checked')).toBe(false)
+        expect(await getProperty($inputs[4], 'checked')).toBe(false)
       })
     })
   })
@@ -282,7 +284,7 @@ describe('Checkboxes', () => {
         expect(await isVisible($conditional)).toBe(true)
 
         // Check the "none" option
-        await $inputs[3].click()
+        await $inputs[4].click()
 
         // Expect the "Text message" checkbox to have been unchecked
         expect(await getProperty($inputs[2], 'checked')).toBe(false)

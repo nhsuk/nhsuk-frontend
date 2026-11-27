@@ -274,6 +274,17 @@ const fixtures = {
         }
       }
     }
+  },
+  "example address": {
+    context: {
+      label: "Address",
+      name: "contact-by-letter",
+      classes: "nhsuk-u-width-two-thirds nhsuk-u-margin-bottom-0",
+      autocomplete: "street-address"
+    },
+    options: {
+      hidden: true
+    }
   }
 }
 

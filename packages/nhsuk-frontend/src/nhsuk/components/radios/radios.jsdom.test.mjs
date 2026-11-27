@@ -44,7 +44,11 @@ describe('Radios', () => {
       name: 'Text message'
     })
 
-    $inputs = [$input1, $input2, $input3]
+    const $input4 = within($root).getByRole('radio', {
+      name: 'Paper letter'
+    })
+
+    $inputs = [$input1, $input2, $input3, $input4]
 
     jest.spyOn($root, 'addEventListener')
   })

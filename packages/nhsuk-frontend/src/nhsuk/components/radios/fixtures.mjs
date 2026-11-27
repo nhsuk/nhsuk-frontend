@@ -3,6 +3,7 @@ import { outdent } from "outdent"
 import { components } from "#lib"
 
 import { examples as inputExamples } from "../input/fixtures.mjs"
+import { examples as textareaExamples } from "../textarea/fixtures.mjs"
 
 /**
  * Nunjucks macro option variants
@@ -53,6 +54,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -84,6 +89,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -115,6 +124,10 @@ const fixtures = {
           value: "text",
           text: "Text message",
           disabled: true
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -144,6 +157,10 @@ const fixtures = {
           value: "text",
           text: "Text message",
           disabled: false
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -174,6 +191,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -205,6 +226,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -259,6 +284,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -337,6 +366,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     }
@@ -367,6 +400,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -488,6 +525,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     }
@@ -517,6 +558,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -550,6 +595,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -584,6 +633,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -614,6 +667,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -647,6 +704,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -729,8 +790,15 @@ const fixtures = {
       },
       idPrefix: "conditional",
       name: "example",
-      value: "email",
-      items: getItems()
+      value: "letter",
+      items: getItems({
+        values: [
+          "karen.francis@example.com",
+          "",
+          "07700 900457",
+          "73 Roman Rd\nLeeds\nLS2 5ZN"
+        ]
+      })
     },
     variants
   },
@@ -827,33 +895,27 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  "with nested conditional radios": {
+  "with nested conditional content": {
     context: {
       fieldset: {
         legend: {
-          heading: "How do you want to be contacted about this?",
-          size: "l"
+          heading: "Do you want to be contacted about this?",
+          size: "m"
         }
-      },
-      hint: {
-        text: "Select 1 option"
       },
       idPrefix: "conditional-nested",
       name: "example-outer",
+      value: "yes",
       items: [
         {
-          value: "no-conditional",
-          text: "No conditional"
-        },
-        {
-          value: "nested",
-          text: "Nested conditional",
+          value: "yes",
+          text: "Yes, I want to be contacted",
           conditional: {
             html: components.render("radios", {
               context: {
                 fieldset: {
                   legend: {
-                    text: "How do you want to be contacted about this?",
+                    text: "How do you want to be contacted?",
                     size: "s"
                   }
                 },
@@ -861,10 +923,23 @@ const fixtures = {
                   text: "Select 1 option"
                 },
                 name: "example-inner",
-                items: getItems()
+                value: "letter",
+                small: true,
+                items: getItems({
+                  values: [
+                    "karen.francis@example.com",
+                    "",
+                    "07700 900457",
+                    "73 Roman Rd\nLeeds\nLS2 5ZN"
+                  ]
+                })
               }
             })
           }
+        },
+        {
+          value: "no",
+          text: "No, I do not want to be contacted"
         }
       ]
     }
@@ -890,6 +965,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ],
       formGroup: {
@@ -905,19 +984,35 @@ const fixtures = {
 }
 
 /**
- * Get example items by variant
+ * Get example items
  *
- * @param {{ variant?: unknown, invalid?: boolean }} [options]
+ * @param {object} [options]
+ * @param {boolean} [options.invalid]
+ * @param {string[]} [options.values]
  * @returns {object[]}
  */
 function getItems(options = {}) {
-  let input1 = inputExamples["example email address"]
-  let input2 = inputExamples["example phone number"]
-  let input3 = inputExamples["example mobile phone number"]
+  const { values = [] } = options
+
+  const inputs = [
+    structuredClone(inputExamples["example email address"]),
+    structuredClone(inputExamples["example phone number"]),
+    structuredClone(inputExamples["example mobile phone number"]),
+    structuredClone(textareaExamples["example address"])
+  ]
 
   // Include error message example (optional)
   if (options.invalid) {
-    input2 = inputExamples["example phone number with error message"]
+    inputs[1] = structuredClone(
+      inputExamples["example phone number with error message"]
+    )
+  }
+
+  for (const input of inputs) {
+    const index = inputs.indexOf(input)
+
+    input.context ??= {}
+    input.context.value = values[index]
   }
 
   return [
@@ -925,21 +1020,28 @@ function getItems(options = {}) {
       value: "email",
       text: "Email",
       conditional: {
-        html: components.render("input", input1)
+        html: components.render("input", inputs[0])
       }
     },
     {
       value: "phone",
       text: "Phone",
       conditional: {
-        html: components.render("input", input2)
+        html: components.render("input", inputs[1])
       }
     },
     {
       value: "text",
       text: "Text message",
       conditional: {
-        html: components.render("input", input3)
+        html: components.render("input", inputs[2])
+      }
+    },
+    {
+      value: "letter",
+      text: "Paper letter",
+      conditional: {
+        html: components.render("textarea", inputs[3])
       }
     }
   ]
