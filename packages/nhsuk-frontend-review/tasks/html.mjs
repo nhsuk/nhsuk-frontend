@@ -104,10 +104,11 @@ export const compile = task.name('html:render', async () => {
 
       // Prefix with description, e.g. 'small with hint'
       const exampleName = `${fixture.description ?? ''} ${fixture.name}`.trim()
+      const exampleHtml = `{% raw %}${html}{% endraw %}`
 
       // Render component example into layout
       const templateHtml = renderTemplate('layouts/preview.njk', {
-        blocks: { example: html },
+        blocks: { example: exampleHtml },
         context: { ...context, pageHeading: `${name} ${exampleName}`, options },
         env
       })
