@@ -16,6 +16,7 @@ In [pull request #2217: Fix responsive table headings and empty rows](https://gi
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#2216: Review global `hidden` attribute styling](https://github.com/nhsuk/nhsuk-frontend/pull/2216)
+- [#2232: Remove Nunjucks indent from tab panels and textarea](https://github.com/nhsuk/nhsuk-frontend/pull/2232)
 
 ## 10.7.2 - 9 November 2026
 
