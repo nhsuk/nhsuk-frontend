@@ -33,22 +33,21 @@
 {%- endmacro %}
 
 {%- macro _tabPanel(params, item, index) %}
-{%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index %}
+  {%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index %}
 
-{#- Support tab panel as string #}
-{%- set tabPanel = item.panel if item.panel is mapping and item.panel is not escaped else {
-  text: item.panel if item.panel is string else undefined,
-  html: item.panel if item.panel is escaped else undefined
-} -%}
-
-<div class="nhsuk-tabs__panel {%- if index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ tabPanelId }}"
-  {{- nhsukAttributes(tabPanel.attributes) }}>
-{% if tabPanel.html %}
-  {{ nhsukContent({ html: tabPanel.html }) | trim | indent(2) }}
-{% elif tabPanel.text %}
-  <p>{{ nhsukContent({ text: tabPanel.text }) | trim | indent(2) }}</p>
-{% endif %}
-</div>
+  {#- Support tab panel as string #}
+  {%- set tabPanel = item.panel if item.panel is mapping and item.panel is not escaped else {
+    text: item.panel if item.panel is string else undefined,
+    html: item.panel if item.panel is escaped else undefined
+  } %}
+  <div class="nhsuk-tabs__panel {%- if index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ tabPanelId }}"
+    {{- nhsukAttributes(tabPanel.attributes) }}>
+  {% if tabPanel.html %}
+    {{- nhsukContent({ html: tabPanel.html }) | trim }}
+  {% elif tabPanel.text %}
+    <p>{{ nhsukContent({ text: tabPanel.text }) | trim | indent(2) }}</p>
+  {% endif %}
+  </div>
 {%- endmacro %}
 
 {#- If an id 'prefix' is not passed, fall back to using the id attribute
@@ -77,8 +76,8 @@
       {{- _tabListItem(params, item, loop.index) | trim | indent(4, true) }}
     {% endfor %}
   </ul>
-  {% for item in items %}
-    {{- _tabPanel(params, item, loop.index) | trim | indent(2, true) }}
-  {% endfor %}
+{% for item in items %}
+  {{ _tabPanel(params, item, loop.index) | trim }}
+{% endfor %}
 {% endif %}
 </div>
