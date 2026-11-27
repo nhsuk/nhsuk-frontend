@@ -220,7 +220,7 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  "with pre-checked values": {
+  "with values": {
     context: {
       fieldset: {
         legend: {
@@ -708,7 +708,7 @@ const fixtures = {
     },
     variants
   },
-  "with conditional content, error message": {
+  "with conditional content and error message": {
     context: {
       fieldset: {
         legend: {
@@ -728,7 +728,7 @@ const fixtures = {
     },
     variants
   },
-  "with conditional content, error message (nested)": {
+  "with conditional content and error message (nested)": {
     context: {
       fieldset: {
         legend: {
@@ -1033,7 +1033,7 @@ const fixtures = {
       ]
     }
   },
-  'with "none" option, conditional content': {
+  'with "none" option and conditional content': {
     context: {
       fieldset: {
         legend: {

@@ -310,7 +310,7 @@ const fixtures = {
       ]
     }
   },
-  "with pre-checked value": {
+  "with value": {
     context: {
       fieldset: {
         legend: {
@@ -722,7 +722,7 @@ const fixtures = {
     },
     variants
   },
-  "with conditional content, error message": {
+  "with conditional content and error message": {
     context: {
       fieldset: {
         legend: {
@@ -742,7 +742,7 @@ const fixtures = {
     },
     variants
   },
-  "with conditional content, error message (nested)": {
+  "with conditional content and error message (nested)": {
     context: {
       fieldset: {
         legend: {

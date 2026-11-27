@@ -80,7 +80,10 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via init function', () => {
     beforeEach(() => {
-      initExample('with "none" option, conditional content', optionsExclusive)
+      initExample(
+        'with "none" option and conditional content',
+        optionsExclusive
+      )
     })
 
     it('should add event listeners', () => {
@@ -183,7 +186,10 @@ describe('Checkboxes', () => {
 
   describe('Conditional content', () => {
     beforeEach(() => {
-      initExample('with "none" option, conditional content', optionsExclusive)
+      initExample(
+        'with "none" option and conditional content',
+        optionsExclusive
+      )
     })
 
     it('should be hidden by default', () => {

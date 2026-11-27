@@ -105,7 +105,7 @@ describe('Radios', () => {
         let $inputs
 
         beforeEach(async () => {
-          await initExample('with pre-checked value')
+          await initExample('with value')
 
           $inputs = await $component.$$('input.nhsuk-radios__input')
         })
