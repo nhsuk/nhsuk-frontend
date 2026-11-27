@@ -105,7 +105,7 @@ describe('Checkboxes', () => {
         let $inputs
 
         beforeAll(async () => {
-          await initExample('with values')
+          await initExample('with conditional content and values')
 
           $inputs = await $component.$$('input.nhsuk-checkboxes__input')
         })

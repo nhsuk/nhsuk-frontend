@@ -47,6 +47,24 @@ const fixtures = {
     },
     screenshot: true
   },
+  "with hint and value": {
+    context: {
+      label: {
+        heading: "What is your NHS number?",
+        size: "l"
+      },
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      id: "with-hint-value",
+      name: "example",
+      value: "999 123 4567",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
   "with button": {
     context: {
       label: {
@@ -201,6 +219,21 @@ const fixtures = {
       },
       id: "with-hint-error",
       name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
+  "with value": {
+    context: {
+      label: {
+        heading: "What is your NHS number?",
+        size: "l"
+      },
+      id: "with-value",
+      name: "example",
+      value: "999 123 4567",
       width: 10,
       code: true,
       inputmode: "numeric",

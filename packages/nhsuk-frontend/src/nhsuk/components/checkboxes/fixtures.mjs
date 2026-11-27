@@ -193,6 +193,41 @@ const fixtures = {
     },
     variants
   },
+  "with hint and values": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What medical conditions do you have?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select 1 or more"
+      },
+      idPrefix: "with-hint",
+      name: "example",
+      values: ["cancer", "diabetes"],
+      items: [
+        {
+          value: "alzheimers",
+          text: "Alzheimer's disease or dementia"
+        },
+        {
+          value: "asthma",
+          text: "Asthma"
+        },
+        {
+          value: "cancer",
+          text: "Cancer"
+        },
+        {
+          value: "diabetes",
+          text: "Diabetes"
+        }
+      ]
+    },
+    variants
+  },
   "inline": {
     context: {
       fieldset: {
@@ -234,7 +269,20 @@ const fixtures = {
       idPrefix: "conditional",
       name: "contact",
       values: ["email", "text"],
-      items: getItems()
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
     },
     variants
   },
@@ -654,6 +702,24 @@ const fixtures = {
       },
       idPrefix: "conditional",
       name: "contact",
+      items: getItems()
+    },
+    variants
+  },
+  "with conditional content and values": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select all options that are relevant to you"
+      },
+      idPrefix: "conditional",
+      name: "contact",
+      values: ["email", "text"],
       items: getItems()
     },
     variants

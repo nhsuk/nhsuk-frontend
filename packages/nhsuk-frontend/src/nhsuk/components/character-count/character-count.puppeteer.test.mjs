@@ -128,11 +128,11 @@ describe('Character count', () => {
         await initExample('with value')
 
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 49 characters remaining'
+          'You have 332 characters remaining'
         )
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 49 characters remaining'
+          'You have 332 characters remaining'
         )
       })
 
@@ -235,11 +235,11 @@ describe('Character count', () => {
 
         it('shows the number of characters over the limit', async () => {
           expect(await getText($visibleCountMessage)).toBe(
-            'You have 48 characters too many'
+            'You have 6 characters too many'
           )
 
           expect(await getText($screenReaderCountMessage)).toBe(
-            'You have 48 characters too many'
+            'You have 6 characters too many'
           )
         })
 

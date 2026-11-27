@@ -260,6 +260,13 @@ const fixtures = {
       visuallyHiddenText: "Important"
     }
   },
+  "with value": {
+    context: {
+      text: "Update",
+      name: "id",
+      value: "1234"
+    }
+  },
   "login": {
     context: {
       text: "Continue",

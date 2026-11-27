@@ -179,6 +179,37 @@ const fixtures = {
     },
     variants
   },
+  "with hint and value": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select 1 option"
+      },
+      idPrefix: "with-hint-value",
+      name: "example",
+      value: "email",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
+    },
+    variants
+  },
   "inline": {
     context: {
       fieldset: {
@@ -324,7 +355,20 @@ const fixtures = {
       idPrefix: "conditional",
       name: "example",
       value: "email",
-      items: getItems()
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
     },
     variants
   },
@@ -668,6 +712,24 @@ const fixtures = {
       },
       idPrefix: "conditional",
       name: "example",
+      items: getItems()
+    },
+    variants
+  },
+  "with conditional content and value": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select 1 option"
+      },
+      idPrefix: "conditional",
+      name: "example",
+      value: "email",
       items: getItems()
     },
     variants

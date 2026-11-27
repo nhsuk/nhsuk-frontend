@@ -1,3 +1,5 @@
+import { outdent } from "outdent"
+
 /**
  * Nunjucks macro option examples
  *
@@ -42,6 +44,55 @@ const fixtures = {
       },
       id: "with-hint",
       name: "example"
+    }
+  },
+  "with hint and value": {
+    context: {
+      label: {
+        heading: "Can you provide more detail?",
+        size: "l"
+      },
+      hint: {
+        text: "Do not include personal information like your name, date of birth or NHS number"
+      },
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
+    }
+  },
+  "with value": {
+    context: {
+      label: {
+        heading: "What is your address?",
+        size: "l"
+      },
+      id: "with-value",
+      name: "example",
+      value: "10 South Colonnade"
+    },
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  "with value (multiple lines)": {
+    context: {
+      label: {
+        heading: "What is your address?",
+        size: "l"
+      },
+      id: "with-value-multiple-lines",
+      name: "example",
+      value: outdent`
+        10 South Colonnade
+        Poplar
+        London
+        E14 4PU
+      `
+    },
+    screenshot: {
+      viewports: ["tablet"]
     }
   },
   "label": {
