@@ -54,6 +54,15 @@
         }) | trim -}}
       {% endset %}
 
+      {%- set letterHtml %}
+        {{- textarea({
+          label: "Address",
+          name: "contact-by-letter",
+          classes: "nhsuk-u-width-two-thirds",
+          autocomplete: "street-address"
+        }) | trim -}}
+      {% endset %}
+
       <p class="nhsuk-body">
         <a class="nhsuk-link" href="#">Focusable element</a>
       </p>
@@ -91,6 +100,13 @@
             conditional: {
               html: textHtml
             }
+          },
+          {
+            value: "letter",
+            text: "Paper letter",
+            conditional: {
+              html: letterHtml
+            }
           }
         ]
       }) }}
@@ -123,6 +139,15 @@
           name: "radio-contact-by-text",
           classes: "nhsuk-u-width-two-thirds",
           autocomplete: "tel"
+        }) | trim -}}
+      {% endset %}
+
+      {%- set letterHtml %}
+        {{- textarea({
+          label: "Address",
+          name: "radio-contact-by-letter",
+          classes: "nhsuk-u-width-two-thirds",
+          autocomplete: "street-address"
         }) | trim -}}
       {% endset %}
 
@@ -162,6 +187,13 @@
             text: "Text message",
             conditional: {
               html: textHtml
+            }
+          },
+          {
+            value: "letter",
+            text: "Paper letter",
+            conditional: {
+              html: letterHtml
             }
           }
         ]
