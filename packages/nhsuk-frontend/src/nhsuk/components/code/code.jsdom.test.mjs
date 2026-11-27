@@ -1,5 +1,6 @@
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
+import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
@@ -186,7 +187,15 @@ describe('Code', () => {
       expect($button).toHaveAccessibleName('Code copied')
 
       await expect(navigator.clipboard.readText()).resolves.toBe(
-        'This is a plain text code block'
+        outdent`
+          import { initAll } from 'nhsuk-frontend'
+
+          initAll({
+            button: {
+              preventDoubleClick: true
+            }
+          })
+        `
       )
     })
 
