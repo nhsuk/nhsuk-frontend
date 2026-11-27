@@ -90,7 +90,7 @@
     attributes: errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
-  {{ nhsukContent({
+  {{- nhsukContent({
     html: _textareaElement(params, {
       id: id,
       describedBy: describedBy,
@@ -100,5 +100,5 @@
       before: params.formGroup.beforeInput,
       after: params.formGroup.afterInput
     }
-  }) | trim | indent(2) }}
+  }) | trim }}
 </div>

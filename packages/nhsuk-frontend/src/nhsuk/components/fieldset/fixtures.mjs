@@ -26,12 +26,22 @@ const fixtures = {
         heading: "What is your address?",
         size: "l"
       },
-      html: outdent`
-        ${components.render("input", inputExamples["example address line 1"])}
-        ${components.render("input", inputExamples["example address line 2"])}
-        ${components.render("input", inputExamples["example address town or city"])}
-        ${components.render("input", inputExamples["example address postcode"])}
-      `
+      html: getContent()
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with HTML and values": {
+    context: {
+      legend: {
+        caption: "About you",
+        heading: "What is your address?",
+        size: "l"
+      },
+      html: getContent({
+        values: ["10 South Colonnade", "Poplar", "London", "E14 4PU"]
+      })
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -45,18 +55,44 @@ const fixtures = {
         size: "l"
       }
     },
-    callBlock: outdent`
-      ${components.render("input", inputExamples["example address line 1"])}
-      ${components.render("input", inputExamples["example address line 2"])}
-      ${components.render("input", inputExamples["example address town or city"])}
-      ${components.render("input", inputExamples["example address postcode"])}
-    `
+    callBlock: getContent()
   },
   "without legend heading": {
     context: {
       legend: "What is your address?"
     }
   }
+}
+
+/**
+ * Get example content
+ *
+ * @param {object} [options]
+ * @param {string[]} [options.values]
+ */
+function getContent(options = {}) {
+  const { values = [] } = options
+
+  const inputs = [
+    structuredClone(inputExamples["example address line 1"]),
+    structuredClone(inputExamples["example address line 2"]),
+    structuredClone(inputExamples["example address town or city"]),
+    structuredClone(inputExamples["example address postcode"])
+  ]
+
+  for (const input of inputs) {
+    const index = inputs.indexOf(input)
+
+    input.context ??= {}
+    input.context.value = values[index]
+  }
+
+  return outdent`
+    ${components.render("input", inputs[0])}
+    ${components.render("input", inputs[1])}
+    ${components.render("input", inputs[2])}
+    ${components.render("input", inputs[3])}
+  `
 }
 
 /**

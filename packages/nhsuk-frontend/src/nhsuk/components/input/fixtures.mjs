@@ -47,6 +47,24 @@ const fixtures = {
     },
     screenshot: true
   },
+  "with hint and value": {
+    context: {
+      label: {
+        heading: "What is your NHS number?",
+        size: "l"
+      },
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      id: "with-hint-value",
+      name: "example",
+      value: "999 123 4567",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
   "with button": {
     context: {
       label: {
@@ -201,6 +219,21 @@ const fixtures = {
       },
       id: "with-hint-error",
       name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
+  "with value": {
+    context: {
+      label: {
+        heading: "What is your NHS number?",
+        size: "l"
+      },
+      id: "with-value",
+      name: "example",
+      value: "999 123 4567",
       width: 10,
       code: true,
       inputmode: "numeric",
@@ -539,11 +572,11 @@ const fixtures = {
   },
   "example email address": {
     context: {
-      label: {
-        text: "Email address"
-      },
+      label: "Email address",
+      type: "email",
       name: "contact-by-email",
       classes: "nhsuk-u-width-two-thirds",
+      autocomplete: "email",
       spellcheck: false
     },
     options: {
@@ -552,12 +585,11 @@ const fixtures = {
   },
   "example phone number": {
     context: {
-      label: {
-        text: "Phone number"
-      },
+      label: "Phone number",
       type: "tel",
       name: "contact-by-phone",
-      classes: "nhsuk-u-width-two-thirds"
+      classes: "nhsuk-u-width-two-thirds",
+      autocomplete: "tel"
     },
     options: {
       hidden: true
@@ -565,15 +597,12 @@ const fixtures = {
   },
   "example phone number with error message": {
     context: {
-      label: {
-        text: "Phone number"
-      },
-      errorMessage: {
-        text: "Enter your phone number"
-      },
+      label: "Phone number",
+      errorMessage: "Enter your phone number",
       type: "tel",
       name: "contact-by-phone",
-      classes: "nhsuk-u-width-two-thirds"
+      classes: "nhsuk-u-width-two-thirds",
+      autocomplete: "tel"
     },
     options: {
       hidden: true
@@ -581,12 +610,11 @@ const fixtures = {
   },
   "example mobile phone number": {
     context: {
-      label: {
-        text: "Mobile phone number"
-      },
+      label: "Mobile phone number",
       type: "tel",
       name: "contact-by-text",
-      classes: "nhsuk-u-width-two-thirds"
+      classes: "nhsuk-u-width-two-thirds",
+      autocomplete: "tel"
     },
     options: {
       hidden: true
@@ -594,9 +622,7 @@ const fixtures = {
   },
   "example address line 1": {
     context: {
-      label: {
-        text: "Address line 1"
-      },
+      label: "Address line 1",
       name: "address-line1",
       autocomplete: "address-line1"
     },
@@ -606,9 +632,7 @@ const fixtures = {
   },
   "example address line 2": {
     context: {
-      label: {
-        text: "Address line 2 (optional)"
-      },
+      label: "Address line 2 (optional)",
       name: "address-line2",
       autocomplete: "address-line2"
     },
@@ -618,9 +642,7 @@ const fixtures = {
   },
   "example address town or city": {
     context: {
-      label: {
-        text: "Town or city"
-      },
+      label: "Town or city",
       name: "address-town",
       autocomplete: "address-level2",
       classes: "nhsuk-u-width-two-thirds"
@@ -631,9 +653,7 @@ const fixtures = {
   },
   "example address postcode": {
     context: {
-      label: {
-        text: "Postcode"
-      },
+      label: "Postcode",
       name: "address-postcode",
       autocomplete: "postal-code",
       width: 10

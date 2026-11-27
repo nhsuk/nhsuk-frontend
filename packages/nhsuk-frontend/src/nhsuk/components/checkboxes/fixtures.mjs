@@ -3,6 +3,7 @@ import { outdent } from "outdent"
 import { components } from "#lib"
 
 import { examples as inputExamples } from "../input/fixtures.mjs"
+import { examples as textareaExamples } from "../textarea/fixtures.mjs"
 
 /**
  * Nunjucks macro option variants
@@ -56,6 +57,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -90,6 +95,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -122,6 +131,10 @@ const fixtures = {
           value: "text",
           text: "Text message",
           disabled: true
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -154,6 +167,10 @@ const fixtures = {
           value: "text",
           text: "Text message",
           disabled: false
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -172,6 +189,41 @@ const fixtures = {
       },
       idPrefix: "with-hint",
       name: "example",
+      items: [
+        {
+          value: "alzheimers",
+          text: "Alzheimer's disease or dementia"
+        },
+        {
+          value: "asthma",
+          text: "Asthma"
+        },
+        {
+          value: "cancer",
+          text: "Cancer"
+        },
+        {
+          value: "diabetes",
+          text: "Diabetes"
+        }
+      ]
+    },
+    variants
+  },
+  "with hint and values": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What medical conditions do you have?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select 1 or more"
+      },
+      idPrefix: "with-hint",
+      name: "example",
+      values: ["cancer", "diabetes"],
       items: [
         {
           value: "alzheimers",
@@ -220,7 +272,7 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  "with pre-checked values": {
+  "with values": {
     context: {
       fieldset: {
         legend: {
@@ -233,8 +285,25 @@ const fixtures = {
       },
       idPrefix: "conditional",
       name: "contact",
-      values: ["email", "text"],
-      items: getItems()
+      values: ["email", "text", "letter"],
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
+        }
+      ]
     },
     variants
   },
@@ -321,8 +390,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     }
@@ -350,8 +423,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -388,8 +465,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -417,8 +498,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -447,8 +532,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -480,8 +569,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -557,8 +650,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     },
@@ -635,8 +732,12 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ]
     }
@@ -655,6 +756,31 @@ const fixtures = {
       idPrefix: "conditional",
       name: "contact",
       items: getItems()
+    },
+    variants
+  },
+  "with conditional content and values": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select all options that are relevant to you"
+      },
+      idPrefix: "conditional",
+      name: "contact",
+      values: ["email", "text", "letter"],
+      items: getItems({
+        values: [
+          "karen.francis@example.com",
+          "",
+          "07700 900457",
+          "73 Roman Rd\nLeeds\nLS2 5ZN"
+        ]
+      })
     },
     variants
   },
@@ -708,7 +834,7 @@ const fixtures = {
     },
     variants
   },
-  "with conditional content, error message": {
+  "with conditional content and error message": {
     context: {
       fieldset: {
         legend: {
@@ -728,7 +854,7 @@ const fixtures = {
     },
     variants
   },
-  "with conditional content, error message (nested)": {
+  "with conditional content and error message (nested)": {
     context: {
       fieldset: {
         legend: {
@@ -749,6 +875,51 @@ const fixtures = {
       states: ["focus"],
       selector: "#conditional-2",
       viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with nested conditional content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "Please accept if you want to be contacted",
+          size: "m"
+        }
+      },
+      idPrefix: "conditional-nested",
+      name: "example-outer",
+      values: ["yes"],
+      items: [
+        {
+          value: "yes",
+          text: "Yes, I want to be contacted",
+          conditional: {
+            html: components.render("checkboxes", {
+              context: {
+                fieldset: {
+                  legend: {
+                    text: "How do you want to be contacted?",
+                    size: "s"
+                  }
+                },
+                hint: {
+                  text: "Select 1 option"
+                },
+                name: "example-inner",
+                values: ["email", "text", "letter"],
+                small: true,
+                items: getItems({
+                  values: [
+                    "karen.francis@example.com",
+                    "",
+                    "07700 900457",
+                    "73 Roman Rd\nLeeds\nLS2 5ZN"
+                  ]
+                })
+              }
+            })
+          }
+        }
+      ]
     }
   },
   'with "all" option': {
@@ -988,6 +1159,10 @@ const fixtures = {
           text: "Text message"
         },
         {
+          value: "letter",
+          text: "Paper letter"
+        },
+        {
           divider: "or"
         },
         {
@@ -1023,6 +1198,10 @@ const fixtures = {
           text: "Text message"
         },
         {
+          value: "letter",
+          text: "Paper letter"
+        },
+        {
           divider: "or"
         },
         {
@@ -1033,7 +1212,7 @@ const fixtures = {
       ]
     }
   },
-  'with "none" option, conditional content': {
+  'with "none" option and conditional content': {
     context: {
       fieldset: {
         legend: {
@@ -1080,6 +1259,11 @@ const fixtures = {
         {
           value: "text",
           text: "Text message",
+          exclusiveGroup: "communication-preferences"
+        },
+        {
+          value: "letter",
+          text: "Paper letter",
           exclusiveGroup: "communication-preferences"
         },
         {
@@ -1130,6 +1314,12 @@ const fixtures = {
           exclusiveGroup: "communication-preferences"
         },
         {
+          name: "preference-letter",
+          value: "yes",
+          text: "Paper letter",
+          exclusiveGroup: "communication-preferences"
+        },
+        {
           divider: "or"
         },
         {
@@ -1169,6 +1359,10 @@ const fixtures = {
         {
           value: "text",
           text: "Text message"
+        },
+        {
+          value: "letter",
+          text: "Paper letter"
         }
       ],
       formGroup: {
@@ -1184,19 +1378,35 @@ const fixtures = {
 }
 
 /**
- * Get example items by variant
+ * Get example items
  *
- * @param {{ invalid?: boolean }} [options]
+ * @param {object} [options]
+ * @param {boolean} [options.invalid]
+ * @param {string[]} [options.values]
  * @returns {object[]}
  */
 function getItems(options = {}) {
-  let input1 = inputExamples["example email address"]
-  let input2 = inputExamples["example phone number"]
-  let input3 = inputExamples["example mobile phone number"]
+  const { values = [] } = options
+
+  const inputs = [
+    structuredClone(inputExamples["example email address"]),
+    structuredClone(inputExamples["example phone number"]),
+    structuredClone(inputExamples["example mobile phone number"]),
+    structuredClone(textareaExamples["example address"])
+  ]
 
   // Include error message example (optional)
   if (options.invalid) {
-    input2 = inputExamples["example phone number with error message"]
+    inputs[1] = structuredClone(
+      inputExamples["example phone number with error message"]
+    )
+  }
+
+  for (const input of inputs) {
+    const index = inputs.indexOf(input)
+
+    input.context ??= {}
+    input.context.value = values[index]
   }
 
   return [
@@ -1204,21 +1414,28 @@ function getItems(options = {}) {
       value: "email",
       text: "Email",
       conditional: {
-        html: components.render("input", input1)
+        html: components.render("input", inputs[0])
       }
     },
     {
       value: "phone",
       text: "Phone",
       conditional: {
-        html: components.render("input", input2)
+        html: components.render("input", inputs[1])
       }
     },
     {
       value: "text",
       text: "Text message",
       conditional: {
-        html: components.render("input", input3)
+        html: components.render("input", inputs[2])
+      }
+    },
+    {
+      value: "letter",
+      text: "Paper letter",
+      conditional: {
+        html: components.render("textarea", inputs[3])
       }
     }
   ]

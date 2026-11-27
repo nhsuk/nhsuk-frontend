@@ -268,7 +268,7 @@ describe('Character count', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
-        maxlength: 200,
+        maxlength: 350,
         threshold: 0,
         countType: 'length'
       })

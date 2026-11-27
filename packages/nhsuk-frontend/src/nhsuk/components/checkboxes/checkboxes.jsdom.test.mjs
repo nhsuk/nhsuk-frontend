@@ -26,10 +26,13 @@ describe('Checkboxes', () => {
   let $input3
 
   /** @type {HTMLInputElement} */
+  let $input4
+
+  /** @type {HTMLInputElement} */
   let $inputBehaviour
 
   const optionsExclusive = {
-    labels: ['Email', 'Phone', 'Text message'],
+    labels: ['Email', 'Phone', 'Text message', 'Paper letter'],
     labelBehaviour: 'I do not want to be contacted'
   }
 
@@ -70,6 +73,7 @@ describe('Checkboxes', () => {
     $input1 = $inputs[0]
     $input2 = $inputs[1]
     $input3 = $inputs[2]
+    $input4 = $inputs[3]
 
     $inputBehaviour = within($root).getByRole('checkbox', {
       name: options.labelBehaviour
@@ -80,7 +84,10 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via init function', () => {
     beforeEach(() => {
-      initExample('with "none" option, conditional content', optionsExclusive)
+      initExample(
+        'with "none" option and conditional content',
+        optionsExclusive
+      )
     })
 
     it('should add event listeners', () => {
@@ -104,6 +111,7 @@ describe('Checkboxes', () => {
       $input1.remove()
       $input2.remove()
       $input3.remove()
+      $input4.remove()
       $inputBehaviour.remove()
 
       expect(() => initCheckboxes()).toThrow(
@@ -115,6 +123,7 @@ describe('Checkboxes', () => {
       $input1.removeAttribute('aria-controls')
       $input2.removeAttribute('aria-controls')
       $input3.removeAttribute('aria-controls')
+      $input4.removeAttribute('aria-controls')
 
       expect(() => initCheckboxes()).not.toThrow()
     })
@@ -183,7 +192,10 @@ describe('Checkboxes', () => {
 
   describe('Conditional content', () => {
     beforeEach(() => {
-      initExample('with "none" option, conditional content', optionsExclusive)
+      initExample(
+        'with "none" option and conditional content',
+        optionsExclusive
+      )
     })
 
     it('should be hidden by default', () => {

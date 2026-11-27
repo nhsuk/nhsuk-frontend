@@ -1,3 +1,52 @@
+import { outdent } from "outdent"
+
+import { components, nunjucks } from "#lib"
+import * as filters from "#lib/nunjucks/filters/index.mjs"
+
+/**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  {
+    description: "without border",
+    context: {
+      border: false
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  {
+    description: "with body background",
+    context: {
+      background: "body"
+    }
+  },
+  {
+    description: "with template background",
+    context: {
+      background: "template"
+    },
+    options: {
+      layout: "background-grey"
+    }
+  }
+]
+
 /**
  * Nunjucks macro option examples
  *
@@ -6,12 +55,31 @@
 const fixtures = {
   "default": {
     context: {
-      text: "This is a plain text code block"
-    }
+      html: highlight(
+        outdent`
+          MacBook-Pro:~ florence$ git --version
+          zsh: git: command not found
+          MacBook-Pro:~ florence$ █
+        `,
+        "sh"
+      )
+    },
+    variants
   },
   "button": {
     context: {
-      text: "This is a plain text code block",
+      html: highlight(
+        outdent`
+          import { initAll } from 'nhsuk-frontend'
+
+          initAll({
+            button: {
+              preventDoubleClick: true
+            }
+          })
+        `,
+        "mjs"
+      ),
       button: true
     },
     variants: [
@@ -32,16 +100,24 @@ const fixtures = {
             "nhsuk-button--secondary-solid",
             "nhsuk-button--small"
           ]
-        },
-        options: {
-          layout: "background-white"
         }
       }
     ]
   },
   "with button double click prevented": {
     context: {
-      text: "This is a plain text code block",
+      html: highlight(
+        outdent`
+          import { initAll } from 'nhsuk-frontend'
+
+          initAll({
+            button: {
+              preventDoubleClick: true
+            }
+          })
+        `,
+        "mjs"
+      ),
       button: {
         preventDoubleClick: true
       }
@@ -49,58 +125,143 @@ const fixtures = {
   },
   "with button double click not prevented": {
     context: {
-      text: "This is a plain text code block",
+      html: highlight(
+        outdent`
+          import { initAll } from 'nhsuk-frontend'
+
+          initAll({
+            button: {
+              preventDoubleClick: true
+            }
+          })
+        `,
+        "mjs"
+      ),
       button: {
         preventDoubleClick: false
       }
     }
   },
-  "without border": {
+  "with HTML": {
     context: {
-      text: "This is a plain text code block",
-      border: false
+      html: highlight(
+        outdent`
+          import { initAll } from 'nhsuk-frontend'
+
+          initAll({
+            button: {
+              preventDoubleClick: true
+            }
+          })
+        `,
+        "mjs"
+      )
     },
-    options: {
-      layout: "background-blue"
-    }
+    screenshot: true
   },
-  "with custom HTML": {
-    context: {
-      html: "&lt;p&gt;This is an HTML code block.&lt;/p&gt;"
-    }
+  "with HTML via call block": {
+    callBlock: highlight(
+      outdent`
+        import { initAll } from 'nhsuk-frontend'
+
+        initAll({
+          button: {
+            preventDoubleClick: true
+          }
+        })
+      `,
+      "mjs"
+    )
   },
-  "with custom HTML and button": {
-    context: {
-      html: "&lt;p&gt;This is an HTML code block.&lt;/p&gt;",
-      button: true
-    }
-  },
-  "with custom HTML (escaped) and button": {
+  "with HTML via call block and button": {
     context: {
       button: true
     },
-    callBlock: "&lt;p&gt;This is an HTML code block.&lt;/p&gt;"
+    callBlock: highlight(
+      outdent`
+        import { initAll } from 'nhsuk-frontend'
+
+        initAll({
+          button: {
+            preventDoubleClick: true
+          }
+        })
+      `,
+      "mjs"
+    )
+  },
+  "with plain text": {
+    context: {
+      text: "# Configure NHS.UK frontend"
+    }
   },
   "with scroll overflow": {
     context: {
-      text: "Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you'll always sound precocious!"
+      html: highlight(
+        components.render("file-upload", {
+          context: {
+            label: {
+              heading: "Upload your photo"
+            },
+            id: "file-upload",
+            name: "photo"
+          }
+        }),
+        "html"
+      )
     }
   },
   "with scroll overflow and button": {
     context: {
-      text: "Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you'll always sound precocious!",
+      html: highlight(
+        components.render("file-upload", {
+          context: {
+            label: {
+              heading: "Upload your photo"
+            },
+            id: "file-upload",
+            name: "photo"
+          }
+        }),
+        "html"
+      ),
       button: true
+    },
+    screenshot: {
+      states: ["focus"],
+      selector: "code"
     }
   },
   "with translations": {
     context: {
-      html: "&lt;p&gt;Bloc cod HTML yw hwn.&lt;/p&gt;",
+      html: highlight(
+        components.macro("file-upload", {
+          context: {
+            label: {
+              heading: "Upload your photo"
+            },
+            id: "file-upload",
+            name: "photo"
+          }
+        }),
+        "njk"
+      ),
       button: true,
       copyButtonText: "Copïo cod",
       copiedButtonText: "Cod wedi'i gopïo",
       copiedAnnouncementText: "Cod wedi'i gopïo i'r clipfwrdd"
     }
   }
+}
+
+/**
+ * Highlight example content
+ *
+ * @param {string} code - Code in plain text
+ * @param {string | string[]} [language] - Code programming language(s)
+ */
+function highlight(code, language) {
+  return filters.highlight.call(nunjucks, code, language).toString()
 }
 
 /**

@@ -1,3 +1,5 @@
+import { outdent } from "outdent"
+
 /**
  * Nunjucks macro option examples
  *
@@ -39,7 +41,7 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        heading: "Enter a job description",
+        heading: "Can you provide more detail?",
         size: "l"
       },
       hint: {
@@ -50,53 +52,76 @@ const fixtures = {
       maxlength: 200
     }
   },
+  "with hint and value": {
+    context: {
+      label: {
+        heading: "Can you provide more detail?",
+        size: "l"
+      },
+      hint: {
+        text: "Do not include personal information like your name, date of birth or NHS number"
+      },
+      id: "with-hint-value",
+      name: "example",
+      maxlength: 200,
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
+    }
+  },
   "with error only": {
     context: {
       label: {
-        heading: "Enter a job description",
+        heading: "Can you provide more detail?",
         size: "l"
       },
       errorMessage: true,
       id: "with-error-only",
       name: "example",
-      maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+      maxlength: 350
     }
   },
   "with error message": {
     context: {
       label: {
-        heading: "Enter a job description",
+        heading: "Can you provide more detail?",
         size: "l"
       },
       errorMessage: {
-        text: "Job description must be 350 characters or less"
+        text: "Details provided must be 150 characters or less"
       },
       id: "with-error-message",
       name: "example",
-      maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+      maxlength: 150,
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
     }
   },
   "with error message and hint": {
     context: {
       label: {
-        heading: "Enter a job description",
+        heading: "Can you provide more detail?",
         size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
       },
       errorMessage: {
-        text: "Job description must be 350 characters or less"
+        text: "Details provided must be 150 characters or less"
       },
       id: "with-error-message",
       name: "example",
-      maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+      maxlength: 150,
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
     },
     screenshot: {
       states: ["focus"],
@@ -110,12 +135,15 @@ const fixtures = {
         size: "l"
       },
       hint: "Do not include personal information like your name, date of birth or NHS number",
-      errorMessage: "Job description must be 350 characters or less",
+      errorMessage: "Details provided must be 150 characters or less",
       id: "with-error-message",
       name: "example",
-      maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+      maxlength: 150,
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
     }
   },
   "with error message, without heading": {
@@ -124,13 +152,16 @@ const fixtures = {
         text: "Enter a job description"
       },
       errorMessage: {
-        text: "Job description must be 350 characters or less"
+        text: "Details provided must be 150 characters or less"
       },
       id: "with-error-message",
       name: "example",
-      maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+      maxlength: 150,
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
     }
   },
   "with error message and hint, without heading": {
@@ -142,26 +173,51 @@ const fixtures = {
         text: "Do not include personal information like your name, date of birth or NHS number"
       },
       errorMessage: {
-        text: "Job description must be 350 characters or less"
+        text: "Details provided must be 150 characters or less"
       },
       id: "with-error-message",
       name: "example",
-      maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+      maxlength: 150,
+      value: outdent`
+        I've been taking omeprazole for 3 weeks but I'm still feeling a burning sensation in the middle of my chest.
+
+        Symptoms get especially worse when I lie down.
+      `
     }
   },
   "with value": {
     context: {
       label: {
-        heading: "Enter a job description",
+        heading: "What is your address?",
         size: "l"
       },
       id: "with-value",
       name: "example",
       maxlength: 350,
-      value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels."
+      value: "10 South Colonnade"
+    },
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  "with value (multiple lines)": {
+    context: {
+      label: {
+        heading: "What is your address?",
+        size: "l"
+      },
+      id: "with-value-multiple-lines",
+      name: "example",
+      maxlength: 350,
+      value: outdent`
+        10 South Colonnade
+        Poplar
+        London
+        E14 4PU
+      `
+    },
+    screenshot: {
+      viewports: ["tablet"]
     }
   },
   "with custom rows": {
@@ -276,7 +332,21 @@ const fixtures = {
       id: "with-length-count-type",
       name: "example",
       countType: "length",
-      maxlength: 200
+      maxlength: 350
+    }
+  },
+  "with count type 'length' and value": {
+    context: {
+      label: {
+        heading: "Enter a job description",
+        size: "l"
+      },
+      id: "with-length-count-type-value",
+      name: "example",
+      countType: "length",
+      maxlength: 350,
+      value:
+        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels."
     }
   },
   "with count type 'characters'": {

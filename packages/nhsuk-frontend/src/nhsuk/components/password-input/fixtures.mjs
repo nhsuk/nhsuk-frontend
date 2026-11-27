@@ -99,11 +99,25 @@ const fixtures = {
       hint: {
         text: "It probably has some letters, numbers and maybe even some symbols in it"
       },
-      id: "with-hint-text",
+      id: "with-hint",
       name: "example"
     },
     screenshot: {
       viewports: ["watch", "mobile", "tablet", "desktop"]
+    }
+  },
+  "with hint and value": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      hint: {
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
+      },
+      id: "with-hint-value",
+      name: "example",
+      value: "3.14159"
     }
   },
   "with error only": {
@@ -235,6 +249,17 @@ const fixtures = {
       label: "Password",
       id: "without-heading",
       name: "example"
+    }
+  },
+  "with value": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      id: "with-value",
+      name: "example",
+      value: "3.14159"
     }
   },
   "with width": {
