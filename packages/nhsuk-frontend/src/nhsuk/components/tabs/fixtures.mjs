@@ -67,6 +67,195 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with form fields in panel": {
+    context: {
+      idPrefix: "with-form-fields",
+      items: [
+        {
+          label: {
+            text: "East"
+          },
+          panel: {
+            html: outdent`
+              ${components.render("heading", {
+                context: {
+                  text: "Regional Manager",
+                  caption: "East region",
+                  size: "m",
+                  level: 2
+                }
+              })}
+              ${components.render("input", {
+                context: {
+                  label: {
+                    text: "Name",
+                    size: "s"
+                  },
+                  name: "name",
+                  value: "Karen Francis",
+                  autocomplete: "name",
+                  spellcheck: false,
+                  width: 10
+                }
+              })}
+              ${components.render("input", {
+                context: {
+                  label: {
+                    text: "Email address",
+                    size: "s"
+                  },
+                  type: "email",
+                  name: "name",
+                  value: "karen.francis@example.com",
+                  autocomplete: "email",
+                  spellcheck: false,
+                  width: 20
+                }
+              })}
+              ${components.render("date-input", {
+                context: {
+                  fieldset: {
+                    legend: {
+                      text: "Date of birth",
+                      size: "s"
+                    }
+                  },
+                  hint: "For example, 31 3 1980",
+                  name: "dob",
+                  day: {
+                    value: "15",
+                    autocomplete: "bday-day"
+                  },
+                  month: {
+                    value: "3",
+                    autocomplete: "bday-month"
+                  },
+                  year: {
+                    value: "1984",
+                    autocomplete: "bday-year"
+                  }
+                }
+              })}
+              ${components.render("character-count", {
+                context: {
+                  label: {
+                    text: "Address",
+                    size: "s"
+                  },
+                  width: 30,
+                  maxlength: 350,
+                  threshold: 75,
+                  name: "address",
+                  value: outdent`
+                    73 Roman Rd
+                    Leeds
+                    LS2 5ZN
+                  `
+                }
+              })}
+              ${components.render("button", {
+                context: {
+                  text: "Save role",
+                  visuallyHiddenText: "East"
+                }
+              })}
+            `
+          }
+        },
+        {
+          label: {
+            text: "West"
+          },
+          panel: {
+            html: outdent`
+              ${components.render("heading", {
+                context: {
+                  text: "Regional Manager",
+                  caption: "West region",
+                  size: "m",
+                  level: 2
+                }
+              })}
+              ${components.render("input", {
+                context: {
+                  label: {
+                    text: "Name",
+                    size: "s"
+                  },
+                  name: "name",
+                  value: "Sarah Philips",
+                  autocomplete: "name",
+                  spellcheck: false,
+                  width: 10
+                }
+              })}
+              ${components.render("input", {
+                context: {
+                  label: {
+                    text: "Email address",
+                    size: "s"
+                  },
+                  type: "email",
+                  name: "name",
+                  value: "sarah.philips@example.com",
+                  autocomplete: "email",
+                  spellcheck: false,
+                  width: 20
+                }
+              })}
+              ${components.render("date-input", {
+                context: {
+                  fieldset: {
+                    legend: {
+                      text: "Date of birth",
+                      size: "s"
+                    }
+                  },
+                  hint: "For example, 31 3 1980",
+                  name: "dob",
+                  day: {
+                    value: "5",
+                    autocomplete: "bday-day"
+                  },
+                  month: {
+                    value: "1",
+                    autocomplete: "bday-month"
+                  },
+                  year: {
+                    value: "1978",
+                    autocomplete: "bday-year"
+                  }
+                }
+              })}
+              ${components.render("character-count", {
+                context: {
+                  label: {
+                    text: "Address",
+                    size: "s"
+                  },
+                  width: 30,
+                  maxlength: 350,
+                  threshold: 75,
+                  name: "address",
+                  value: outdent`
+                    72 Guild Street
+                    London
+                    SE23 6FH
+                  `
+                }
+              })}
+              ${components.render("button", {
+                context: {
+                  text: "Save role",
+                  visuallyHiddenText: "West"
+                }
+              })}
+            `
+          }
+        }
+      ]
+    }
+  },
   "with anchor in panel": {
     context: {
       idPrefix: "with-anchor",
