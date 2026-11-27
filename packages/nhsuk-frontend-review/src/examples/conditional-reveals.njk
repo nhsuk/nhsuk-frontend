@@ -25,38 +25,32 @@
 
       {%- set emailHtml %}
         {{- input({
-          id: "contact-by-email",
-          name: "contact-by-email",
+          label: "Email address",
           type: "email",
-          spellcheck: false,
+          name: "contact-by-email",
           classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Email address"
-          }
+          autocomplete: "email",
+          spellcheck: false
         }) | trim -}}
       {% endset %}
 
       {%- set phoneHtml %}
         {{- input({
-          id: "contact-by-phone",
-          name: "contact-by-phone",
+          label: "Phone number",
           type: "tel",
+          name: "contact-by-phone",
           classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Phone number"
-          }
+          autocomplete: "tel"
         }) | trim -}}
       {% endset %}
 
       {%- set textHtml %}
         {{- input({
-          id: "contact-by-text",
-          name: "contact-by-text",
+          label: "Mobile phone number",
           type: "tel",
+          name: "contact-by-text",
           classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Mobile phone number"
-          }
+          autocomplete: "tel"
         }) | trim -}}
       {% endset %}
 
@@ -92,7 +86,7 @@
             }
           },
           {
-            value: "text message",
+            value: "text",
             text: "Text message",
             conditional: {
               html: textHtml
@@ -103,38 +97,32 @@
 
       {%- set emailHtml %}
         {{- input({
-          id: "radio-contact-by-email",
-          name: "radio-contact-by-email",
+          label: "Email address",
           type: "email",
-          spellcheck: false,
+          name: "radio-contact-by-email",
           classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Email address"
-          }
+          autocomplete: "email",
+          spellcheck: false
         }) | trim -}}
       {% endset %}
 
       {%- set phoneHtml %}
         {{- input({
-          id: "radio-contact-by-phone",
-          name: "radio-contact-by-phone",
+          label: "Phone number",
           type: "tel",
+          name: "radio-contact-by-phone",
           classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Phone number"
-          }
+          autocomplete: "tel"
         }) | trim -}}
       {% endset %}
 
       {%- set textHtml %}
         {{- input({
-          id: "radio-contact-by-text",
-          name: "radio-contact-by-text",
+          label: "Mobile phone number",
           type: "tel",
+          name: "radio-contact-by-text",
           classes: "nhsuk-u-width-two-thirds",
-          label: {
-            text: "Mobile phone number"
-          }
+          autocomplete: "tel"
         }) | trim -}}
       {% endset %}
 

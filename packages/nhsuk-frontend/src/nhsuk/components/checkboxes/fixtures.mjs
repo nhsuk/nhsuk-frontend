@@ -369,7 +369,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -398,7 +398,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -436,7 +436,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -465,7 +465,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -495,7 +495,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -528,7 +528,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -605,7 +605,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
@@ -683,7 +683,7 @@ const fixtures = {
           text: "Phone"
         },
         {
-          value: "text message",
+          value: "text",
           text: "Text message"
         }
       ]
