@@ -49,7 +49,7 @@
   {% endfor %}
 
   {%- if not options.hidden %}
-    {%- set htmlCode = uniqueHTML(fixture.html, loop.index) %}
+    {%- set htmlCode = "\n" | safe ~ uniqueHTML(fixture.html, loop.index) %}
     {%- set macroCode = getComponentMacro(component, fixture) %}
 
   <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }} {%- endif %}">
@@ -78,13 +78,13 @@
     {% if not isFullWidth %}
       <div class="nhsuk-grid-row">
         <div class="{{ classNamesColumn | default("nhsuk-grid-column-two-thirds", true) }}">
-          {{ htmlCode | safe | indent(10) }}
+          {{- htmlCode | safe }}
         </div>
       </div>
     {% endif %}
     </div>
-    {% if isFullWidth %}
-      {{- htmlCode | safe | indent(4, true) }}
+    {%- if isFullWidth %}
+      {{- htmlCode | safe }}
     {% endif %}
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
