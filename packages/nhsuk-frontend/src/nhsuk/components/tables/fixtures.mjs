@@ -176,7 +176,7 @@ const fixtures = {
       rows: [
         [
           {
-            html: "3 to 5 months (weighing more than 5kg)"
+            text: "3 to 5 months (weighing more than 5kg)"
           },
           {
             text: "2.5ml (50mg)"
@@ -606,6 +606,7 @@ const fixtures = {
           text: "",
           visuallyHiddenText: "Action"
         },
+        null,
         false
       ],
       rows: [
@@ -621,8 +622,10 @@ const fixtures = {
             text: "Change",
             visuallyHiddenText: false
           },
+          null,
           false
         ],
+        null,
         false
       ]
     }
@@ -1391,6 +1394,146 @@ const fixtures = {
             text: "Itchy blisters"
           },
           {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
+  "responsive via class": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      classes: "nhsuk-table--responsive",
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
+  "responsive via class (deprecated)": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      classes: "nhsuk-table-responsive",
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
+  "responsive with header text (deprecated)": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      responsive: true,
+      firstCellIsHeader: true,
+      head: [
+        {
+          header: "Not used",
+          text: "Skin symptoms"
+        },
+        {
+          header: "Not used",
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            header: "Check for",
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            header: "You might have",
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            header: "Check for",
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            header: "You might have",
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            header: "Check for",
+            text: "Itchy blisters"
+          },
+          {
+            header: "You might have",
             text: "Shingles, chickenpox"
           }
         ]
@@ -2714,6 +2857,84 @@ const fixtures = {
     variants,
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "sortable via class": {
+    context: {
+      caption: "Appointments",
+      firstCellIsHeader: true,
+      classes: "nhsuk-table--sortable",
+      head: [
+        {
+          text: "Time",
+          sort: "ascending"
+        },
+        {
+          text: "Name",
+          sort: true
+        },
+        {
+          text: "Date of birth",
+          classes: "nhsuk-u-nowrap"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "11:00"
+          },
+          {
+            text: "Laura Stone"
+          },
+          {
+            text: "4 January 1986"
+          }
+        ],
+        [
+          {
+            text: "11:30"
+          },
+          {
+            text: "Emma Katie-Brown"
+          },
+          {
+            text: "7 February 1976"
+          }
+        ],
+        [
+          {
+            text: "13:10"
+          },
+          {
+            text: "David Chen"
+          },
+          {
+            text: "19 March 1981"
+          }
+        ],
+        [
+          {
+            text: "13:40"
+          },
+          {
+            text: "Michael Thompson"
+          },
+          {
+            text: "6 December 1964"
+          }
+        ],
+        [
+          {
+            text: "14:20"
+          },
+          {
+            text: "Juan Martinez"
+          },
+          {
+            text: "18 April 1975"
+          }
+        ]
+      ]
     }
   },
   "sortable server-side": {
